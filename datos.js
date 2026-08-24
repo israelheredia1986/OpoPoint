@@ -346,21 +346,6 @@ const convocatoriasOpoPoint = [
   },
 
   {
-    id:"opopoint-024",
-    puesto:"Policía Local",
-    organismo:"Ayuntamiento de Espartinas",
-    municipio:"Espartinas",
-    provincia:"Sevilla",
-    plazas:3,
-    tipo:"OEP",
-    estado:"Pendiente de verificar",
-    verificada:false,
-    fuente:"Ayuntamiento de Espartinas",
-    fuenteUrl:"https://www.espartinas.net/",
-    convocatoriaUrl:null
-  },
-
-  {
     id:"opopoint-025",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Montoro",
@@ -387,21 +372,6 @@ const convocatoriasOpoPoint = [
     verificada:false,
     fuente:"Ayuntamiento de Baeza",
     fuenteUrl:"https://www.baeza.es/",
-    convocatoriaUrl:null
-  },
-
-  {
-    id:"opopoint-027",
-    puesto:"Policía Local",
-    organismo:"Agencia Pública de Puertos de Andalucía",
-    municipio:"Andalucía",
-    provincia:"Andalucía",
-    plazas:1,
-    tipo:"REVISAR",
-    estado:"Pendiente de verificar",
-    verificada:false,
-    fuente:"Agencia Pública de Puertos de Andalucía",
-    fuenteUrl:"https://www.puertosdeandalucia.es/",
     convocatoriaUrl:null
   },
 
@@ -583,6 +553,28 @@ const convocatoriasOpoPoint = [
     fuente:"Ayuntamiento de Villarrasa",
     fuenteUrl:"https://www.villarrasa.es/",
     convocatoriaUrl:null
+  },
+
+  /*
+   * SAN ROQUE
+   * 4 plazas publicadas en BOP Cádiz nº 32 de 18/02/2026.
+   * Estas tienen prioridad sobre las simples OEP porque
+   * ya existe publicación oficial del proceso.
+   */
+
+  {
+    id:"opopoint-sanroque-2024",
+    puesto:"Policía Local",
+    organismo:"Ayuntamiento de San Roque",
+    municipio:"San Roque",
+    provincia:"Cádiz",
+    plazas:4,
+    tipo:"CONVOCATORIA",
+    estado:"Publicada",
+    verificada:true,
+    fuente:"BOP de Cádiz nº 32 · 18/02/2026",
+    fuenteUrl:"https://www.bopcadiz.es/.boletines_pdf/2026/02_febrero/BOP032_18-02-26.pdf",
+    convocatoriaUrl:"https://www.bopcadiz.es/.boletines_pdf/2026/02_febrero/BOP032_18-02-26.pdf"
   }
 
 ];
