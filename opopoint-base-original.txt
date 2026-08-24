@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OpoScope · Radar de empleo público en Andalucía</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  @keyframes fadeSlide { from { opacity:0; transform: translate(-50%,-12px);} to {opacity:1; transform: translate(-50%,0);} }
+  @keyframes popIn { from { opacity:0; transform: scale(0.96);} to {opacity:1; transform: scale(1);} }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" data-presets="react">
+const { useState, useEffect, useMemo, useRef, useCallback } = React;
+
+/* ------------------------------------------------------------------ */
+/*  OpoScope — radar autónomo de empleo público en Andalucía           */
+/*  Versión standalone (React + Babel + Tailwind vía CDN)              */
+/* ------------------------------------------------------------------ */
+
+/* ------------------------- iconos SVG ligeros ------------------------- */
+const Icon = ({ path, size = 14, className = "", strokeWidth = 2 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" className={className}>
+    {path}
+  </svg>
+);
+const Search = (p) => <Icon {...p} path={<><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></>} />;
+const MapPin = (p) => <Icon {...p} path={<><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></>} />;
+const Users = (p) => <Icon {...p} path={<><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></>} />;
+const CalendarClock = (p) => <Icon {...p} path={<><path d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h4"/><path d="M16 2v4M8 2v4M3 10h18"/><circle cx="18" cy="18" r="4"/><path d="M18 16.5V18l1 1"/></>} />;
+const ExternalLink = (p) => <Icon {...p} path={<><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></>} />;
+const RadioTower = (p) => <Icon {...p} path={<><path d="m4.9 16.1 1.4-1.4a6 6 0 0 1 0-8.5L4.9 4.8"/><path d="m19.1 4.8-1.4 1.4a6 6 0 0 1 0 8.5l1.4 1.4"/><circle cx="12" cy="9" r="2"/><path d="M12 11v11"/><path d="M9 22h6"/></>} />;
+const X = (p) => <Icon {...p} path={<><path d="M18 6 6 18"/><path d="m6 6 12 12"/></>} />;
+const Sparkles = (p) => <Icon {...p} path={<><path d="M9.94 2.06 11 5l2.94 1.06L11 7.1 9.94 10.16 8.88 7.1 5.94 6.06 8.88 5Z"/><path d="M18 14l1 3 3 1-3 1-1 3-1-3-3-1 3-1Z"/></>} />;
+const Building2 = (p) => <Icon {...p} path={<><path d="M6 22V4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v18"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></>} />;
+const GraduationCap = (p) => <Icon {...p} path={<><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></>} />;
+const CheckCircle2 = (p) => <Icon {...p} path={<><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></>} />;
+
+/* --------------------------- datos --------------------------- */
+const PROVINCIAS = ["Todas","Sevilla","Málaga","Cádiz","Granada","Córdoba","Huelva","Jaén","Almería"];
+const GRUPOS = ["Todos","A1","A2","C1","C2","E"];
+const GRUPO_INFO = {
+  A1: { ring: "ring-blue-300", text: "text-blue-700", bg: "bg-blue-50" },
+  A2: { ring: "ring-indigo-300", text: "text-indigo-700", bg: "bg-indigo-50" },
+  C1: { ring: "ring-emerald-300", text: "text-emerald-700", bg: "bg-emerald-50" },
+  C2: { ring: "ring-amber-300", text: "text-amber-700", bg: "bg-amber-50" },
+  E:  { ring: "ring-slate-300", text: "text-slate-700", bg: "bg-slate-100" },
+};
+
+const seedConvocatorias = [
+  { id:"c1", puesto:"Técnico/a de Administración General", organismo:"Junta de Andalucía", tipo:"Junta de Andalucía", provincia:"Sevilla", grupo:"A1", plazas:84, fechaLimite:"2026-09-18", boja:"https://www.juntadeandalucia.es/boja", bop:null, boe:"https://www.boe.es" },
+  { id:"c2", puesto:"Enfermero/a Interno/a Residente", organismo:"Servicio Andaluz de Salud (SAS)", tipo:"SAS", provincia:"Málaga", grupo:"A2", plazas:156, fechaLimite:"2026-09-05", boja:"https://www.juntadeandalucia.es/boja", bop:null, boe:null },
+  { id:"c3", puesto:"Auxiliar Administrativo/a", organismo:"Ayuntamiento de Sevilla", tipo:"Ayuntamiento", provincia:"Sevilla", grupo:"C2", plazas:40, fechaLimite:"2026-08-30", boja:null, bop:"https://www.dipusevilla.es/bop", boe:"https://www.boe.es" },
+  { id:"c4", puesto:"Policía Local", organismo:"Ayuntamiento de Málaga", tipo:"Ayuntamiento", provincia:"Málaga", grupo:"C1", plazas:25, fechaLimite:"2026-10-02", boja:"https://www.juntadeandalucia.es/boja", bop:"https://www.malaga.es/bop", boe:null },
+  { id:"c5", puesto:"Arquitecto/a Superior", organismo:"Diputación de Cádiz", tipo:"Diputación", provincia:"Cádiz", grupo:"A1", plazas:3, fechaLimite:"2026-09-10", boja:null, bop:"https://www.bopcadiz.es", boe:"https://www.boe.es" },
+  { id:"c6", puesto:"Ordenanza / Subalterno/a", organismo:"Diputación de Granada", tipo:"Diputación", provincia:"Granada", grupo:"E", plazas:12, fechaLimite:"2026-08-28", boja:null, bop:"https://www.dipgra.es/bop", boe:null },
+  { id:"c7", puesto:"Técnico/a de Grado Medio Informática", organismo:"Junta de Andalucía", tipo:"Junta de Andalucía", provincia:"Córdoba", grupo:"A2", plazas:18, fechaLimite:"2026-09-25", boja:"https://www.juntadeandalucia.es/boja", bop:null, boe:"https://www.boe.es" },
+  { id:"c8", puesto:"Médico/a de Familia Atención Primaria", organismo:"Servicio Andaluz de Salud (SAS)", tipo:"SAS", provincia:"Huelva", grupo:"A1", plazas:32, fechaLimite:"2026-09-14", boja:"https://www.juntadeandalucia.es/boja", bop:null, boe:null },
+  { id:"c9", puesto:"Bombero/a - Conductor/a", organismo:"Diputación de Jaén", tipo:"Diputación", provincia:"Jaén", grupo:"C1", plazas:8, fechaLimite:"2026-09-30", boja:null, bop:"https://www.dipujaen.es/bop", boe:"https://www.boe.es" },
+  { id:"c10", puesto:"Trabajador/a Social", organismo:"Ayuntamiento de Granada", tipo:"Ayuntamiento", provincia:"Granada", grupo:"A2", plazas:6, fechaLimite:"2026-08-27", boja:null, bop:"https://www.dipgra.es/bop", boe:null },
+  { id:"c11", puesto:"Celador/a", organismo:"Servicio Andaluz de Salud (SAS)", tipo:"SAS", provincia:"Almería", grupo:"C2", plazas:21, fechaLimite:"2026-09-08", boja:"https://www.juntadeandalucia.es/boja", bop:null, boe:null },
+  { id:"c12", puesto:"Ingeniero/a Técnico Industrial", organismo:"Ayuntamiento de Cádiz", tipo:"Ayuntamiento", provincia:"Cádiz", grupo:"A2", plazas:2, fechaLimite:"2026-09-20", boja:null, bop:"https://www.bopcadiz.es", boe:"https://www.boe.es" },
+  { id:"c13", puesto:"Peón/a de Servicios Múltiples", organismo:"Diputación de Almería", tipo:"Diputación", provincia:"Almería", grupo:"E", plazas:15, fechaLimite:"2026-09-03", boja:null, bop:"https://www.dipalme.org/bop", boe:null },
+  { id:"c14", puesto:"Letrado/a de Administración", organismo:"Junta de Andalucía", tipo:"Junta de Andalucía", provincia:"Sevilla", grupo:"A1", plazas:9, fechaLimite:"2026-10-10", boja:"https://www.juntadeandalucia.es/boja", bop:null, boe:"https://www.boe.es" },
+  { id:"c15", puesto:"Auxiliar de Enfermería", organismo:"Servicio Andaluz de Salud (SAS)", tipo:"SAS", provincia:"Jaén", grupo:"C2", plazas:47, fechaLimite:"2026-09-16", boja:"https://www.juntadeandalucia.es/boja", bop:null, boe:null },
+  { id:"c16", puesto:"Técnico/a Superior Prevención de Riesgos", organismo:"Diputación de Córdoba", tipo:"Diputación", provincia:"Córdoba", grupo:"A1", plazas:4, fechaLimite:"2026-09-22", boja:null, bop:"https://www.dipucordoba.es/bop", boe:"https://www.boe.es" },
+];
+
+const RADAR_POOL = [
+  { id:"n1", puesto:"Delineante Proyectista", organismo:"Ayuntamiento de Huelva", tipo:"Ayuntamiento", provincia:"Huelva", grupo:"C1", plazas:3, fechaLimite:"2026-10-05", boja:null, bop:"https://www.diphuelva.es/bop", boe:null },
+  { id:"n2", puesto:"Farmacéutico/a de Atención Primaria", organismo:"Servicio Andaluz de Salud (SAS)", tipo:"SAS", provincia:"Sevilla", grupo:"A1", plazas:11, fechaLimite:"2026-10-12", boja:"https://www.juntadeandalucia.es/boja", bop:null, boe:null },
+  { id:"n3", puesto:"Administrativo/a", organismo:"Diputación de Málaga", tipo:"Diputación", provincia:"Málaga", grupo:"C1", plazas:7, fechaLimite:"2026-09-28", boja:null, bop:"https://www.malaga.es/bop", boe:"https://www.boe.es" },
+  { id:"n4", puesto:"Ingeniero/a de Montes", organismo:"Junta de Andalucía", tipo:"Junta de Andalucía", provincia:"Jaén", grupo:"A1", plazas:5, fechaLimite:"2026-10-15", boja:"https://www.juntadeandalucia.es/boja", bop:null, boe:null },
+];
+
+const TIPO_STYLE = {
+  "Junta de Andalucía": "bg-blue-950 text-white",
+  "SAS": "bg-emerald-700 text-white",
+  "Diputación": "bg-slate-700 text-white",
+  "Ayuntamiento": "bg-indigo-700 text-white",
+};
+
+function diasRestantes(fechaISO) {
+  const hoy = new Date();
+  const fin = new Date(fechaISO + "T23:59:59");
+  return Math.ceil((fin - hoy) / (1000 * 60 * 60 * 24));
+}
+function formatFecha(fechaISO) {
+  const d = new Date(fechaISO + "T00:00:00");
+  return d.toLocaleDateString("es-ES", { day: "2-digit", month: "short", year: "numeric" });
+}
+
+/* ---------------------------- Logo radar ---------------------------- */
+function RadarLogo({ size = 40 }) {
+  return (
+    <div className="relative shrink-0" style={{ width: size, height: size }}>
+      <svg viewBox="0 0 64 64" width={size} height={size} className="drop-shadow-sm">
+        <defs>
+          <radialGradient id="radarGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#10b981" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="#10b981" stopOpacity="0" />
+          </radialGradient>
+          <linearGradient id="sweepGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#34d399" stopOpacity="0.95" />
+            <stop offset="100%" stopColor="#34d399" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        <circle cx="32" cy="32" r="30" fill="#0f172a" />
+        <circle cx="32" cy="32" r="30" fill="url(#radarGlow)" opacity="0.35" />
+        <circle cx="32" cy="32" r="24" fill="none" stroke="#1e3a8a" strokeWidth="1.5" opacity="0.8" />
+        <circle cx="32" cy="32" r="16" fill="none" stroke="#1e3a8a" strokeWidth="1.5" opacity="0.8" />
+        <circle cx="32" cy="32" r="8" fill="none" stroke="#1e3a8a" strokeWidth="1.5" opacity="0.8" />
+        <line x1="32" y1="4" x2="32" y2="60" stroke="#1e3a8a" strokeWidth="1" opacity="0.5" />
+        <line x1="4" y1="32" x2="60" y2="32" stroke="#1e3a8a" strokeWidth="1" opacity="0.5" />
+        <g style={{ transformOrigin: "32px 32px" }} className="animate-[spin_3.2s_linear_infinite]">
+          <path d="M32 32 L32 4 A28 28 0 0 1 55 18 Z" fill="url(#sweepGrad)" />
+        </g>
+        <circle cx="32" cy="32" r="3" fill="#34d399" />
+        <circle cx="45" cy="20" r="1.6" fill="#34d399">
+          <animate attributeName="opacity" values="1;0.2;1" dur="2.4s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="20" cy="42" r="1.3" fill="#34d399">
+          <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite" />
+        </circle>
+      </svg>
+    </div>
+  );
+}
+
+/* --------------------------- Toast de radar --------------------------- */
+function RadarToast({ toast, onClose }) {
+  if (!toast) return null;
+  return (
+    <div className="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-sm" style={{ animation: "fadeSlide 0.4s ease-out" }}>
+      <div className="flex items-start gap-3 rounded-2xl bg-slate-900 text-white shadow-2xl shadow-emerald-950/40 ring-1 ring-emerald-500/30 px-4 py-3.5">
+        <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-500/20">
+          <Sparkles size={16} className="text-emerald-400" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="text-sm font-semibold text-emerald-400">Radar actualizado</p>
+          <p className="text-[13px] text-slate-300 leading-snug mt-0.5">{toast}</p>
+        </div>
+        <button onClick={onClose} aria-label="Cerrar aviso" className="mt-0.5 shrink-0 rounded-full p-1 text-slate-400 hover:text-white hover:bg-white/10 transition-colors">
+          <X size={15} />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/* --------------------------- Tarjeta de oposición --------------------------- */
+function OpoCard({ item, isNew }) {
+  const dias = diasRestantes(item.fechaLimite);
+  const urgente = dias <= 7 && dias >= 0;
+  const cerrado = dias < 0;
+  const info = GRUPO_INFO[item.grupo];
+
+  return (
+    <article className={`relative rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm hover:shadow-md transition-shadow p-4 ${isNew ? "ring-2 ring-emerald-400" : ""}`}
+              style={isNew ? { animation: "popIn 0.5s ease-out" } : {}}>
+      {isNew && (
+        <span className="absolute -top-2 -right-2 flex items-center gap-1 rounded-full bg-emerald-600 text-white text-[10px] font-bold px-2 py-1 shadow-md">
+          <Sparkles size={10} /> NUEVA
+        </span>
+      )}
+      <div className="flex items-start justify-between gap-2">
+        <span className={`inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[11px] font-semibold ${TIPO_STYLE[item.tipo]}`}>
+          <Building2 size={11} /> {item.tipo}
+        </span>
+        <span className={`inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[11px] font-bold ring-1 ${info.ring} ${info.bg} ${info.text}`}>
+          {item.grupo}
+        </span>
+      </div>
+      <h3 className="mt-2.5 text-[15px] font-bold leading-snug text-slate-900">{item.puesto}</h3>
+      <p className="text-[13px] text-slate-500 mt-0.5">{item.organismo}</p>
+      <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[12.5px] text-slate-600">
+        <span className="inline-flex items-center gap-1"><MapPin size={13} className="text-slate-400" /> {item.provincia}</span>
+        <span className="inline-flex items-center gap-1"><Users size={13} className="text-slate-400" /> {item.plazas} {item.plazas === 1 ? "plaza" : "plazas"}</span>
+      </div>
+      <div className={`mt-3 flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-[12.5px] font-medium ${cerrado ? "bg-slate-100 text-slate-500" : urgente ? "bg-red-50 text-red-700" : "bg-emerald-50 text-emerald-700"}`}>
+        <CalendarClock size={14} />
+        {cerrado ? `Plazo cerrado · ${formatFecha(item.fechaLimite)}` : `Hasta ${formatFecha(item.fechaLimite)} · ${dias === 0 ? "último día" : `${dias} días`}`}
+      </div>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {item.boja && <a href={item.boja} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 rounded-lg bg-slate-900 text-white text-[12px] font-semibold px-2.5 py-1.5 hover:bg-slate-800 transition-colors">BOJA <ExternalLink size={11} /></a>}
+        {item.bop && <a href={item.bop} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 rounded-lg bg-slate-700 text-white text-[12px] font-semibold px-2.5 py-1.5 hover:bg-slate-600 transition-colors">BOP <ExternalLink size={11} /></a>}
+        {item.boe && <a href={item.boe} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 rounded-lg bg-emerald-600 text-white text-[12px] font-semibold px-2.5 py-1.5 hover:bg-emerald-700 transition-colors">BOE <ExternalLink size={11} /></a>}
+      </div>
+    </article>
+  );
+}
+
+/* ------------------------------ App raíz ------------------------------ */
+function OpoScope() {
+  const [convocatorias, setConvocatorias] = useState(seedConvocatorias);
+  const [query, setQuery] = useState("");
+  const [provincia, setProvincia] = useState("Todas");
+  const [grupo, setGrupo] = useState("Todos");
+  const [toast, setToast] = useState(null);
+  const [newIds, setNewIds] = useState(new Set());
+  const [lastSync, setLastSync] = useState(new Date());
+  const [syncing, setSyncing] = useState(false);
+  const poolIndexRef = useRef(0);
+
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return convocatorias
+      .filter((c) => provincia === "Todas" || c.provincia === provincia)
+      .filter((c) => grupo === "Todos" || c.grupo === grupo)
+      .filter((c) => !q || c.puesto.toLowerCase().includes(q) || c.organismo.toLowerCase().includes(q))
+      .sort((a, b) => diasRestantes(a.fechaLimite) - diasRestantes(b.fechaLimite));
+  }, [convocatorias, query, provincia, grupo]);
+
+  const totalPlazas = useMemo(() => convocatorias.reduce((a, c) => a + c.plazas, 0), [convocatorias]);
+
+  const runSync = useCallback(() => {
+    if (poolIndexRef.current >= RADAR_POOL.length) {
+      setToast("Radar sin novedades: la base de datos ya está al día.");
+      setLastSync(new Date());
+      setTimeout(() => setToast(null), 4200);
+      return;
+    }
+    setSyncing(true);
+    setTimeout(() => {
+      const nueva = RADAR_POOL[poolIndexRef.current];
+      poolIndexRef.current += 1;
+      setConvocatorias((prev) => [nueva, ...prev]);
+      setNewIds((prev) => new Set(prev).add(nueva.id));
+      setLastSync(new Date());
+      setSyncing(false);
+      setToast(`Nueva convocatoria detectada: ${nueva.puesto} · ${nueva.organismo} (${nueva.plazas} plazas).`);
+      setTimeout(() => setToast(null), 5200);
+      setTimeout(() => {
+        setNewIds((prev) => { const next = new Set(prev); next.delete(nueva.id); return next; });
+      }, 8000);
+    }, 1400);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date();
+      if (now.getHours() === 16 && now.getMinutes() === 0) runSync();
+    }, 60000);
+    return () => clearInterval(interval);
+  }, [runSync]);
+
+  return (
+    <div className="min-h-screen bg-slate-100 font-sans pb-10">
+      <RadarToast toast={toast} onClose={() => setToast(null)} />
+      <header className="bg-gradient-to-b from-slate-950 via-blue-950 to-blue-950 text-white">
+        <div className="max-w-md mx-auto px-4 pt-5 pb-4">
+          <div className="flex items-center gap-3">
+            <RadarLogo size={44} />
+            <div className="min-w-0">
+              <h1 className="text-xl font-extrabold tracking-tight leading-none">OpoScope</h1>
+              <p className="text-[11.5px] text-blue-200/80 mt-1">Radar autónomo de empleo público · Andalucía</p>
+            </div>
+          </div>
+          <div className="mt-4 flex items-center justify-between rounded-xl bg-white/5 ring-1 ring-white/10 px-3 py-2.5">
+            <div className="flex items-center gap-2 min-w-0">
+              <span className="relative flex h-2.5 w-2.5 shrink-0">
+                <span className={`absolute inline-flex h-full w-full rounded-full bg-emerald-400 ${syncing ? "animate-ping" : "opacity-0"}`} />
+                <span className={`relative inline-flex h-2.5 w-2.5 rounded-full ${syncing ? "bg-emerald-400" : "bg-emerald-500"}`} />
+              </span>
+              <div className="min-w-0">
+                <p className="text-[12px] font-semibold text-white truncate">{syncing ? "Sincronizando radar…" : "Radar activo"}</p>
+                <p className="text-[11px] text-blue-200/70 truncate">Última sync {lastSync.toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" })} · próxima 16:00 h</p>
+              </div>
+            </div>
+            <button onClick={runSync} disabled={syncing} className="shrink-0 inline-flex items-center gap-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 disabled:opacity-60 disabled:cursor-not-allowed text-white text-[11px] font-bold px-2.5 py-1.5 transition-colors">
+              <RadioTower size={12} className={syncing ? "animate-pulse" : ""} />
+              {syncing ? "..." : "Simular"}
+            </button>
+          </div>
+          <div className="mt-3 grid grid-cols-3 gap-2">
+            <div className="rounded-xl bg-white/5 ring-1 ring-white/10 px-2.5 py-2 text-center">
+              <p className="text-base font-extrabold text-emerald-400">{convocatorias.length}</p>
+              <p className="text-[10px] text-blue-200/70 leading-tight">Convocatorias</p>
+            </div>
+            <div className="rounded-xl bg-white/5 ring-1 ring-white/10 px-2.5 py-2 text-center">
+              <p className="text-base font-extrabold text-emerald-400">{totalPlazas}</p>
+              <p className="text-[10px] text-blue-200/70 leading-tight">Plazas totales</p>
+            </div>
+            <div className="rounded-xl bg-white/5 ring-1 ring-white/10 px-2.5 py-2 text-center">
+              <p className="text-base font-extrabold text-emerald-400">8</p>
+              <p className="text-[10px] text-blue-200/70 leading-tight">Provincias</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main className="max-w-md mx-auto px-4">
+        <div className="sticky top-0 z-20 -mx-4 px-4 pt-3 pb-2 bg-slate-100/90 backdrop-blur">
+          <div className="relative">
+            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+            <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Buscar puesto u organismo…"
+                   className="w-full rounded-xl bg-white ring-1 ring-slate-200 focus:ring-2 focus:ring-emerald-500 outline-none pl-9 pr-9 py-2.5 text-[13.5px] text-slate-800 placeholder:text-slate-400 shadow-sm" />
+            {query && <button onClick={() => setQuery("")} aria-label="Borrar búsqueda" className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"><X size={15} /></button>}
+          </div>
+          <div className="mt-2.5 flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1">
+            {PROVINCIAS.map((p) => (
+              <button key={p} onClick={() => setProvincia(p)}
+                      className={`shrink-0 inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-[12px] font-semibold ring-1 transition-colors ${provincia === p ? "bg-blue-950 text-white ring-blue-950" : "bg-white text-slate-600 ring-slate-200 hover:ring-slate-300"}`}>
+                {p !== "Todas" && <MapPin size={11} />}{p}
+              </button>
+            ))}
+          </div>
+          <div className="mt-1.5 flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1">
+            {GRUPOS.map((g) => (
+              <button key={g} onClick={() => setGrupo(g)}
+                      className={`shrink-0 inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-[12px] font-semibold ring-1 transition-colors ${grupo === g ? "bg-emerald-600 text-white ring-emerald-600" : "bg-white text-slate-600 ring-slate-200 hover:ring-slate-300"}`}>
+                {g !== "Todos" && <GraduationCap size={11} />}{g}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-1 flex items-center justify-between px-0.5">
+          <p className="text-[12px] text-slate-500">{filtered.length} {filtered.length === 1 ? "resultado" : "resultados"}</p>
+          {(provincia !== "Todas" || grupo !== "Todos" || query) && (
+            <button onClick={() => { setProvincia("Todas"); setGrupo("Todos"); setQuery(""); }} className="text-[12px] font-semibold text-emerald-700 hover:text-emerald-800">Limpiar filtros</button>
+          )}
+        </div>
+
+        <div className="mt-2 grid grid-cols-1 gap-3">
+          {filtered.map((item) => <OpoCard key={item.id} item={item} isNew={newIds.has(item.id)} />)}
+          {filtered.length === 0 && (
+            <div className="rounded-2xl bg-white ring-1 ring-slate-200 p-6 text-center">
+              <RadioTower size={22} className="mx-auto text-slate-300" />
+              <p className="mt-2 text-sm font-semibold text-slate-700">Sin señal en el radar</p>
+              <p className="text-[12.5px] text-slate-500 mt-1">Ninguna convocatoria coincide con estos filtros. Prueba a ampliar la búsqueda.</p>
+            </div>
+          )}
+        </div>
+
+        <footer className="mt-8 text-center">
+          <div className="inline-flex items-center gap-1.5 text-[11px] text-slate-400">
+            <CheckCircle2 size={12} className="text-emerald-500" />
+            Fuentes: BOJA, BOE y Boletines Oficiales de las ocho provincias andaluzas
+          </div>
+          <p className="text-[10.5px] text-slate-300 mt-1">OpoScope sincroniza automáticamente cada día a las 16:00 h</p>
+        </footer>
+      </main>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<OpoScope />);
+</script>
+</body>
+</html>
