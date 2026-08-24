@@ -14,13 +14,14 @@
 --blue-light:#dbeafe;
 --emerald:#059669;
 --green-light:#d1fae5;
+--red:#dc2626;
+--red-light:#fee2e2;
+--amber:#d97706;
+--amber-light:#fef3c7;
 --bg:#f1f5f9;
 --card:#fff;
 --muted:#64748b;
 --line:#e2e8f0;
---danger:#dc2626;
---amber:#d97706;
---amber-light:#fef3c7;
 }
 
 *{box-sizing:border-box}
@@ -195,9 +196,17 @@ padding:18px;
 box-shadow:0 6px 20px #0f172a0b
 }
 
-/* ===============================
-   AYUNTAMIENTO
-================================ */
+.card.oep-card{
+border-left:5px solid var(--blue)
+}
+
+.card.conv-card{
+border-left:5px solid var(--emerald)
+}
+
+.card.final-card{
+border-left:5px solid #94a3b8
+}
 
 .card-header{
 display:flex;
@@ -219,13 +228,9 @@ text-transform:uppercase
 .puesto{
 font-size:13px;
 font-weight:600;
-color:#64748b;
+color:var(--muted);
 margin-top:6px
 }
-
-/* ===============================
-   ETIQUETAS
-================================ */
 
 .type-badge{
 display:inline-flex;
@@ -247,9 +252,10 @@ background:var(--blue-light);
 color:#1e40af
 }
 
-/* ===============================
-   PLAZAS
-================================ */
+.type-final{
+background:#e2e8f0;
+color:#475569
+}
 
 .plazas-row{
 display:flex;
@@ -282,28 +288,29 @@ white-space:nowrap
 }
 
 .open{
-background:#d1fae5;
+background:var(--green-light);
 color:#065f46
 }
 
-.follow{
-background:#fef3c7;
+.last-day{
+background:var(--amber-light);
 color:#92400e
 }
 
 .closed{
-background:#fee2e2;
+background:var(--red-light);
 color:#991b1b
 }
 
 .oep{
-background:#dbeafe;
+background:var(--blue-light);
 color:#1e40af
 }
 
-/* ===============================
-   INFORMACION OEP
-================================ */
+.final{
+background:#e2e8f0;
+color:#475569
+}
 
 .oep-info{
 margin-top:14px;
@@ -321,9 +328,65 @@ font-size:13px;
 margin-bottom:4px
 }
 
-/* ===============================
-   METADATOS
-================================ */
+.plazo{
+margin-top:14px;
+border-radius:14px;
+padding:13px
+}
+
+.plazo-open{
+background:#ecfdf5;
+border:1px solid #a7f3d0
+}
+
+.plazo-last{
+background:#fffbeb;
+border:1px solid #fde68a
+}
+
+.plazo-closed{
+background:#fef2f2;
+border:1px solid #fecaca
+}
+
+.plazo-title{
+font-size:13px;
+font-weight:900;
+margin-bottom:8px
+}
+
+.plazo-dates{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px
+}
+
+.plazo-date{
+background:#ffffffaa;
+border-radius:10px;
+padding:9px
+}
+
+.plazo-date span{
+display:block;
+font-size:9px;
+font-weight:700;
+text-transform:uppercase;
+letter-spacing:.06em;
+color:var(--muted)
+}
+
+.plazo-date b{
+display:block;
+font-size:14px;
+margin-top:3px
+}
+
+.countdown{
+margin-top:8px;
+font-size:12px;
+font-weight:800
+}
 
 .meta{
 display:grid;
@@ -350,10 +413,6 @@ letter-spacing:.05em
 font-size:14px
 }
 
-/* ===============================
-   BOTONES
-================================ */
-
 .links{
 display:flex;
 gap:7px;
@@ -379,20 +438,12 @@ background:var(--emerald)
 background:#2563eb
 }
 
-/* ===============================
-   NOTA
-================================ */
-
 .note{
 font-size:11px;
 color:var(--muted);
 margin-top:11px;
 line-height:1.4
 }
-
-/* ===============================
-   LEYENDA
-================================ */
 
 .legend{
 background:#fff;
@@ -421,10 +472,6 @@ border-radius:999px;
 background:#f8fafc;
 font-weight:600
 }
-
-/* ===============================
-   PAGINACION
-================================ */
 
 .pagination{
 display:flex;
@@ -477,6 +524,7 @@ font-size:27px
 }
 
 }
+
 </style>
 </head>
 
@@ -534,6 +582,7 @@ Encuentra tu plaza de Policía Local
 
 <p>
 Convocatorias y ofertas de empleo público de Policía Local en Andalucía.
+Consulta el plazo de solicitud y la fuente oficial.
 </p>
 
 </section>
@@ -553,7 +602,7 @@ Convocatorias y ofertas de empleo público de Policía Local en Andalucía.
 
 <div class="stat">
 <b id="abiertas">0</b>
-<span>en plazo</span>
+<span>plazos abiertos</span>
 </div>
 
 <div class="stat">
@@ -573,15 +622,19 @@ Cómo interpretar OpoPoint
 <div class="legend-row">
 
 <div class="legend-item">
-🟢 Convocatoria publicada
+🟢 Convocatoria con plazo abierto
 </div>
 
 <div class="legend-item">
-🔵 Plazas ofertadas en OEP
+🟠 Último día
 </div>
 
 <div class="legend-item">
-⏳ Pendiente de convocatoria
+🔴 Plazo finalizado
+</div>
+
+<div class="legend-item">
+🔵 OEP
 </div>
 
 </div>
@@ -626,14 +679,19 @@ OpoBusca no se utiliza como destino de las convocatorias.
 
 <script>
 
-/* ========================================
+/* =========================================================
    DATOS
-======================================== */
+========================================================= */
 
 const data =
 window.convocatoriasOpoPoint ||
 window.datos ||
 [];
+
+
+/* =========================================================
+   ELEMENTOS
+========================================================= */
 
 const grid =
 document.getElementById('grid');
@@ -647,6 +705,7 @@ document.getElementById('provinceChips');
 const pagination =
 document.getElementById('pagination');
 
+
 let province='Todas';
 
 let page=1;
@@ -654,9 +713,78 @@ let page=1;
 const perPage=10;
 
 
-/* ========================================
-   SEGURIDAD
-======================================== */
+/* =========================================================
+   FECHAS DE PLAZO CONFIRMADAS
+========================================================= */
+
+const plazos={
+
+"opopoint-002-villafranca-2026":{
+inicio:"21/08/2026",
+fin:"17/09/2026"
+},
+
+"opopoint-003-alcala-rio-2026":{
+inicio:"17/08/2026",
+fin:"11/09/2026"
+},
+
+"opopoint-004-estepa-2026":{
+inicio:"18/08/2026",
+fin:"14/09/2026"
+},
+
+"opopoint-006-albox-2026":{
+inicio:"12/08/2026",
+fin:"08/09/2026"
+},
+
+"opopoint-017-berja-2026":{
+inicio:"28/07/2026",
+fin:"24/08/2026"
+},
+
+"opopoint-034-roquetas-2026":{
+inicio:"07/07/2026",
+fin:"04/08/2026"
+},
+
+"opopoint-025-baeza-2025":{
+inicio:"19/08/2025",
+fin:"15/09/2025"
+},
+
+"opopoint-026-ubrique-2025":{
+inicio:"26/11/2025",
+fin:"23/12/2025"
+},
+
+"opopoint-029-jabugo-2025":{
+inicio:"13/10/2025",
+fin:"07/11/2025"
+},
+
+"opopoint-014-olula-rio-2025":{
+inicio:"06/09/2025",
+fin:"03/10/2025"
+},
+
+"opopoint-018-almunecar-2025":{
+inicio:"12/09/2025",
+fin:"09/10/2025"
+},
+
+"opopoint-019-cartaya-2025":{
+inicio:"06/04/2026",
+fin:"01/05/2026"
+}
+
+};
+
+
+/* =========================================================
+   SEGURIDAD HTML
+========================================================= */
 
 const esc=s=>
 String(s??'')
@@ -671,9 +799,228 @@ String(s??'')
 }[m]));
 
 
-/* ========================================
-   DETECTAR CONVOCATORIA
-======================================== */
+/* =========================================================
+   FECHA DD/MM/YYYY → DATE
+========================================================= */
+
+function fechaDate(texto){
+
+if(!texto)
+return null;
+
+const partes=
+texto.split('/');
+
+if(partes.length!==3)
+return null;
+
+return new Date(
+Number(partes[2]),
+Number(partes[1])-1,
+Number(partes[0])
+);
+
+}
+
+
+/* =========================================================
+   ESTADO DEL PLAZO
+========================================================= */
+
+function estadoPlazo(id){
+
+const plazo=
+plazos[id];
+
+if(!plazo)
+return null;
+
+const inicio=
+fechaDate(plazo.inicio);
+
+const fin=
+fechaDate(plazo.fin);
+
+if(!inicio || !fin)
+return null;
+
+const hoy=
+new Date();
+
+hoy.setHours(0,0,0,0);
+
+inicio.setHours(0,0,0,0);
+fin.setHours(0,0,0,0);
+
+
+if(hoy<inicio){
+
+return{
+tipo:'proximo',
+clase:'plazo-open',
+titulo:'📅 Plazo aún no iniciado'
+};
+
+}
+
+
+if(hoy>fin){
+
+return{
+tipo:'cerrado',
+clase:'plazo-closed',
+titulo:'🔴 Plazo finalizado'
+};
+
+}
+
+
+/*
+Mismo día
+*/
+
+if(
+hoy.getTime()===
+fin.getTime()
+){
+
+return{
+tipo:'ultimo',
+clase:'plazo-last',
+titulo:'⚠️ ÚLTIMO DÍA PARA PRESENTAR LA SOLICITUD'
+};
+
+}
+
+
+/* Días naturales de referencia */
+
+const diferencia=
+fin-hoy;
+
+const dias=
+Math.ceil(
+diferencia/
+(1000*60*60*24)
+);
+
+
+return{
+tipo:'abierto',
+clase:'plazo-open',
+titulo:'🟢 Plazo abierto',
+dias:dias
+};
+
+}
+
+
+/* =========================================================
+   AYUNTAMIENTO
+========================================================= */
+
+const ayuntamientos={
+
+"Aznalcóllar":"https://www.aznalcollar.es/",
+"Aznalcollar":"https://www.aznalcollar.es/",
+"Villafranca de Córdoba":"https://www.villafrancadecordoba.es/",
+"Alcalá del Río":"https://www.alcaladelrio.es/",
+"Estepa":"https://www.estepa.es/",
+"Dos Torres":"https://www.dostorres.es/",
+"La Puebla del Río":"https://www.lapuebladelrio.es/",
+"Lanjarón":"https://www.lanjaron.es/",
+"Albox":"https://www.albox.es/",
+"Marbella":"https://www.marbella.es/",
+"Osuna":"https://www.osuna.es/",
+"Mojácar":"https://www.mojacar.es/",
+"Palomares del Río":"https://www.palomaresdelrio.es/",
+"Cuevas del Almanzora":"https://www.cuevasdelmanzora.es/",
+"Olula del Río":"https://www.oluladelrio.es/",
+"Motril":"https://www.motril.es/",
+"La Mojonera":"https://www.lamojonera.es/",
+"Berja":"https://www.berja.es/",
+"Marchena":"https://www.marchena.es/",
+"Cartaya":"https://www.cartaya.es/",
+"Hinojos":"https://www.hinojos.es/",
+"Almuñécar":"https://www.almunecar.es/",
+"Algeciras":"https://www.algeciras.es/",
+"Espartinas":"https://www.espartinas.net/",
+"Montoro":"https://www.montoro.es/",
+"Baeza":"https://www.baeza.es/",
+"Ubrique":"https://www.ubrique.es/",
+"Loja":"https://www.aytoloja.org/",
+"Trebujena":"https://www.trebujena.es/",
+"Jabugo":"https://www.jabugo.es/",
+"Cádiz":"https://www.cadiz.es/",
+"Moguer":"https://www.aytomoguer.es/",
+"Maracena":"https://www.maracena.es/",
+"Pedro Abad":"https://www.ayunpedroabad.es/",
+"Roquetas de Mar":"https://www.roquetasdemar.es/",
+"Istán":"https://www.istan.es/",
+"Benamejí":"https://www.benameji.es/",
+"Villarrasa":"https://www.villarrasa.es/",
+"San Roque":"https://www.sanroque.es/"
+};
+
+
+function ayuntamientoUrl(x){
+
+if(
+x.municipio &&
+ayuntamientos[x.municipio]
+){
+
+return ayuntamientos[x.municipio];
+
+}
+
+return null;
+
+}
+
+
+/* =========================================================
+   FUENTE OFICIAL
+========================================================= */
+
+function fuenteOficial(x){
+
+const posibles=[
+x.boeUrl,
+x.bojaUrl,
+x.bopUrl,
+x.fuenteUrl
+];
+
+for(
+const url of posibles
+){
+
+if(
+url &&
+!String(url)
+.toLowerCase()
+.includes('opobusca')
+){
+
+return url;
+
+}
+
+}
+
+
+const ayto=
+ayuntamientoUrl(x);
+
+return ayto||null;
+
+}
+
+
+/* =========================================================
+   TIPO
+========================================================= */
 
 function esConvocatoria(x){
 
@@ -681,48 +1028,24 @@ const tipo=
 String(x.tipo||'')
 .toUpperCase();
 
-if(tipo.includes('CONVOCATORIA')){
-return true;
+return tipo.includes('CONVOCATORIA');
+
 }
 
-if(x.boeUrl){
-return true;
-}
+function esFinalizada(x){
 
-if(x.bojaUrl){
-return true;
-}
+const tipo=
+String(x.tipo||'')
+.toUpperCase();
 
-if(x.bopUrl){
-return true;
-}
-
-return false;
-}
-
-
-/* ========================================
-   ESTADO
-======================================== */
-
-function statusClass(s){
-
-if(s==='En plazo'){
-return 'open';
-}
-
-if(s==='Cerrado'){
-return 'closed';
-}
-
-return 'follow';
+return tipo.includes('FINALIZADA');
 
 }
 
 
-/* ========================================
+/* =========================================================
    PROVINCIAS
-======================================== */
+========================================================= */
 
 function renderChips(){
 
@@ -756,7 +1079,8 @@ chips
 
 b.onclick=()=>{
 
-province=b.dataset.p;
+province=
+b.dataset.p;
 
 page=1;
 
@@ -769,9 +1093,9 @@ render();
 }
 
 
-/* ========================================
-   FILTRAR
-======================================== */
+/* =========================================================
+   FILTRO
+========================================================= */
 
 function filtered(){
 
@@ -782,136 +1106,171 @@ search.value
 
 return data.filter(x=>
 
-(province==='Todas' ||
-x.provincia===province)
+(
+province==='Todas' ||
+x.provincia===province
+)
 
 &&
 
-(!q ||
+(
+!q ||
+
 `${x.puesto}
 ${x.organismo}
 ${x.municipio}
-${x.provincia}`
+${x.provincia}
+${x.tipo}
+${x.oep}`
 .toLowerCase()
-.includes(q))
+.includes(q)
+
+)
 
 );
 
 }
 
 
-/* ========================================
+/* =========================================================
    TARJETA
-======================================== */
+========================================================= */
 
 function card(x){
 
 const convocatoria=
 esConvocatoria(x);
 
+const finalizada=
+esFinalizada(x);
 
-/*
-AYUNTAMIENTO
-
-IMPORTANTE:
-El ayuntamiento es ahora
-el elemento principal.
-*/
-
-let nombreAyuntamiento=
-x.organismo ||
-x.municipio ||
-'Ayuntamiento';
+const plazo=
+estadoPlazo(x.id);
 
 
-/*
-Si organismo viene como:
-"Policía Local - Ayuntamiento de X"
+let clase=
+'card ';
 
-intentamos extraer Ayuntamiento.
-*/
+if(convocatoria)
+clase+='conv-card';
 
-if(
-nombreAyuntamiento
-.toLowerCase()
-.includes('ayuntamiento')
-){
+else if(finalizada)
+clase+='final-card';
 
-const posicion=
-nombreAyuntamiento
-.toLowerCase()
-.indexOf('ayuntamiento');
+else
+clase+='oep-card';
 
-nombreAyuntamiento=
-nombreAyuntamiento
-.substring(posicion);
+
+/* Tipo */
+
+let badge='';
+
+if(finalizada){
+
+badge=`
+<span class="type-badge type-final">
+⚫ FINALIZADA
+</span>
+`;
 
 }
 
+else if(convocatoria){
 
-/* TIPO */
-
-let tipoBadge='';
-
-if(convocatoria){
-
-tipoBadge=`
-
+badge=`
 <span class="type-badge type-convocatoria">
 🟢 CONVOCATORIA
 </span>
-
 `;
 
-}else{
+}
 
-tipoBadge=`
+else{
 
+badge=`
 <span class="type-badge type-oep">
 🔵 OEP
 </span>
-
 `;
 
 }
 
 
-/* ESTADO */
+/* Estado */
 
 let estado='';
 
-if(convocatoria){
+
+if(finalizada){
 
 estado=`
-
-<span class="pill ${statusClass(x.estado)}">
-
-${esc(x.estado||'Publicada')}
-
+<span class="pill final">
+Proceso anterior
 </span>
-
 `;
 
-}else{
+}
+
+else if(plazo){
+
+if(plazo.tipo==='ultimo'){
 
 estado=`
-
-<span class="pill oep">
-
-⏳ Pendiente de convocatoria
-
+<span class="pill last-day">
+⚠️ ÚLTIMO DÍA
 </span>
+`;
 
+}
+
+else if(plazo.tipo==='cerrado'){
+
+estado=`
+<span class="pill closed">
+🔴 CERRADO
+</span>
+`;
+
+}
+
+else{
+
+estado=`
+<span class="pill open">
+🟢 ABIERTO
+</span>
+`;
+
+}
+
+}
+
+else if(convocatoria){
+
+estado=`
+<span class="pill follow">
+📄 Publicada
+</span>
+`;
+
+}
+
+else{
+
+estado=`
+<span class="pill oep">
+⏳ Pendiente de convocatoria
+</span>
 `;
 
 }
 
 
-/* INFORMACION OEP */
+/* Información OEP */
 
 let infoOep='';
 
-if(!convocatoria){
+if(!convocatoria && !finalizada){
 
 infoOep=`
 
@@ -934,75 +1293,126 @@ se publicará posteriormente.
 }
 
 
-/* ENLACE */
+/* Plazo */
 
-let url='';
-
-let texto='';
+let bloquePlazo='';
 
 
-if(
-x.boeUrl &&
-!x.boeUrl
-.toLowerCase()
-.includes('opobusca')
-){
+if(plazo){
 
-url=x.boeUrl;
+let countdown='';
 
-texto='📄 Ver BOE oficial';
+if(plazo.tipo==='abierto'){
+
+countdown=
+`Quedan aproximadamente <strong>${plazo.dias} días</strong> para finalizar el plazo.`;
 
 }
 
-else if(
-x.bojaUrl &&
-!x.bojaUrl
-.toLowerCase()
-.includes('opobusca')
-){
+else if(plazo.tipo==='ultimo'){
 
-url=x.bojaUrl;
-
-texto='📄 Ver BOJA oficial';
+countdown=
+`⚠️ <strong>Hoy es el último día</strong> para presentar la solicitud.`;
 
 }
 
-else if(
-x.bopUrl &&
-!x.bopUrl
-.toLowerCase()
-.includes('opobusca')
-){
+else if(plazo.tipo==='cerrado'){
 
-url=x.bopUrl;
-
-texto='📄 Ver BOP oficial';
+countdown=
+`El plazo de presentación de solicitudes ha finalizado.`;
 
 }
 
-else if(x.fuenteUrl){
+else{
 
-const fuente=
-String(x.fuenteUrl);
-
-if(
-!fuente
-.toLowerCase()
-.includes('opobusca')
-){
-
-url=fuente;
-
-texto='📄 Ver fuente';
+countdown=
+`El plazo comienza el ${esc(plazos[x.id].inicio)}.`;
 
 }
 
+
+bloquePlazo=`
+
+<div class="plazo ${plazo.clase}">
+
+<div class="plazo-title">
+
+${plazo.titulo}
+
+</div>
+
+
+<div class="plazo-dates">
+
+<div class="plazo-date">
+
+<span>
+Inicio solicitudes
+</span>
+
+<b>
+${esc(plazos[x.id].inicio)}
+</b>
+
+</div>
+
+
+<div class="plazo-date">
+
+<span>
+Fin solicitudes
+</span>
+
+<b>
+${esc(plazos[x.id].fin)}
+</b>
+
+</div>
+
+</div>
+
+
+<div class="countdown">
+
+${countdown}
+
+</div>
+
+
+</div>
+
+`;
+
 }
 
+
+/* Enlace */
+
+const url=
+fuenteOficial(x);
 
 let boton='';
 
+
 if(url){
+
+let texto='🏛️ Consultar fuente oficial';
+
+if(x.boeUrl)
+texto='📄 Ver BOE oficial';
+
+else if(x.bojaUrl)
+texto='📄 Ver BOJA oficial';
+
+else if(x.bopUrl)
+texto='📄 Ver BOP oficial';
+
+else if(convocatoria)
+texto='📄 Ver convocatoria oficial';
+
+else if(!convocatoria)
+texto='🏛️ Consultar Ayuntamiento';
+
 
 boton=`
 
@@ -1021,17 +1431,7 @@ ${texto}
 }
 
 
-/* CLASE */
-
-const clase=
-convocatoria
-?
-'card conv-card'
-:
-'card oep-card';
-
-
-/* TARJETA */
+/* Render tarjeta */
 
 return `
 
@@ -1045,21 +1445,28 @@ return `
 
 <h3 class="ayuntamiento">
 
-🏛️ ${esc(nombreAyuntamiento)}
+🏛️ ${esc(
+x.organismo ||
+x.municipio ||
+'Ayuntamiento'
+)}
 
 </h3>
 
 
 <div class="puesto">
 
-Policía Local
+${esc(
+x.puesto ||
+'Policía Local'
+)}
 
 </div>
 
 </div>
 
 
-${tipoBadge}
+${badge}
 
 
 </div>
@@ -1092,6 +1499,9 @@ ${estado}
 
 
 ${infoOep}
+
+
+${bloquePlazo}
 
 
 <div class="meta">
@@ -1143,10 +1553,10 @@ ${esc(x.turno||'Por verificar')}
 
 <div>
 
-<span>Publicación</span>
+<span>OEP</span>
 
 <b>
-${esc(x.fechaPublicacion||'Pendiente')}
+${esc(x.oep||'—')}
 </b>
 
 </div>
@@ -1154,10 +1564,10 @@ ${esc(x.fechaPublicacion||'Pendiente')}
 
 <div>
 
-<span>Fin plazo</span>
+<span>Estado</span>
 
 <b>
-${esc(x.fechaFin||'Por verificar')}
+${esc(x.estadoActual||x.estado||'—')}
 </b>
 
 </div>
@@ -1176,10 +1586,8 @@ ${boton}
 <div class="note">
 
 ${esc(
-x.verificacion ||
-(convocatoria
-?'Convocatoria publicada'
-:'Oferta de Empleo Público')
+x.fuente ||
+'Fuente oficial pendiente de localizar'
 )}
 
 </div>
@@ -1192,9 +1600,9 @@ x.verificacion ||
 }
 
 
-/* ========================================
+/* =========================================================
    RENDER
-======================================== */
+========================================================= */
 
 function render(){
 
@@ -1209,16 +1617,16 @@ Math.max(
 Math.ceil(arr.length/perPage)
 );
 
-if(page>pages){
+if(page>pages)
 page=pages;
-}
 
 
-/* ESTADISTICAS */
+/* Estadísticas */
 
 document
 .getElementById('total')
-.textContent=data.length;
+.textContent=
+data.length;
 
 
 document
@@ -1231,12 +1639,23 @@ a+(Number(x.plazas)||0),
 );
 
 
+/* Abiertas */
+
 document
 .getElementById('abiertas')
 .textContent=
-data.filter(
-x=>x.estado==='En plazo'
-).length;
+data.filter(x=>{
+
+const p=
+estadoPlazo(x.id);
+
+return p &&
+(
+p.tipo==='abierto' ||
+p.tipo==='ultimo'
+);
+
+}).length;
 
 
 document
@@ -1249,14 +1668,17 @@ data
 ).size;
 
 
-/* TARJETAS */
+/* Tarjetas */
 
-const start=
+const inicio=
 (page-1)*perPage;
 
 grid.innerHTML=
 arr
-.slice(start,start+perPage)
+.slice(
+inicio,
+inicio+perPage
+)
 .map(card)
 .join('')
 ||
@@ -1267,7 +1689,7 @@ No hay resultados.
 `;
 
 
-/* PAGINACION */
+/* Paginación */
 
 pagination.innerHTML=
 Array
@@ -1311,9 +1733,9 @@ behavior:'smooth'
 }
 
 
-/* ========================================
+/* =========================================================
    BUSCADOR
-======================================== */
+========================================================= */
 
 search.addEventListener(
 'input',
@@ -1327,9 +1749,9 @@ render();
 );
 
 
-/* ========================================
+/* =========================================================
    INICIAR
-======================================== */
+========================================================= */
 
 render();
 
