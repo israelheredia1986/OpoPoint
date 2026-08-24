@@ -1,1320 +1,1723 @@
 <!doctype html>
 <html lang="es">
-
 <head>
 
 <meta charset="utf-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="theme-color"
-content="#0f172a">
+<meta name="theme-color" content="#0f172a">
 
 <meta name="description"
-content="OpoPoint — Radar de oposiciones de Policía Local en Andalucía">
+content="OpoPoint — Radar y seguimiento de oposiciones de Policía Local en Andalucía">
 
-<title>
-OpoPoint · Radar de Policía Local Andalucía
-</title>
+<title>OpoPoint · Radar de Policía Local Andalucía</title>
 
 
 <style>
 
+/* =========================================================
+   VARIABLES
+========================================================= */
+
 :root{
 
---slate:#0f172a;
+  --slate:#0f172a;
+  --slate-2:#1e293b;
 
---blue:#2563eb;
+  --blue:#2563eb;
+  --blue-dark:#1d4ed8;
+  --blue-light:#dbeafe;
 
---blue-light:#dbeafe;
+  --green:#059669;
+  --green-dark:#047857;
+  --green-light:#d1fae5;
 
---emerald:#059669;
+  --amber:#d97706;
+  --amber-light:#fef3c7;
 
---green-light:#d1fae5;
+  --red:#dc2626;
+  --red-light:#fee2e2;
 
---red:#dc2626;
+  --purple:#7c3aed;
+  --purple-light:#ede9fe;
 
---red-light:#fee2e2;
+  --gray:#64748b;
+  --gray-light:#f1f5f9;
 
---amber:#d97706;
+  --bg:#f1f5f9;
+  --card:#ffffff;
 
---amber-light:#fef3c7;
+  --line:#e2e8f0;
 
---purple:#7c3aed;
-
---purple-light:#ede9fe;
-
---bg:#f1f5f9;
-
---card:#fff;
-
---muted:#64748b;
-
---line:#e2e8f0;
+  --shadow:
+    0 7px 25px rgba(15,23,42,.07);
 
 }
 
+
+/* =========================================================
+   BASE
+========================================================= */
 
 *{
-
-box-sizing:border-box
-
+  box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
 
 body{
 
-margin:0;
+  margin:0;
 
-background:var(--bg);
+  background:var(--bg);
 
-font-family:Inter,system-ui,-apple-system,
-Segoe UI,Roboto,Arial,sans-serif;
+  color:#0f172a;
 
-color:#0f172a
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
 
 }
 
+button,
+input{
+
+  font:inherit;
+
+}
+
+button{
+
+  cursor:pointer;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 header{
 
-background:
-linear-gradient(135deg,#020617,#172554);
+  background:
+    linear-gradient(
+      135deg,
+      #020617 0%,
+      #172554 100%
+    );
 
-color:#fff;
+  color:white;
 
-padding:20px 16px 24px;
+  padding:
+    20px
+    16px
+    24px;
 
-position:sticky;
+  position:sticky;
 
-top:0;
+  top:0;
 
-z-index:10;
+  z-index:20;
 
-box-shadow:
-0 8px 25px #0f172a22
+  box-shadow:
+    0 8px 25px
+    rgba(15,23,42,.15);
 
 }
 
-
 .wrap{
 
-max-width:1100px;
+  width:100%;
 
-margin:auto
+  max-width:1150px;
+
+  margin:0 auto;
 
 }
 
 
 .brand{
 
-display:flex;
+  display:flex;
 
-align-items:center;
+  align-items:center;
 
-gap:12px
+  gap:12px;
 
 }
 
 
 .radar{
 
-width:44px;
+  width:46px;
 
-height:44px;
+  height:46px;
 
-border-radius:14px;
+  display:grid;
 
-background:#064e3b;
+  place-items:center;
 
-display:grid;
+  border-radius:14px;
 
-place-items:center;
+  background:#064e3b;
 
-font-size:24px
+  font-size:25px;
+
+  box-shadow:
+    0 7px 20px
+    rgba(0,0,0,.25);
 
 }
 
 
 .brand h1{
 
-font-size:22px;
+  margin:0;
 
-margin:0
+  font-size:23px;
+
+  line-height:1;
 
 }
 
 
 .brand small{
 
-display:block;
+  display:block;
 
-color:#cbd5e1;
+  margin-top:5px;
 
-margin-top:2px
+  color:#cbd5e1;
+
+  font-size:12px;
 
 }
 
 
 .status{
 
-margin-top:16px;
+  display:flex;
 
-display:flex;
+  flex-wrap:wrap;
 
-gap:8px;
+  gap:8px;
 
-flex-wrap:wrap
+  margin-top:16px;
 
 }
 
 
 .badge{
 
-border:1px solid #ffffff2b;
+  display:inline-flex;
 
-background:#ffffff12;
+  align-items:center;
 
-border-radius:999px;
+  gap:5px;
 
-padding:7px 10px;
+  padding:
+    7px
+    10px;
 
-font-size:12px
+  border-radius:999px;
+
+  border:1px solid
+    rgba(255,255,255,.17);
+
+  background:
+    rgba(255,255,255,.07);
+
+  font-size:11px;
 
 }
 
 
-.live{
+.badge.live{
 
-background:#065f46;
+  background:#065f46;
 
-border-color:#10b981
+  border-color:#10b981;
 
 }
 
+
+/* =========================================================
+   MAIN
+========================================================= */
 
 main{
 
-padding:18px 16px 50px
+  padding:
+    22px
+    16px
+    60px;
 
 }
 
 
+/* =========================================================
+   HERO
+========================================================= */
+
 .hero{
 
-margin-bottom:16px
+  margin-bottom:18px;
 
 }
 
 
 .hero h2{
 
-font-size:28px;
+  margin:0 0 8px;
 
-line-height:1.1;
+  font-size:30px;
 
-margin:0 0 8px
+  line-height:1.08;
+
+  letter-spacing:-.025em;
 
 }
 
 
 .hero p{
 
-margin:0;
+  margin:0;
 
-color:var(--muted)
+  color:var(--gray);
+
+  line-height:1.5;
 
 }
 
 
+/* =========================================================
+   STATS
+========================================================= */
+
 .stats{
 
-display:grid;
+  display:grid;
 
-grid-template-columns:
-repeat(2,1fr);
+  grid-template-columns:
+    repeat(2,1fr);
 
-gap:10px;
+  gap:10px;
 
-margin:18px 0
+  margin:
+    18px
+    0;
 
 }
 
 
 .stat{
 
-background:var(--card);
+  background:var(--card);
 
-border:1px solid var(--line);
+  border:
+    1px solid
+    var(--line);
 
-border-radius:16px;
+  border-radius:16px;
 
-padding:14px
+  padding:14px;
+
+  box-shadow:var(--shadow);
 
 }
 
 
 .stat b{
 
-font-size:22px
+  display:block;
+
+  font-size:24px;
+
+  line-height:1;
 
 }
 
 
 .stat span{
 
-display:block;
+  display:block;
 
-color:var(--muted);
+  margin-top:5px;
 
-font-size:12px;
+  color:var(--gray);
 
-margin-top:3px
+  font-size:11px;
 
 }
 
 
-.controls{
-
-background:var(--card);
-
-border:1px solid var(--line);
-
-border-radius:18px;
-
-padding:12px;
-
-margin-bottom:16px
-
-}
-
-
-.search{
-
-width:100%;
-
-padding:13px 14px;
-
-border:1px solid var(--line);
-
-border-radius:12px;
-
-font-size:16px;
-
-outline:none
-
-}
-
-
-.search:focus{
-
-border-color:var(--emerald);
-
-box-shadow:
-0 0 0 3px #05966922
-
-}
-
-
-.chips{
-
-display:flex;
-
-gap:7px;
-
-overflow:auto;
-
-padding:10px 0 2px
-
-}
-
-
-.chip{
-
-white-space:nowrap;
-
-border:1px solid var(--line);
-
-background:#fff;
-
-border-radius:999px;
-
-padding:8px 11px;
-
-cursor:pointer
-
-}
-
-
-.chip.active{
-
-background:var(--slate);
-
-color:#fff;
-
-border-color:var(--slate)
-
-}
-
-
-.grid{
-
-display:grid;
-
-gap:12px
-
-}
-
-
-.card{
-
-background:var(--card);
-
-border:1px solid var(--line);
-
-border-radius:18px;
-
-padding:18px;
-
-box-shadow:
-0 6px 20px #0f172a0b
-
-}
-
-
-.conv-card{
-
-border-left:5px solid var(--emerald)
-
-}
-
-
-.oep-card{
-
-border-left:5px solid var(--blue)
-
-}
-
-
-.final-card{
-
-border-left:5px solid #94a3b8
-
-}
-
-
-.card-header{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:flex-start;
-
-gap:12px
-
-}
-
-
-.ayuntamiento{
-
-font-size:25px;
-
-font-weight:900;
-
-line-height:1.08;
-
-letter-spacing:-.025em;
-
-color:#020617;
-
-margin:0;
-
-text-transform:uppercase
-
-}
-
-
-.puesto{
-
-font-size:13px;
-
-font-weight:600;
-
-color:var(--muted);
-
-margin-top:6px
-
-}
-
-
-.type-badge{
-
-display:inline-flex;
-
-align-items:center;
-
-font-size:11px;
-
-font-weight:800;
-
-border-radius:999px;
-
-padding:7px 10px;
-
-white-space:nowrap
-
-}
-
-
-.type-convocatoria{
-
-background:var(--green-light);
-
-color:#065f46
-
-}
-
-
-.type-oep{
-
-background:var(--blue-light);
-
-color:#1e40af
-
-}
-
-
-.type-final{
-
-background:#e2e8f0;
-
-color:#475569
-
-}
-
-
-.plazas-row{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-margin-top:18px;
-
-gap:10px
-
-}
-
-
-.plazas-number{
-
-font-size:30px;
-
-font-weight:900;
-
-line-height:1
-
-}
-
-
-.plazas-label{
-
-font-size:10px;
-
-color:var(--muted);
-
-text-transform:uppercase;
-
-letter-spacing:.07em;
-
-margin-top:4px
-
-}
-
-
-.pill{
-
-font-size:11px;
-
-font-weight:700;
-
-border-radius:999px;
-
-padding:7px 9px;
-
-white-space:nowrap
-
-}
-
-
-.open{
-
-background:var(--green-light);
-
-color:#065f46
-
-}
-
-
-.last-day{
-
-background:var(--amber-light);
-
-color:#92400e
-
-}
-
-
-.closed{
-
-background:var(--red-light);
-
-color:#991b1b
-
-}
-
-
-.oep{
-
-background:var(--blue-light);
-
-color:#1e40af
-
-}
-
-
-.final{
-
-background:#e2e8f0;
-
-color:#475569
-
-}
-
-
-/* ======================================================
-   FASE ACTUAL
-====================================================== */
-
-.fase-actual{
-
-margin-top:16px;
-
-border-radius:16px;
-
-padding:15px;
-
-background:
-linear-gradient(
-135deg,
-#f8fafc,
-#eef2ff
-);
-
-border:1px solid #c7d2fe
-
-}
-
-
-.fase-label{
-
-font-size:10px;
-
-font-weight:800;
-
-text-transform:uppercase;
-
-letter-spacing:.08em;
-
-color:#64748b
-
-}
-
-
-.fase-nombre{
-
-font-size:20px;
-
-font-weight:900;
-
-margin-top:5px;
-
-color:#1e1b4b
-
-}
-
-
-.fase-sub{
-
-font-size:12px;
-
-color:#64748b;
-
-margin-top:5px
-
-}
-
-
-.fase-barra{
-
-height:8px;
-
-background:#e2e8f0;
-
-border-radius:999px;
-
-margin-top:13px;
-
-overflow:hidden
-
-}
-
-
-.fase-progreso{
-
-height:100%;
-
-background:
-linear-gradient(
-90deg,
-#2563eb,
-#7c3aed
-);
-
-border-radius:999px
-
-}
-
-
-/* ======================================================
-   LINEA TEMPORAL
-====================================================== */
-
-.timeline{
-
-margin-top:15px;
-
-border:1px solid var(--line);
-
-border-radius:15px;
-
-background:#fff;
-
-overflow:hidden
-
-}
-
-
-.timeline-title{
-
-padding:12px 14px;
-
-font-weight:800;
-
-font-size:13px;
-
-border-bottom:1px solid var(--line)
-
-}
-
-
-.timeline-item{
-
-display:flex;
-
-gap:10px;
-
-padding:11px 13px;
-
-position:relative
-
-}
-
-
-.timeline-item:not(:last-child){
-
-border-bottom:1px solid #f1f5f9
-
-}
-
-
-.timeline-icon{
-
-width:27px;
-
-height:27px;
-
-min-width:27px;
-
-border-radius:50%;
-
-display:grid;
-
-place-items:center;
-
-font-size:13px
-
-}
-
-
-.timeline-item.completada
-.timeline-icon{
-
-background:#d1fae5
-
-}
-
-
-.timeline-item.actual
-.timeline-icon{
-
-background:#dbeafe;
-
-box-shadow:
-0 0 0 4px #dbeafe88
-
-}
-
-
-.timeline-item.pendiente
-.timeline-icon{
-
-background:#f1f5f9
-
-}
-
-
-.timeline-content{
-
-flex:1
-
-}
-
-
-.timeline-name{
-
-font-size:12px;
-
-font-weight:800
-
-}
-
-
-.timeline-state{
-
-font-size:10px;
-
-color:var(--muted);
-
-margin-top:2px
-
-}
-
-
-.timeline-item.actual
-.timeline-name{
-
-color:#1d4ed8
-
-}
-
-
-/* ======================================================
-   ÚLTIMA ACTUACIÓN
-====================================================== */
-
-.ultima-actuacion{
-
-margin-top:14px;
-
-background:#f8fafc;
-
-border:1px solid var(--line);
-
-border-radius:13px;
-
-padding:12px
-
-}
-
-
-.ultima-actuacion strong{
-
-font-size:12px;
-
-display:block
-
-}
-
-
-.ultima-actuacion p{
-
-font-size:11px;
-
-color:var(--muted);
-
-margin:5px 0 0
-
-}
-
-
-/* ======================================================
-   PRÓXIMA ACTUACIÓN
-====================================================== */
-
-.proxima{
-
-margin-top:10px;
-
-background:#fff7ed;
-
-border:1px solid #fed7aa;
-
-border-radius:13px;
-
-padding:12px
-
-}
-
-
-.proxima strong{
-
-font-size:12px;
-
-display:block;
-
-color:#9a3412
-
-}
-
-
-.proxima p{
-
-font-size:11px;
-
-color:#7c2d12;
-
-margin:5px 0 0
-
-}
-
-
-/* ======================================================
-   OEP
-====================================================== */
-
-.oep-info{
-
-margin-top:14px;
-
-background:#eff6ff;
-
-border:1px solid #bfdbfe;
-
-border-radius:13px;
-
-padding:12px;
-
-font-size:12px;
-
-color:#1e3a8a
-
-}
-
-
-.oep-info strong{
-
-display:block;
-
-font-size:13px;
-
-margin-bottom:4px
-
-}
-
-
-/* ======================================================
-   PLAZOS
-====================================================== */
-
-.plazo{
-
-margin-top:14px;
-
-border-radius:14px;
-
-padding:13px
-
-}
-
-
-.plazo-open{
-
-background:#ecfdf5;
-
-border:1px solid #a7f3d0
-
-}
-
-
-.plazo-last{
-
-background:#fffbeb;
-
-border:1px solid #fde68a
-
-}
-
-
-.plazo-closed{
-
-background:#fef2f2;
-
-border:1px solid #fecaca
-
-}
-
-
-.plazo-title{
-
-font-size:13px;
-
-font-weight:900;
-
-margin-bottom:8px
-
-}
-
-
-.plazo-dates{
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:10px
-
-}
-
-
-.plazo-date{
-
-background:#ffffffaa;
-
-border-radius:10px;
-
-padding:9px
-
-}
-
-
-.plazo-date span{
-
-display:block;
-
-font-size:9px;
-
-font-weight:700;
-
-text-transform:uppercase;
-
-letter-spacing:.06em;
-
-color:var(--muted)
-
-}
-
-
-.plazo-date b{
-
-display:block;
-
-font-size:14px;
-
-margin-top:3px
-
-}
-
-
-.countdown{
-
-margin-top:8px;
-
-font-size:12px;
-
-font-weight:800
-
-}
-
-
-/* ======================================================
-   METADATOS
-====================================================== */
-
-.meta{
-
-display:grid;
-
-grid-template-columns:
-repeat(2,1fr);
-
-gap:9px;
-
-margin:15px 0
-
-}
-
-
-.meta div{
-
-background:#f8fafc;
-
-border-radius:12px;
-
-padding:9px
-
-}
-
-
-.meta span{
-
-display:block;
-
-color:var(--muted);
-
-font-size:10px;
-
-text-transform:uppercase;
-
-letter-spacing:.05em
-
-}
-
-
-.meta b{
-
-font-size:14px
-
-}
-
-
-/* ======================================================
-   BOTONES
-====================================================== */
-
-.links{
-
-display:flex;
-
-gap:7px;
-
-flex-wrap:wrap
-
-}
-
-
-.links a{
-
-display:inline-block;
-
-text-decoration:none;
-
-color:#fff;
-
-background:var(--slate);
-
-padding:10px 12px;
-
-border-radius:10px;
-
-font-size:12px;
-
-font-weight:700
-
-}
-
-
-.links a.green{
-
-background:var(--emerald)
-
-}
-
-
-.links a.blue{
-
-background:#2563eb
-
-}
-
-
-.links a.purple{
-
-background:#7c3aed
-
-}
-
-
-/* ======================================================
-   FOOTER
-====================================================== */
-
-.note{
-
-font-size:11px;
-
-color:var(--muted);
-
-margin-top:11px;
-
-line-height:1.4
-
-}
-
+/* =========================================================
+   LEGEND
+========================================================= */
 
 .legend{
 
-background:#fff;
+  background:white;
 
-border:1px solid var(--line);
+  border:
+    1px solid
+    var(--line);
 
-border-radius:16px;
+  border-radius:16px;
 
-padding:13px;
+  padding:14px;
 
-margin-bottom:16px;
+  margin-bottom:16px;
 
-font-size:12px;
-
-color:var(--muted)
+  box-shadow:var(--shadow);
 
 }
 
 
-.legend strong{
+.legend-title{
 
-color:#0f172a
+  font-size:13px;
+
+  font-weight:800;
 
 }
 
 
 .legend-row{
 
-display:flex;
+  display:flex;
 
-gap:8px;
+  flex-wrap:wrap;
 
-flex-wrap:wrap;
+  gap:7px;
 
-margin-top:9px
+  margin-top:10px;
 
 }
 
 
 .legend-item{
 
-padding:7px 10px;
+  padding:
+    7px
+    10px;
 
-border-radius:999px;
+  border-radius:999px;
 
-background:#f8fafc;
+  background:#f8fafc;
 
-font-weight:600
+  color:#475569;
+
+  font-size:11px;
+
+  font-weight:700;
 
 }
 
 
+/* =========================================================
+   CONTROL PANEL
+========================================================= */
+
+.controls{
+
+  background:white;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:18px;
+
+  padding:13px;
+
+  margin-bottom:16px;
+
+  box-shadow:var(--shadow);
+
+}
+
+
+.search{
+
+  width:100%;
+
+  padding:
+    13px
+    14px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:12px;
+
+  outline:none;
+
+  font-size:15px;
+
+  background:white;
+
+}
+
+
+.search:focus{
+
+  border-color:var(--green);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(5,150,105,.14);
+
+}
+
+
+.chips{
+
+  display:flex;
+
+  gap:7px;
+
+  overflow-x:auto;
+
+  padding:
+    10px
+    0
+    2px;
+
+}
+
+
+.chips::-webkit-scrollbar{
+
+  display:none;
+
+}
+
+
+.chip{
+
+  flex:0 0 auto;
+
+  padding:
+    8px
+    12px;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:999px;
+
+  background:white;
+
+  color:#334155;
+
+  font-size:11px;
+
+}
+
+
+.chip.active{
+
+  background:var(--slate);
+
+  color:white;
+
+  border-color:var(--slate);
+
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.grid{
+
+  display:grid;
+
+  gap:13px;
+
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.card{
+
+  background:white;
+
+  border:
+    1px solid
+    var(--line);
+
+  border-radius:19px;
+
+  padding:18px;
+
+  box-shadow:var(--shadow);
+
+  overflow:hidden;
+
+}
+
+
+.card.conv{
+
+  border-left:
+    5px solid
+    var(--green);
+
+}
+
+
+.card.oep{
+
+  border-left:
+    5px solid
+    var(--blue);
+
+}
+
+
+.card.final{
+
+  border-left:
+    5px solid
+    #94a3b8;
+
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.card-header{
+
+  display:flex;
+
+  align-items:flex-start;
+
+  justify-content:space-between;
+
+  gap:12px;
+
+}
+
+
+.ayuntamiento{
+
+  margin:0;
+
+  color:#020617;
+
+  font-size:22px;
+
+  line-height:1.08;
+
+  font-weight:900;
+
+  letter-spacing:-.025em;
+
+  text-transform:uppercase;
+
+}
+
+
+.puesto{
+
+  margin-top:6px;
+
+  color:var(--gray);
+
+  font-size:13px;
+
+  font-weight:600;
+
+}
+
+
+.type{
+
+  flex-shrink:0;
+
+  padding:
+    7px
+    10px;
+
+  border-radius:999px;
+
+  font-size:10px;
+
+  font-weight:900;
+
+  white-space:nowrap;
+
+}
+
+
+.type.conv{
+
+  color:#065f46;
+
+  background:var(--green-light);
+
+}
+
+
+.type.oep{
+
+  color:#1e40af;
+
+  background:var(--blue-light);
+
+}
+
+
+.type.final{
+
+  color:#475569;
+
+  background:#e2e8f0;
+
+}
+
+
+/* =========================================================
+   PLAZAS
+========================================================= */
+
+.plazas-row{
+
+  margin-top:17px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:10px;
+
+}
+
+
+.plazas-num{
+
+  font-size:31px;
+
+  line-height:1;
+
+  font-weight:950;
+
+}
+
+
+.plazas-label{
+
+  margin-top:4px;
+
+  color:var(--gray);
+
+  font-size:9px;
+
+  text-transform:uppercase;
+
+  letter-spacing:.08em;
+
+}
+
+
+.status-pill{
+
+  padding:
+    7px
+    10px;
+
+  border-radius:999px;
+
+  font-size:10px;
+
+  font-weight:900;
+
+  white-space:nowrap;
+
+}
+
+
+.status-open{
+
+  background:var(--green-light);
+
+  color:#065f46;
+
+}
+
+
+.status-last{
+
+  background:var(--amber-light);
+
+  color:#92400e;
+
+}
+
+
+.status-closed{
+
+  background:var(--red-light);
+
+  color:#991b1b;
+
+}
+
+
+.status-oep{
+
+  background:var(--blue-light);
+
+  color:#1e40af;
+
+}
+
+
+.status-final{
+
+  background:#e2e8f0;
+
+  color:#475569;
+
+}
+
+
+/* =========================================================
+   PLAZO
+========================================================= */
+
+.deadline{
+
+  margin-top:14px;
+
+  padding:13px;
+
+  border-radius:14px;
+
+}
+
+
+.deadline.open{
+
+  background:#ecfdf5;
+
+  border:
+    1px solid
+    #a7f3d0;
+
+}
+
+
+.deadline.last{
+
+  background:#fffbeb;
+
+  border:
+    1px solid
+    #fde68a;
+
+}
+
+
+.deadline.closed{
+
+  background:#fef2f2;
+
+  border:
+    1px solid
+    #fecaca;
+
+}
+
+
+.deadline-title{
+
+  font-size:12px;
+
+  font-weight:900;
+
+}
+
+
+.deadline-dates{
+
+  display:grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap:8px;
+
+  margin-top:9px;
+
+}
+
+
+.deadline-box{
+
+  padding:9px;
+
+  border-radius:10px;
+
+  background:
+    rgba(255,255,255,.75);
+
+}
+
+
+.deadline-box span{
+
+  display:block;
+
+  color:var(--gray);
+
+  font-size:8px;
+
+  font-weight:800;
+
+  text-transform:uppercase;
+
+}
+
+
+.deadline-box b{
+
+  display:block;
+
+  margin-top:3px;
+
+  font-size:13px;
+
+}
+
+
+.deadline-days{
+
+  margin-top:8px;
+
+  font-size:11px;
+
+  font-weight:800;
+
+}
+
+
+/* =========================================================
+   CURRENT PHASE
+========================================================= */
+
+.current-phase{
+
+  margin-top:15px;
+
+  padding:15px;
+
+  border-radius:16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eff6ff,
+      #eef2ff
+    );
+
+  border:
+    1px solid
+    #bfdbfe;
+
+}
+
+
+.phase-label{
+
+  color:#64748b;
+
+  font-size:9px;
+
+  font-weight:900;
+
+  text-transform:uppercase;
+
+  letter-spacing:.08em;
+
+}
+
+
+.phase-title{
+
+  margin-top:5px;
+
+  color:#1e1b4b;
+
+  font-size:19px;
+
+  font-weight:950;
+
+}
+
+
+.phase-description{
+
+  margin-top:5px;
+
+  color:#64748b;
+
+  font-size:11px;
+
+  line-height:1.45;
+
+}
+
+
+.progress{
+
+  height:8px;
+
+  margin-top:11px;
+
+  overflow:hidden;
+
+  border-radius:999px;
+
+  background:#e2e8f0;
+
+}
+
+
+.progress-inner{
+
+  height:100%;
+
+  border-radius:999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #7c3aed
+    );
+
+}
+
+
+/* =========================================================
+   OEP INFORMATION
+========================================================= */
+
+.oep-info{
+
+  margin-top:14px;
+
+  padding:13px;
+
+  border-radius:14px;
+
+  background:#eff6ff;
+
+  border:
+    1px solid
+    #bfdbfe;
+
+  color:#1e3a8a;
+
+  font-size:11px;
+
+  line-height:1.45;
+
+}
+
+
+.oep-info strong{
+
+  display:block;
+
+  margin-bottom:3px;
+
+  font-size:12px;
+
+}
+
+
+/* =========================================================
+   META
+========================================================= */
+
+.meta{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:9px;
+
+  margin-top:14px;
+
+}
+
+
+.meta-box{
+
+  padding:9px;
+
+  border-radius:11px;
+
+  background:#f8fafc;
+
+}
+
+
+.meta-box span{
+
+  display:block;
+
+  color:var(--gray);
+
+  font-size:8px;
+
+  font-weight:800;
+
+  text-transform:uppercase;
+
+  letter-spacing:.04em;
+
+}
+
+
+.meta-box b{
+
+  display:block;
+
+  margin-top:3px;
+
+  font-size:12px;
+
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.actions{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:7px;
+
+  margin-top:14px;
+
+}
+
+
+.btn{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:5px;
+
+  padding:
+    10px
+    12px;
+
+  border:0;
+
+  border-radius:10px;
+
+  color:white;
+
+  text-decoration:none;
+
+  font-size:11px;
+
+  font-weight:900;
+
+}
+
+
+.btn-green{
+
+  background:var(--green);
+
+}
+
+
+.btn-blue{
+
+  background:var(--blue);
+
+}
+
+
+.btn-purple{
+
+  background:var(--purple);
+
+}
+
+
+.btn-dark{
+
+  background:var(--slate);
+
+}
+
+
+.btn-gray{
+
+  background:#64748b;
+
+}
+
+
+.details-btn{
+
+  border:0;
+
+  cursor:pointer;
+
+}
+
+
+/* =========================================================
+   LAST / NEXT ACTION
+========================================================= */
+
+.activity{
+
+  margin-top:12px;
+
+  padding:
+    10px
+    12px;
+
+  border-radius:12px;
+
+  background:#f8fafc;
+
+  border:
+    1px solid
+    var(--line);
+
+}
+
+
+.activity-title{
+
+  font-size:10px;
+
+  font-weight:900;
+
+}
+
+
+.activity-text{
+
+  margin-top:4px;
+
+  color:var(--gray);
+
+  font-size:10px;
+
+  line-height:1.45;
+
+}
+
+
+.activity.next{
+
+  background:#fff7ed;
+
+  border-color:#fed7aa;
+
+}
+
+
+.activity.next .activity-title{
+
+  color:#9a3412;
+
+}
+
+
+/* =========================================================
+   NOTE
+========================================================= */
+
+.source{
+
+  margin-top:10px;
+
+  color:var(--gray);
+
+  font-size:9px;
+
+  line-height:1.4;
+
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
 .pagination{
 
-display:flex;
+  display:flex;
 
-justify-content:center;
+  justify-content:center;
 
-gap:8px;
+  flex-wrap:wrap;
 
-margin:20px 0;
+  gap:7px;
 
-flex-wrap:wrap
+  margin-top:22px;
 
 }
 
 
 .pagination button{
 
-border:1px solid var(--line);
+  min-width:38px;
 
-background:#fff;
+  padding:
+    9px
+    11px;
 
-border-radius:10px;
+  border:
+    1px solid
+    var(--line);
 
-padding:9px 12px;
+  border-radius:10px;
 
-cursor:pointer
+  background:white;
 
 }
 
 
 .pagination button.active{
 
-background:var(--slate);
+  color:white;
 
-color:#fff
+  background:var(--slate);
+
+  border-color:var(--slate);
+
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal-backdrop{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:100;
+
+  display:none;
+
+  overflow-y:auto;
+
+  padding:16px;
+
+  background:
+    rgba(2,6,23,.72);
+
+  backdrop-filter:
+    blur(5px);
 
 }
 
 
-footer{
+.modal-backdrop.show{
 
-color:var(--muted);
-
-text-align:center;
-
-font-size:12px;
-
-padding:20px
+  display:block;
 
 }
 
+
+.modal{
+
+  width:100%;
+
+  max-width:850px;
+
+  margin:
+    15px
+    auto;
+
+  overflow:hidden;
+
+  border-radius:22px;
+
+  background:white;
+
+  box-shadow:
+    0 30px 80px
+    rgba(0,0,0,.3);
+
+}
+
+
+.modal-header{
+
+  padding:20px;
+
+  color:white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #020617,
+      #172554
+    );
+
+}
+
+
+.modal-header-row{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:flex-start;
+
+  gap:15px;
+
+}
+
+
+.modal h2{
+
+  margin:0;
+
+  font-size:23px;
+
+  line-height:1.1;
+
+}
+
+
+.modal-subtitle{
+
+  margin-top:6px;
+
+  color:#cbd5e1;
+
+  font-size:12px;
+
+}
+
+
+.close{
+
+  width:36px;
+
+  height:36px;
+
+  border:0;
+
+  border-radius:10px;
+
+  background:
+    rgba(255,255,255,.1);
+
+  color:white;
+
+  font-size:20px;
+
+}
+
+
+.modal-body{
+
+  padding:20px;
+
+}
+
+
+.detail-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:10px;
+
+}
+
+
+.detail-box{
+
+  padding:12px;
+
+  border-radius:13px;
+
+  background:#f8fafc;
+
+}
+
+
+.detail-box span{
+
+  display:block;
+
+  color:var(--gray);
+
+  font-size:9px;
+
+  font-weight:800;
+
+  text-transform:uppercase;
+
+}
+
+
+.detail-box b{
+
+  display:block;
+
+  margin-top:4px;
+
+  font-size:13px;
+
+}
+
+
+.modal-section{
+
+  margin-top:18px;
+
+}
+
+
+.modal-section h3{
+
+  margin:0 0 10px;
+
+  font-size:15px;
+
+}
+
+
+.timeline{
+
+  position:relative;
+
+}
+
+
+.timeline-item{
+
+  position:relative;
+
+  display:flex;
+
+  gap:11px;
+
+  padding-bottom:15px;
+
+}
+
+
+.timeline-item::before{
+
+  content:"";
+
+  position:absolute;
+
+  left:13px;
+
+  top:27px;
+
+  bottom:0;
+
+  width:2px;
+
+  background:#e2e8f0;
+
+}
+
+
+.timeline-item:last-child::before{
+
+  display:none;
+
+}
+
+
+.timeline-icon{
+
+  position:relative;
+
+  z-index:1;
+
+  width:27px;
+
+  height:27px;
+
+  min-width:27px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:50%;
+
+  background:#f1f5f9;
+
+  font-size:12px;
+
+}
+
+
+.timeline-item.done .timeline-icon{
+
+  background:var(--green-light);
+
+}
+
+
+.timeline-item.current .timeline-icon{
+
+  background:var(--blue-light);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(37,99,235,.12);
+
+}
+
+
+.timeline-name{
+
+  padding-top:4px;
+
+  font-size:12px;
+
+  font-weight:900;
+
+}
+
+
+.timeline-state{
+
+  margin-top:3px;
+
+  color:var(--gray);
+
+  font-size:10px;
+
+}
+
+
+.timeline-item.current .timeline-name{
+
+  color:var(--blue-dark);
+
+}
+
+
+.modal-actions{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:8px;
+
+  margin-top:18px;
+
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
 
 @media(min-width:700px){
 
-.stats{
+  .stats{
 
-grid-template-columns:
-repeat(4,1fr)
+    grid-template-columns:
+      repeat(4,1fr);
 
-}
+  }
 
-.grid{
+  .grid{
 
-grid-template-columns:
-repeat(2,1fr)
+    grid-template-columns:
+      repeat(2,1fr);
 
-}
+  }
 
-main{
+  .hero h2{
 
-padding-top:28px
+    font-size:38px;
 
-}
+  }
 
-.hero h2{
+  .ayuntamiento{
 
-font-size:36px
+    font-size:26px;
 
-}
-
-.ayuntamiento{
-
-font-size:27px
+  }
 
 }
 
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+  padding:25px 16px 35px;
+
+  color:var(--gray);
+
+  text-align:center;
+
+  font-size:10px;
+
+  line-height:1.5;
+
 }
+
 
 </style>
 
@@ -1323,6 +1726,10 @@ font-size:27px
 
 <body>
 
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
 
 <header>
 
@@ -1372,6 +1779,10 @@ Seguimiento de procesos
 </header>
 
 
+<!-- =======================================================
+     MAIN
+======================================================= -->
+
 <main class="wrap">
 
 
@@ -1382,11 +1793,16 @@ Encuentra tu plaza de Policía Local
 </h2>
 
 <p>
-Convocatorias, OEP, plazos y seguimiento de cada proceso selectivo.
+Convocatorias, ofertas de empleo público, plazos y
+seguimiento de las distintas fases del proceso selectivo.
 </p>
 
 </section>
 
+
+<!-- =======================================================
+     STATS
+======================================================= -->
 
 <section class="stats">
 
@@ -1444,40 +1860,43 @@ provincias
 </section>
 
 
-<div class="legend">
+<!-- =======================================================
+     LEYENDA
+======================================================= -->
 
-<strong>
+<section class="legend">
+
+<div class="legend-title">
 Cómo interpretar OpoPoint
-</strong>
+</div>
 
 
 <div class="legend-row">
-
 
 <div class="legend-item">
 🟢 Convocatoria
 </div>
 
-
 <div class="legend-item">
 🔵 OEP
 </div>
 
-
 <div class="legend-item">
-⚫ Proceso finalizado
+⚫ Proceso anterior
 </div>
-
 
 <div class="legend-item">
 🎯 Fase actual
 </div>
 
-
 </div>
 
-</div>
+</section>
 
+
+<!-- =======================================================
+     CONTROLES
+======================================================= -->
 
 <section class="controls">
 
@@ -1485,7 +1904,9 @@ Cómo interpretar OpoPoint
 <input
 id="search"
 class="search"
-placeholder="Buscar municipio, organismo, provincia, OEP o fase…"
+type="search"
+placeholder="Buscar Ayuntamiento, municipio, provincia, OEP o fase..."
+autocomplete="off"
 >
 
 
@@ -1497,6 +1918,10 @@ class="chips">
 
 </section>
 
+
+<!-- =======================================================
+     GRID
+======================================================= -->
 
 <section
 id="grid"
@@ -1517,149 +1942,314 @@ class="pagination">
 
 OpoPoint · Radar de Policía Local Andalucía
 
-<br><br>
+<br>
 
 Las fuentes oficiales prevalecen siempre.
-OpoBusca no se utiliza como fuente de destino.
+OpoBusca no se utiliza como destino para los usuarios.
 
 </footer>
 
+
+<!-- =======================================================
+     MODAL
+======================================================= -->
+
+<div
+id="modalBackdrop"
+class="modal-backdrop"
+role="dialog"
+aria-modal="true"
+aria-hidden="true">
+
+
+<div class="modal">
+
+
+<div class="modal-header">
+
+
+<div class="modal-header-row">
+
+
+<div>
+
+<h2 id="modalTitle">
+Proceso selectivo
+</h2>
+
+<div
+id="modalSubtitle"
+class="modal-subtitle">
+</div>
+
+</div>
+
+
+<button
+id="closeModal"
+class="close"
+aria-label="Cerrar">
+
+×
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+<div
+id="modalBody"
+class="modal-body">
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =======================================================
+     DATOS
+======================================================= -->
 
 <script src="datos.js"></script>
 
 
 <script>
 
-/* =====================================================
-   DATOS
-===================================================== */
+/* =========================================================
+   PROCESOS
+========================================================= */
 
 const data =
-window.convocatoriasOpoPoint ||
-window.datos ||
-[];
+Array.isArray(
+window.convocatoriasOpoPoint
+)
+?
+window.convocatoriasOpoPoint
+:
+(
+Array.isArray(window.datos)
+?
+window.datos
+:
+[]
+);
 
+
+/* =========================================================
+   ELEMENTOS DOM
+========================================================= */
 
 const grid =
-document.getElementById("grid");
+document.getElementById(
+"grid"
+);
 
 const search =
-document.getElementById("search");
+document.getElementById(
+"search"
+);
 
 const chips =
-document.getElementById("provinceChips");
+document.getElementById(
+"provinceChips"
+);
 
 const pagination =
-document.getElementById("pagination");
+document.getElementById(
+"pagination"
+);
+
+const modalBackdrop =
+document.getElementById(
+"modalBackdrop"
+);
+
+const modalTitle =
+document.getElementById(
+"modalTitle"
+);
+
+const modalSubtitle =
+document.getElementById(
+"modalSubtitle"
+);
+
+const modalBody =
+document.getElementById(
+"modalBody"
+);
+
+const closeModal =
+document.getElementById(
+"closeModal"
+);
 
 
-let province = "Todas";
+let province="Todas";
 
-let page = 1;
+let page=1;
 
-const perPage = 10;
+const perPage=10;
 
 
-/* =====================================================
+/* =========================================================
    PLAZOS
-===================================================== */
+========================================================= */
 
-const plazos = {
+const plazos={
+
 
 "opopoint-002-villafranca-2026":{
 inicio:"21/08/2026",
 fin:"17/09/2026"
 },
 
+
 "opopoint-003-alcala-rio-2026":{
 inicio:"17/08/2026",
 fin:"11/09/2026"
 },
+
 
 "opopoint-004-estepa-2026":{
 inicio:"18/08/2026",
 fin:"14/09/2026"
 },
 
+
 "opopoint-008-albox-2026":{
 inicio:"12/08/2026",
 fin:"08/09/2026"
 },
 
+
 "opopoint-017-berja-2026":{
 inicio:"28/07/2026",
 fin:"24/08/2026"
+},
+
+
+"opopoint-034-roquetas-2026":{
+inicio:"07/07/2026",
+fin:"04/08/2026"
+},
+
+
+"opopoint-025-baeza-2025":{
+inicio:"19/08/2025",
+fin:"15/09/2025"
+},
+
+
+"opopoint-026-ubrique-2025":{
+inicio:"26/11/2025",
+fin:"23/12/2025"
+},
+
+
+"opopoint-029-jabugo-2025":{
+inicio:"13/10/2025",
+fin:"07/11/2025"
+},
+
+
+"opopoint-014-olula-rio-2025":{
+inicio:"06/09/2025",
+fin:"03/10/2025"
+},
+
+
+"opopoint-021-almunecar-2025":{
+inicio:"12/09/2025",
+fin:"09/10/2025"
+},
+
+
+"opopoint-019-cartaya-2025":{
+inicio:"06/04/2026",
+fin:"01/05/2026"
 }
 
 };
 
 
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
+/* =========================================================
+   SEGURIDAD
+========================================================= */
 
-function esc(s){
+function esc(value){
 
-return String(s ?? "")
-.replace(/[&<>"']/g,m=>({
+return String(value ?? "")
+.replace(
+/[&<>"']/g,
+char=>({
 
 "&":"&amp;",
 "<":"&lt;",
 ">":"&gt;",
-"\"":"&quot;",
+'"':"&quot;",
 "'":"&#039;"
 
-}[m]));
-
-}
-
-
-/* =====================================================
-   FECHAS
-===================================================== */
-
-function fechaDate(texto){
-
-if(!texto)
-return null;
-
-const p =
-texto.split("/");
-
-if(p.length !== 3)
-return null;
-
-const d =
-new Date(
-Number(p[2]),
-Number(p[1])-1,
-Number(p[0])
+}[char])
 );
 
-d.setHours(0,0,0,0);
+}
 
-return d;
+
+/* =========================================================
+   FECHA
+========================================================= */
+
+function toDate(text){
+
+if(!text)
+return null;
+
+const pieces =
+String(text).split("/");
+
+if(pieces.length!==3)
+return null;
+
+const date =
+new Date(
+Number(pieces[2]),
+Number(pieces[1])-1,
+Number(pieces[0])
+);
+
+date.setHours(
+0,0,0,0
+);
+
+return date;
 
 }
 
 
-/* =====================================================
+/* =========================================================
    ESTADO PLAZO
-===================================================== */
+========================================================= */
 
-function estadoPlazo(id){
+function plazoEstado(id){
 
-const p =
+const plazo =
 plazos[id];
 
-if(!p)
+if(!plazo)
 return null;
 
 const inicio =
-fechaDate(p.inicio);
+toDate(plazo.inicio);
 
 const fin =
-fechaDate(p.fin);
+toDate(plazo.fin);
 
 if(!inicio || !fin)
 return null;
@@ -1667,37 +2257,46 @@ return null;
 const hoy =
 new Date();
 
-hoy.setHours(0,0,0,0);
+hoy.setHours(
+0,0,0,0
+);
 
 
-if(hoy < inicio){
+if(hoy<inicio){
 
-return {
+return{
 tipo:"proximo",
-clase:"plazo-open",
-titulo:"📅 Plazo aún no iniciado"
+clase:"open",
+titulo:"📅 Plazo próximo",
+dias:null
 };
 
 }
 
 
-if(hoy > fin){
+if(hoy>fin){
 
-return {
+return{
 tipo:"cerrado",
-clase:"plazo-closed",
-titulo:"🔴 Plazo finalizado"
+clase:"closed",
+titulo:"🔴 Plazo finalizado",
+dias:0
 };
 
 }
 
 
-if(hoy.getTime() === fin.getTime()){
+if(
+hoy.getTime() ===
+fin.getTime()
+){
 
-return {
+return{
 tipo:"ultimo",
-clase:"plazo-last",
-titulo:"⚠️ ÚLTIMO DÍA PARA PRESENTAR LA SOLICITUD"
+clase:"last",
+titulo:
+"⚠️ ÚLTIMO DÍA PARA PRESENTAR LA SOLICITUD",
+dias:0
 };
 
 }
@@ -1709,9 +2308,10 @@ Math.ceil(
 86400000
 );
 
-return {
+
+return{
 tipo:"abierto",
-clase:"plazo-open",
+clase:"open",
 titulo:"🟢 Plazo abierto",
 dias:dias
 };
@@ -1719,35 +2319,43 @@ dias:dias
 }
 
 
-/* =====================================================
+/* =========================================================
    TIPO
-===================================================== */
+========================================================= */
 
 function esConvocatoria(x){
 
-return String(x.tipo || "")
+return String(
+x.tipo || ""
+)
 .toUpperCase()
-.includes("CONVOCATORIA");
+.includes(
+"CONVOCATORIA"
+);
 
 }
 
 
 function esFinalizada(x){
 
-return String(x.tipo || "")
+return String(
+x.tipo || ""
+)
 .toUpperCase()
-.includes("FINALIZADA");
+.includes(
+"FINALIZADA"
+);
 
 }
 
 
-/* =====================================================
-   FUENTE OFICIAL
-===================================================== */
+/* =========================================================
+   FUENTE
+========================================================= */
 
 function fuenteOficial(x){
 
-const urls = [
+const urls=[
 
 x.boeUrl,
 
@@ -1757,18 +2365,25 @@ x.bopUrl,
 
 x.convocatoriaUrl,
 
-x.fuenteUrl
+x.fuenteUrl,
+
+x.seguimiento &&
+x.seguimiento.ultimaFuenteUrl
 
 ];
 
 
-for(const url of urls){
+for(
+const url of urls
+){
 
 if(
 url &&
 !String(url)
 .toLowerCase()
-.includes("opobusca")
+.includes(
+"opobusca"
+)
 ){
 
 return url;
@@ -1777,24 +2392,55 @@ return url;
 
 }
 
+
 return null;
 
 }
 
 
-/* =====================================================
+/* =========================================================
+   TEXTO FUENTE
+========================================================= */
+
+function textoFuente(url){
+
+if(!url)
+return "Fuente oficial";
+
+const lower =
+String(url)
+.toLowerCase();
+
+
+if(lower.includes("boe.es"))
+return "📄 Ver BOE oficial";
+
+if(lower.includes("juntadeandalucia.es"))
+return "📄 Ver BOJA oficial";
+
+if(lower.includes("bop"))
+return "📄 Ver BOP oficial";
+
+return "🏛️ Consultar fuente oficial";
+
+}
+
+
+/* =========================================================
    PROVINCIAS
-===================================================== */
+========================================================= */
 
 function renderChips(){
 
-const provincias = [
+const provinces=[
 
 "Todas",
 
 ...new Set(
 data
-.map(x=>x.provincia)
+.map(
+x=>x.provincia
+)
 .filter(Boolean)
 .sort()
 )
@@ -1803,30 +2449,40 @@ data
 
 
 chips.innerHTML =
-
-provincias
-.map(p=>`
+provinces
+.map(
+p=>`
 
 <button
-class="chip ${p===province?"active":""}"
-data-p="${esc(p)}">
+class="chip ${
+p===province
+?
+"active"
+:
+""
+}"
+data-province="${esc(p)}">
 
 ${esc(p)}
 
 </button>
 
-`)
+`
+)
 .join("");
 
 
 chips
-.querySelectorAll("button")
-.forEach(b=>{
+.querySelectorAll(
+"[data-province]"
+)
+.forEach(
+button=>{
 
-b.onclick=()=>{
+button.onclick=()=>{
 
 province =
-b.dataset.p;
+button.dataset.province;
 
 page=1;
 
@@ -1834,175 +2490,266 @@ render();
 
 };
 
-});
+}
+);
 
 }
 
 
-/* =====================================================
-   FILTRADO
-===================================================== */
+/* =========================================================
+   BUSCADOR
+========================================================= */
 
 function filtered(){
 
-const q =
+const query =
 search.value
 .trim()
 .toLowerCase();
 
 
-return data.filter(x=>{
+return data.filter(
+item=>{
 
-const cumpleProvincia =
-province === "Todas" ||
-x.provincia === province;
+const provinceOK =
+province==="Todas" ||
+item.provincia===province;
 
 
 const seguimiento =
-x.seguimiento || {};
+item.seguimiento ||
+{};
 
-const texto = `
 
-${x.puesto || ""}
+const fases =
+Array.isArray(
+seguimiento.fases
+)
+?
+seguimiento.fases
+.map(
+fase=>fase.nombre
+)
+.join(" ")
+:
+"";
 
-${x.organismo || ""}
 
-${x.municipio || ""}
+const text = `
 
-${x.provincia || ""}
+${item.organismo || ""}
 
-${x.oep || ""}
+${item.municipio || ""}
 
-${x.tipo || ""}
+${item.provincia || ""}
+
+${item.puesto || ""}
+
+${item.oep || ""}
+
+${item.tipo || ""}
 
 ${seguimiento.faseActual || ""}
 
-${seguimiento.faseNumero || ""}
-
 ${seguimiento.ultimaActuacion || ""}
 
-`;
+${seguimiento.proximaActuacion || ""}
 
-const cumpleBusqueda =
-!q ||
-texto
-.toLowerCase()
-.includes(q);
+${fases}
+
+`
+.toLowerCase();
 
 
-return
-cumpleProvincia &&
-cumpleBusqueda;
+return provinceOK &&
+(
+!query ||
+text.includes(query)
+);
 
-});
+}
+);
 
 }
 
 
-/* =====================================================
-   TIMELINE
-===================================================== */
+/* =========================================================
+   FASE ACTUAL
+========================================================= */
 
-function timelineHTML(seguimiento){
+function faseActual(item){
 
-if(!seguimiento ||
-!seguimiento.fases ||
-!seguimiento.fases.length){
+const seguimiento =
+item.seguimiento;
 
+if(
+!seguimiento ||
+!Array.isArray(
+seguimiento.fases
+)
+){
+
+return null;
+
+}
+
+
+return seguimiento.fases.find(
+fase=>fase.estado==="actual"
+) || null;
+
+}
+
+
+/* =========================================================
+   PROGRESO
+========================================================= */
+
+function progreso(item){
+
+const seguimiento =
+item.seguimiento;
+
+if(
+!seguimiento ||
+!Array.isArray(
+seguimiento.fases
+) ||
+seguimiento.fases.length===0
+){
+
+return 0;
+
+}
+
+
+const completadas =
+seguimiento.fases
+.filter(
+fase=>
+fase.estado==="completada" ||
+fase.estado==="actual"
+)
+.length;
+
+
+return Math.round(
+(
+completadas /
+seguimiento.fases.length
+)*100
+);
+
+}
+
+
+/* =========================================================
+   PLAZO HTML
+========================================================= */
+
+function plazoHTML(item){
+
+const plazo =
+plazos[item.id];
+
+if(!plazo)
 return "";
 
+
+const estado =
+plazoEstado(item.id);
+
+if(!estado)
+return "";
+
+
+let diasTexto="";
+
+
+if(
+estado.tipo==="abierto"
+){
+
+diasTexto=
+`Quedan aproximadamente
+<strong>${estado.dias} días</strong>.`;
+
 }
 
+else if(
+estado.tipo==="ultimo"
+){
 
-const porcentaje =
+diasTexto=
+"<strong>Hoy es el último día.</strong>";
 
-Math.round(
-(
-seguimiento.fases
-.filter(f =>
-f.estado === "completada"
- ||
-f.estado === "actual"
-)
-.length
-/
-seguimiento.fases.length
-)
-*100
-);
+}
+
+else if(
+estado.tipo==="cerrado"
+){
+
+diasTexto=
+"El plazo ha finalizado.";
+
+}
+
+else{
+
+diasTexto=
+`El plazo comienza el
+<strong>${esc(plazo.inicio)}</strong>.`;
+
+}
 
 
 return `
 
-<div class="timeline">
+<div class="deadline ${estado.clase}">
 
-<div class="timeline-title">
+<div class="deadline-title">
 
-📍 Progreso del proceso
-
-</div>
-
-
-${
-
-seguimiento.fases
-.map(f=>`
-
-<div
-class="timeline-item ${esc(f.estado)}">
-
-<div
-class="timeline-icon">
-
-${esc(f.icono)}
+${estado.titulo}
 
 </div>
 
 
-<div
-class="timeline-content">
+<div class="deadline-dates">
 
-<div class="timeline-name">
 
-${esc(f.nombre)}
+<div class="deadline-box">
+
+<span>
+Inicio solicitudes
+</span>
+
+<b>
+${esc(plazo.inicio)}
+</b>
+
+</div>
+
+
+<div class="deadline-box">
+
+<span>
+Fin solicitudes
+</span>
+
+<b>
+${esc(plazo.fin)}
+</b>
 
 </div>
 
 
-<div class="timeline-state">
-
-${
-f.estado === "actual"
-?
-"FASE ACTUAL"
-
-:
-f.estado === "completada"
-?
-"Completada"
-:
-"Pendiente"
-
-}
-
 </div>
 
-</div>
 
-</div>
+<div class="deadline-days">
 
-`)
-.join("")
+${diasTexto}
 
-}
-
-</div>
-
-<div class="fase-barra">
-
-<div
-class="fase-progreso"
-style="width:${porcentaje}%">
 </div>
 
 </div>
@@ -2012,62 +2759,69 @@ style="width:${porcentaje}%">
 }
 
 
-/* =====================================================
-   FASE ACTUAL
-===================================================== */
+/* =========================================================
+   FASE RESUMIDA
+========================================================= */
 
-function faseActualHTML(x){
-
-const s =
-x.seguimiento;
-
-if(!s)
-return "";
-
+function faseHTML(item){
 
 const fase =
-s.fases
-?
-s.fases.find(
-f=>f.estado==="actual"
-)
-:
-null;
-
+faseActual(item);
 
 if(!fase)
 return "";
 
 
+const seguimiento =
+item.seguimiento;
+
+
+const percent =
+progreso(item);
+
+
 return `
 
-<div class="fase-actual">
+<div class="current-phase">
 
-<div class="fase-label">
+<div class="phase-label">
 
 FASE ACTUAL
 
 </div>
 
 
-<div class="fase-nombre">
+<div class="phase-title">
 
-${esc(fase.icono)}
+${esc(fase.icono || "🎯")}
+
 ${esc(fase.nombre)}
 
 </div>
 
 
-<div class="fase-sub">
+<div class="phase-description">
 
-Fase ${esc(s.faseNumero)}
+Fase
+<strong>
+${esc(seguimiento.faseNumero || 1)}
+</strong>
 de
-${esc(s.totalFases)}
+<strong>
+${esc(seguimiento.totalFases || seguimiento.fases.length)}
+</strong>
 
 </div>
 
 
-${timelineHTML(s)}
+<div class="progress">
+
+<div
+class="progress-inner"
+style="width:${percent}%">
+</div>
+
+</div>
 
 </div>
 
@@ -2076,50 +2830,59 @@ ${timelineHTML(s)}
 }
 
 
-/* =====================================================
-   ACTUACIONES
-===================================================== */
+/* =========================================================
+   ACTIVIDAD
+========================================================= */
 
-function actuacionesHTML(x){
+function actividadHTML(item){
 
-const s =
-x.seguimiento;
+const seguimiento =
+item.seguimiento;
 
-if(!s)
+if(!seguimiento)
 return "";
 
 
-let html = "";
+let html="";
 
 
-if(s.ultimaActuacion){
+if(
+seguimiento.ultimaActuacion
+){
 
 html += `
 
-<div class="ultima-actuacion">
+<div class="activity">
 
-<strong>
+<div class="activity-title">
+
 📌 Última actuación oficial
-</strong>
 
-<p>
-${esc(s.ultimaActuacion)}
-</p>
+</div>
+
+
+<div class="activity-text">
+
+${esc(
+seguimiento.ultimaActuacion
+)}
 
 ${
-s.ultimaActualizacion
+seguimiento.ultimaActualizacion
 ?
 `
-<p>
-Actualizada:
+<br>
 <strong>
-${esc(s.ultimaActualizacion)}
+${esc(
+seguimiento.ultimaActualizacion
+)}
 </strong>
-</p>
 `
 :
 ""
 }
+
+</div>
 
 </div>
 
@@ -2128,34 +2891,44 @@ ${esc(s.ultimaActualizacion)}
 }
 
 
-if(s.proximaActuacion){
+if(
+seguimiento.proximaActuacion
+){
 
 html += `
 
-<div class="proxima">
+<div class="activity next">
 
-<strong>
+<div class="activity-title">
+
 ⏭️ Próxima actuación
-</strong>
 
-<p>
-${esc(s.proximaActuacion)}
-</p>
+</div>
+
+
+<div class="activity-text">
+
+${esc(
+seguimiento.proximaActuacion
+)}
 
 ${
-s.proximaFecha
+seguimiento.proximaFecha
 ?
 `
-<p>
-Fecha prevista:
+<br>
+Fecha:
 <strong>
-${esc(s.proximaFecha)}
+${esc(
+seguimiento.proximaFecha
+)}
 </strong>
-</p>
 `
 :
 ""
 }
+
+</div>
 
 </div>
 
@@ -2169,337 +2942,23 @@ return html;
 }
 
 
-/* =====================================================
-   PLAZO HTML
-===================================================== */
+/* =========================================================
+   OEP INFO
+========================================================= */
 
-function plazoHTML(x){
+function oepHTML(item){
 
-const p =
-plazos[x.id];
+if(
+esConvocatoria(item) ||
+esFinalizada(item)
+){
 
-if(!p)
 return "";
-
-
-const estado =
-estadoPlazo(x.id);
-
-if(!estado)
-return "";
-
-
-let countdown = "";
-
-
-if(estado.tipo === "abierto"){
-
-countdown =
-`Quedan aproximadamente
-<strong>
-${estado.dias} días
-</strong>
-para finalizar.`;
-
-}
-
-
-else if(estado.tipo === "ultimo"){
-
-countdown =
-`⚠️ <strong>
-Hoy es el último día
-</strong>
-para presentar la solicitud.`;
-
-}
-
-
-else if(estado.tipo === "cerrado"){
-
-countdown =
-"El plazo de presentación ha finalizado.";
-
-}
-
-
-else{
-
-countdown =
-`El plazo comienza el
-<strong>
-${esc(p.inicio)}
-</strong>.`;
 
 }
 
 
 return `
-
-<div class="plazo ${estado.clase}">
-
-<div class="plazo-title">
-
-${estado.titulo}
-
-</div>
-
-
-<div class="plazo-dates">
-
-<div class="plazo-date">
-
-<span>
-Inicio solicitudes
-</span>
-
-<b>
-${esc(p.inicio)}
-</b>
-
-</div>
-
-
-<div class="plazo-date">
-
-<span>
-Fin solicitudes
-</span>
-
-<b>
-${esc(p.fin)}
-</b>
-
-</div>
-
-</div>
-
-
-<div class="countdown">
-
-${countdown}
-
-</div>
-
-</div>
-
-`;
-
-}
-
-
-/* =====================================================
-   TARJETA
-===================================================== */
-
-function card(x){
-
-const convocatoria =
-esConvocatoria(x);
-
-const finalizada =
-esFinalizada(x);
-
-const seguimiento =
-x.seguimiento;
-
-
-let clase =
-"card ";
-
-
-if(finalizada){
-
-clase +=
-"final-card";
-
-}
-
-else if(convocatoria){
-
-clase +=
-"conv-card";
-
-}
-
-else{
-
-clase +=
-"oep-card";
-
-}
-
-
-/* BADGE */
-
-let badge = "";
-
-
-if(finalizada){
-
-badge = `
-
-<span class="type-badge type-final">
-
-⚫ FINALIZADA
-
-</span>
-
-`;
-
-}
-
-else if(convocatoria){
-
-badge = `
-
-<span class="type-badge type-convocatoria">
-
-🟢 CONVOCATORIA
-
-</span>
-
-`;
-
-}
-
-else{
-
-badge = `
-
-<span class="type-badge type-oep">
-
-🔵 OEP
-
-</span>
-
-`;
-
-}
-
-
-/* ESTADO PLAZO */
-
-const p =
-estadoPlazo(x.id);
-
-let estadoHTML = "";
-
-
-if(finalizada){
-
-estadoHTML = `
-
-<span class="pill final">
-
-Proceso anterior
-
-</span>
-
-`;
-
-}
-
-else if(p){
-
-if(p.tipo==="ultimo"){
-
-estadoHTML = `
-
-<span class="pill last-day">
-
-⚠️ ÚLTIMO DÍA
-
-</span>
-
-`;
-
-}
-
-else if(p.tipo==="cerrado"){
-
-estadoHTML = `
-
-<span class="pill closed">
-
-🔴 CERRADO
-
-</span>
-
-`;
-
-}
-
-else if(p.tipo==="abierto"){
-
-estadoHTML = `
-
-<span class="pill open">
-
-🟢 ABIERTO
-
-</span>
-
-`;
-
-}
-
-else{
-
-estadoHTML = `
-
-<span class="pill open">
-
-📅 PRÓXIMO
-
-</span>
-
-`;
-
-}
-
-}
-
-else if(convocatoria){
-
-estadoHTML = `
-
-<span class="pill open">
-
-📄 Publicada
-
-</span>
-
-`;
-
-}
-
-else{
-
-estadoHTML = `
-
-<span class="pill oep">
-
-⏳ Pendiente de convocatoria
-
-</span>
-
-`;
-
-}
-
-
-/* OEP INFO */
-
-let oepInfo = "";
-
-
-if(
-!convocatoria &&
-!finalizada
-){
-
-oepInfo = `
 
 <div class="oep-info">
 
@@ -2507,10 +2966,17 @@ oepInfo = `
 📢 PLAZAS OFERTADAS EN LA OEP
 </strong>
 
-El Ayuntamiento ha incluido estas plazas
-en su Oferta de Empleo Público.
+Estas plazas han sido incluidas
+en la Oferta de Empleo Público.
 
-La convocatoria se publicará posteriormente.
+<strong>
+La OEP no significa necesariamente
+que el plazo de oposición esté abierto.
+</strong>
+
+La convocatoria se mostrará
+cuando exista publicación oficial
+del proceso selectivo.
 
 </div>
 
@@ -2519,81 +2985,215 @@ La convocatoria se publicará posteriormente.
 }
 
 
-/* FUENTE */
+/* =========================================================
+   TARJETA
+========================================================= */
+
+function cardHTML(item){
+
+const convocatoria =
+esConvocatoria(item);
+
+const finalizada =
+esFinalizada(item);
+
+const plazo =
+plazoEstado(item.id);
+
+const fase =
+faseActual(item);
+
+
+let clase="card ";
+
+if(finalizada)
+clase+="final";
+
+else if(convocatoria)
+clase+="conv";
+
+else
+clase+="oep";
+
+
+let badge;
+
+
+if(finalizada){
+
+badge=`
+
+<div class="type final">
+
+⚫ PROCESO ANTERIOR
+
+</div>
+
+`;
+
+}
+else if(convocatoria){
+
+badge=`
+
+<div class="type conv">
+
+🟢 CONVOCATORIA
+
+</div>
+
+`;
+
+}
+else{
+
+badge=`
+
+<div class="type oep">
+
+🔵 OEP
+
+</div>
+
+`;
+
+}
+
+
+/* Estado */
+
+let estado;
+
+
+if(finalizada){
+
+estado=`
+
+<div class="status-pill status-final">
+
+Proceso anterior
+
+</div>
+
+`;
+
+}
+else if(plazo){
+
+if(
+plazo.tipo==="ultimo"
+){
+
+estado=`
+
+<div class="status-pill status-last">
+
+⚠️ ÚLTIMO DÍA
+
+</div>
+
+`;
+
+}
+else if(
+plazo.tipo==="cerrado"
+){
+
+estado=`
+
+<div class="status-pill status-closed">
+
+🔴 PLAZO FINALIZADO
+
+</div>
+
+`;
+
+}
+else if(
+plazo.tipo==="abierto"
+){
+
+estado=`
+
+<div class="status-pill status-open">
+
+🟢 PLAZO ABIERTO
+
+</div>
+
+`;
+
+}
+else{
+
+estado=`
+
+<div class="status-pill status-open">
+
+📅 PRÓXIMO
+
+</div>
+
+`;
+
+}
+
+}
+else if(convocatoria){
+
+estado=`
+
+<div class="status-pill status-open">
+
+📄 CONVOCATORIA PUBLICADA
+
+</div>
+
+`;
+
+}
+else{
+
+estado=`
+
+<div class="status-pill status-oep">
+
+⏳ PENDIENTE DE CONVOCATORIA
+
+</div>
+
+`;
+
+}
+
+
+/* Fuente */
 
 const url =
-fuenteOficial(x);
+fuenteOficial(item);
 
 
-let boton = "";
+let sourceButton="";
 
 
 if(url){
 
-let texto =
-"🏛️ Fuente oficial";
-
-
-if(
-String(url)
-.includes("boe.es")
-){
-
-texto =
-"📄 Ver BOE oficial";
-
-}
-
-else if(
-String(url)
-.includes("juntadeandalucia.es")
-){
-
-texto =
-"📄 Ver BOJA oficial";
-
-}
-
-else if(
-String(url)
-.includes("bop")
-){
-
-texto =
-"📄 Ver BOP oficial";
-
-}
-
-else if(convocatoria){
-
-texto =
-"📄 Ver convocatoria oficial";
-
-}
-
-else{
-
-texto =
-"🏛️ Consultar Ayuntamiento";
-
-}
-
-
-boton = `
+sourceButton=`
 
 <a
-href="${esc(url)}"
-target="_blank"
-rel="noopener noreferrer"
-class="${
+class="btn ${
 convocatoria
 ?
-"green"
+"btn-green"
 :
-"blue"
-}">
+"btn-blue"
+}"
+href="${esc(url)}"
+target="_blank"
+rel="noopener noreferrer">
 
-${texto}
+${textoFuente(url)}
 
 </a>
 
@@ -2602,7 +3202,7 @@ ${texto}
 }
 
 
-/* TARJETA */
+/* Tarjeta */
 
 return `
 
@@ -2618,10 +3218,11 @@ class="${clase}">
 <h3 class="ayuntamiento">
 
 🏛️
+
 ${esc(
-x.organismo ||
-x.municipio ||
-"Ayuntamiento"
+item.organismo ||
+item.municipio ||
+"AYUNTAMIENTO"
 )}
 
 </h3>
@@ -2630,7 +3231,7 @@ x.municipio ||
 <div class="puesto">
 
 ${esc(
-x.puesto ||
+item.puesto ||
 "Policía Local"
 )}
 
@@ -2650,9 +3251,12 @@ ${badge}
 
 <div>
 
-<div class="plazas-number">
+<div class="plazas-num">
 
-${esc(x.plazas || 0)}
+${esc(
+item.plazas ||
+0
+)}
 
 </div>
 
@@ -2666,93 +3270,93 @@ plazas
 </div>
 
 
-${estadoHTML}
+${estado}
 
 
 </div>
 
 
-${oepInfo}
+${oepHTML(item)}
 
 
-${plazoHTML(x)}
+${plazoHTML(item)}
 
 
-${faseActualHTML(x)}
+${faseHTML(item)}
 
 
-${actuacionesHTML(x)}
+${actividadHTML(item)}
 
 
 <div class="meta">
 
 
-<div>
+<div class="meta-box">
 
 <span>
 Municipio
 </span>
 
 <b>
-${esc(x.municipio || "—")}
+${esc(item.municipio || "—")}
 </b>
 
 </div>
 
 
-<div>
+<div class="meta-box">
 
 <span>
 Provincia
 </span>
 
 <b>
-${esc(x.provincia || "—")}
+${esc(item.provincia || "—")}
 </b>
 
 </div>
 
 
-<div>
+<div class="meta-box">
 
 <span>
 Grupo
 </span>
 
 <b>
-${esc(x.grupo || "—")}
+${esc(item.grupo || "—")}
 </b>
 
 </div>
 
 
-<div>
+<div class="meta-box">
 
 <span>
 Turno
 </span>
 
 <b>
-${esc(x.turno || "—")}
+${esc(item.turno || "—")}
 </b>
 
 </div>
 
 
-<div>
+<div class="meta-box">
 
 <span>
 OEP
 </span>
 
 <b>
-${esc(x.oep || "—")}
+${esc(item.oep || "—")}
 </b>
 
 </div>
 
 
-<div>
+<div class="meta-box">
 
 <span>
 Estado
@@ -2760,55 +3364,42 @@ Estado
 
 <b>
 ${esc(
-x.estadoActual ||
-x.estado ||
+item.estadoActual ||
+item.estado ||
 "—"
 )}
 </b>
 
 </div>
 
-</div>
-
-
-<div class="links">
-
-${boton}
-
-${
-seguimiento &&
-seguimiento.ultimaFuenteUrl
-?
-`
-
-<a
-href="${esc(seguimiento.ultimaFuenteUrl)}"
-target="_blank"
-rel="noopener noreferrer"
-class="purple">
-
-📰 Última publicación
-
-</a>
-
-`
-:
-""
-}
 
 </div>
 
 
-<div class="note">
+<div class="actions">
 
+
+${sourceButton}
+
+
+<button
+class="btn btn-purple details-btn"
+data-details="${esc(item.id)}">
+
+🎯 Ver seguimiento
+
+</button>
+
+
+</div>
+
+
+<div class="source">
+
+Fuente:
 ${esc(
-seguimiento &&
-seguimiento.ultimaFuente
-?
-seguimiento.ultimaFuente
-:
-x.fuente ||
-"Fuente oficial pendiente"
+item.fuente ||
+"Pendiente"
 )}
 
 </div>
@@ -2821,129 +3412,775 @@ x.fuente ||
 }
 
 
-/* =====================================================
+/* =========================================================
+   MODAL — DETALLE DEL PROCESO
+========================================================= */
+
+function openDetails(id){
+
+const item =
+data.find(
+x=>x.id===id
+);
+
+
+if(!item)
+return;
+
+
+const seguimiento =
+item.seguimiento;
+
+
+modalTitle.textContent =
+item.organismo ||
+item.municipio ||
+"Proceso selectivo";
+
+
+modalSubtitle.textContent =
+`${item.puesto || "Policía Local"} · ${item.plazas || 0} plazas`;
+
+
+let html="";
+
+
+/* ---------------------------------------------------------
+   INFORMACIÓN GENERAL
+--------------------------------------------------------- */
+
+html += `
+
+<div class="detail-grid">
+
+
+<div class="detail-box">
+
+<span>
+Municipio
+</span>
+
+<b>
+${esc(
+item.municipio || "—"
+)}
+</b>
+
+</div>
+
+
+<div class="detail-box">
+
+<span>
+Provincia
+</span>
+
+<b>
+${esc(
+item.provincia || "—"
+)}
+</b>
+
+</div>
+
+
+<div class="detail-box">
+
+<span>
+Plazas
+</span>
+
+<b>
+${esc(
+item.plazas || 0
+)}
+</b>
+
+</div>
+
+
+<div class="detail-box">
+
+<span>
+OEP
+</span>
+
+<b>
+${esc(
+item.oep || "—"
+)}
+</b>
+
+</div>
+
+
+<div class="detail-box">
+
+<span>
+Tipo
+</span>
+
+<b>
+${esc(
+item.tipo || "—"
+)}
+</b>
+
+</div>
+
+
+<div class="detail-box">
+
+<span>
+Turno
+</span>
+
+<b>
+${esc(
+item.turno || "—"
+)}
+</b>
+
+</div>
+
+
+</div>
+
+`;
+
+
+/* ---------------------------------------------------------
+   PLAZO
+--------------------------------------------------------- */
+
+if(
+plazos[item.id]
+){
+
+html += `
+
+<div class="modal-section">
+
+<h3>
+📅 Plazo de solicitudes
+</h3>
+
+${plazoHTML(item)}
+
+</div>
+
+`;
+
+}
+
+
+/* ---------------------------------------------------------
+   FASE
+--------------------------------------------------------- */
+
+if(
+seguimiento &&
+Array.isArray(
+seguimiento.fases
+)
+){
+
+const fase =
+faseActual(item);
+
+
+html += `
+
+<div class="modal-section">
+
+<h3>
+🎯 Seguimiento del proceso
+</h3>
+
+`;
+
+
+if(fase){
+
+html += `
+
+<div class="current-phase">
+
+<div class="phase-label">
+
+FASE ACTUAL
+
+</div>
+
+<div class="phase-title">
+
+${esc(
+fase.icono || "🎯"
+)}
+
+${esc(fase.nombre)}
+
+</div>
+
+<div class="phase-description">
+
+Fase
+<strong>
+${esc(
+seguimiento.faseNumero || 1
+)}
+</strong>
+
+de
+
+<strong>
+${esc(
+seguimiento.totalFases ||
+seguimiento.fases.length
+)}
+</strong>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* ---------------------------------------------------------
+   TIMELINE
+--------------------------------------------------------- */
+
+html += `
+
+<div
+class="timeline"
+style="margin-top:15px">
+
+`;
+
+
+seguimiento.fases
+.forEach(
+fase=>{
+
+let stateText="Pendiente";
+
+
+if(
+fase.estado==="actual"
+){
+
+stateText="FASE ACTUAL";
+
+}
+else if(
+fase.estado==="completada"
+){
+
+stateText="Completada";
+
+}
+
+
+html += `
+
+<div
+class="timeline-item ${
+fase.estado==="actual"
+?
+"current"
+:
+fase.estado==="completada"
+?
+"done"
+:
+""
+}">
+
+
+<div class="timeline-icon">
+
+${esc(
+fase.icono || "•"
+)}
+
+</div>
+
+
+<div>
+
+<div class="timeline-name">
+
+${esc(
+fase.nombre
+)}
+
+</div>
+
+
+<div class="timeline-state">
+
+${stateText}
+
+</div>
+
+</div>
+
+
+</div>
+
+`;
+
+}
+);
+
+
+html += `
+
+</div>
+
+`;
+
+}
+
+
+/* ---------------------------------------------------------
+   ÚLTIMA / PRÓXIMA ACTUACIÓN
+--------------------------------------------------------- */
+
+if(
+seguimiento
+){
+
+if(
+seguimiento.ultimaActuacion
+){
+
+html += `
+
+<div class="modal-section">
+
+<h3>
+📌 Última actuación oficial
+</h3>
+
+<div class="activity">
+
+<div class="activity-text">
+
+${esc(
+seguimiento.ultimaActuacion
+)}
+
+${
+seguimiento.ultimaActualizacion
+?
+`
+<br>
+Actualización:
+<strong>
+${esc(
+seguimiento.ultimaActualizacion
+)}
+</strong>
+`
+:
+""
+}
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+if(
+seguimiento.proximaActuacion
+){
+
+html += `
+
+<div class="modal-section">
+
+<h3>
+⏭️ Próxima actuación
+</h3>
+
+<div class="activity next">
+
+<div class="activity-text">
+
+${esc(
+seguimiento.proximaActuacion
+)}
+
+${
+seguimiento.proximaFecha
+?
+`
+<br>
+Fecha:
+<strong>
+${esc(
+seguimiento.proximaFecha
+)}
+</strong>
+`
+:
+""
+}
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+}
+
+
+/* ---------------------------------------------------------
+   ENLACES
+--------------------------------------------------------- */
+
+const url =
+fuenteOficial(item);
+
+
+html += `
+
+<div class="modal-actions">
+
+${
+url
+?
+`
+
+<a
+class="btn btn-green"
+href="${esc(url)}"
+target="_blank"
+rel="noopener noreferrer">
+
+${textoFuente(url)}
+
+</a>
+
+`
+:
+""
+}
+
+${
+seguimiento &&
+seguimiento.ultimaFuenteUrl
+?
+`
+
+<a
+class="btn btn-purple"
+href="${esc(
+seguimiento.ultimaFuenteUrl
+)}"
+target="_blank"
+rel="noopener noreferrer">
+
+📰 Última publicación
+
+</a>
+
+`
+:
+""
+}
+
+</div>
+
+`;
+
+
+modalBody.innerHTML =
+html;
+
+
+modalBackdrop.classList.add(
+"show"
+);
+
+modalBackdrop.setAttribute(
+"aria-hidden",
+"false"
+);
+
+document.body.style.overflow =
+"hidden";
+
+}
+
+
+/* =========================================================
+   CERRAR MODAL
+========================================================= */
+
+function closeDetails(){
+
+modalBackdrop.classList.remove(
+"show"
+);
+
+modalBackdrop.setAttribute(
+"aria-hidden",
+"true"
+);
+
+document.body.style.overflow =
+"";
+
+}
+
+
+/* =========================================================
+   CLICK FUERA
+========================================================= */
+
+modalBackdrop.addEventListener(
+"click",
+event=>{
+
+if(
+event.target ===
+modalBackdrop
+){
+
+closeDetails();
+
+}
+
+}
+);
+
+
+/* =========================================================
+   ESC
+========================================================= */
+
+document.addEventListener(
+"keydown",
+event=>{
+
+if(
+event.key==="Escape"
+){
+
+closeDetails();
+
+}
+
+}
+);
+
+
+closeModal.onclick =
+closeDetails;
+
+
+/* =========================================================
+   ACTIVAR BOTONES DETALLE
+========================================================= */
+
+document.addEventListener(
+"click",
+event=>{
+
+const button =
+event.target.closest(
+"[data-details]"
+);
+
+if(!button)
+return;
+
+
+openDetails(
+button.dataset.details
+);
+
+}
+);
+
+
+/* =========================================================
    RENDER
-===================================================== */
+========================================================= */
 
 function render(){
 
 renderChips();
 
 
-const arr =
+const items =
 filtered();
 
 
-const pages =
+const totalPages =
 Math.max(
 1,
 Math.ceil(
-arr.length / perPage
+items.length /
+perPage
 )
 );
 
 
-if(page > pages){
+if(
+page >
+totalPages
+){
 
-page = pages;
+page =
+totalPages;
 
 }
 
 
-/* ESTADÍSTICAS */
+/* ---------------------------------------------------------
+   ESTADÍSTICAS
+--------------------------------------------------------- */
 
 document
-.getElementById("total")
+.getElementById(
+"total"
+)
 .textContent =
 data.length;
 
 
 document
-.getElementById("plazas")
+.getElementById(
+"plazas"
+)
 .textContent =
 data.reduce(
-(a,x)=>
-a+
-(Number(x.plazas)||0),
+(total,item)=>
+total +
+(
+Number(item.plazas)
+||
+0
+),
 0
 );
 
 
 document
-.getElementById("abiertas")
+.getElementById(
+"abiertas"
+)
 .textContent =
+data.filter(
+item=>{
 
-data.filter(x=>{
-
-const p =
-estadoPlazo(x.id);
-
-return p &&
-(
-p.tipo==="abierto" ||
-p.tipo==="ultimo"
+const estado =
+plazoEstado(
+item.id
 );
 
-}).length;
+return estado &&
+(
+estado.tipo==="abierto" ||
+estado.tipo==="ultimo"
+);
+
+}
+).length;
 
 
 document
-.getElementById("provincias")
+.getElementById(
+"provincias"
+)
 .textContent =
 
 new Set(
 data
-.map(x=>x.provincia)
+.map(
+item=>item.provincia
+)
 .filter(Boolean)
 ).size;
 
 
-/* TARJETAS */
+/* ---------------------------------------------------------
+   TARJETAS
+--------------------------------------------------------- */
 
 const start =
-(page-1)*perPage;
+(page-1) *
+perPage;
+
+
+const pageItems =
+items.slice(
+start,
+start+perPage
+);
 
 
 grid.innerHTML =
-
-arr
-.slice(
-start,
-start+perPage
-)
-.map(card)
+pageItems.length
+?
+pageItems
+.map(cardHTML)
 .join("")
-
-||
-
+:
 `
+
 <div class="card">
+
+<strong>
 No hay resultados.
+</strong>
+
 </div>
+
 `;
 
 
-/* PAGINACIÓN */
+/* ---------------------------------------------------------
+   PAGINACIÓN
+--------------------------------------------------------- */
 
 pagination.innerHTML =
-
 Array
 .from(
-{length:pages},
-(_,i)=>`
+{
+length:totalPages
+},
+(_,index)=>`
 
 <button
 class="${
-i+1===page
+index+1 === page
 ?
 "active"
 :
 ""
 }"
+data-page="${index+1}">
 
-data-page="${i+1}">
-
-${i+1}
+${index+1}
 
 </button>
 
@@ -2953,14 +4190,18 @@ ${i+1}
 
 
 pagination
-.querySelectorAll("button")
-.forEach(b=>{
+.querySelectorAll(
+"[data-page]"
+)
+.forEach(
+button=>{
 
-b.onclick=()=>{
+button.onclick =
+()=>{
 
 page =
 Number(
-b.dataset.page
+button.dataset.page
 );
 
 render();
@@ -2972,14 +4213,15 @@ behavior:"smooth"
 
 };
 
-});
+}
+);
 
 }
 
 
-/* =====================================================
+/* =========================================================
    BUSCADOR
-===================================================== */
+========================================================= */
 
 search.addEventListener(
 "input",
@@ -2993,15 +4235,15 @@ render();
 );
 
 
-/* =====================================================
-   INICIO
-===================================================== */
+/* =========================================================
+   ARRANQUE
+========================================================= */
 
 render();
+
 
 </script>
 
 
 </body>
-
 </html>
