@@ -6,71 +6,1163 @@
 <meta name="theme-color" content="#0f172a">
 <meta name="description" content="OpoPoint — Radar de oposiciones de Policía Local en Andalucía">
 <title>OpoPoint · Radar de Policía Local Andalucía</title>
+
 <style>
-:root{--slate:#0f172a;--blue:#172554;--emerald:#059669;--bg:#f1f5f9;--card:#fff;--muted:#64748b;--line:#e2e8f0;--danger:#dc2626;--amber:#d97706}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#0f172a}
-header{background:linear-gradient(135deg,#020617,#172554);color:#fff;padding:20px 16px 24px;position:sticky;top:0;z-index:5;box-shadow:0 8px 25px #0f172a22}
-.wrap{max-width:1100px;margin:auto}.brand{display:flex;align-items:center;gap:12px}.radar{width:44px;height:44px;border-radius:14px;background:#064e3b;display:grid;place-items:center;font-size:24px;box-shadow:0 6px 18px #0004}.brand h1{font-size:22px;margin:0}.brand small{display:block;color:#cbd5e1;margin-top:2px}
-.status{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap}.badge{border:1px solid #ffffff2b;background:#ffffff12;border-radius:999px;padding:7px 10px;font-size:12px}.live{background:#065f46;border-color:#10b981}
-main{padding:18px 16px 50px}.hero{margin-bottom:16px}.hero h2{font-size:28px;line-height:1.1;margin:0 0 8px}.hero p{margin:0;color:var(--muted)}
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:18px 0}.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:0 5px 15px #0f172a0a}.stat b{font-size:22px}.stat span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
-.controls{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px;margin-bottom:16px;box-shadow:0 5px 18px #0f172a0a}.search{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:12px;font-size:16px;outline:none}.search:focus{border-color:var(--emerald);box-shadow:0 0 0 3px #05966922}.chips{display:flex;gap:7px;overflow:auto;padding:10px 0 2px}.chip{white-space:nowrap;border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;cursor:pointer}.chip.active{background:var(--slate);color:#fff;border-color:var(--slate)}
-.grid{display:grid;gap:12px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 6px 20px #0f172a0b}.top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.card h3{font-size:18px;margin:0 0 4px}.org{color:var(--muted);font-size:13px}.pill{font-size:11px;font-weight:700;border-radius:999px;padding:6px 8px;white-space:nowrap}.open{background:#d1fae5;color:#065f46}.follow{background:#fef3c7;color:#92400e}.closed{background:#fee2e2;color:#991b1b}.meta{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin:14px 0}.meta div{background:#f8fafc;border-radius:12px;padding:9px}.meta span{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.05em}.meta b{font-size:14px}.links{display:flex;gap:7px;flex-wrap:wrap}.links a{display:inline-block;text-decoration:none;color:#fff;background:var(--slate);padding:9px 10px;border-radius:10px;font-size:12px}.links a.green{background:var(--emerald)}.note{font-size:11px;color:var(--muted);margin-top:10px}
-.pagination{display:flex;justify-content:center;gap:8px;margin:20px 0}.pagination button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 12px;cursor:pointer}.pagination button.active{background:var(--slate);color:#fff}
-footer{color:var(--muted);text-align:center;font-size:12px;padding:20px}
-@media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}.grid{grid-template-columns:repeat(2,1fr)}main{padding-top:28px}.hero h2{font-size:36px}}
+:root{
+--slate:#0f172a;
+--blue:#172554;
+--emerald:#059669;
+--bg:#f1f5f9;
+--card:#fff;
+--muted:#64748b;
+--line:#e2e8f0;
+--danger:#dc2626;
+--amber:#d97706;
+}
+
+*{box-sizing:border-box}
+
+body{
+margin:0;
+background:var(--bg);
+font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+color:#0f172a
+}
+
+header{
+background:linear-gradient(135deg,#020617,#172554);
+color:#fff;
+padding:20px 16px 24px;
+position:sticky;
+top:0;
+z-index:5;
+box-shadow:0 8px 25px #0f172a22
+}
+
+.wrap{
+max-width:1100px;
+margin:auto
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:12px
+}
+
+.radar{
+width:44px;
+height:44px;
+border-radius:14px;
+background:#064e3b;
+display:grid;
+place-items:center;
+font-size:24px;
+box-shadow:0 6px 18px #0004
+}
+
+.brand h1{
+font-size:22px;
+margin:0
+}
+
+.brand small{
+display:block;
+color:#cbd5e1;
+margin-top:2px
+}
+
+.status{
+margin-top:16px;
+display:flex;
+gap:8px;
+flex-wrap:wrap
+}
+
+.badge{
+border:1px solid #ffffff2b;
+background:#ffffff12;
+border-radius:999px;
+padding:7px 10px;
+font-size:12px
+}
+
+.live{
+background:#065f46;
+border-color:#10b981
+}
+
+main{
+padding:18px 16px 50px
+}
+
+.hero{
+margin-bottom:16px
+}
+
+.hero h2{
+font-size:28px;
+line-height:1.1;
+margin:0 0 8px
+}
+
+.hero p{
+margin:0;
+color:var(--muted)
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+margin:18px 0
+}
+
+.stat{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:16px;
+padding:14px;
+box-shadow:0 5px 15px #0f172a0a
+}
+
+.stat b{
+font-size:22px
+}
+
+.stat span{
+display:block;
+color:var(--muted);
+font-size:12px;
+margin-top:3px
+}
+
+.controls{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:18px;
+padding:12px;
+margin-bottom:16px;
+box-shadow:0 5px 18px #0f172a0a
+}
+
+.search{
+width:100%;
+padding:13px 14px;
+border:1px solid var(--line);
+border-radius:12px;
+font-size:16px;
+outline:none
+}
+
+.search:focus{
+border-color:var(--emerald);
+box-shadow:0 0 0 3px #05966922
+}
+
+.chips{
+display:flex;
+gap:7px;
+overflow:auto;
+padding:10px 0 2px
+}
+
+.chip{
+white-space:nowrap;
+border:1px solid var(--line);
+background:#fff;
+border-radius:999px;
+padding:8px 11px;
+cursor:pointer
+}
+
+.chip.active{
+background:var(--slate);
+color:#fff;
+border-color:var(--slate)
+}
+
+.grid{
+display:grid;
+gap:12px
+}
+
+.card{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:18px;
+padding:16px;
+box-shadow:0 6px 20px #0f172a0b
+}
+
+.top{
+display:flex;
+justify-content:space-between;
+gap:10px;
+align-items:flex-start
+}
+
+.card h3{
+font-size:18px;
+margin:0 0 4px
+}
+
+.org{
+color:var(--muted);
+font-size:13px
+}
+
+.pill{
+font-size:11px;
+font-weight:700;
+border-radius:999px;
+padding:6px 8px;
+white-space:nowrap
+}
+
+.open{
+background:#d1fae5;
+color:#065f46
+}
+
+.follow{
+background:#fef3c7;
+color:#92400e
+}
+
+.closed{
+background:#fee2e2;
+color:#991b1b
+}
+
+.oep{
+background:#dbeafe;
+color:#1e40af
+}
+
+.meta{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:9px;
+margin:14px 0
+}
+
+.meta div{
+background:#f8fafc;
+border-radius:12px;
+padding:9px
+}
+
+.meta span{
+display:block;
+color:var(--muted);
+font-size:10px;
+text-transform:uppercase;
+letter-spacing:.05em
+}
+
+.meta b{
+font-size:14px
+}
+
+.links{
+display:flex;
+gap:7px;
+flex-wrap:wrap
+}
+
+.links a{
+display:inline-block;
+text-decoration:none;
+color:#fff;
+background:var(--slate);
+padding:9px 10px;
+border-radius:10px;
+font-size:12px
+}
+
+.links a.green{
+background:var(--emerald)
+}
+
+.links a.blue{
+background:#2563eb
+}
+
+.links a.amber{
+background:#d97706
+}
+
+.note{
+font-size:11px;
+color:var(--muted);
+margin-top:10px
+}
+
+.pagination{
+display:flex;
+justify-content:center;
+gap:8px;
+margin:20px 0;
+flex-wrap:wrap
+}
+
+.pagination button{
+border:1px solid var(--line);
+background:#fff;
+border-radius:10px;
+padding:9px 12px;
+cursor:pointer
+}
+
+.pagination button.active{
+background:var(--slate);
+color:#fff
+}
+
+.legend{
+background:#fff;
+border:1px solid var(--line);
+border-radius:16px;
+padding:13px;
+margin-bottom:16px;
+font-size:12px;
+color:var(--muted)
+}
+
+.legend strong{
+color:#0f172a
+}
+
+.legend-row{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:8px
+}
+
+.legend-item{
+padding:6px 9px;
+border-radius:999px;
+background:#f8fafc
+}
+
+footer{
+color:var(--muted);
+text-align:center;
+font-size:12px;
+padding:20px
+}
+
+@media(min-width:700px){
+.stats{
+grid-template-columns:repeat(4,1fr)
+}
+
+.grid{
+grid-template-columns:repeat(2,1fr)
+}
+
+main{
+padding-top:28px
+}
+
+.hero h2{
+font-size:36px
+}
+}
 </style>
 </head>
+
 <body>
-<header><div class="wrap">
-  <div class="brand"><div class="radar">◉</div><div><h1>OpoPoint</h1><small>Radar de Policía Local · Andalucía</small></div></div>
-  <div class="status"><span class="badge live">● Radar operativo</span><span class="badge">Última revisión: 24/08/2026</span><span class="badge">Próxima revisión objetivo: 16:00</span></div>
-</div></header>
+
+<header>
+<div class="wrap">
+
+<div class="brand">
+<div class="radar">◉</div>
+<div>
+<h1>OpoPoint</h1>
+<small>Radar de Policía Local · Andalucía</small>
+</div>
+</div>
+
+<div class="status">
+<span class="badge live">● Radar operativo</span>
+<span class="badge">Última revisión: 24/08/2026</span>
+<span class="badge">Fuente oficial prioritaria</span>
+</div>
+
+</div>
+</header>
+
 <main class="wrap">
-<section class="hero"><h2>Encuentra tu plaza de Policía Local</h2><p>Convocatorias detectadas, organizadas por provincia y con acceso a las fuentes oficiales disponibles.</p></section>
-<section class="stats"><div class="stat"><b id="total">0</b><span>registros cargados</span></div><div class="stat"><b id="plazas">0</b><span>plazas detectadas</span></div><div class="stat"><b id="abiertas">0</b><span>en seguimiento / abiertas</span></div><div class="stat"><b id="provincias">0</b><span>provincias</span></div></section>
-<section class="controls">
-<input id="search" class="search" placeholder="Buscar municipio, organismo o provincia…">
-<div id="provinceChips" class="chips"></div>
+
+<section class="hero">
+<h2>Encuentra tu plaza de Policía Local</h2>
+<p>
+Ofertas de empleo público y convocatorias de Policía Local en Andalucía,
+con acceso a las fuentes oficiales disponibles.
+</p>
 </section>
+
+<section class="stats">
+
+<div class="stat">
+<b id="total">0</b>
+<span>registros cargados</span>
+</div>
+
+<div class="stat">
+<b id="plazas">0</b>
+<span>plazas detectadas</span>
+</div>
+
+<div class="stat">
+<b id="abiertas">0</b>
+<span>en plazo</span>
+</div>
+
+<div class="stat">
+<b id="provincias">0</b>
+<span>provincias</span>
+</div>
+
+</section>
+
+<div class="legend">
+
+<strong>¿Qué significa cada registro?</strong>
+
+<div class="legend-row">
+
+<div class="legend-item">🟢 Convocatoria oficial</div>
+
+<div class="legend-item">🔵 Oferta OEP</div>
+
+<div class="legend-item">🟡 Pendiente de verificar</div>
+
+</div>
+
+</div>
+
+<section class="controls">
+
+<input
+id="search"
+class="search"
+placeholder="Buscar municipio, organismo o provincia…"
+>
+
+<div id="provinceChips" class="chips"></div>
+
+</section>
+
 <section id="grid" class="grid"></section>
+
 <div id="pagination" class="pagination"></div>
+
 </main>
-<footer>OpoPoint · Proyecto en fase inicial. OpoBusca se usa como fuente de detección; la información oficial prevalece cuando está localizada.</footer>
+
+<footer>
+OpoPoint · Las fuentes oficiales prevalecen siempre.
+OpoBusca puede utilizarse como detector, pero nunca como enlace de destino para el usuario.
+</footer>
+
 <script src="datos.js"></script>
+
 <script>
-const data = window.convocatoriasOpoPoint || window.datos || [];
-const grid=document.getElementById('grid'), search=document.getElementById('search'), chips=document.getElementById('provinceChips'), pagination=document.getElementById('pagination');
-let province='Todas', page=1, perPage=10;
-const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
-function statusClass(s){return s==='En plazo'?'open':s==='Cerrado'?'closed':'follow'}
+
+const data =
+window.convocatoriasOpoPoint ||
+window.datos ||
+[];
+
+const grid =
+document.getElementById('grid');
+
+const search =
+document.getElementById('search');
+
+const chips =
+document.getElementById('provinceChips');
+
+const pagination =
+document.getElementById('pagination');
+
+let province='Todas';
+
+let page=1;
+
+let perPage=10;
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+const esc=s=>
+String(s??'')
+.replace(/[&<>"']/g,m=>({
+'&':'&amp;',
+'<':'&lt;',
+'>':'&gt;',
+'"':'&quot;',
+"'":'&#039;'
+}[m]));
+
+
+/* =========================
+   AYUNTAMIENTOS OFICIALES
+========================= */
+
+const ayuntamientos={
+
+"Aznalcóllar":
+"https://www.aznalcollar.es/",
+
+"Aznalcollar":
+"https://www.aznalcollar.es/",
+
+"Villafranca de Córdoba":
+"https://www.villafrancadecordoba.es/",
+
+"Alcalá del Río":
+"https://www.alcaladelrio.es/",
+
+"Estepa":
+"https://www.estepa.es/",
+
+"Dos Torres":
+"https://www.dostorres.es/",
+
+"La Puebla del Río":
+"https://www.lapuebladelrio.es/",
+
+"Lanjarón":
+"https://www.lanjaron.es/",
+
+"Albox":
+"https://www.albox.es/",
+
+"Marbella":
+"https://www.marbella.es/",
+
+"Osuna":
+"https://www.osuna.es/",
+
+"Mojácar":
+"https://www.mojacar.es/",
+
+"Palomares del Río":
+"https://www.palomaresdelrio.es/",
+
+"Cuevas del Almanzora":
+"https://www.cuevasdelalmanzora.es/",
+
+"Olula del Río":
+"https://www.oluladelrio.es/",
+
+"Motril":
+"https://www.motril.es/",
+
+"La Mojonera":
+"https://www.lamojonera.es/",
+
+"Berja":
+"https://www.berja.es/",
+
+"Marchena":
+"https://www.marchena.es/",
+
+"Cartaya":
+"https://www.cartaya.es/",
+
+"Hinojos":
+"https://www.hinojos.es/",
+
+"Almuñécar":
+"https://www.almunecar.es/",
+
+"Algeciras":
+"https://www.algeciras.es/",
+
+"Espartinas":
+"https://www.espartinas.net/",
+
+"Montoro":
+"https://www.montoro.es/",
+
+"Baeza":
+"https://www.baeza.es/",
+
+"Ubrique":
+"https://www.ubrique.es/",
+
+"Loja":
+"https://www.aytoloja.org/",
+
+"Trebujena":
+"https://www.trebujena.es/",
+
+"Jabugo":
+"https://www.jabugo.es/",
+
+"Cádiz":
+"https://www.cadiz.es/",
+
+"Moguer":
+"https://www.aytomoguer.es/",
+
+"Maracena":
+"https://www.maracena.es/",
+
+"Pedro Abad":
+"https://www.ayunpedroabad.es/",
+
+"Roquetas de Mar":
+"https://www.roquetasdemar.es/",
+
+"Istán":
+"https://www.istan.es/",
+
+"Benamejí":
+"https://www.benameji.es/",
+
+"Villarrasa":
+"https://www.villarrasa.es/"
+
+};
+
+
+/* =========================
+   OBTENER WEB AYUNTAMIENTO
+========================= */
+
+function ayuntamientoUrl(x){
+
+if(x.municipio && ayuntamientos[x.municipio]){
+return ayuntamientos[x.municipio];
+}
+
+if(x.organismo){
+
+const encontrado=
+Object.keys(ayuntamientos)
+.find(nombre =>
+x.organismo
+.toLowerCase()
+.includes(nombre.toLowerCase())
+);
+
+if(encontrado){
+return ayuntamientos[encontrado];
+}
+
+}
+
+return null;
+
+}
+
+
+/* =========================
+   COMPROBAR FUENTE OFICIAL
+========================= */
+
+function fuenteOficial(x){
+
+/*
+Nunca utilizamos fuenteUrl directamente
+porque actualmente puede contener OpoBusca.
+*/
+
+if(x.boeUrl &&
+!x.boeUrl.includes('opobusca.com')){
+
+return {
+url:x.boeUrl,
+texto:'📄 Ver convocatoria oficial',
+clase:''
+};
+
+}
+
+if(x.bojaUrl &&
+!x.bojaUrl.includes('opobusca.com') &&
+!x.bojaUrl.includes('verificacion')){
+
+return {
+url:x.bojaUrl,
+texto:'📄 Ver publicación oficial',
+clase:'green'
+};
+
+}
+
+const ayto=ayuntamientoUrl(x);
+
+if(ayto){
+
+return {
+url:ayto,
+texto:'🏛️ Consultar Ayuntamiento',
+clase:'blue'
+};
+
+}
+
+return null;
+
+}
+
+
+/* =========================
+   ESTADO VISUAL
+========================= */
+
+function statusClass(s){
+
+if(s==='En plazo')
+return 'open';
+
+if(s==='Cerrado')
+return 'closed';
+
+if(s==='Seguimiento')
+return 'follow';
+
+return 'follow';
+
+}
+
+
+/* =========================
+   TIPO DEL REGISTRO
+========================= */
+
+function tipoRegistro(x){
+
+if(
+x.boeUrl ||
+(
+x.verificacion &&
+x.verificacion.toLowerCase()
+.includes('oficial')
+)
+){
+
+return 'CONVOCATORIA';
+
+}
+
+return 'OEP / OFERTA';
+
+}
+
+
+/* =========================
+   CHIPS PROVINCIAS
+========================= */
+
 function renderChips(){
- const ps=['Todas',...new Set(data.map(x=>x.provincia).sort())];
- chips.innerHTML=ps.map(p=>`<button class="chip ${p===province?'active':''}" data-p="${esc(p)}">${esc(p)}</button>`).join('');
- chips.querySelectorAll('button').forEach(b=>b.onclick=()=>{province=b.dataset.p;page=1;render()});
+
+const ps=[
+'Todas',
+...new Set(
+data
+.map(x=>x.provincia)
+.filter(Boolean)
+.sort()
+)
+];
+
+chips.innerHTML=
+ps
+.map(p=>
+`<button
+class="chip ${p===province?'active':''}"
+data-p="${esc(p)}"
+>
+${esc(p)}
+</button>`
+)
+.join('');
+
+chips
+.querySelectorAll('button')
+.forEach(b=>{
+
+b.onclick=()=>{
+
+province=b.dataset.p;
+
+page=1;
+
+render();
+
+};
+
+});
+
 }
+
+
+/* =========================
+   FILTRAR
+========================= */
+
 function filtered(){
- const q=search.value.trim().toLowerCase();
- return data.filter(x=>(province==='Todas'||x.provincia===province)&&(!q||`${x.puesto} ${x.organismo} ${x.municipio} ${x.provincia}`.toLowerCase().includes(q)));
+
+const q=
+search.value
+.trim()
+.toLowerCase();
+
+return data.filter(x=>
+
+(
+province==='Todas' ||
+x.provincia===province
+)
+
+&&
+
+(
+!q ||
+
+`${x.puesto}
+${x.organismo}
+${x.municipio}
+${x.provincia}
+${x.tipo||''}
+${x.verificacion||''}`
+.toLowerCase()
+.includes(q)
+)
+
+);
+
 }
+
+
+/* =========================
+   TARJETA
+========================= */
+
 function card(x){
- const official=[x.boeUrl?`<a href="${x.boeUrl}" target="_blank" rel="noopener">BOE</a>`:'',x.bojaUrl?`<a class="green" href="${x.bojaUrl}" target="_blank" rel="noopener">BOJA</a>`:''].join('');
- const searchUrl=x.fuenteUrl;
- return `<article class="card"><div class="top"><div><h3>${esc(x.puesto)}</h3><div class="org">${esc(x.organismo)}</div></div><span class="pill ${statusClass(x.estado)}">${esc(x.estado)}</span></div>
- <div class="meta"><div><span>Provincia</span><b>${esc(x.provincia)}</b></div><div><span>Plazas</span><b>${esc(x.plazas)}</b></div><div><span>Grupo</span><b>${esc(x.grupo)}</b></div><div><span>Publicación</span><b>${esc(x.fechaPublicacion)}</b></div><div><span>Inicio</span><b>${esc(x.fechaInicio||'Pendiente')}</b></div><div><span>Fin</span><b>${esc(x.fechaFin||'Por verificar')}</b></div></div>
- <div class="links">${official}<a href="${searchUrl}" target="_blank" rel="noopener">Fuente / ampliar</a></div>
- <div class="note">${esc(x.verificacion)}${x.bop?' · '+esc(x.bop):''}</div></article>`;
+
+const oficial=
+fuenteOficial(x);
+
+const tipo=
+tipoRegistro(x);
+
+let tipoBadge='';
+
+if(tipo==='CONVOCATORIA'){
+
+tipoBadge=
+`<span class="pill open">
+🟢 CONVOCATORIA
+</span>`;
+
+}else{
+
+tipoBadge=
+`<span class="pill oep">
+🔵 OEP / OFERTA
+</span>`;
+
 }
+
+
+let boton='';
+
+if(oficial){
+
+boton=
+`<a
+class="${oficial.clase}"
+href="${esc(oficial.url)}"
+target="_blank"
+rel="noopener noreferrer"
+>
+${oficial.texto}
+</a>`;
+
+}else{
+
+boton=
+`<span
+style="
+display:inline-block;
+background:#94a3b8;
+color:white;
+padding:9px 10px;
+border-radius:10px;
+font-size:12px
+"
+>
+Fuente pendiente
+</span>`;
+
+}
+
+
+let estadoTexto=
+x.estado || 'Pendiente';
+
+
+let verificacion=
+x.verificacion ||
+'Pendiente de contraste oficial';
+
+
+return `
+
+<article class="card">
+
+<div class="top">
+
+<div>
+
+<h3>
+${esc(x.puesto)}
+</h3>
+
+<div class="org">
+${esc(x.organismo)}
+</div>
+
+</div>
+
+${tipoBadge}
+
+</div>
+
+
+<div style="margin-top:8px">
+
+<span class="pill ${statusClass(x.estado)}">
+${esc(estadoTexto)}
+</span>
+
+</div>
+
+
+<div class="meta">
+
+<div>
+<span>Municipio</span>
+<b>${esc(x.municipio)}</b>
+</div>
+
+<div>
+<span>Provincia</span>
+<b>${esc(x.provincia)}</b>
+</div>
+
+<div>
+<span>Plazas</span>
+<b>${esc(x.plazas)}</b>
+</div>
+
+<div>
+<span>Grupo</span>
+<b>${esc(x.grupo || 'C1')}</b>
+</div>
+
+<div>
+<span>Publicación</span>
+<b>${esc(x.fechaPublicacion || 'Pendiente')}</b>
+</div>
+
+<div>
+<span>Inicio</span>
+<b>${esc(x.fechaInicio || 'Pendiente')}</b>
+</div>
+
+<div>
+<span>Fin</span>
+<b>${esc(x.fechaFin || 'Por verificar')}</b>
+</div>
+
+<div>
+<span>Turno</span>
+<b>${esc(x.turno || 'Por verificar')}</b>
+</div>
+
+</div>
+
+
+<div class="links">
+
+${boton}
+
+</div>
+
+
+<div class="note">
+
+<strong>
+${esc(verificacion)}
+</strong>
+
+${x.bop
+?
+' · '+esc(x.bop)
+:
+''}
+
+</div>
+
+</article>
+
+`;
+
+}
+
+
+/* =========================
+   RENDER
+========================= */
+
 function render(){
- renderChips(); const arr=filtered(); const pages=Math.max(1,Math.ceil(arr.length/perPage)); if(page>pages)page=pages;
- document.getElementById('total').textContent=data.length;
- document.getElementById('plazas').textContent=data.reduce((a,x)=>a+(Number(x.plazas)||0),0);
- document.getElementById('abiertas').textContent=data.filter(x=>x.estado==='En plazo').length;
- document.getElementById('provincias').textContent=new Set(data.map(x=>x.provincia)).size;
- const start=(page-1)*perPage; grid.innerHTML=arr.slice(start,start+perPage).map(card).join('')||'<div class="card">No hay resultados.</div>';
- pagination.innerHTML=Array.from({length:pages},(_,i)=>`<button class="${i+1===page?'active':''}" data-page="${i+1}">${i+1}</button>`).join('');
- pagination.querySelectorAll('button').forEach(b=>b.onclick=()=>{page=Number(b.dataset.page);render()});
+
+renderChips();
+
+const arr=
+filtered();
+
+const pages=
+Math.max(
+1,
+Math.ceil(arr.length/perPage)
+);
+
+if(page>pages)
+page=pages;
+
+
+/* ESTADÍSTICAS */
+
+document
+.getElementById('total')
+.textContent=data.length;
+
+
+document
+.getElementById('plazas')
+.textContent=
+data.reduce(
+(a,x)=>
+a+(Number(x.plazas)||0),
+0
+);
+
+
+document
+.getElementById('abiertas')
+.textContent=
+data.filter(
+x=>x.estado==='En plazo'
+).length;
+
+
+document
+.getElementById('provincias')
+.textContent=
+new Set(
+data
+.map(x=>x.provincia)
+.filter(Boolean)
+).size;
+
+
+/* TARJETAS */
+
+const start=
+(page-1)*perPage;
+
+const visibles=
+arr.slice(
+start,
+start+perPage
+);
+
+grid.innerHTML=
+visibles.length
+?
+visibles.map(card).join('')
+:
+'<div class="card">No hay resultados.</div>';
+
+
+/* PAGINACIÓN */
+
+pagination.innerHTML=
+Array
+.from(
+{length:pages},
+(_,i)=>
+`
+<button
+class="${i+1===page?'active':''}"
+data-page="${i+1}"
+>
+${i+1}
+</button>
+`
+)
+.join('');
+
+
+pagination
+.querySelectorAll('button')
+.forEach(b=>{
+
+b.onclick=()=>{
+
+page=
+Number(
+b.dataset.page
+);
+
+render();
+
+window.scrollTo({
+top:0,
+behavior:'smooth'
+});
+
+};
+
+});
+
 }
-search.addEventListener('input',()=>{page=1;render()}); render();
+
+
+/* =========================
+   BUSCADOR
+========================= */
+
+search.addEventListener(
+'input',
+()=>{
+page=1;
+render();
+}
+);
+
+
+/* =========================
+   INICIAR
+========================= */
+
+render();
+
 </script>
-</body></html>
+
+</body>
+</html>
