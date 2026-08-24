@@ -3,1738 +3,1053 @@
 <head>
 
 <meta charset="utf-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <meta name="theme-color" content="#0f172a">
 
 <meta name="description"
 content="OpoPoint — Radar y seguimiento de oposiciones de Policía Local en Andalucía">
 
-<title>OpoPoint · Radar de Policía Local Andalucía</title>
-
+<title>OpoPoint · Policía Local Andalucía</title>
 
 <style>
 
-/* =========================================================
-   VARIABLES
-========================================================= */
-
 :root{
-
-  --slate:#0f172a;
-  --slate-2:#1e293b;
-
-  --blue:#2563eb;
-  --blue-dark:#1d4ed8;
-  --blue-light:#dbeafe;
-
-  --green:#059669;
-  --green-dark:#047857;
-  --green-light:#d1fae5;
-
-  --amber:#d97706;
-  --amber-light:#fef3c7;
-
-  --red:#dc2626;
-  --red-light:#fee2e2;
-
-  --purple:#7c3aed;
-  --purple-light:#ede9fe;
-
-  --gray:#64748b;
-  --gray-light:#f1f5f9;
-
-  --bg:#f1f5f9;
-  --card:#ffffff;
-
-  --line:#e2e8f0;
-
-  --shadow:
-    0 7px 25px rgba(15,23,42,.07);
-
+--slate:#0f172a;
+--slate2:#1e293b;
+--blue:#2563eb;
+--blueLight:#dbeafe;
+--green:#059669;
+--greenLight:#d1fae5;
+--amber:#d97706;
+--amberLight:#fef3c7;
+--red:#dc2626;
+--redLight:#fee2e2;
+--purple:#7c3aed;
+--purpleLight:#ede9fe;
+--gray:#64748b;
+--grayLight:#f8fafc;
+--bg:#f1f5f9;
+--white:#fff;
+--line:#e2e8f0;
+--shadow:0 8px 28px rgba(15,23,42,.08);
 }
 
-
-/* =========================================================
-   BASE
-========================================================= */
-
 *{
-  box-sizing:border-box;
+box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-
-  margin:0;
-
-  background:var(--bg);
-
-  color:#0f172a;
-
-  font-family:
-    Inter,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Arial,
-    sans-serif;
-
+margin:0;
+background:var(--bg);
+color:#0f172a;
+font-family:
+Inter,
+system-ui,
+-apple-system,
+BlinkMacSystemFont,
+"Segoe UI",
+Roboto,
+Arial,
+sans-serif;
 }
 
 button,
 input{
-
-  font:inherit;
-
+font:inherit;
 }
 
 button{
-
-  cursor:pointer;
-
+cursor:pointer;
 }
 
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-header{
-
-  background:
-    linear-gradient(
-      135deg,
-      #020617 0%,
-      #172554 100%
-    );
-
-  color:white;
-
-  padding:
-    20px
-    16px
-    24px;
-
-  position:sticky;
-
-  top:0;
-
-  z-index:20;
-
-  box-shadow:
-    0 8px 25px
-    rgba(15,23,42,.15);
-
+a{
+text-decoration:none;
 }
 
 .wrap{
-
-  width:100%;
-
-  max-width:1150px;
-
-  margin:0 auto;
-
-}
-
-
-.brand{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:12px;
-
-}
-
-
-.radar{
-
-  width:46px;
-
-  height:46px;
-
-  display:grid;
-
-  place-items:center;
-
-  border-radius:14px;
-
-  background:#064e3b;
-
-  font-size:25px;
-
-  box-shadow:
-    0 7px 20px
-    rgba(0,0,0,.25);
-
-}
-
-
-.brand h1{
-
-  margin:0;
-
-  font-size:23px;
-
-  line-height:1;
-
-}
-
-
-.brand small{
-
-  display:block;
-
-  margin-top:5px;
-
-  color:#cbd5e1;
-
-  font-size:12px;
-
-}
-
-
-.status{
-
-  display:flex;
-
-  flex-wrap:wrap;
-
-  gap:8px;
-
-  margin-top:16px;
-
-}
-
-
-.badge{
-
-  display:inline-flex;
-
-  align-items:center;
-
-  gap:5px;
-
-  padding:
-    7px
-    10px;
-
-  border-radius:999px;
-
-  border:1px solid
-    rgba(255,255,255,.17);
-
-  background:
-    rgba(255,255,255,.07);
-
-  font-size:11px;
-
-}
-
-
-.badge.live{
-
-  background:#065f46;
-
-  border-color:#10b981;
-
+max-width:1150px;
+width:100%;
+margin:auto;
 }
 
 
 /* =========================================================
-   MAIN
+HEADER
+========================================================= */
+
+header{
+background:
+linear-gradient(135deg,#020617,#172554);
+color:#fff;
+padding:20px 16px 24px;
+position:sticky;
+top:0;
+z-index:20;
+box-shadow:
+0 8px 25px rgba(15,23,42,.18);
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.radar{
+width:46px;
+height:46px;
+display:grid;
+place-items:center;
+border-radius:14px;
+background:#064e3b;
+font-size:25px;
+box-shadow:
+0 7px 20px rgba(0,0,0,.25);
+}
+
+.brand h1{
+margin:0;
+font-size:23px;
+line-height:1;
+}
+
+.brand small{
+display:block;
+margin-top:5px;
+font-size:12px;
+color:#cbd5e1;
+}
+
+.status{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+margin-top:16px;
+}
+
+.badge{
+display:inline-flex;
+align-items:center;
+gap:5px;
+padding:7px 10px;
+border-radius:999px;
+border:1px solid rgba(255,255,255,.18);
+background:rgba(255,255,255,.07);
+font-size:11px;
+}
+
+.badge.live{
+background:#065f46;
+border-color:#10b981;
+}
+
+
+/* =========================================================
+MAIN
 ========================================================= */
 
 main{
-
-  padding:
-    22px
-    16px
-    60px;
-
+padding:22px 16px 60px;
 }
-
-
-/* =========================================================
-   HERO
-========================================================= */
 
 .hero{
-
-  margin-bottom:18px;
-
+margin-bottom:18px;
 }
-
 
 .hero h2{
-
-  margin:0 0 8px;
-
-  font-size:30px;
-
-  line-height:1.08;
-
-  letter-spacing:-.025em;
-
+margin:0 0 8px;
+font-size:30px;
+line-height:1.08;
+letter-spacing:-.025em;
 }
 
-
 .hero p{
-
-  margin:0;
-
-  color:var(--gray);
-
-  line-height:1.5;
-
+margin:0;
+color:var(--gray);
+line-height:1.5;
 }
 
 
 /* =========================================================
-   STATS
+STATS
 ========================================================= */
 
 .stats{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
-  gap:10px;
-
-  margin:
-    18px
-    0;
-
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+margin:18px 0;
 }
-
 
 .stat{
-
-  background:var(--card);
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:16px;
-
-  padding:14px;
-
-  box-shadow:var(--shadow);
-
+background:var(--white);
+border:1px solid var(--line);
+border-radius:16px;
+padding:14px;
+box-shadow:var(--shadow);
 }
-
 
 .stat b{
-
-  display:block;
-
-  font-size:24px;
-
-  line-height:1;
-
+display:block;
+font-size:24px;
+line-height:1;
 }
 
-
 .stat span{
-
-  display:block;
-
-  margin-top:5px;
-
-  color:var(--gray);
-
-  font-size:11px;
-
+display:block;
+margin-top:5px;
+color:var(--gray);
+font-size:11px;
 }
 
 
 /* =========================================================
-   LEGEND
+LEGEND
 ========================================================= */
 
 .legend{
-
-  background:white;
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:16px;
-
-  padding:14px;
-
-  margin-bottom:16px;
-
-  box-shadow:var(--shadow);
-
+background:#fff;
+border:1px solid var(--line);
+border-radius:16px;
+padding:14px;
+margin-bottom:16px;
+box-shadow:var(--shadow);
 }
-
 
 .legend-title{
-
-  font-size:13px;
-
-  font-weight:800;
-
+font-size:13px;
+font-weight:800;
 }
-
 
 .legend-row{
-
-  display:flex;
-
-  flex-wrap:wrap;
-
-  gap:7px;
-
-  margin-top:10px;
-
+display:flex;
+flex-wrap:wrap;
+gap:7px;
+margin-top:10px;
 }
 
-
 .legend-item{
-
-  padding:
-    7px
-    10px;
-
-  border-radius:999px;
-
-  background:#f8fafc;
-
-  color:#475569;
-
-  font-size:11px;
-
-  font-weight:700;
-
+padding:7px 10px;
+border-radius:999px;
+background:#f8fafc;
+color:#475569;
+font-size:11px;
+font-weight:700;
 }
 
 
 /* =========================================================
-   CONTROL PANEL
+CONTROLS
 ========================================================= */
 
 .controls{
-
-  background:white;
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:18px;
-
-  padding:13px;
-
-  margin-bottom:16px;
-
-  box-shadow:var(--shadow);
-
+background:white;
+border:1px solid var(--line);
+border-radius:18px;
+padding:13px;
+margin-bottom:16px;
+box-shadow:var(--shadow);
 }
-
 
 .search{
-
-  width:100%;
-
-  padding:
-    13px
-    14px;
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:12px;
-
-  outline:none;
-
-  font-size:15px;
-
-  background:white;
-
+width:100%;
+padding:13px 14px;
+border:1px solid var(--line);
+border-radius:12px;
+outline:none;
+font-size:15px;
 }
-
 
 .search:focus{
-
-  border-color:var(--green);
-
-  box-shadow:
-    0 0 0 3px
-    rgba(5,150,105,.14);
-
+border-color:var(--green);
+box-shadow:
+0 0 0 3px rgba(5,150,105,.14);
 }
-
 
 .chips{
-
-  display:flex;
-
-  gap:7px;
-
-  overflow-x:auto;
-
-  padding:
-    10px
-    0
-    2px;
-
+display:flex;
+gap:7px;
+overflow-x:auto;
+padding:10px 0 2px;
 }
-
 
 .chips::-webkit-scrollbar{
-
-  display:none;
-
+display:none;
 }
-
 
 .chip{
-
-  flex:0 0 auto;
-
-  padding:
-    8px
-    12px;
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:999px;
-
-  background:white;
-
-  color:#334155;
-
-  font-size:11px;
-
+flex:0 0 auto;
+padding:8px 12px;
+border:1px solid var(--line);
+border-radius:999px;
+background:white;
+color:#334155;
+font-size:11px;
 }
 
-
 .chip.active{
-
-  background:var(--slate);
-
-  color:white;
-
-  border-color:var(--slate);
-
+background:var(--slate);
+color:#fff;
+border-color:var(--slate);
 }
 
 
 /* =========================================================
-   GRID
+GRID
 ========================================================= */
 
 .grid{
-
-  display:grid;
-
-  gap:13px;
-
+display:grid;
+gap:13px;
 }
 
 
 /* =========================================================
-   CARD
+CARD
 ========================================================= */
 
 .card{
-
-  background:white;
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:19px;
-
-  padding:18px;
-
-  box-shadow:var(--shadow);
-
-  overflow:hidden;
-
+background:#fff;
+border:1px solid var(--line);
+border-radius:19px;
+padding:18px;
+box-shadow:var(--shadow);
+overflow:hidden;
 }
-
 
 .card.conv{
-
-  border-left:
-    5px solid
-    var(--green);
-
+border-left:5px solid var(--green);
 }
-
 
 .card.oep{
-
-  border-left:
-    5px solid
-    var(--blue);
-
+border-left:5px solid var(--blue);
 }
 
-
 .card.final{
+border-left:5px solid #94a3b8;
+}
 
-  border-left:
-    5px solid
-    #94a3b8;
-
+.card.pending{
+border-left:5px solid var(--amber);
 }
 
 
 /* =========================================================
-   CARD HEADER
+CARD HEADER
 ========================================================= */
 
 .card-header{
-
-  display:flex;
-
-  align-items:flex-start;
-
-  justify-content:space-between;
-
-  gap:12px;
-
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:12px;
 }
-
 
 .ayuntamiento{
-
-  margin:0;
-
-  color:#020617;
-
-  font-size:22px;
-
-  line-height:1.08;
-
-  font-weight:900;
-
-  letter-spacing:-.025em;
-
-  text-transform:uppercase;
-
+margin:0;
+font-size:22px;
+line-height:1.08;
+font-weight:900;
+letter-spacing:-.025em;
+text-transform:uppercase;
+color:#020617;
 }
-
 
 .puesto{
-
-  margin-top:6px;
-
-  color:var(--gray);
-
-  font-size:13px;
-
-  font-weight:600;
-
+margin-top:6px;
+font-size:13px;
+font-weight:600;
+color:var(--gray);
 }
-
 
 .type{
-
-  flex-shrink:0;
-
-  padding:
-    7px
-    10px;
-
-  border-radius:999px;
-
-  font-size:10px;
-
-  font-weight:900;
-
-  white-space:nowrap;
-
+flex-shrink:0;
+padding:7px 10px;
+border-radius:999px;
+font-size:10px;
+font-weight:900;
+white-space:nowrap;
 }
-
 
 .type.conv{
-
-  color:#065f46;
-
-  background:var(--green-light);
-
+background:var(--greenLight);
+color:#065f46;
 }
-
 
 .type.oep{
-
-  color:#1e40af;
-
-  background:var(--blue-light);
-
+background:var(--blueLight);
+color:#1e40af;
 }
 
-
 .type.final{
+background:#e2e8f0;
+color:#475569;
+}
 
-  color:#475569;
-
-  background:#e2e8f0;
-
+.type.pending{
+background:var(--amberLight);
+color:#92400e;
 }
 
 
 /* =========================================================
-   PLAZAS
+PLAZAS
 ========================================================= */
 
 .plazas-row{
-
-  margin-top:17px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:space-between;
-
-  gap:10px;
-
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+margin-top:17px;
 }
-
 
 .plazas-num{
-
-  font-size:31px;
-
-  line-height:1;
-
-  font-weight:950;
-
+font-size:31px;
+font-weight:950;
+line-height:1;
 }
-
 
 .plazas-label{
-
-  margin-top:4px;
-
-  color:var(--gray);
-
-  font-size:9px;
-
-  text-transform:uppercase;
-
-  letter-spacing:.08em;
-
-}
-
-
-.status-pill{
-
-  padding:
-    7px
-    10px;
-
-  border-radius:999px;
-
-  font-size:10px;
-
-  font-weight:900;
-
-  white-space:nowrap;
-
-}
-
-
-.status-open{
-
-  background:var(--green-light);
-
-  color:#065f46;
-
-}
-
-
-.status-last{
-
-  background:var(--amber-light);
-
-  color:#92400e;
-
-}
-
-
-.status-closed{
-
-  background:var(--red-light);
-
-  color:#991b1b;
-
-}
-
-
-.status-oep{
-
-  background:var(--blue-light);
-
-  color:#1e40af;
-
-}
-
-
-.status-final{
-
-  background:#e2e8f0;
-
-  color:#475569;
-
+margin-top:4px;
+color:var(--gray);
+font-size:9px;
+font-weight:700;
+text-transform:uppercase;
+letter-spacing:.08em;
 }
 
 
 /* =========================================================
-   PLAZO
+STATUS
+========================================================= */
+
+.status-pill{
+padding:7px 10px;
+border-radius:999px;
+font-size:10px;
+font-weight:900;
+white-space:nowrap;
+}
+
+.status-open{
+background:var(--greenLight);
+color:#065f46;
+}
+
+.status-last{
+background:var(--amberLight);
+color:#92400e;
+}
+
+.status-closed{
+background:var(--redLight);
+color:#991b1b;
+}
+
+.status-oep{
+background:var(--blueLight);
+color:#1e40af;
+}
+
+.status-final{
+background:#e2e8f0;
+color:#475569;
+}
+
+.status-pending{
+background:var(--amberLight);
+color:#92400e;
+}
+
+
+/* =========================================================
+PLAZO
 ========================================================= */
 
 .deadline{
-
-  margin-top:14px;
-
-  padding:13px;
-
-  border-radius:14px;
-
+margin-top:14px;
+padding:13px;
+border-radius:14px;
 }
-
 
 .deadline.open{
-
-  background:#ecfdf5;
-
-  border:
-    1px solid
-    #a7f3d0;
-
+background:#ecfdf5;
+border:1px solid #a7f3d0;
 }
-
 
 .deadline.last{
-
-  background:#fffbeb;
-
-  border:
-    1px solid
-    #fde68a;
-
+background:#fffbeb;
+border:1px solid #fde68a;
 }
-
 
 .deadline.closed{
-
-  background:#fef2f2;
-
-  border:
-    1px solid
-    #fecaca;
-
+background:#fef2f2;
+border:1px solid #fecaca;
 }
-
 
 .deadline-title{
-
-  font-size:12px;
-
-  font-weight:900;
-
+font-size:12px;
+font-weight:900;
 }
-
 
 .deadline-dates{
-
-  display:grid;
-
-  grid-template-columns:
-    1fr
-    1fr;
-
-  gap:8px;
-
-  margin-top:9px;
-
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
+margin-top:9px;
 }
-
 
 .deadline-box{
-
-  padding:9px;
-
-  border-radius:10px;
-
-  background:
-    rgba(255,255,255,.75);
-
+padding:9px;
+border-radius:10px;
+background:rgba(255,255,255,.75);
 }
-
 
 .deadline-box span{
-
-  display:block;
-
-  color:var(--gray);
-
-  font-size:8px;
-
-  font-weight:800;
-
-  text-transform:uppercase;
-
+display:block;
+font-size:8px;
+font-weight:800;
+text-transform:uppercase;
+color:var(--gray);
 }
-
 
 .deadline-box b{
-
-  display:block;
-
-  margin-top:3px;
-
-  font-size:13px;
-
+display:block;
+margin-top:3px;
+font-size:13px;
 }
 
-
 .deadline-days{
-
-  margin-top:8px;
-
-  font-size:11px;
-
-  font-weight:800;
-
+margin-top:8px;
+font-size:11px;
+font-weight:800;
 }
 
 
 /* =========================================================
-   CURRENT PHASE
+FASE
 ========================================================= */
 
 .current-phase{
-
-  margin-top:15px;
-
-  padding:15px;
-
-  border-radius:16px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #eff6ff,
-      #eef2ff
-    );
-
-  border:
-    1px solid
-    #bfdbfe;
-
+margin-top:15px;
+padding:15px;
+border-radius:16px;
+background:
+linear-gradient(
+135deg,
+#eff6ff,
+#eef2ff
+);
+border:1px solid #bfdbfe;
 }
-
 
 .phase-label{
-
-  color:#64748b;
-
-  font-size:9px;
-
-  font-weight:900;
-
-  text-transform:uppercase;
-
-  letter-spacing:.08em;
-
+font-size:9px;
+font-weight:900;
+text-transform:uppercase;
+letter-spacing:.08em;
+color:#64748b;
 }
-
 
 .phase-title{
-
-  margin-top:5px;
-
-  color:#1e1b4b;
-
-  font-size:19px;
-
-  font-weight:950;
-
+margin-top:5px;
+font-size:19px;
+font-weight:950;
+color:#1e1b4b;
 }
 
-
-.phase-description{
-
-  margin-top:5px;
-
-  color:#64748b;
-
-  font-size:11px;
-
-  line-height:1.45;
-
+.phase-sub{
+margin-top:4px;
+font-size:11px;
+color:#64748b;
 }
-
 
 .progress{
-
-  height:8px;
-
-  margin-top:11px;
-
-  overflow:hidden;
-
-  border-radius:999px;
-
-  background:#e2e8f0;
-
+height:8px;
+margin-top:11px;
+border-radius:999px;
+overflow:hidden;
+background:#e2e8f0;
 }
 
-
 .progress-inner{
-
-  height:100%;
-
-  border-radius:999px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #2563eb,
-      #7c3aed
-    );
-
+height:100%;
+border-radius:999px;
+background:
+linear-gradient(
+90deg,
+#2563eb,
+#7c3aed
+);
 }
 
 
 /* =========================================================
-   OEP INFORMATION
+OEP
 ========================================================= */
 
 .oep-info{
-
-  margin-top:14px;
-
-  padding:13px;
-
-  border-radius:14px;
-
-  background:#eff6ff;
-
-  border:
-    1px solid
-    #bfdbfe;
-
-  color:#1e3a8a;
-
-  font-size:11px;
-
-  line-height:1.45;
-
+margin-top:14px;
+padding:13px;
+border-radius:14px;
+background:#eff6ff;
+border:1px solid #bfdbfe;
+color:#1e3a8a;
+font-size:11px;
+line-height:1.45;
 }
 
-
 .oep-info strong{
-
-  display:block;
-
-  margin-bottom:3px;
-
-  font-size:12px;
-
+display:block;
+margin-bottom:4px;
+font-size:12px;
 }
 
 
 /* =========================================================
-   META
+META
 ========================================================= */
 
 .meta{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
-  gap:9px;
-
-  margin-top:14px;
-
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:9px;
+margin-top:14px;
 }
-
 
 .meta-box{
-
-  padding:9px;
-
-  border-radius:11px;
-
-  background:#f8fafc;
-
+padding:9px;
+border-radius:11px;
+background:#f8fafc;
 }
-
 
 .meta-box span{
-
-  display:block;
-
-  color:var(--gray);
-
-  font-size:8px;
-
-  font-weight:800;
-
-  text-transform:uppercase;
-
-  letter-spacing:.04em;
-
+display:block;
+font-size:8px;
+font-weight:800;
+text-transform:uppercase;
+color:var(--gray);
 }
-
 
 .meta-box b{
-
-  display:block;
-
-  margin-top:3px;
-
-  font-size:12px;
-
+display:block;
+margin-top:3px;
+font-size:12px;
 }
 
 
 /* =========================================================
-   ACTIONS
-========================================================= */
-
-.actions{
-
-  display:flex;
-
-  flex-wrap:wrap;
-
-  gap:7px;
-
-  margin-top:14px;
-
-}
-
-
-.btn{
-
-  display:inline-flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  gap:5px;
-
-  padding:
-    10px
-    12px;
-
-  border:0;
-
-  border-radius:10px;
-
-  color:white;
-
-  text-decoration:none;
-
-  font-size:11px;
-
-  font-weight:900;
-
-}
-
-
-.btn-green{
-
-  background:var(--green);
-
-}
-
-
-.btn-blue{
-
-  background:var(--blue);
-
-}
-
-
-.btn-purple{
-
-  background:var(--purple);
-
-}
-
-
-.btn-dark{
-
-  background:var(--slate);
-
-}
-
-
-.btn-gray{
-
-  background:#64748b;
-
-}
-
-
-.details-btn{
-
-  border:0;
-
-  cursor:pointer;
-
-}
-
-
-/* =========================================================
-   LAST / NEXT ACTION
+ACTIVITY
 ========================================================= */
 
 .activity{
-
-  margin-top:12px;
-
-  padding:
-    10px
-    12px;
-
-  border-radius:12px;
-
-  background:#f8fafc;
-
-  border:
-    1px solid
-    var(--line);
-
+margin-top:11px;
+padding:11px 12px;
+border-radius:12px;
+background:#f8fafc;
+border:1px solid var(--line);
 }
-
-
-.activity-title{
-
-  font-size:10px;
-
-  font-weight:900;
-
-}
-
-
-.activity-text{
-
-  margin-top:4px;
-
-  color:var(--gray);
-
-  font-size:10px;
-
-  line-height:1.45;
-
-}
-
 
 .activity.next{
-
-  background:#fff7ed;
-
-  border-color:#fed7aa;
-
+background:#fff7ed;
+border-color:#fed7aa;
 }
 
+.activity-title{
+font-size:10px;
+font-weight:900;
+}
 
-.activity.next .activity-title{
-
-  color:#9a3412;
-
+.activity-text{
+margin-top:4px;
+font-size:10px;
+line-height:1.45;
+color:var(--gray);
 }
 
 
 /* =========================================================
-   NOTE
+BUTTONS
+========================================================= */
+
+.actions{
+display:flex;
+flex-wrap:wrap;
+gap:7px;
+margin-top:14px;
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:5px;
+padding:10px 12px;
+border:0;
+border-radius:10px;
+font-size:11px;
+font-weight:900;
+color:#fff;
+}
+
+.btn-green{
+background:var(--green);
+}
+
+.btn-blue{
+background:var(--blue);
+}
+
+.btn-purple{
+background:var(--purple);
+}
+
+.btn-dark{
+background:var(--slate);
+}
+
+.btn-gray{
+background:#64748b;
+}
+
+.btn-amber{
+background:var(--amber);
+}
+
+
+/* =========================================================
+INSCRIPTION HIGHLIGHT
+========================================================= */
+
+.inscription-box{
+margin-top:14px;
+padding:14px;
+border-radius:15px;
+background:
+linear-gradient(
+135deg,
+#ecfdf5,
+#f0fdf4
+);
+border:1px solid #86efac;
+}
+
+.inscription-title{
+font-size:13px;
+font-weight:950;
+color:#065f46;
+}
+
+.inscription-text{
+margin-top:5px;
+font-size:11px;
+line-height:1.45;
+color:#166534;
+}
+
+.inscription-actions{
+display:flex;
+flex-wrap:wrap;
+gap:7px;
+margin-top:10px;
+}
+
+
+/* =========================================================
+SOURCE
 ========================================================= */
 
 .source{
-
-  margin-top:10px;
-
-  color:var(--gray);
-
-  font-size:9px;
-
-  line-height:1.4;
-
+margin-top:10px;
+font-size:9px;
+line-height:1.4;
+color:var(--gray);
 }
 
 
 /* =========================================================
-   PAGINATION
+PAGINATION
 ========================================================= */
 
 .pagination{
-
-  display:flex;
-
-  justify-content:center;
-
-  flex-wrap:wrap;
-
-  gap:7px;
-
-  margin-top:22px;
-
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:7px;
+margin-top:22px;
 }
-
 
 .pagination button{
-
-  min-width:38px;
-
-  padding:
-    9px
-    11px;
-
-  border:
-    1px solid
-    var(--line);
-
-  border-radius:10px;
-
-  background:white;
-
+min-width:38px;
+padding:9px 11px;
+border:1px solid var(--line);
+border-radius:10px;
+background:white;
 }
-
 
 .pagination button.active{
-
-  color:white;
-
-  background:var(--slate);
-
-  border-color:var(--slate);
-
+background:var(--slate);
+color:#fff;
+border-color:var(--slate);
 }
 
 
 /* =========================================================
-   MODAL
+MODAL
 ========================================================= */
 
-.modal-backdrop{
-
-  position:fixed;
-
-  inset:0;
-
-  z-index:100;
-
-  display:none;
-
-  overflow-y:auto;
-
-  padding:16px;
-
-  background:
-    rgba(2,6,23,.72);
-
-  backdrop-filter:
-    blur(5px);
-
+.modal-bg{
+position:fixed;
+inset:0;
+z-index:100;
+display:none;
+overflow:auto;
+padding:15px;
+background:rgba(2,6,23,.74);
+backdrop-filter:blur(6px);
 }
 
-
-.modal-backdrop.show{
-
-  display:block;
-
+.modal-bg.show{
+display:block;
 }
-
 
 .modal{
-
-  width:100%;
-
-  max-width:850px;
-
-  margin:
-    15px
-    auto;
-
-  overflow:hidden;
-
-  border-radius:22px;
-
-  background:white;
-
-  box-shadow:
-    0 30px 80px
-    rgba(0,0,0,.3);
-
+width:100%;
+max-width:850px;
+margin:15px auto;
+background:#fff;
+border-radius:22px;
+overflow:hidden;
+box-shadow:
+0 30px 90px rgba(0,0,0,.35);
 }
 
-
-.modal-header{
-
-  padding:20px;
-
-  color:white;
-
-  background:
-    linear-gradient(
-      135deg,
-      #020617,
-      #172554
-    );
-
+.modal-head{
+padding:20px;
+background:
+linear-gradient(
+135deg,
+#020617,
+#172554
+);
+color:#fff;
 }
 
-
-.modal-header-row{
-
-  display:flex;
-
-  justify-content:space-between;
-
-  align-items:flex-start;
-
-  gap:15px;
-
+.modal-head-row{
+display:flex;
+justify-content:space-between;
+gap:15px;
+align-items:flex-start;
 }
 
-
-.modal h2{
-
-  margin:0;
-
-  font-size:23px;
-
-  line-height:1.1;
-
+.modal-head h2{
+margin:0;
+font-size:23px;
+line-height:1.1;
 }
 
-
-.modal-subtitle{
-
-  margin-top:6px;
-
-  color:#cbd5e1;
-
-  font-size:12px;
-
+.modal-sub{
+margin-top:5px;
+font-size:12px;
+color:#cbd5e1;
 }
-
 
 .close{
-
-  width:36px;
-
-  height:36px;
-
-  border:0;
-
-  border-radius:10px;
-
-  background:
-    rgba(255,255,255,.1);
-
-  color:white;
-
-  font-size:20px;
-
+width:36px;
+height:36px;
+border:0;
+border-radius:10px;
+background:rgba(255,255,255,.12);
+color:#fff;
+font-size:20px;
 }
-
 
 .modal-body{
-
-  padding:20px;
-
+padding:20px;
 }
 
-
-.detail-grid{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
-  gap:10px;
-
+.route{
+margin-top:16px;
+padding:15px;
+border-radius:15px;
+background:#f8fafc;
+border:1px solid var(--line);
 }
 
-
-.detail-box{
-
-  padding:12px;
-
-  border-radius:13px;
-
-  background:#f8fafc;
-
+.route-title{
+font-size:13px;
+font-weight:950;
 }
 
-
-.detail-box span{
-
-  display:block;
-
-  color:var(--gray);
-
-  font-size:9px;
-
-  font-weight:800;
-
-  text-transform:uppercase;
-
+.route-list{
+margin:12px 0 0;
+padding:0;
+list-style:none;
+counter-reset:route;
 }
 
-
-.detail-box b{
-
-  display:block;
-
-  margin-top:4px;
-
-  font-size:13px;
-
+.route-list li{
+display:flex;
+gap:10px;
+align-items:flex-start;
+padding:9px 0;
+border-bottom:1px solid #e2e8f0;
+font-size:11px;
+color:#334155;
 }
 
-
-.modal-section{
-
-  margin-top:18px;
-
+.route-list li:last-child{
+border-bottom:0;
 }
 
-
-.modal-section h3{
-
-  margin:0 0 10px;
-
-  font-size:15px;
-
+.route-number{
+width:24px;
+height:24px;
+min-width:24px;
+display:grid;
+place-items:center;
+border-radius:50%;
+background:#dbeafe;
+color:#1d4ed8;
+font-size:10px;
+font-weight:900;
 }
 
-
-.timeline{
-
-  position:relative;
-
+.warning{
+margin-top:13px;
+padding:11px 12px;
+border-radius:12px;
+background:#fffbeb;
+border:1px solid #fde68a;
+font-size:10px;
+line-height:1.45;
+color:#78350f;
 }
-
-
-.timeline-item{
-
-  position:relative;
-
-  display:flex;
-
-  gap:11px;
-
-  padding-bottom:15px;
-
-}
-
-
-.timeline-item::before{
-
-  content:"";
-
-  position:absolute;
-
-  left:13px;
-
-  top:27px;
-
-  bottom:0;
-
-  width:2px;
-
-  background:#e2e8f0;
-
-}
-
-
-.timeline-item:last-child::before{
-
-  display:none;
-
-}
-
-
-.timeline-icon{
-
-  position:relative;
-
-  z-index:1;
-
-  width:27px;
-
-  height:27px;
-
-  min-width:27px;
-
-  display:grid;
-
-  place-items:center;
-
-  border-radius:50%;
-
-  background:#f1f5f9;
-
-  font-size:12px;
-
-}
-
-
-.timeline-item.done .timeline-icon{
-
-  background:var(--green-light);
-
-}
-
-
-.timeline-item.current .timeline-icon{
-
-  background:var(--blue-light);
-
-  box-shadow:
-    0 0 0 4px
-    rgba(37,99,235,.12);
-
-}
-
-
-.timeline-name{
-
-  padding-top:4px;
-
-  font-size:12px;
-
-  font-weight:900;
-
-}
-
-
-.timeline-state{
-
-  margin-top:3px;
-
-  color:var(--gray);
-
-  font-size:10px;
-
-}
-
-
-.timeline-item.current .timeline-name{
-
-  color:var(--blue-dark);
-
-}
-
 
 .modal-actions{
-
-  display:flex;
-
-  flex-wrap:wrap;
-
-  gap:8px;
-
-  margin-top:18px;
-
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-top:17px;
 }
 
 
 /* =========================================================
-   DESKTOP
+TIMELINE
+========================================================= */
+
+.timeline{
+margin-top:14px;
+}
+
+.timeline-item{
+position:relative;
+display:flex;
+gap:11px;
+padding-bottom:15px;
+}
+
+.timeline-item::before{
+content:"";
+position:absolute;
+left:13px;
+top:27px;
+bottom:0;
+width:2px;
+background:#e2e8f0;
+}
+
+.timeline-item:last-child::before{
+display:none;
+}
+
+.timeline-icon{
+position:relative;
+z-index:1;
+width:27px;
+height:27px;
+min-width:27px;
+display:grid;
+place-items:center;
+border-radius:50%;
+background:#f1f5f9;
+font-size:12px;
+}
+
+.timeline-item.done .timeline-icon{
+background:var(--greenLight);
+}
+
+.timeline-item.current .timeline-icon{
+background:var(--blueLight);
+box-shadow:
+0 0 0 4px rgba(37,99,235,.12);
+}
+
+.timeline-name{
+padding-top:4px;
+font-size:12px;
+font-weight:900;
+}
+
+.timeline-state{
+margin-top:3px;
+font-size:10px;
+color:var(--gray);
+}
+
+.timeline-item.current .timeline-name{
+color:var(--blue);
+}
+
+
+/* =========================================================
+RESPONSIVE
 ========================================================= */
 
 @media(min-width:700px){
 
-  .stats{
-
-    grid-template-columns:
-      repeat(4,1fr);
-
-  }
-
-  .grid{
-
-    grid-template-columns:
-      repeat(2,1fr);
-
-  }
-
-  .hero h2{
-
-    font-size:38px;
-
-  }
-
-  .ayuntamiento{
-
-    font-size:26px;
-
-  }
-
+.stats{
+grid-template-columns:repeat(4,1fr);
 }
 
+.grid{
+grid-template-columns:repeat(2,1fr);
+}
 
-/* =========================================================
-   FOOTER
-========================================================= */
+.hero h2{
+font-size:38px;
+}
+
+.ayuntamiento{
+font-size:26px;
+}
+
+}
 
 footer{
-
-  padding:25px 16px 35px;
-
-  color:var(--gray);
-
-  text-align:center;
-
-  font-size:10px;
-
-  line-height:1.5;
-
+padding:25px 16px 35px;
+text-align:center;
+font-size:10px;
+line-height:1.5;
+color:var(--gray);
 }
 
-
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =======================================================
-     HEADER
-======================================================= -->
-
 <header>
 
 <div class="wrap">
-
 
 <div class="brand">
 
@@ -1743,19 +1058,11 @@ footer{
 </div>
 
 <div>
-
-<h1>
-OpoPoint
-</h1>
-
-<small>
-Radar de Policía Local · Andalucía
-</small>
-
+<h1>OpoPoint</h1>
+<small>Radar de Policía Local · Andalucía</small>
 </div>
 
 </div>
-
 
 <div class="status">
 
@@ -1768,20 +1075,15 @@ Radar de Policía Local · Andalucía
 </span>
 
 <span class="badge">
-Seguimiento de procesos
+Fuentes oficiales
 </span>
 
 </div>
-
 
 </div>
 
 </header>
 
-
-<!-- =======================================================
-     MAIN
-======================================================= -->
 
 <main class="wrap">
 
@@ -1789,87 +1091,47 @@ Seguimiento de procesos
 <section class="hero">
 
 <h2>
-Encuentra tu plaza de Policía Local
+Encuentra y presenta tu oposición
 </h2>
 
 <p>
-Convocatorias, ofertas de empleo público, plazos y
-seguimiento de las distintas fases del proceso selectivo.
+Consulta plazas, plazos, fase actual del proceso y acceso directo
+a la fuente oficial de inscripción cuando esté localizado.
 </p>
 
 </section>
 
 
-<!-- =======================================================
-     STATS
-======================================================= -->
-
 <section class="stats">
 
 <div class="stat">
-
-<b id="total">
-0
-</b>
-
-<span>
-registros cargados
-</span>
-
+<b id="total">0</b>
+<span>procesos</span>
 </div>
 
-
 <div class="stat">
-
-<b id="plazas">
-0
-</b>
-
-<span>
-plazas detectadas
-</span>
-
+<b id="plazas">0</b>
+<span>plazas</span>
 </div>
 
-
 <div class="stat">
-
-<b id="abiertas">
-0
-</b>
-
-<span>
-plazos abiertos
-</span>
-
+<b id="abiertas">0</b>
+<span>plazos abiertos</span>
 </div>
 
-
 <div class="stat">
-
-<b id="provincias">
-0
-</b>
-
-<span>
-provincias
-</span>
-
+<b id="provincias">0</b>
+<span>provincias</span>
 </div>
 
 </section>
 
 
-<!-- =======================================================
-     LEYENDA
-======================================================= -->
-
 <section class="legend">
 
 <div class="legend-title">
-Cómo interpretar OpoPoint
+¿Qué encontrarás?
 </div>
-
 
 <div class="legend-row">
 
@@ -1882,11 +1144,15 @@ Cómo interpretar OpoPoint
 </div>
 
 <div class="legend-item">
-⚫ Proceso anterior
+📝 Inscripción
 </div>
 
 <div class="legend-item">
-🎯 Fase actual
+🎯 Seguimiento
+</div>
+
+<div class="legend-item">
+⚫ Histórico
 </div>
 
 </div>
@@ -1894,12 +1160,7 @@ Cómo interpretar OpoPoint
 </section>
 
 
-<!-- =======================================================
-     CONTROLES
-======================================================= -->
-
 <section class="controls">
-
 
 <input
 id="search"
@@ -1909,31 +1170,14 @@ placeholder="Buscar Ayuntamiento, municipio, provincia, OEP o fase..."
 autocomplete="off"
 >
 
-
-<div
-id="provinceChips"
-class="chips">
-</div>
-
+<div id="provinceChips" class="chips"></div>
 
 </section>
 
 
-<!-- =======================================================
-     GRID
-======================================================= -->
+<section id="grid" class="grid"></section>
 
-<section
-id="grid"
-class="grid">
-</section>
-
-
-<div
-id="pagination"
-class="pagination">
-</div>
-
+<div id="pagination" class="pagination"></div>
 
 </main>
 
@@ -1944,68 +1188,53 @@ OpoPoint · Radar de Policía Local Andalucía
 
 <br>
 
-Las fuentes oficiales prevalecen siempre.
+Las fuentes administrativas oficiales prevalecen siempre.
 OpoBusca no se utiliza como destino para los usuarios.
 
 </footer>
 
 
 <!-- =======================================================
-     MODAL
+MODAL INSCRIPCIÓN
 ======================================================= -->
 
 <div
-id="modalBackdrop"
-class="modal-backdrop"
-role="dialog"
-aria-modal="true"
+id="inscriptionModal"
+class="modal-bg"
 aria-hidden="true">
-
 
 <div class="modal">
 
+<div class="modal-head">
 
-<div class="modal-header">
-
-
-<div class="modal-header-row">
-
+<div class="modal-head-row">
 
 <div>
 
-<h2 id="modalTitle">
-Proceso selectivo
+<h2 id="inscriptionTitle">
+Inscripción
 </h2>
 
-<div
-id="modalSubtitle"
-class="modal-subtitle">
+<div id="inscriptionSub" class="modal-sub">
 </div>
 
 </div>
-
 
 <button
-id="closeModal"
 class="close"
+id="closeInscription"
 aria-label="Cerrar">
 
 ×
-
 </button>
 
+</div>
 
 </div>
 
 
+<div id="inscriptionBody" class="modal-body">
 </div>
-
-
-<div
-id="modalBody"
-class="modal-body">
-</div>
-
 
 </div>
 
@@ -2013,8 +1242,55 @@ class="modal-body">
 
 
 <!-- =======================================================
-     DATOS
+MODAL SEGUIMIENTO
 ======================================================= -->
+
+<div
+id="trackingModal"
+class="modal-bg"
+aria-hidden="true">
+
+<div class="modal">
+
+<div class="modal-head">
+
+<div class="modal-head-row">
+
+<div>
+
+<h2 id="trackingTitle">
+Seguimiento
+</h2>
+
+<div
+id="trackingSub"
+class="modal-sub">
+</div>
+
+</div>
+
+<button
+class="close"
+id="closeTracking"
+aria-label="Cerrar">
+
+×
+</button>
+
+</div>
+
+</div>
+
+
+<div
+id="trackingBody"
+class="modal-body">
+</div>
+
+</div>
+
+</div>
+
 
 <script src="datos.js"></script>
 
@@ -2022,13 +1298,11 @@ class="modal-body">
 <script>
 
 /* =========================================================
-   PROCESOS
+DATOS
 ========================================================= */
 
 const data =
-Array.isArray(
-window.convocatoriasOpoPoint
-)
+Array.isArray(window.convocatoriasOpoPoint)
 ?
 window.convocatoriasOpoPoint
 :
@@ -2042,54 +1316,44 @@ window.datos
 
 
 /* =========================================================
-   ELEMENTOS DOM
+ELEMENTOS
 ========================================================= */
 
 const grid =
-document.getElementById(
-"grid"
-);
+document.getElementById("grid");
 
 const search =
-document.getElementById(
-"search"
-);
+document.getElementById("search");
 
 const chips =
-document.getElementById(
-"provinceChips"
-);
+document.getElementById("provinceChips");
 
 const pagination =
-document.getElementById(
-"pagination"
-);
+document.getElementById("pagination");
 
-const modalBackdrop =
-document.getElementById(
-"modalBackdrop"
-);
+const inscriptionModal =
+document.getElementById("inscriptionModal");
 
-const modalTitle =
-document.getElementById(
-"modalTitle"
-);
+const inscriptionTitle =
+document.getElementById("inscriptionTitle");
 
-const modalSubtitle =
-document.getElementById(
-"modalSubtitle"
-);
+const inscriptionSub =
+document.getElementById("inscriptionSub");
 
-const modalBody =
-document.getElementById(
-"modalBody"
-);
+const inscriptionBody =
+document.getElementById("inscriptionBody");
 
-const closeModal =
-document.getElementById(
-"closeModal"
-);
+const trackingModal =
+document.getElementById("trackingModal");
 
+const trackingTitle =
+document.getElementById("trackingTitle");
+
+const trackingSub =
+document.getElementById("trackingSub");
+
+const trackingBody =
+document.getElementById("trackingBody");
 
 let province="Todas";
 
@@ -2099,168 +1363,249 @@ const perPage=10;
 
 
 /* =========================================================
-   PLAZOS
+PLAZOS
 ========================================================= */
 
 const plazos={
 
-
-"opopoint-002-villafranca-2026":{
+"opopoint-villafranca-convocatoria-2026":{
 inicio:"21/08/2026",
 fin:"17/09/2026"
 },
 
-
-"opopoint-003-alcala-rio-2026":{
+"opopoint-alcala-rio-convocatoria-2026":{
 inicio:"17/08/2026",
 fin:"11/09/2026"
 },
 
-
-"opopoint-004-estepa-2026":{
+"opopoint-estepa-convocatoria-2026":{
 inicio:"18/08/2026",
 fin:"14/09/2026"
 },
 
-
-"opopoint-008-albox-2026":{
+"opopoint-albox-convocatoria-2026":{
 inicio:"12/08/2026",
 fin:"08/09/2026"
 },
 
-
-"opopoint-017-berja-2026":{
+"opopoint-berja-convocatoria-2026":{
 inicio:"28/07/2026",
 fin:"24/08/2026"
 },
 
-
-"opopoint-034-roquetas-2026":{
+"opopoint-roquetas-convocatoria-2026":{
 inicio:"07/07/2026",
 fin:"04/08/2026"
-},
-
-
-"opopoint-025-baeza-2025":{
-inicio:"19/08/2025",
-fin:"15/09/2025"
-},
-
-
-"opopoint-026-ubrique-2025":{
-inicio:"26/11/2025",
-fin:"23/12/2025"
-},
-
-
-"opopoint-029-jabugo-2025":{
-inicio:"13/10/2025",
-fin:"07/11/2025"
-},
-
-
-"opopoint-014-olula-rio-2025":{
-inicio:"06/09/2025",
-fin:"03/10/2025"
-},
-
-
-"opopoint-021-almunecar-2025":{
-inicio:"12/09/2025",
-fin:"09/10/2025"
-},
-
-
-"opopoint-019-cartaya-2025":{
-inicio:"06/04/2026",
-fin:"01/05/2026"
 }
 
 };
 
 
 /* =========================================================
-   SEGURIDAD
+INSCRIPCIONES OFICIALES
+========================================================= */
+
+/*
+   Nivel:
+   DIRECTA
+   = portal específico de procesos/trámite.
+
+   SEDE
+   = sede oficial del Ayuntamiento.
+
+   En ningún caso se inventa una URL.
+*/
+
+const inscripciones={
+
+"opopoint-villafranca-convocatoria-2026":{
+
+nivel:"DIRECTA",
+
+url:"https://empleo.eprinsa.es/vfranca/empleo",
+
+titulo:"Procesos de selección · Villafranca de Córdoba",
+
+ruta:[
+"Acceder al portal oficial de Procesos de Selección",
+"Seleccionar la convocatoria de Policía Local",
+"Cumplimentar la solicitud",
+"Firmar y registrar la solicitud",
+"Guardar el justificante"
+],
+
+nota:
+"El BOP describe este portal como el lugar donde se genera la solicitud oficial del proceso selectivo."
+},
+
+"opopoint-alcala-rio-convocatoria-2026":{
+
+nivel:"SEDE",
+
+url:"https://alcaladelrio.sedelectronica.es/",
+
+titulo:"Sede Electrónica · Ayuntamiento de Alcalá del Río",
+
+ruta:[
+"Entrar en la Sede Electrónica",
+"Acceder al Catálogo de trámites",
+"Entrar en Recursos Humanos",
+"Localizar el proceso de Policía Local",
+"Presentar y registrar la solicitud"
+],
+
+nota:
+"La sede oficial de Alcalá del Río dispone de catálogo de trámites y apartado específico de Recursos Humanos."
+},
+
+"opopoint-estepa-convocatoria-2026":{
+
+nivel:"SEDE",
+
+url:"https://sede.estepa.es/",
+
+titulo:"Sede Electrónica · Ayuntamiento de Estepa",
+
+ruta:[
+"Entrar en la Sede Electrónica",
+"Acceder al catálogo de trámites",
+"Localizar el trámite/proceso de Policía Local",
+"Cumplimentar la solicitud",
+"Firmar y registrar electrónicamente"
+],
+
+nota:
+"La sede de Estepa informa de que la presentación telemática requiere identificación/firma electrónica y AutoFirma."
+},
+
+"opopoint-albox-convocatoria-2026":{
+
+nivel:"SEDE",
+
+url:"https://albox.sedelectronica.es/",
+
+titulo:"Sede Electrónica · Ayuntamiento de Albox",
+
+ruta:[
+"Entrar en la Sede Electrónica",
+"Acceder al apartado Policía Local / Recursos Humanos",
+"Localizar la convocatoria",
+"Cumplimentar la solicitud",
+"Firmar y registrar",
+"Guardar el justificante"
+],
+
+nota:
+"La sede oficial de Albox dispone de apartados específicos de Policía Local y publicaciones de solicitudes de plazas."
+}
+
+};
+
+
+/* =========================================================
+AYUNTAMIENTOS
+========================================================= */
+
+const ayuntamientos={
+
+"San Roque":"https://sanroque.sedelectronica.es/",
+"Aznalcóllar":"https://www.aznalcollar.es/",
+"Villafranca de Córdoba":"https://www.villafrancadecordoba.es/",
+"Alcalá del Río":"https://www.alcaladelrio.es/",
+"Estepa":"https://sede.estepa.es/",
+"Dos Torres":"https://www.dostorres.es/",
+"La Puebla del Río":"https://www.lapuebladelrio.es/",
+"Lanjarón":"https://www.lanjaron.es/",
+"Albox":"https://albox.sedelectronica.es/",
+"Marbella":"https://www.marbella.es/",
+"Osuna":"https://www.osuna.es/",
+"Mojácar":"https://www.mojacar.es/",
+"Palomares del Río":"https://www.palomaresdelrio.es/",
+"Cuevas del Almanzora":"https://www.cuevasdelalmanzora.es/",
+"Olula del Río":"https://www.oluladelrio.es/",
+"Motril":"https://www.motril.es/",
+"La Mojonera":"https://www.lamojonera.es/",
+"Berja":"https://www.berja.es/",
+"Marchena":"https://www.marchena.es/",
+"Cartaya":"https://www.cartaya.es/",
+"Hinojos":"https://www.hinojos.es/",
+"Almuñécar":"https://www.almunecar.es/",
+"Algeciras":"https://www.algeciras.es/",
+"Espartinas":"https://www.espartinas.net/",
+"Montoro":"https://www.montoro.es/",
+"Baeza":"https://www.baeza.es/",
+"Ubrique":"https://www.ubrique.es/",
+"Loja":"https://www.aytoloja.org/",
+"Trebujena":"https://www.trebujena.es/",
+"Jabugo":"https://www.jabugo.es/",
+"Cádiz":"https://www.cadiz.es/",
+"Moguer":"https://www.aytomoguer.es/",
+"Maracena":"https://www.maracena.es/",
+"Pedro Abad":"https://www.ayunpedroabad.es/",
+"Roquetas de Mar":"https://www.roquetasdemar.es/",
+"Istán":"https://www.istan.es/",
+"Benamejí":"https://www.benameji.es/",
+"Villarrasa":"https://www.villarrasa.es/"
+};
+
+
+/* =========================================================
+UTILIDADES
 ========================================================= */
 
 function esc(value){
 
 return String(value ?? "")
-.replace(
-/[&<>"']/g,
-char=>({
-
+.replace(/[&<>"']/g,c=>({
 "&":"&amp;",
 "<":"&lt;",
 ">":"&gt;",
 '"':"&quot;",
 "'":"&#039;"
-
-}[char])
-);
+}[c]));
 
 }
 
 
-/* =========================================================
-   FECHA
-========================================================= */
-
-function toDate(text){
+function dateFrom(text){
 
 if(!text)
 return null;
 
-const pieces =
-String(text).split("/");
+const p=String(text).split("/");
 
-if(pieces.length!==3)
+if(p.length!==3)
 return null;
 
-const date =
-new Date(
-Number(pieces[2]),
-Number(pieces[1])-1,
-Number(pieces[0])
+const d=new Date(
+Number(p[2]),
+Number(p[1])-1,
+Number(p[0])
 );
 
-date.setHours(
-0,0,0,0
-);
+d.setHours(0,0,0,0);
 
-return date;
+return d;
 
 }
 
 
-/* =========================================================
-   ESTADO PLAZO
-========================================================= */
-
 function plazoEstado(id){
 
-const plazo =
-plazos[id];
+const p=plazos[id];
 
-if(!plazo)
+if(!p)
 return null;
 
-const inicio =
-toDate(plazo.inicio);
-
-const fin =
-toDate(plazo.fin);
+const inicio=dateFrom(p.inicio);
+const fin=dateFrom(p.fin);
 
 if(!inicio || !fin)
 return null;
 
-const hoy =
-new Date();
+const hoy=new Date();
 
-hoy.setHours(
-0,0,0,0
-);
-
+hoy.setHours(0,0,0,0);
 
 if(hoy<inicio){
 
@@ -2273,7 +1618,6 @@ dias:null
 
 }
 
-
 if(hoy>fin){
 
 return{
@@ -2285,105 +1629,66 @@ dias:0
 
 }
 
-
-if(
-hoy.getTime() ===
-fin.getTime()
-){
+if(hoy.getTime()===fin.getTime()){
 
 return{
 tipo:"ultimo",
 clase:"last",
-titulo:
-"⚠️ ÚLTIMO DÍA PARA PRESENTAR LA SOLICITUD",
+titulo:"⚠️ ÚLTIMO DÍA",
 dias:0
 };
 
 }
 
-
-const dias =
-Math.ceil(
-(fin-hoy) /
-86400000
+const dias=Math.ceil(
+(fin-hoy)/86400000
 );
-
 
 return{
 tipo:"abierto",
 clase:"open",
-titulo:"🟢 Plazo abierto",
+titulo:"🟢 PLAZO ABIERTO",
 dias:dias
 };
 
 }
 
 
-/* =========================================================
-   TIPO
-========================================================= */
+function esConvocatoria(item){
 
-function esConvocatoria(x){
-
-return String(
-x.tipo || ""
-)
+return String(item.tipo||"")
 .toUpperCase()
-.includes(
-"CONVOCATORIA"
-);
+.includes("CONVOCATORIA");
 
 }
 
 
-function esFinalizada(x){
+function esFinalizada(item){
 
-return String(
-x.tipo || ""
-)
+return String(item.tipo||"")
 .toUpperCase()
-.includes(
-"FINALIZADA"
-);
+.includes("FINALIZADA");
 
 }
 
 
-/* =========================================================
-   FUENTE
-========================================================= */
-
-function fuenteOficial(x){
+function fuente(item){
 
 const urls=[
-
-x.boeUrl,
-
-x.bojaUrl,
-
-x.bopUrl,
-
-x.convocatoriaUrl,
-
-x.fuenteUrl,
-
-x.seguimiento &&
-x.seguimiento.ultimaFuenteUrl
-
+item.boeUrl,
+item.bojaUrl,
+item.bopUrl,
+item.convocatoriaUrl,
+item.fuenteUrl
 ];
 
-
-for(
-const url of urls
-){
+for(const url of urls){
 
 if(
 url &&
 !String(url)
 .toLowerCase()
-.includes(
-"opobusca"
-)
+.includes("opobusca")
 ){
 
 return url;
@@ -2392,66 +1697,49 @@ return url;
 
 }
 
-
 return null;
 
 }
 
 
-/* =========================================================
-   TEXTO FUENTE
-========================================================= */
-
-function textoFuente(url){
+function fuenteTexto(url){
 
 if(!url)
 return "Fuente oficial";
 
-const lower =
-String(url)
-.toLowerCase();
+const u=String(url).toLowerCase();
 
+if(u.includes("boe.es"))
+return "📄 Ver BOE";
 
-if(lower.includes("boe.es"))
-return "📄 Ver BOE oficial";
+if(u.includes("juntadeandalucia.es"))
+return "📄 Ver BOJA";
 
-if(lower.includes("juntadeandalucia.es"))
-return "📄 Ver BOJA oficial";
+if(u.includes("bop"))
+return "📄 Ver BOP";
 
-if(lower.includes("bop"))
-return "📄 Ver BOP oficial";
-
-return "🏛️ Consultar fuente oficial";
+return "🏛️ Fuente oficial";
 
 }
 
 
 /* =========================================================
-   PROVINCIAS
+PROVINCIAS
 ========================================================= */
 
 function renderChips(){
 
-const provinces=[
-
+const ps=[
 "Todas",
-
 ...new Set(
 data
-.map(
-x=>x.provincia
-)
+.map(x=>x.provincia)
 .filter(Boolean)
 .sort()
 )
-
 ];
 
-
-chips.innerHTML =
-provinces
-.map(
-p=>`
+chips.innerHTML=ps.map(p=>`
 
 <button
 class="chip ${
@@ -2461,28 +1749,21 @@ p===province
 :
 ""
 }"
-data-province="${esc(p)}">
+data-p="${esc(p)}">
 
 ${esc(p)}
 
 </button>
 
-`
-)
-.join("");
-
+`).join("");
 
 chips
-.querySelectorAll(
-"[data-province]"
-)
-.forEach(
-button=>{
+.querySelectorAll("[data-p]")
+.forEach(button=>{
 
 button.onclick=()=>{
 
-province =
-button.dataset.province;
+province=button.dataset.p;
 
 page=1;
 
@@ -2490,269 +1771,124 @@ render();
 
 };
 
-}
-);
+});
 
 }
 
 
 /* =========================================================
-   BUSCADOR
+BUSCADOR
 ========================================================= */
 
 function filtered(){
 
-const query =
-search.value
+const q=search.value
 .trim()
 .toLowerCase();
 
+return data.filter(item=>{
 
-return data.filter(
-item=>{
-
-const provinceOK =
+const okProvince=
 province==="Todas" ||
 item.provincia===province;
 
+const seguimiento=
+item.seguimiento||{};
 
-const seguimiento =
-item.seguimiento ||
-{};
-
-
-const fases =
-Array.isArray(
-seguimiento.fases
-)
+const fases=
+Array.isArray(seguimiento.fases)
 ?
 seguimiento.fases
-.map(
-fase=>fase.nombre
-)
+.map(f=>f.nombre)
 .join(" ")
 :
 "";
 
+const text=`
 
-const text = `
-
-${item.organismo || ""}
-
-${item.municipio || ""}
-
-${item.provincia || ""}
-
-${item.puesto || ""}
-
-${item.oep || ""}
-
-${item.tipo || ""}
-
-${seguimiento.faseActual || ""}
-
-${seguimiento.ultimaActuacion || ""}
-
-${seguimiento.proximaActuacion || ""}
-
+${item.organismo||""}
+${item.municipio||""}
+${item.provincia||""}
+${item.puesto||""}
+${item.oep||""}
+${item.tipo||""}
+${item.estadoActual||""}
+${seguimiento.ultimaActuacion||""}
+${seguimiento.proximaActuacion||""}
 ${fases}
 
-`
-.toLowerCase();
+`.toLowerCase();
 
+return okProvince &&
+(!q || text.includes(q));
 
-return provinceOK &&
-(
-!query ||
-text.includes(query)
-);
-
-}
-);
+});
 
 }
 
 
 /* =========================================================
-   FASE ACTUAL
+INSCRIPCIÓN DISPONIBLE
 ========================================================= */
 
-function faseActual(item){
+function inscriptionFor(item){
 
-const seguimiento =
-item.seguimiento;
-
-if(
-!seguimiento ||
-!Array.isArray(
-seguimiento.fases
-)
-){
-
+if(!plazoEstado(item.id))
 return null;
 
-}
-
-
-return seguimiento.fases.find(
-fase=>fase.estado==="actual"
-) || null;
-
-}
-
-
-/* =========================================================
-   PROGRESO
-========================================================= */
-
-function progreso(item){
-
-const seguimiento =
-item.seguimiento;
+const estado=plazoEstado(item.id);
 
 if(
-!seguimiento ||
-!Array.isArray(
-seguimiento.fases
-) ||
-seguimiento.fases.length===0
-){
-
-return 0;
-
-}
-
-
-const completadas =
-seguimiento.fases
-.filter(
-fase=>
-fase.estado==="completada" ||
-fase.estado==="actual"
+estado.tipo!=="abierto" &&
+estado.tipo!=="ultimo"
 )
-.length;
+return null;
 
+return inscripciones[item.id] || {
 
-return Math.round(
-(
-completadas /
-seguimiento.fases.length
-)*100
-);
+nivel:"AYUNTAMIENTO",
+
+url:ayuntamientos[item.municipio] || item.fuenteUrl || null,
+
+titulo:
+`Sede oficial · ${item.organismo}`,
+
+ruta:[
+"Acceder a la sede oficial del Ayuntamiento",
+"Localizar el apartado de Recursos Humanos / Empleo Público",
+"Buscar la convocatoria de Policía Local",
+"Presentar y registrar la solicitud",
+"Guardar el justificante"
+],
+
+nota:
+"No hemos localizado todavía el trámite electrónico exacto. OpoPoint te lleva a la fuente oficial para no enviarte a una web de terceros."
+};
 
 }
 
 
 /* =========================================================
-   PLAZO HTML
+BOTON INSCRIPCION
 ========================================================= */
 
-function plazoHTML(item){
+function inscriptionButton(item){
 
-const plazo =
-plazos[item.id];
+const config=
+inscriptionFor(item);
 
-if(!plazo)
+if(!config)
 return "";
-
-
-const estado =
-plazoEstado(item.id);
-
-if(!estado)
-return "";
-
-
-let diasTexto="";
-
-
-if(
-estado.tipo==="abierto"
-){
-
-diasTexto=
-`Quedan aproximadamente
-<strong>${estado.dias} días</strong>.`;
-
-}
-
-else if(
-estado.tipo==="ultimo"
-){
-
-diasTexto=
-"<strong>Hoy es el último día.</strong>";
-
-}
-
-else if(
-estado.tipo==="cerrado"
-){
-
-diasTexto=
-"El plazo ha finalizado.";
-
-}
-
-else{
-
-diasTexto=
-`El plazo comienza el
-<strong>${esc(plazo.inicio)}</strong>.`;
-
-}
-
 
 return `
 
-<div class="deadline ${estado.clase}">
+<button
+class="btn btn-green"
+data-inscription="${esc(item.id)}">
 
-<div class="deadline-title">
+📝 INSCRIBIRME
 
-${estado.titulo}
-
-</div>
-
-
-<div class="deadline-dates">
-
-
-<div class="deadline-box">
-
-<span>
-Inicio solicitudes
-</span>
-
-<b>
-${esc(plazo.inicio)}
-</b>
-
-</div>
-
-
-<div class="deadline-box">
-
-<span>
-Fin solicitudes
-</span>
-
-<b>
-${esc(plazo.fin)}
-</b>
-
-</div>
-
-
-</div>
-
-
-<div class="deadline-days">
-
-${diasTexto}
-
-</div>
-
-</div>
+</button>
 
 `;
 
@@ -2760,440 +1896,25 @@ ${diasTexto}
 
 
 /* =========================================================
-   FASE RESUMIDA
+BOTON FUENTE
 ========================================================= */
 
-function faseHTML(item){
+function sourceButton(item){
 
-const fase =
-faseActual(item);
+const url=fuente(item);
 
-if(!fase)
+if(!url)
 return "";
-
-
-const seguimiento =
-item.seguimiento;
-
-
-const percent =
-progreso(item);
-
 
 return `
-
-<div class="current-phase">
-
-<div class="phase-label">
-
-FASE ACTUAL
-
-</div>
-
-
-<div class="phase-title">
-
-${esc(fase.icono || "🎯")}
-
-${esc(fase.nombre)}
-
-</div>
-
-
-<div class="phase-description">
-
-Fase
-<strong>
-${esc(seguimiento.faseNumero || 1)}
-</strong>
-de
-<strong>
-${esc(seguimiento.totalFases || seguimiento.fases.length)}
-</strong>
-
-</div>
-
-
-<div class="progress">
-
-<div
-class="progress-inner"
-style="width:${percent}%">
-</div>
-
-</div>
-
-</div>
-
-`;
-
-}
-
-
-/* =========================================================
-   ACTIVIDAD
-========================================================= */
-
-function actividadHTML(item){
-
-const seguimiento =
-item.seguimiento;
-
-if(!seguimiento)
-return "";
-
-
-let html="";
-
-
-if(
-seguimiento.ultimaActuacion
-){
-
-html += `
-
-<div class="activity">
-
-<div class="activity-title">
-
-📌 Última actuación oficial
-
-</div>
-
-
-<div class="activity-text">
-
-${esc(
-seguimiento.ultimaActuacion
-)}
-
-${
-seguimiento.ultimaActualizacion
-?
-`
-<br>
-<strong>
-${esc(
-seguimiento.ultimaActualizacion
-)}
-</strong>
-`
-:
-""
-}
-
-</div>
-
-</div>
-
-`;
-
-}
-
-
-if(
-seguimiento.proximaActuacion
-){
-
-html += `
-
-<div class="activity next">
-
-<div class="activity-title">
-
-⏭️ Próxima actuación
-
-</div>
-
-
-<div class="activity-text">
-
-${esc(
-seguimiento.proximaActuacion
-)}
-
-${
-seguimiento.proximaFecha
-?
-`
-<br>
-Fecha:
-<strong>
-${esc(
-seguimiento.proximaFecha
-)}
-</strong>
-`
-:
-""
-}
-
-</div>
-
-</div>
-
-`;
-
-}
-
-
-return html;
-
-}
-
-
-/* =========================================================
-   OEP INFO
-========================================================= */
-
-function oepHTML(item){
-
-if(
-esConvocatoria(item) ||
-esFinalizada(item)
-){
-
-return "";
-
-}
-
-
-return `
-
-<div class="oep-info">
-
-<strong>
-📢 PLAZAS OFERTADAS EN LA OEP
-</strong>
-
-Estas plazas han sido incluidas
-en la Oferta de Empleo Público.
-
-<strong>
-La OEP no significa necesariamente
-que el plazo de oposición esté abierto.
-</strong>
-
-La convocatoria se mostrará
-cuando exista publicación oficial
-del proceso selectivo.
-
-</div>
-
-`;
-
-}
-
-
-/* =========================================================
-   TARJETA
-========================================================= */
-
-function cardHTML(item){
-
-const convocatoria =
-esConvocatoria(item);
-
-const finalizada =
-esFinalizada(item);
-
-const plazo =
-plazoEstado(item.id);
-
-const fase =
-faseActual(item);
-
-
-let clase="card ";
-
-if(finalizada)
-clase+="final";
-
-else if(convocatoria)
-clase+="conv";
-
-else
-clase+="oep";
-
-
-let badge;
-
-
-if(finalizada){
-
-badge=`
-
-<div class="type final">
-
-⚫ PROCESO ANTERIOR
-
-</div>
-
-`;
-
-}
-else if(convocatoria){
-
-badge=`
-
-<div class="type conv">
-
-🟢 CONVOCATORIA
-
-</div>
-
-`;
-
-}
-else{
-
-badge=`
-
-<div class="type oep">
-
-🔵 OEP
-
-</div>
-
-`;
-
-}
-
-
-/* Estado */
-
-let estado;
-
-
-if(finalizada){
-
-estado=`
-
-<div class="status-pill status-final">
-
-Proceso anterior
-
-</div>
-
-`;
-
-}
-else if(plazo){
-
-if(
-plazo.tipo==="ultimo"
-){
-
-estado=`
-
-<div class="status-pill status-last">
-
-⚠️ ÚLTIMO DÍA
-
-</div>
-
-`;
-
-}
-else if(
-plazo.tipo==="cerrado"
-){
-
-estado=`
-
-<div class="status-pill status-closed">
-
-🔴 PLAZO FINALIZADO
-
-</div>
-
-`;
-
-}
-else if(
-plazo.tipo==="abierto"
-){
-
-estado=`
-
-<div class="status-pill status-open">
-
-🟢 PLAZO ABIERTO
-
-</div>
-
-`;
-
-}
-else{
-
-estado=`
-
-<div class="status-pill status-open">
-
-📅 PRÓXIMO
-
-</div>
-
-`;
-
-}
-
-}
-else if(convocatoria){
-
-estado=`
-
-<div class="status-pill status-open">
-
-📄 CONVOCATORIA PUBLICADA
-
-</div>
-
-`;
-
-}
-else{
-
-estado=`
-
-<div class="status-pill status-oep">
-
-⏳ PENDIENTE DE CONVOCATORIA
-
-</div>
-
-`;
-
-}
-
-
-/* Fuente */
-
-const url =
-fuenteOficial(item);
-
-
-let sourceButton="";
-
-
-if(url){
-
-sourceButton=`
 
 <a
-class="btn ${
-convocatoria
-?
-"btn-green"
-:
-"btn-blue"
-}"
+class="btn btn-blue"
 href="${esc(url)}"
 target="_blank"
 rel="noopener noreferrer">
 
-${textoFuente(url)}
+${fuenteTexto(url)}
 
 </a>
 
@@ -3202,23 +1923,405 @@ ${textoFuente(url)}
 }
 
 
-/* Tarjeta */
+/* =========================================================
+FASE
+========================================================= */
+
+function phase(item){
+
+const s=item.seguimiento;
+
+if(
+!s ||
+!Array.isArray(s.fases)
+)
+return null;
+
+return s.fases.find(
+f=>f.estado==="actual"
+) || null;
+
+}
+
+
+function progress(item){
+
+const s=item.seguimiento;
+
+if(
+!s ||
+!Array.isArray(s.fases) ||
+!s.fases.length
+)
+return 0;
+
+const complete=
+s.fases.filter(
+f=>
+f.estado==="completada" ||
+f.estado==="actual"
+).length;
+
+return Math.round(
+complete/s.fases.length*100
+);
+
+}
+
+
+function phaseHTML(item){
+
+const s=item.seguimiento;
+
+const p=phase(item);
+
+if(!s || !p)
+return "";
 
 return `
 
-<article
-class="${clase}">
+<div class="current-phase">
 
+<div class="phase-label">
+FASE ACTUAL
+</div>
+
+<div class="phase-title">
+${esc(p.icono||"🎯")}
+${esc(p.nombre)}
+</div>
+
+<div class="phase-sub">
+Fase ${esc(s.faseNumero||1)}
+de
+${esc(s.totalFases||s.fases.length)}
+</div>
+
+<div class="progress">
+<div
+class="progress-inner"
+style="width:${progress(item)}%">
+</div>
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+PLAZO HTML
+========================================================= */
+
+function deadlineHTML(item){
+
+const p=plazos[item.id];
+
+if(!p)
+return "";
+
+const state=plazoEstado(item.id);
+
+if(!state)
+return "";
+
+let text="";
+
+if(state.tipo==="abierto")
+text=`Quedan <strong>${state.dias} días</strong>.`;
+
+else if(state.tipo==="ultimo")
+text=`<strong>Hoy es el último día.</strong>`;
+
+else if(state.tipo==="cerrado")
+text="El plazo ha finalizado.";
+
+else
+text=`Comienza el <strong>${esc(p.inicio)}</strong>.`;
+
+return `
+
+<div class="deadline ${state.clase}">
+
+<div class="deadline-title">
+${state.titulo}
+</div>
+
+<div class="deadline-dates">
+
+<div class="deadline-box">
+<span>Inicio solicitudes</span>
+<b>${esc(p.inicio)}</b>
+</div>
+
+<div class="deadline-box">
+<span>Fin solicitudes</span>
+<b>${esc(p.fin)}</b>
+</div>
+
+</div>
+
+<div class="deadline-days">
+${text}
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+ACTIVIDAD
+========================================================= */
+
+function activityHTML(item){
+
+const s=item.seguimiento;
+
+if(!s)
+return "";
+
+let html="";
+
+if(s.ultimaActuacion){
+
+html+=`
+
+<div class="activity">
+
+<div class="activity-title">
+📌 Última actuación oficial
+</div>
+
+<div class="activity-text">
+${esc(s.ultimaActuacion)}
+
+${
+s.ultimaActualizacion
+?
+`<br><strong>${esc(s.ultimaActualizacion)}</strong>`
+:
+""
+}
+
+</div>
+
+</div>
+
+`;
+
+}
+
+if(s.proximaActuacion){
+
+html+=`
+
+<div class="activity next">
+
+<div class="activity-title">
+⏭️ Próxima actuación
+</div>
+
+<div class="activity-text">
+
+${esc(s.proximaActuacion)}
+
+${
+s.proximaFecha
+?
+`<br>Fecha: <strong>${esc(s.proximaFecha)}</strong>`
+:
+""
+}
+
+</div>
+
+</div>
+
+`;
+
+}
+
+return html;
+
+}
+
+
+/* =========================================================
+OEP
+========================================================= */
+
+function oepHTML(item){
+
+if(
+esConvocatoria(item) ||
+esFinalizada(item)
+)
+return "";
+
+return `
+
+<div class="oep-info">
+
+<strong>
+📢 PLAZAS OFERTADAS EN OEP
+</strong>
+
+Estas plazas han sido incluidas
+en la Oferta de Empleo Público.
+
+<strong>
+Todavía no significa que el plazo de oposición esté abierto.
+</strong>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+CARD
+========================================================= */
+
+function cardHTML(item){
+
+const convocatoria=
+esConvocatoria(item);
+
+const finalizada=
+esFinalizada(item);
+
+const pendiente=
+String(item.tipo||"")
+.toUpperCase()
+.includes("PENDIENTE");
+
+const state=
+plazoEstado(item.id);
+
+let cardClass="card ";
+
+if(finalizada)
+cardClass+="final";
+
+else if(convocatoria)
+cardClass+="conv";
+
+else if(pendiente)
+cardClass+="pending";
+
+else
+cardClass+="oep";
+
+
+let badge="";
+
+if(finalizada)
+badge=`<div class="type final">⚫ HISTÓRICO</div>`;
+
+else if(convocatoria)
+badge=`<div class="type conv">🟢 CONVOCATORIA</div>`;
+
+else if(pendiente)
+badge=`<div class="type pending">🟠 PENDIENTE</div>`;
+
+else
+badge=`<div class="type oep">🔵 OEP</div>`;
+
+
+let status="";
+
+if(finalizada){
+
+status=
+`<div class="status-pill status-final">
+Proceso anterior
+</div>`;
+
+}
+
+else if(state){
+
+if(state.tipo==="ultimo"){
+
+status=
+`<div class="status-pill status-last">
+⚠️ ÚLTIMO DÍA
+</div>`;
+
+}
+else if(state.tipo==="cerrado"){
+
+status=
+`<div class="status-pill status-closed">
+🔴 PLAZO FINALIZADO
+</div>`;
+
+}
+else if(state.tipo==="abierto"){
+
+status=
+`<div class="status-pill status-open">
+🟢 PLAZO ABIERTO
+</div>`;
+
+}
+else{
+
+status=
+`<div class="status-pill status-open">
+📅 PRÓXIMO
+</div>`;
+
+}
+
+}
+
+else if(convocatoria){
+
+status=
+`<div class="status-pill status-open">
+📄 CONVOCATORIA PUBLICADA
+</div>`;
+
+}
+
+else if(pendiente){
+
+status=
+`<div class="status-pill status-pending">
+🔎 PENDIENTE
+</div>`;
+
+}
+
+else{
+
+status=
+`<div class="status-pill status-oep">
+⏳ PENDIENTE DE CONVOCATORIA
+</div>`;
+
+}
+
+
+return `
+
+<article class="${cardClass}">
 
 <div class="card-header">
-
 
 <div>
 
 <h3 class="ayuntamiento">
 
 🏛️
-
 ${esc(
 item.organismo ||
 item.municipio ||
@@ -3226,7 +2329,6 @@ item.municipio ||
 )}
 
 </h3>
-
 
 <div class="puesto">
 
@@ -3239,157 +2341,128 @@ item.puesto ||
 
 </div>
 
-
 ${badge}
-
 
 </div>
 
 
 <div class="plazas-row">
 
-
 <div>
 
 <div class="plazas-num">
-
-${esc(
-item.plazas ||
-0
-)}
-
+${esc(item.plazas||0)}
 </div>
-
 
 <div class="plazas-label">
-
 plazas
-
 </div>
 
 </div>
 
-
-${estado}
-
+${status}
 
 </div>
 
 
 ${oepHTML(item)}
 
+${deadlineHTML(item)}
 
-${plazoHTML(item)}
+${phaseHTML(item)}
 
-
-${faseHTML(item)}
-
-
-${actividadHTML(item)}
+${activityHTML(item)}
 
 
 <div class="meta">
 
+<div class="meta-box">
+<span>Municipio</span>
+<b>${esc(item.municipio||"—")}</b>
+</div>
 
 <div class="meta-box">
-
-<span>
-Municipio
-</span>
-
-<b>
-${esc(item.municipio || "—")}
-</b>
-
+<span>Provincia</span>
+<b>${esc(item.provincia||"—")}</b>
 </div>
-
 
 <div class="meta-box">
-
-<span>
-Provincia
-</span>
-
-<b>
-${esc(item.provincia || "—")}
-</b>
-
+<span>Grupo</span>
+<b>${esc(item.grupo||"—")}</b>
 </div>
-
 
 <div class="meta-box">
-
-<span>
-Grupo
-</span>
-
-<b>
-${esc(item.grupo || "—")}
-</b>
-
+<span>Turno</span>
+<b>${esc(item.turno||"—")}</b>
 </div>
-
 
 <div class="meta-box">
-
-<span>
-Turno
-</span>
-
-<b>
-${esc(item.turno || "—")}
-</b>
-
+<span>OEP</span>
+<b>${esc(item.oep||"—")}</b>
 </div>
-
 
 <div class="meta-box">
-
-<span>
-OEP
-</span>
-
-<b>
-${esc(item.oep || "—")}
-</b>
+<span>Estado</span>
+<b>${esc(item.estadoActual||item.estado||"—")}</b>
+</div>
 
 </div>
 
 
-<div class="meta-box">
+${
+inscriptionFor(item)
+?
+`
 
-<span>
-Estado
-</span>
+<div class="inscription-box">
 
-<b>
-${esc(
-item.estadoActual ||
-item.estado ||
-"—"
-)}
-</b>
+<div class="inscription-title">
+
+📝 ¿Quieres presentar la solicitud?
 
 </div>
 
+<div class="inscription-text">
+
+El plazo está abierto.
+OpoPoint te lleva a la plataforma oficial
+del Ayuntamiento para realizar la inscripción.
 
 </div>
+
+<div class="inscription-actions">
+
+${inscriptionButton(item)}
+
+${sourceButton(item)}
+
+</div>
+
+</div>
+
+`
+:
+""
+}
 
 
 <div class="actions">
 
-
-${sourceButton}
-
+${
+!inscriptionFor(item)
+?
+sourceButton(item)
+:
+""
+}
 
 <button
-class="btn btn-purple details-btn"
-data-details="${esc(item.id)}">
+class="btn btn-purple"
+data-tracking="${esc(item.id)}">
 
-🎯 Ver seguimiento
+🎯 Seguimiento
 
 </button>
-
 
 </div>
 
@@ -3397,10 +2470,7 @@ data-details="${esc(item.id)}">
 <div class="source">
 
 Fuente:
-${esc(
-item.fuente ||
-"Pendiente"
-)}
+${esc(item.fuente||"Fuente pendiente de localizar")}
 
 </div>
 
@@ -3413,232 +2483,198 @@ item.fuente ||
 
 
 /* =========================================================
-   MODAL — DETALLE DEL PROCESO
+MODAL INSCRIPCION
 ========================================================= */
 
-function openDetails(id){
+function openInscription(id){
 
-const item =
-data.find(
-x=>x.id===id
-);
-
+const item=
+data.find(x=>x.id===id);
 
 if(!item)
 return;
 
+const config=
+inscriptionFor(item);
 
-const seguimiento =
-item.seguimiento;
+if(!config)
+return;
+
+inscriptionTitle.textContent=
+`📝 Inscribirse · ${item.municipio}`;
+
+inscriptionSub.textContent=
+`${item.puesto||"Policía Local"} · ${item.plazas||0} plazas`;
 
 
-modalTitle.textContent =
+let body=`
+
+<div class="inscription-box">
+
+<div class="inscription-title">
+${esc(config.titulo)}
+</div>
+
+<div class="inscription-text">
+${esc(config.nota)}
+</div>
+
+</div>
+
+
+<div class="route">
+
+<div class="route-title">
+📍 Ruta de inscripción
+</div>
+
+<ol class="route-list">
+
+${
+config.ruta
+.map((step,index)=>`
+
+<li>
+
+<div class="route-number">
+${index+1}
+</div>
+
+<div>
+${esc(step)}
+</div>
+
+</li>
+
+`)
+.join("")
+}
+
+</ol>
+
+</div>
+
+<div class="warning">
+
+<strong>Importante:</strong>
+la presentación solo será válida cuando se complete y registre
+la solicitud en la plataforma oficial correspondiente.
+OpoPoint no recibe ni almacena tu solicitud.
+
+</div>
+
+<div class="modal-actions">
+
+<a
+class="btn btn-green"
+href="${esc(config.url)}"
+target="_blank"
+rel="noopener noreferrer">
+
+📝 ABRIR INSCRIPCIÓN OFICIAL
+
+</a>
+
+${
+fuente(item)
+?
+`
+<a
+class="btn btn-blue"
+href="${esc(fuente(item))}"
+target="_blank"
+rel="noopener noreferrer">
+
+📄 Ver convocatoria
+
+</a>
+`
+:
+""
+}
+
+</div>
+`;
+
+inscriptionBody.innerHTML=body;
+
+inscriptionModal.classList.add("show");
+
+inscriptionModal.setAttribute("aria-hidden","false");
+
+document.body.style.overflow="hidden";
+
+}
+
+
+function closeInscription(){
+
+inscriptionModal.classList.remove("show");
+
+inscriptionModal.setAttribute("aria-hidden","true");
+
+document.body.style.overflow="";
+
+}
+
+
+/* =========================================================
+MODAL SEGUIMIENTO
+========================================================= */
+
+function openTracking(id){
+
+const item=
+data.find(x=>x.id===id);
+
+if(!item)
+return;
+
+const s=item.seguimiento;
+
+trackingTitle.textContent=
 item.organismo ||
 item.municipio ||
-"Proceso selectivo";
+"Seguimiento";
 
-
-modalSubtitle.textContent =
-`${item.puesto || "Policía Local"} · ${item.plazas || 0} plazas`;
+trackingSub.textContent=
+`${item.puesto||"Policía Local"} · ${item.plazas||0} plazas`;
 
 
 let html="";
 
 
-/* ---------------------------------------------------------
-   INFORMACIÓN GENERAL
---------------------------------------------------------- */
-
-html += `
-
-<div class="detail-grid">
+const current=
+phase(item);
 
 
-<div class="detail-box">
+if(current){
 
-<span>
-Municipio
-</span>
-
-<b>
-${esc(
-item.municipio || "—"
-)}
-</b>
-
-</div>
-
-
-<div class="detail-box">
-
-<span>
-Provincia
-</span>
-
-<b>
-${esc(
-item.provincia || "—"
-)}
-</b>
-
-</div>
-
-
-<div class="detail-box">
-
-<span>
-Plazas
-</span>
-
-<b>
-${esc(
-item.plazas || 0
-)}
-</b>
-
-</div>
-
-
-<div class="detail-box">
-
-<span>
-OEP
-</span>
-
-<b>
-${esc(
-item.oep || "—"
-)}
-</b>
-
-</div>
-
-
-<div class="detail-box">
-
-<span>
-Tipo
-</span>
-
-<b>
-${esc(
-item.tipo || "—"
-)}
-</b>
-
-</div>
-
-
-<div class="detail-box">
-
-<span>
-Turno
-</span>
-
-<b>
-${esc(
-item.turno || "—"
-)}
-</b>
-
-</div>
-
-
-</div>
-
-`;
-
-
-/* ---------------------------------------------------------
-   PLAZO
---------------------------------------------------------- */
-
-if(
-plazos[item.id]
-){
-
-html += `
-
-<div class="modal-section">
-
-<h3>
-📅 Plazo de solicitudes
-</h3>
-
-${plazoHTML(item)}
-
-</div>
-
-`;
-
-}
-
-
-/* ---------------------------------------------------------
-   FASE
---------------------------------------------------------- */
-
-if(
-seguimiento &&
-Array.isArray(
-seguimiento.fases
-)
-){
-
-const fase =
-faseActual(item);
-
-
-html += `
-
-<div class="modal-section">
-
-<h3>
-🎯 Seguimiento del proceso
-</h3>
-
-`;
-
-
-if(fase){
-
-html += `
+html+=`
 
 <div class="current-phase">
 
 <div class="phase-label">
-
 FASE ACTUAL
-
 </div>
 
 <div class="phase-title">
 
-${esc(
-fase.icono || "🎯"
-)}
+${esc(current.icono||"🎯")}
 
-${esc(fase.nombre)}
+${esc(current.nombre)}
 
 </div>
 
-<div class="phase-description">
+<div class="phase-sub">
 
-Fase
-<strong>
-${esc(
-seguimiento.faseNumero || 1
-)}
-</strong>
-
-de
-
-<strong>
-${esc(
-seguimiento.totalFases ||
-seguimiento.fases.length
-)}
-</strong>
+${
+s
+?
+`Fase de seguimiento · ${esc(s.faseActual||"")}`
+:
+""
+}
 
 </div>
 
@@ -3647,151 +2683,108 @@ seguimiento.fases.length
 `;
 
 }
-
-
-/* ---------------------------------------------------------
-   TIMELINE
---------------------------------------------------------- */
-
-html += `
-
-<div
-class="timeline"
-style="margin-top:15px">
-
-`;
-
-
-seguimiento.fases
-.forEach(
-fase=>{
-
-let stateText="Pendiente";
 
 
 if(
-fase.estado==="actual"
+s &&
+Array.isArray(s.fases)
 ){
 
-stateText="FASE ACTUAL";
+html+=`
 
-}
-else if(
-fase.estado==="completada"
-){
+<div class="route" style="margin-top:15px">
 
-stateText="Completada";
+<div class="route-title">
+📊 Estado del proceso
+</div>
 
-}
+<div class="timeline">
 
-
-html += `
+${
+s.fases
+.map(f=>`
 
 <div
 class="timeline-item ${
-fase.estado==="actual"
+f.estado==="actual"
 ?
 "current"
 :
-fase.estado==="completada"
+f.estado==="completada"
 ?
 "done"
 :
 ""
 }">
 
-
 <div class="timeline-icon">
 
-${esc(
-fase.icono || "•"
-)}
+${esc(f.icono||"•")}
 
 </div>
-
 
 <div>
 
 <div class="timeline-name">
 
-${esc(
-fase.nombre
-)}
+${esc(f.nombre)}
 
 </div>
-
 
 <div class="timeline-state">
 
-${stateText}
+${
+f.estado==="actual"
+?
+"FASE ACTUAL"
+:
+f.estado==="completada"
+?
+"Completada"
+:
+"Pendiente"
+}
 
 </div>
 
 </div>
 
+</div>
+
+`)
+.join("")
+}
+
+</div>
 
 </div>
 
 `;
 
 }
-);
 
 
-html += `
+if(s && s.ultimaActuacion){
 
-</div>
-
-`;
-
-}
-
-
-/* ---------------------------------------------------------
-   ÚLTIMA / PRÓXIMA ACTUACIÓN
---------------------------------------------------------- */
-
-if(
-seguimiento
-){
-
-if(
-seguimiento.ultimaActuacion
-){
-
-html += `
-
-<div class="modal-section">
-
-<h3>
-📌 Última actuación oficial
-</h3>
+html+=`
 
 <div class="activity">
 
+<div class="activity-title">
+📌 Última actuación oficial
+</div>
+
 <div class="activity-text">
 
-${esc(
-seguimiento.ultimaActuacion
-)}
+${esc(s.ultimaActuacion)}
 
 ${
-seguimiento.ultimaActualizacion
+s.ultimaActualizacion
 ?
-`
-<br>
-Actualización:
-<strong>
-${esc(
-seguimiento.ultimaActualizacion
-)}
-</strong>
-`
+`<br><strong>${esc(s.ultimaActualizacion)}</strong>`
 :
 ""
 }
-
-</div>
 
 </div>
 
@@ -3802,43 +2795,27 @@ seguimiento.ultimaActualizacion
 }
 
 
-if(
-seguimiento.proximaActuacion
-){
+if(s && s.proximaActuacion){
 
-html += `
-
-<div class="modal-section">
-
-<h3>
-⏭️ Próxima actuación
-</h3>
+html+=`
 
 <div class="activity next">
 
+<div class="activity-title">
+⏭️ Próxima actuación
+</div>
+
 <div class="activity-text">
 
-${esc(
-seguimiento.proximaActuacion
-)}
+${esc(s.proximaActuacion)}
 
 ${
-seguimiento.proximaFecha
+s.proximaFecha
 ?
-`
-<br>
-Fecha:
-<strong>
-${esc(
-seguimiento.proximaFecha
-)}
-</strong>
-`
+`<br>Fecha: <strong>${esc(s.proximaFecha)}</strong>`
 :
 ""
 }
-
-</div>
 
 </div>
 
@@ -3848,123 +2825,127 @@ seguimiento.proximaFecha
 
 }
 
-}
 
+const config=
+inscriptionFor(item);
 
-/* ---------------------------------------------------------
-   ENLACES
---------------------------------------------------------- */
+if(config){
 
-const url =
-fuenteOficial(item);
+html+=`
 
+<div class="inscription-box">
 
-html += `
+<div class="inscription-title">
+📝 El plazo de inscripción está abierto
+</div>
 
-<div class="modal-actions">
+<div class="inscription-text">
+Puedes acceder a la plataforma oficial desde OpoPoint.
+</div>
 
-${
-url
-?
-`
+<div class="inscription-actions">
 
-<a
+<button
 class="btn btn-green"
-href="${esc(url)}"
-target="_blank"
-rel="noopener noreferrer">
+data-inscription="${esc(item.id)}">
 
-${textoFuente(url)}
+📝 INSCRIBIRME
 
-</a>
+</button>
 
-`
-:
-""
-}
-
-${
-seguimiento &&
-seguimiento.ultimaFuenteUrl
-?
-`
-
-<a
-class="btn btn-purple"
-href="${esc(
-seguimiento.ultimaFuenteUrl
-)}"
-target="_blank"
-rel="noopener noreferrer">
-
-📰 Última publicación
-
-</a>
-
-`
-:
-""
-}
+</div>
 
 </div>
 
 `;
 
-
-modalBody.innerHTML =
-html;
+}
 
 
-modalBackdrop.classList.add(
-"show"
-);
+trackingBody.innerHTML=html;
 
-modalBackdrop.setAttribute(
-"aria-hidden",
-"false"
-);
+trackingModal.classList.add("show");
 
-document.body.style.overflow =
-"hidden";
+trackingModal.setAttribute("aria-hidden","false");
+
+document.body.style.overflow="hidden";
+
+}
+
+
+function closeTracking(){
+
+trackingModal.classList.remove("show");
+
+trackingModal.setAttribute("aria-hidden","true");
+
+document.body.style.overflow="";
 
 }
 
 
 /* =========================================================
-   CERRAR MODAL
+EVENTOS MODALES
 ========================================================= */
 
-function closeDetails(){
+document.addEventListener(
+"click",
+event=>{
 
-modalBackdrop.classList.remove(
-"show"
+const inscription=
+event.target.closest(
+"[data-inscription]"
 );
 
-modalBackdrop.setAttribute(
-"aria-hidden",
-"true"
+if(inscription){
+
+openInscription(
+inscription.dataset.inscription
 );
 
-document.body.style.overflow =
-"";
+return;
 
 }
 
 
-/* =========================================================
-   CLICK FUERA
-========================================================= */
+const tracking=
+event.target.closest(
+"[data-tracking]"
+);
 
-modalBackdrop.addEventListener(
+if(tracking){
+
+openTracking(
+tracking.dataset.tracking
+);
+
+}
+
+}
+);
+
+
+document.getElementById(
+"closeInscription"
+).onclick=
+closeInscription;
+
+
+document.getElementById(
+"closeTracking"
+).onclick=
+closeTracking;
+
+
+inscriptionModal.addEventListener(
 "click",
 event=>{
 
 if(
-event.target ===
-modalBackdrop
+event.target===inscriptionModal
 ){
 
-closeDetails();
+closeInscription();
 
 }
 
@@ -3972,57 +2953,40 @@ closeDetails();
 );
 
 
-/* =========================================================
-   ESC
-========================================================= */
+trackingModal.addEventListener(
+"click",
+event=>{
+
+if(
+event.target===trackingModal
+){
+
+closeTracking();
+
+}
+
+}
+);
+
 
 document.addEventListener(
 "keydown",
 event=>{
 
-if(
-event.key==="Escape"
-){
+if(event.key==="Escape"){
 
-closeDetails();
+closeInscription();
 
-}
+closeTracking();
 
 }
-);
-
-
-closeModal.onclick =
-closeDetails;
-
-
-/* =========================================================
-   ACTIVAR BOTONES DETALLE
-========================================================= */
-
-document.addEventListener(
-"click",
-event=>{
-
-const button =
-event.target.closest(
-"[data-details]"
-);
-
-if(!button)
-return;
-
-
-openDetails(
-button.dataset.details
-);
 
 }
 );
 
 
 /* =========================================================
-   RENDER
+RENDER
 ========================================================= */
 
 function render(){
@@ -4030,77 +2994,53 @@ function render(){
 renderChips();
 
 
-const items =
+const items=
 filtered();
 
 
-const totalPages =
+const pages=
 Math.max(
 1,
-Math.ceil(
-items.length /
-perPage
-)
+Math.ceil(items.length/perPage)
 );
 
 
-if(
-page >
-totalPages
-){
-
-page =
-totalPages;
-
-}
+if(page>pages)
+page=pages;
 
 
-/* ---------------------------------------------------------
-   ESTADÍSTICAS
---------------------------------------------------------- */
+/* estadísticas */
 
 document
-.getElementById(
-"total"
-)
-.textContent =
+.getElementById("total")
+.textContent=
 data.length;
 
 
 document
-.getElementById(
-"plazas"
-)
-.textContent =
+.getElementById("plazas")
+.textContent=
 data.reduce(
 (total,item)=>
-total +
-(
-Number(item.plazas)
-||
-0
-),
+total+
+(Number(item.plazas)||0),
 0
 );
 
 
 document
-.getElementById(
-"abiertas"
-)
-.textContent =
+.getElementById("abiertas")
+.textContent=
 data.filter(
 item=>{
 
-const estado =
-plazoEstado(
-item.id
-);
+const s=
+plazoEstado(item.id);
 
-return estado &&
+return s &&
 (
-estado.tipo==="abierto" ||
-estado.tipo==="ultimo"
+s.tipo==="abierto" ||
+s.tipo==="ultimo"
 );
 
 }
@@ -4108,79 +3048,58 @@ estado.tipo==="ultimo"
 
 
 document
-.getElementById(
-"provincias"
-)
-.textContent =
-
+.getElementById("provincias")
+.textContent=
 new Set(
 data
-.map(
-item=>item.provincia
-)
+.map(item=>item.provincia)
 .filter(Boolean)
 ).size;
 
 
-/* ---------------------------------------------------------
-   TARJETAS
---------------------------------------------------------- */
+/* tarjetas */
 
-const start =
-(page-1) *
-perPage;
+const start=
+(page-1)*perPage;
 
-
-const pageItems =
+const pageItems=
 items.slice(
 start,
 start+perPage
 );
 
 
-grid.innerHTML =
+grid.innerHTML=
 pageItems.length
 ?
-pageItems
-.map(cardHTML)
-.join("")
+pageItems.map(cardHTML).join("")
 :
 `
-
 <div class="card">
-
-<strong>
-No hay resultados.
-</strong>
-
+<strong>No hay resultados.</strong>
 </div>
-
 `;
 
 
-/* ---------------------------------------------------------
-   PAGINACIÓN
---------------------------------------------------------- */
+/* paginación */
 
-pagination.innerHTML =
+pagination.innerHTML=
 Array
 .from(
-{
-length:totalPages
-},
-(_,index)=>`
+{length:pages},
+(_,i)=>`
 
 <button
 class="${
-index+1 === page
+i+1===page
 ?
 "active"
 :
 ""
 }"
-data-page="${index+1}">
+data-page="${i+1}">
 
-${index+1}
+${i+1}
 
 </button>
 
@@ -4190,19 +3109,13 @@ ${index+1}
 
 
 pagination
-.querySelectorAll(
-"[data-page]"
-)
-.forEach(
-button=>{
+.querySelectorAll("[data-page]")
+.forEach(button=>{
 
-button.onclick =
-()=>{
+button.onclick=()=>{
 
-page =
-Number(
-button.dataset.page
-);
+page=
+Number(button.dataset.page);
 
 render();
 
@@ -4213,14 +3126,13 @@ behavior:"smooth"
 
 };
 
-}
-);
+});
 
 }
 
 
 /* =========================================================
-   BUSCADOR
+BUSCADOR
 ========================================================= */
 
 search.addEventListener(
@@ -4236,14 +3148,12 @@ render();
 
 
 /* =========================================================
-   ARRANQUE
+INICIO
 ========================================================= */
 
 render();
 
-
 </script>
-
 
 </body>
 </html>
