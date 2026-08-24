@@ -1,18 +1,11 @@
 <!doctype html>
 <html lang="es">
 <head>
-
 <meta charset="utf-8">
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1"
->
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta
-  name="theme-color"
-  content="#0f172a"
->
+<meta name="theme-color" content="#0f172a">
 
 <meta
   name="description"
@@ -22,10 +15,6 @@
 <title>OpoPoint · Radar Policía Local Andalucía</title>
 
 <style>
-
-/* =========================================================
-   BASE
-========================================================= */
 
 :root{
   --slate:#0f172a;
@@ -77,7 +66,6 @@ button{
   cursor:pointer;
 }
 
-
 /* =========================================================
    HEADER
 ========================================================= */
@@ -116,18 +104,12 @@ header{
 .radar{
   width:46px;
   height:46px;
-
   border-radius:14px;
-
   background:#064e3b;
-
   display:grid;
   place-items:center;
-
   font-size:24px;
-
-  box-shadow:
-    0 6px 18px rgba(0,0,0,.25);
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
 }
 
 .brand h1{
@@ -143,24 +125,16 @@ header{
 
 .status{
   margin-top:15px;
-
   display:flex;
   gap:8px;
   flex-wrap:wrap;
 }
 
 .badge{
-  border:
-    1px solid
-    rgba(255,255,255,.16);
-
-  background:
-    rgba(255,255,255,.08);
-
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.08);
   border-radius:999px;
-
   padding:7px 10px;
-
   font-size:12px;
 }
 
@@ -169,7 +143,6 @@ header{
   border-color:#10b981;
 }
 
-
 /* =========================================================
    MAIN
 ========================================================= */
@@ -177,7 +150,6 @@ header{
 main{
   padding:22px 16px 60px;
 }
-
 
 /* =========================================================
    HERO
@@ -199,7 +171,6 @@ main{
   max-width:850px;
 }
 
-
 /* =========================================================
    STATS
 ========================================================= */
@@ -213,15 +184,9 @@ main{
 
 .stat{
   background:var(--card);
-
-  border:
-    1px solid
-    var(--line);
-
+  border:1px solid var(--line);
   border-radius:16px;
-
   padding:14px;
-
   box-shadow:var(--shadow);
 }
 
@@ -236,24 +201,16 @@ main{
   margin-top:3px;
 }
 
-
 /* =========================================================
    FILTROS
 ========================================================= */
 
 .filters{
   background:var(--card);
-
-  border:
-    1px solid
-    var(--line);
-
+  border:1px solid var(--line);
   border-radius:20px;
-
   padding:14px;
-
   margin-bottom:18px;
-
   box-shadow:var(--shadow);
 }
 
@@ -261,9 +218,7 @@ main{
   display:flex;
   justify-content:space-between;
   align-items:center;
-
   gap:10px;
-
   margin-bottom:10px;
 }
 
@@ -276,19 +231,15 @@ main{
   color:var(--muted);
 }
 
-
 /* =========================================================
-   PESTAÑAS PRINCIPALES
+   PESTAÑAS TURNO
 ========================================================= */
 
 .primaryTabs{
   display:flex;
   gap:8px;
-
   overflow-x:auto;
-
   padding:2px 0 7px;
-
   scrollbar-width:none;
 }
 
@@ -297,24 +248,14 @@ main{
 }
 
 .primaryTab{
-  border:
-    1px solid
-    var(--line);
-
+  border:1px solid var(--line);
   background:#fff;
-
   color:#334155;
-
   border-radius:999px;
-
   padding:10px 14px;
-
   white-space:nowrap;
-
   font-weight:700;
-
   font-size:13px;
-
   transition:.18s ease;
 }
 
@@ -325,47 +266,30 @@ main{
 .primaryTab.active{
   background:var(--slate);
   color:#fff;
-
   border-color:var(--slate);
-
-  box-shadow:
-    0 4px 10px rgba(15,23,42,.14);
+  box-shadow:0 4px 10px rgba(15,23,42,.14);
 }
 
 .primaryTab.free.active{
-  background:
-    linear-gradient(
-      135deg,
-      #047857,
-      #059669
-    );
-
+  background:linear-gradient(135deg,#047857,#059669);
   border-color:#059669;
 }
 
-
 /* =========================================================
-   PESTAÑAS DE CATEGORÍA
+   CATEGORÍAS
 ========================================================= */
 
 .secondaryWrap{
   margin-top:10px;
-
   padding-top:11px;
-
-  border-top:
-    1px solid
-    #eef2f7;
+  border-top:1px solid #eef2f7;
 }
 
 .secondaryTabs{
   display:flex;
   gap:7px;
-
   overflow-x:auto;
-
   padding:2px 0;
-
   scrollbar-width:none;
 }
 
@@ -375,21 +299,12 @@ main{
 
 .secondaryTab{
   white-space:nowrap;
-
-  border:
-    1px solid
-    var(--line);
-
+  border:1px solid var(--line);
   background:#f8fafc;
-
   color:#475569;
-
   border-radius:10px;
-
   padding:8px 11px;
-
   font-size:12px;
-
   font-weight:600;
 }
 
@@ -399,6 +314,48 @@ main{
   color:#075985;
 }
 
+/* =========================================================
+   PROVINCIAS
+========================================================= */
+
+.provinceWrap{
+  margin-top:14px;
+  padding-top:13px;
+  border-top:1px solid #eef2f7;
+}
+
+.provinceTabs{
+  display:flex;
+  gap:7px;
+  overflow-x:auto;
+  padding:2px 0;
+  scrollbar-width:none;
+}
+
+.provinceTabs::-webkit-scrollbar{
+  display:none;
+}
+
+.provinceTab{
+  white-space:nowrap;
+  border:1px solid var(--line);
+  background:#f8fafc;
+  color:#475569;
+  border-radius:10px;
+  padding:8px 12px;
+  font-size:12px;
+  font-weight:700;
+}
+
+.provinceTab:hover{
+  border-color:#94a3b8;
+}
+
+.provinceTab.active{
+  background:#dbeafe;
+  border-color:#93c5fd;
+  color:#1d4ed8;
+}
 
 /* =========================================================
    BUSCADOR
@@ -408,34 +365,22 @@ main{
   display:grid;
   grid-template-columns:1fr;
   gap:9px;
-
   margin-top:12px;
 }
 
 .search{
   width:100%;
-
   padding:13px 14px;
-
-  border:
-    1px solid
-    var(--line);
-
+  border:1px solid var(--line);
   border-radius:12px;
-
   font-size:15px;
-
   outline:none;
-
   background:#fff;
 }
 
 .search:focus{
   border-color:var(--emerald);
-
-  box-shadow:
-    0 0 0 3px
-    rgba(5,150,105,.12);
+  box-shadow:0 0 0 3px rgba(5,150,105,.12);
 }
 
 .quickRow{
@@ -445,20 +390,12 @@ main{
 }
 
 .quickBtn{
-  border:
-    1px solid
-    var(--line);
-
+  border:1px solid var(--line);
   background:#fff;
-
   border-radius:10px;
-
   padding:9px 11px;
-
   font-size:12px;
-
   font-weight:700;
-
   color:#475569;
 }
 
@@ -468,21 +405,16 @@ main{
   color:#166534;
 }
 
-
 /* =========================================================
-   BARRA RESULTADOS
+   RESULTADOS
 ========================================================= */
 
 .resultsBar{
   display:flex;
-
   justify-content:space-between;
   align-items:center;
-
   gap:10px;
-
   margin:5px 0 12px;
-
   flex-wrap:wrap;
 }
 
@@ -498,15 +430,11 @@ main{
 .resetBtn{
   border:0;
   background:transparent;
-
   color:#2563eb;
-
   font-size:12px;
   font-weight:700;
-
   padding:5px 0;
 }
-
 
 /* =========================================================
    GRID
@@ -517,59 +445,36 @@ main{
   gap:13px;
 }
 
-
 /* =========================================================
    TARJETAS
 ========================================================= */
 
 .card{
   background:var(--card);
-
-  border:
-    1px solid
-    var(--line);
-
+  border:1px solid var(--line);
   border-radius:20px;
-
   padding:17px;
-
-  box-shadow:
-    0 6px 20px rgba(15,23,42,.06);
-
-  transition:
-    transform .15s ease,
-    box-shadow .15s ease;
+  box-shadow:0 6px 20px rgba(15,23,42,.06);
+  transition:transform .15s ease,box-shadow .15s ease;
 }
 
 .card:hover{
   transform:translateY(-1px);
-
-  box-shadow:
-    0 10px 28px rgba(15,23,42,.09);
+  box-shadow:0 10px 28px rgba(15,23,42,.09);
 }
 
 .cardTop{
   display:flex;
-
   justify-content:space-between;
   align-items:flex-start;
-
   gap:12px;
 }
-
-
-/* =========================================================
-   AYUNTAMIENTO PRINCIPAL
-========================================================= */
 
 .municipio{
   font-size:21px;
   line-height:1.08;
-
   font-weight:800;
-
   margin:0 0 4px;
-
   color:#0f172a;
 }
 
@@ -581,27 +486,16 @@ main{
 
 .puesto{
   display:inline-flex;
-
   align-items:center;
   gap:5px;
-
   background:#f8fafc;
-
-  border:
-    1px solid
-    #e5e7eb;
-
+  border:1px solid #e5e7eb;
   color:#475569;
-
   border-radius:8px;
-
   padding:5px 8px;
-
   font-size:11px;
-
   font-weight:700;
 }
-
 
 /* =========================================================
    ESTADOS
@@ -609,18 +503,11 @@ main{
 
 .pill{
   font-size:10px;
-
   font-weight:800;
-
   border-radius:999px;
-
   padding:6px 9px;
-
   white-space:nowrap;
-
-  border:
-    1px solid
-    transparent;
+  border:1px solid transparent;
 }
 
 .open{
@@ -653,37 +540,25 @@ main{
   border-color:#e9d5ff;
 }
 
-
 /* =========================================================
    TAGS
 ========================================================= */
 
 .tags{
   display:flex;
-
   gap:6px;
-
   flex-wrap:wrap;
-
   margin:13px 0 10px;
 }
 
 .tag{
   font-size:10px;
-
   font-weight:700;
-
   border-radius:999px;
-
   padding:5px 8px;
-
   background:#f8fafc;
-
   color:#475569;
-
-  border:
-    1px solid
-    #e2e8f0;
+  border:1px solid #e2e8f0;
 }
 
 .tag.free{
@@ -710,41 +585,29 @@ main{
   border-color:#fde68a;
 }
 
-
 /* =========================================================
    META
 ========================================================= */
 
 .meta{
   display:grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
+  grid-template-columns:repeat(2,1fr);
   gap:8px;
-
   margin:12px 0;
 }
 
 .meta div{
   background:#f8fafc;
-
   border-radius:12px;
-
   padding:9px;
 }
 
 .meta span{
   display:block;
-
   color:var(--muted);
-
   font-size:9px;
-
   text-transform:uppercase;
-
   letter-spacing:.05em;
-
   margin-bottom:2px;
 }
 
@@ -752,33 +615,22 @@ main{
   font-size:13px;
 }
 
-
 /* =========================================================
    PROCESO
 ========================================================= */
 
 .process{
   margin-top:10px;
-
   padding:10px 11px;
-
   background:#f8fafc;
-
   border-radius:12px;
-
-  border:
-    1px solid
-    #edf2f7;
+  border:1px solid #edf2f7;
 }
 
 .processHeader{
   display:flex;
-
-  justify-content:
-    space-between;
-
+  justify-content:space-between;
   gap:10px;
-
   align-items:center;
 }
 
@@ -793,14 +645,10 @@ main{
 
 .processNext{
   margin-top:5px;
-
   color:#475569;
-
   font-size:11px;
-
   line-height:1.35;
 }
-
 
 /* =========================================================
    BOTONES
@@ -808,32 +656,21 @@ main{
 
 .links{
   display:flex;
-
   gap:7px;
-
   flex-wrap:wrap;
-
   margin-top:12px;
 }
 
 .links a{
   display:inline-flex;
-
   align-items:center;
   justify-content:center;
-
   text-decoration:none;
-
   color:#fff;
-
   background:var(--slate);
-
   padding:9px 11px;
-
   border-radius:10px;
-
   font-size:11px;
-
   font-weight:700;
 }
 
@@ -845,20 +682,12 @@ main{
   background:#2563eb;
 }
 
-.links a.orange{
-  background:#d97706;
-}
-
 .note{
   font-size:10px;
-
   line-height:1.35;
-
   color:var(--muted);
-
   margin-top:9px;
 }
-
 
 /* =========================================================
    SIN RESULTADOS
@@ -866,32 +695,20 @@ main{
 
 .empty{
   background:#fff;
-
-  border:
-    1px solid
-    var(--line);
-
+  border:1px solid var(--line);
   border-radius:18px;
-
   padding:30px 20px;
-
   text-align:center;
-
   color:var(--muted);
-
   box-shadow:var(--shadow);
 }
 
 .empty strong{
   display:block;
-
   color:#0f172a;
-
   font-size:16px;
-
   margin-bottom:5px;
 }
-
 
 /* =========================================================
    PAGINACIÓN
@@ -899,38 +716,25 @@ main{
 
 .pagination{
   display:flex;
-
   justify-content:center;
-
   gap:7px;
-
   flex-wrap:wrap;
-
   margin:22px 0;
 }
 
 .pagination button{
-  border:
-    1px solid
-    var(--line);
-
+  border:1px solid var(--line);
   background:#fff;
-
   border-radius:10px;
-
   padding:8px 11px;
-
   font-size:12px;
 }
 
 .pagination button.active{
   background:var(--slate);
-
   color:#fff;
-
   border-color:var(--slate);
 }
-
 
 /* =========================================================
    FOOTER
@@ -938,14 +742,10 @@ main{
 
 footer{
   color:var(--muted);
-
   text-align:center;
-
   font-size:11px;
-
   padding:20px 16px 35px;
 }
-
 
 /* =========================================================
    RESPONSIVE
@@ -962,40 +762,27 @@ footer{
   }
 
   .stats{
-    grid-template-columns:
-      repeat(4,1fr);
+    grid-template-columns:repeat(4,1fr);
   }
 
   .toolsRow{
-    grid-template-columns:
-      1fr auto;
-
+    grid-template-columns:1fr auto;
     align-items:center;
   }
 
   .grid{
-    grid-template-columns:
-      repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
   }
 
   .meta{
-    grid-template-columns:
-      repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
   }
-
 }
 
 </style>
-
 </head>
 
-
 <body>
-
-
-<!-- =======================================================
-     HEADER
-======================================================= -->
 
 <header>
 
@@ -1003,24 +790,14 @@ footer{
 
     <div class="brand">
 
-      <div class="radar">
-        ◉
-      </div>
+      <div class="radar">◉</div>
 
       <div>
-
-        <h1>
-          OpoPoint
-        </h1>
-
-        <small>
-          Radar de Policía Local · Andalucía
-        </small>
-
+        <h1>OpoPoint</h1>
+        <small>Radar de Policía Local · Andalucía</small>
       </div>
 
     </div>
-
 
     <div class="status">
 
@@ -1033,7 +810,7 @@ footer{
       </span>
 
       <span class="badge">
-        Vista inicial: turno libre
+        Vigentes primero
       </span>
 
     </div>
@@ -1042,13 +819,7 @@ footer{
 
 </header>
 
-
-<!-- =======================================================
-     CONTENIDO
-======================================================= -->
-
 <main class="wrap">
-
 
   <section class="hero">
 
@@ -1057,105 +828,53 @@ footer{
     </h2>
 
     <p>
-      Filtra las convocatorias por turno y categoría para encontrar rápidamente las plazas que realmente te interesan.
+      Consulta las convocatorias de Policía Local de Andalucía,
+      filtradas por turno, categoría, provincia y estado del proceso.
     </p>
 
   </section>
 
-
-  <!-- =====================================================
-       ESTADÍSTICAS
-  ====================================================== -->
+  <!-- ESTADÍSTICAS -->
 
   <section class="stats">
 
     <div class="stat">
-
-      <b id="total">
-        0
-      </b>
-
-      <span>
-        procesos cargados
-      </span>
-
+      <b id="total">0</b>
+      <span>procesos cargados</span>
     </div>
 
-
     <div class="stat">
-
-      <b id="plazas">
-        0
-      </b>
-
-      <span>
-        plazas detectadas
-      </span>
-
+      <b id="plazas">0</b>
+      <span>plazas detectadas</span>
     </div>
 
-
     <div class="stat">
-
-      <b id="abiertas">
-        0
-      </b>
-
-      <span>
-        en plazo / abiertas
-      </span>
-
+      <b id="abiertas">0</b>
+      <span>en plazo / abiertas</span>
     </div>
 
-
     <div class="stat">
-
-      <b id="provincias">
-        0
-      </b>
-
-      <span>
-        provincias
-      </span>
-
+      <b id="provincias">0</b>
+      <span>provincias</span>
     </div>
 
   </section>
 
-
-  <!-- =====================================================
-       FILTROS
-  ====================================================== -->
+  <!-- FILTROS -->
 
   <section class="filters">
 
-
     <div class="filterTitle">
-
-      <strong>
-        Filtrar por turno
-      </strong>
-
+      <strong>Filtrar por turno</strong>
       <span id="activeLabel">
         Turno libre · Policía / Agente
       </span>
-
     </div>
-
-
-    <!-- ===================================================
-         TURNO
-    ==================================================== -->
 
     <div
       id="primaryTabs"
       class="primaryTabs"
     ></div>
-
-
-    <!-- ===================================================
-         CATEGORÍA
-    ==================================================== -->
 
     <div class="secondaryWrap">
 
@@ -1171,7 +890,6 @@ footer{
 
       </div>
 
-
       <div
         id="secondaryTabs"
         class="secondaryTabs"
@@ -1179,10 +897,30 @@ footer{
 
     </div>
 
+    <!-- PROVINCIAS -->
 
-    <!-- ===================================================
-         BUSCADOR
-    ==================================================== -->
+    <div class="provinceWrap">
+
+      <div class="filterTitle">
+
+        <strong>
+          Filtrar por provincia
+        </strong>
+
+        <span>
+          Andalucía
+        </span>
+
+      </div>
+
+      <div
+        id="provinceTabs"
+        class="provinceTabs"
+      ></div>
+
+    </div>
+
+    <!-- BUSCADOR -->
 
     <div class="toolsRow">
 
@@ -1193,7 +931,6 @@ footer{
         autocomplete="off"
       >
 
-
       <div
         id="quickFilters"
         class="quickRow"
@@ -1203,10 +940,7 @@ footer{
 
   </section>
 
-
-  <!-- =====================================================
-       RESULTADOS
-  ====================================================== -->
+  <!-- RESULTADOS -->
 
   <div class="resultsBar">
 
@@ -1216,7 +950,6 @@ footer{
     >
       Cargando...
     </div>
-
 
     <button
       id="resetBtn"
@@ -1228,12 +961,10 @@ footer{
 
   </div>
 
-
   <section
     id="grid"
     class="grid"
   ></section>
-
 
   <div
     id="pagination"
@@ -1242,14 +973,12 @@ footer{
 
 </main>
 
-
 <footer>
 
-  OpoPoint · Proyecto en fase inicial.
+  OpoPoint · Radar de oposiciones de Policía Local en Andalucía.
   La información oficial prevalece cuando está localizada.
 
 </footer>
-
 
 <!-- =======================================================
      DATOS
@@ -1257,29 +986,20 @@ footer{
 
 <script src="datos.js"></script>
 
-
 <script>
 
 /* =========================================================
-   CARGAR BASE
+   CARGAR DATOS
 ========================================================= */
 
 const data =
-  Array.isArray(
-    window.convocatoriasOpoPoint
-  )
-  ?
-    window.convocatoriasOpoPoint
-  :
-    (
-      Array.isArray(
-        window.datos
-      )
-      ?
-        window.datos
-      :
-        []
-    );
+  Array.isArray(window.convocatoriasOpoPoint)
+    ? window.convocatoriasOpoPoint
+    : (
+        Array.isArray(window.datos)
+          ? window.datos
+          : []
+      );
 
 
 /* =========================================================
@@ -1287,119 +1007,123 @@ const data =
 ========================================================= */
 
 const grid =
-  document.getElementById(
-    "grid"
-  );
+  document.getElementById("grid");
 
 const search =
-  document.getElementById(
-    "search"
-  );
+  document.getElementById("search");
 
 const primaryTabs =
-  document.getElementById(
-    "primaryTabs"
-  );
+  document.getElementById("primaryTabs");
 
 const secondaryTabs =
-  document.getElementById(
-    "secondaryTabs"
-  );
+  document.getElementById("secondaryTabs");
+
+const provinceTabs =
+  document.getElementById("provinceTabs");
 
 const quickFilters =
-  document.getElementById(
-    "quickFilters"
-  );
+  document.getElementById("quickFilters");
 
 const pagination =
-  document.getElementById(
-    "pagination"
-  );
+  document.getElementById("pagination");
 
 const resultsInfo =
-  document.getElementById(
-    "resultsInfo"
-  );
+  document.getElementById("resultsInfo");
 
 const activeLabel =
-  document.getElementById(
-    "activeLabel"
-  );
+  document.getElementById("activeLabel");
 
 
 /* =========================================================
-   ESTADO DE LA INTERFAZ
+   ESTADO
 ========================================================= */
 
-/*
+let turnoFiltro = "Libre";
 
-   VISTA INICIAL:
+let puestoFiltro = "Policia";
 
-   ⭐ TURNO LIBRE
-   +
-   POLICÍA / AGENTE
+let provinciaFiltro = "Todas";
 
-*/
+let soloAbiertas = false;
 
-let turnoFiltro =
-  "Libre";
+let page = 1;
 
-let puestoFiltro =
-  "Policia";
-
-let soloAbiertas =
-  false;
-
-let page =
-  1;
-
-const perPage =
-  10;
+const perPage = 10;
 
 
 /* =========================================================
    NORMALIZAR
 ========================================================= */
 
-function normalize(
-  text
-){
+function normalize(text){
 
-  return String(
-    text ?? ""
-  )
-  .normalize("NFD")
-  .replace(
-    /[\u0300-\u036f]/g,
-    ""
-  )
-  .toLowerCase()
-  .trim();
+  return String(text ?? "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .toLowerCase()
+    .trim();
 
 }
 
 
 /* =========================================================
-   ESCAPAR
+   ESCAPAR HTML
 ========================================================= */
 
-function esc(
-  value
-){
+function esc(value){
 
-  return String(
-    value ?? ""
-  )
-  .replace(
-    /[&<>"']/g,
-    char => ({
-      "&":"&amp;",
-      "<":"&lt;",
-      ">":"&gt;",
-      '"':"&quot;",
-      "'":"&#039;"
-    }[char])
-  );
+  return String(value ?? "")
+    .replace(
+      /[&<>"']/g,
+      char => ({
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#039;"
+      }[char])
+    );
+
+}
+
+
+/* =========================================================
+   FECHA
+========================================================= */
+
+function parseDate(value){
+
+  if(!value){
+    return null;
+  }
+
+  const text =
+    String(value)
+      .trim();
+
+  let date =
+    new Date(text);
+
+  if(!Number.isNaN(date.getTime())){
+    return date;
+  }
+
+  const match =
+    text.match(
+      /^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/
+    );
+
+  if(match){
+
+    return new Date(
+      Number(match[3]),
+      Number(match[2]) - 1,
+      Number(match[1])
+    );
+
+  }
+
+  return null;
 
 }
 
@@ -1489,234 +1213,238 @@ const puestos = [
 
 
 /* =========================================================
-   PESTAÑAS DE TURNO
+   PROVINCIAS
+========================================================= */
+
+const provincias = [
+
+  {
+    key:"Todas",
+    label:"Todas"
+  },
+
+  {
+    key:"Almería",
+    label:"Almería"
+  },
+
+  {
+    key:"Cádiz",
+    label:"Cádiz"
+  },
+
+  {
+    key:"Córdoba",
+    label:"Córdoba"
+  },
+
+  {
+    key:"Granada",
+    label:"Granada"
+  },
+
+  {
+    key:"Huelva",
+    label:"Huelva"
+  },
+
+  {
+    key:"Jaén",
+    label:"Jaén"
+  },
+
+  {
+    key:"Málaga",
+    label:"Málaga"
+  },
+
+  {
+    key:"Sevilla",
+    label:"Sevilla"
+  }
+
+];
+
+
+/* =========================================================
+   PESTAÑAS TURNO
 ========================================================= */
 
 function renderTurnTabs(){
 
   primaryTabs.innerHTML =
-    turnos
-      .map(
-        item => {
+    turnos.map(item => {
 
-          const active =
-            item.key ===
-            turnoFiltro
-            ?
-              "active"
-            :
-              "";
+      const active =
+        item.key === turnoFiltro
+          ? "active"
+          : "";
 
-          return `
+      return `
 
-            <button
-              type="button"
-              class="
-                primaryTab
-                ${item.className || ""}
-                ${active}
-              "
-              data-turno="${esc(
-                item.key
-              )}"
-            >
+        <button
+          type="button"
+          class="primaryTab ${item.className || ""} ${active}"
+          data-turno="${esc(item.key)}"
+        >
 
-              ${esc(
-                item.label
-              )}
+          ${esc(item.label)}
 
-            </button>
+        </button>
 
-          `;
+      `;
 
-        }
-      )
-      .join("");
+    }).join("");
 
 
   primaryTabs
-    .querySelectorAll(
-      "button"
-    )
-    .forEach(
-      button => {
+    .querySelectorAll("button")
+    .forEach(button => {
 
-        button.onclick =
-          () => {
+      button.onclick = () => {
 
-            turnoFiltro =
-              button.dataset.turno;
+        turnoFiltro =
+          button.dataset.turno;
 
+        if(turnoFiltro === "Libre"){
 
-            /*
-             * TURNO LIBRE
-             *
-             * La vista principal
-             * vuelve a Policía/Agente.
-             */
+          puestoFiltro = "Policia";
 
-            if(
-              turnoFiltro ===
-              "Libre"
-            ){
+        }
 
-              puestoFiltro =
-                "Policia";
+        if(turnoFiltro === "Todas"){
 
-            }
+          puestoFiltro = "Todos";
 
+        }
 
-            /*
-             * TODAS
-             *
-             * Muestra todos los puestos.
-             */
+        page = 1;
 
-            if(
-              turnoFiltro ===
-              "Todas"
-            ){
+        render();
 
-              puestoFiltro =
-                "Todos";
+      };
 
-            }
-
-
-            page =
-              1;
-
-
-            render();
-
-          };
-
-      }
-    );
+    });
 
 }
 
 
 /* =========================================================
-   PESTAÑAS DE CATEGORÍA
+   PESTAÑAS CATEGORÍA
 ========================================================= */
 
 function renderPuestoTabs(){
 
   secondaryTabs.innerHTML =
-    puestos
-      .map(
-        item => {
+    puestos.map(item => {
 
-          const active =
-            item.key ===
-            puestoFiltro
-            ?
-              "active"
-            :
-              "";
+      const active =
+        item.key === puestoFiltro
+          ? "active"
+          : "";
 
-          return `
+      return `
 
-            <button
-              type="button"
-              class="
-                secondaryTab
-                ${active}
-              "
-              data-puesto="${esc(
-                item.key
-              )}"
-            >
+        <button
+          type="button"
+          class="secondaryTab ${active}"
+          data-puesto="${esc(item.key)}"
+        >
 
-              ${esc(
-                item.label
-              )}
+          ${esc(item.label)}
 
-            </button>
+        </button>
 
-          `;
+      `;
 
-        }
-      )
-      .join("");
+    }).join("");
 
 
   secondaryTabs
-    .querySelectorAll(
-      "button"
-    )
-    .forEach(
-      button => {
+    .querySelectorAll("button")
+    .forEach(button => {
 
-        button.onclick =
-          () => {
+      button.onclick = () => {
 
-            const selected =
-              button.dataset.puesto;
+        const selected =
+          button.dataset.puesto;
 
+        puestoFiltro =
+          selected;
 
-            puestoFiltro =
-              selected;
+        if(
+          selected !== "Todos" &&
+          selected !== "Policia"
+        ){
 
+          turnoFiltro = "Todas";
 
-            /*
-             * CORRECCIÓN IMPORTANTE
-             *
-             * Si elegimos una categoría
-             * concreta, dejamos de imponer
-             * "Turno libre".
-             *
-             * Así:
-             *
-             * OFICIALES
-             *
-             * muestra tanto PI como
-             * cualquier otro turno.
-             */
+        }
 
-            if(
-              selected !==
-              "Todos"
-              &&
-              selected !==
-              "Policia"
-            ){
+        if(selected === "Policia"){
 
-              turnoFiltro =
-                "Todas";
+          turnoFiltro = "Libre";
 
-            }
+        }
+
+        page = 1;
+
+        render();
+
+      };
+
+    });
+
+}
 
 
-            /*
-             * Policía / Agente
-             *
-             * Es la vista principal
-             * de turno libre.
-             */
+/* =========================================================
+   PESTAÑAS PROVINCIAS
+========================================================= */
 
-            if(
-              selected ===
-              "Policia"
-            ){
+function renderProvinceTabs(){
 
-              turnoFiltro =
-                "Libre";
+  provinceTabs.innerHTML =
+    provincias.map(item => {
 
-            }
+      const active =
+        item.key === provinciaFiltro
+          ? "active"
+          : "";
+
+      return `
+
+        <button
+          type="button"
+          class="provinceTab ${active}"
+          data-provincia="${esc(item.key)}"
+        >
+
+          ${esc(item.label)}
+
+        </button>
+
+      `;
+
+    }).join("");
 
 
-            page =
-              1;
+  provinceTabs
+    .querySelectorAll("button")
+    .forEach(button => {
 
+      button.onclick = () => {
 
-            render();
+        provinciaFiltro =
+          button.dataset.provincia;
 
-          };
+        page = 1;
 
-      }
-    );
+        render();
+
+      };
+
+    });
 
 }
 
@@ -1731,232 +1459,98 @@ function renderQuickFilters(){
 
     <button
       type="button"
-      class="
-        quickBtn
-        ${soloAbiertas
-          ? "active"
-          : ""}
-      "
+      class="quickBtn ${soloAbiertas ? "active" : ""}"
       id="openOnlyBtn"
     >
-
       🟢 Solo abiertas
-
     </button>
 
   `;
 
-
   document
-    .getElementById(
-      "openOnlyBtn"
-    )
-    .onclick =
-      () => {
+    .getElementById("openOnlyBtn")
+    .onclick = () => {
 
-        soloAbiertas =
-          !soloAbiertas;
+      soloAbiertas =
+        !soloAbiertas;
 
-        page =
-          1;
+      page = 1;
 
-        render();
+      render();
 
-      };
+    };
 
 }
 
 
 /* =========================================================
-   CLASIFICAR PUESTOS
+   PUESTOS
 ========================================================= */
 
-function matchesPuesto(
-  item
-){
+function matchesPuesto(item){
 
   const puesto =
-    normalize(
-      item.puesto
-    );
+    normalize(item.puesto);
 
-
-  switch(
-    puestoFiltro
-  ){
-
-    /* -----------------------------------------------
-       POLICÍA / AGENTE
-    ------------------------------------------------ */
+  switch(puestoFiltro){
 
     case "Policia":
 
       return (
-
-        puesto.includes(
-          "policia local"
-        )
-
-        ||
-
-        puesto.includes(
-          "agente de policia"
-        )
-
-        ||
-
+        puesto.includes("policia local") ||
+        puesto.includes("agente de policia") ||
         (
-          puesto.startsWith(
-            "agente"
-          )
-
-          &&
-
-          !puesto.includes(
-            "oficial"
-          )
+          puesto.startsWith("agente") &&
+          !puesto.includes("oficial")
         )
-
       );
 
-
-    /* -----------------------------------------------
-       OFICIAL
-    ------------------------------------------------ */
 
     case "Oficial":
 
       return (
-
-        puesto.includes(
-          "oficial"
-        )
-
-        &&
-
-        !puesto.includes(
-          "subinspector"
-        )
-
-        &&
-
-        !puesto.includes(
-          "inspector"
-        )
-
+        puesto.includes("oficial") &&
+        !puesto.includes("subinspector") &&
+        !puesto.includes("inspector")
       );
 
-
-    /* -----------------------------------------------
-       SUBINSPECTOR
-    ------------------------------------------------ */
 
     case "Subinspector":
 
-      return puesto.includes(
-        "subinspector"
-      );
+      return puesto.includes("subinspector");
 
-
-    /* -----------------------------------------------
-       INSPECTOR
-    ------------------------------------------------ */
 
     case "Inspector":
 
       return (
-
-        puesto.includes(
-          "inspector"
-        )
-
-        &&
-
-        !puesto.includes(
-          "subinspector"
-        )
-
+        puesto.includes("inspector") &&
+        !puesto.includes("subinspector")
       );
 
-
-    /* -----------------------------------------------
-       INTENDENTE
-    ------------------------------------------------ */
 
     case "Intendente":
 
-      return puesto.includes(
-        "intendente"
-      );
+      return puesto.includes("intendente");
 
-
-    /* -----------------------------------------------
-       JEFATURA
-    ------------------------------------------------ */
 
     case "Jefatura":
 
       return (
-
-        puesto.includes(
-          "jefe de policia"
-        )
-
-        ||
-
-        puesto.includes(
-          "jefatura"
-        )
-
+        puesto.includes("jefe de policia") ||
+        puesto.includes("jefatura")
       );
 
-
-    /* -----------------------------------------------
-       OTROS MANDOS
-    ------------------------------------------------ */
 
     case "Otros":
 
       return !(
-        puesto.includes(
-          "policia local"
-        )
-
-        ||
-
-        puesto.includes(
-          "agente"
-        )
-
-        ||
-
-        puesto.includes(
-          "oficial"
-        )
-
-        ||
-
-        puesto.includes(
-          "subinspector"
-        )
-
-        ||
-
-        puesto.includes(
-          "inspector"
-        )
-
-        ||
-
-        puesto.includes(
-          "intendente"
-        )
-
-        ||
-
-        puesto.includes(
-          "jefe"
-        )
+        puesto.includes("policia local") ||
+        puesto.includes("agente") ||
+        puesto.includes("oficial") ||
+        puesto.includes("subinspector") ||
+        puesto.includes("inspector") ||
+        puesto.includes("intendente") ||
+        puesto.includes("jefe")
       );
 
 
@@ -1970,52 +1564,71 @@ function matchesPuesto(
 
 
 /* =========================================================
-   DETECTAR PROCESO ABIERTO
+   TURNO
 ========================================================= */
 
-function isOpen(
-  item
-){
+function matchesTurno(item){
+
+  if(turnoFiltro === "Todas"){
+    return true;
+  }
+
+  const turno =
+    normalize(item.turno);
+
+  const filtro =
+    normalize(turnoFiltro);
+
+  if(filtro === "promocion interna"){
+
+    return turno.includes("promocion");
+
+  }
+
+  return turno === filtro;
+
+}
+
+
+/* =========================================================
+   PROVINCIA
+========================================================= */
+
+function matchesProvincia(item){
+
+  if(provinciaFiltro === "Todas"){
+    return true;
+  }
+
+  return (
+    normalize(item.provincia) ===
+    normalize(provinciaFiltro)
+  );
+
+}
+
+
+/* =========================================================
+   DETECTAR ABIERTA
+========================================================= */
+
+function isOpen(item){
 
   const estado =
-    normalize(
-      item.estado
-    );
+    normalize(item.estado);
 
   const actual =
-    normalize(
-      item.estadoActual
-    );
-
+    normalize(item.estadoActual);
 
   return (
 
-    estado.includes(
-      "abierta"
-    )
+    estado.includes("abierta") ||
+    estado.includes("en plazo") ||
 
-    ||
+    actual.includes("presentacion de solicitudes") ||
+    actual.includes("presentacion") ||
 
-    estado.includes(
-      "en plazo"
-    )
-
-    ||
-
-    actual.includes(
-      "presentacion de solicitudes"
-    )
-
-    ||
-
-    actual.includes(
-      "presentacion"
-    )
-
-    ||
-
-    actual ===
-      "solicitudes"
+    actual === "solicitudes"
 
   );
 
@@ -2023,402 +1636,307 @@ function isOpen(
 
 
 /* =========================================================
-   ORDEN DE PRIORIDAD
+   DETECTAR CERRADA
 ========================================================= */
 
-function prioridad(
-  item
-){
+function isClosed(item){
 
   const estado =
-    normalize(
-      item.estado
-    );
+    normalize(item.estado);
+
+  return (
+
+    estado.includes("cerrad") ||
+    estado.includes("anulad") ||
+    estado.includes("sin efecto") ||
+    estado.includes("finalizado") ||
+    estado.includes("finalizada")
+
+  );
+
+}
+
+
+/* =========================================================
+   FECHA DE FINALIZACIÓN
+========================================================= */
+
+function getEndDate(item){
+
+  const date =
+    parseDate(item.fechaFin);
+
+  if(date){
+    return date.getTime();
+  }
+
+  return Infinity;
+
+}
+
+
+/* =========================================================
+   PRIORIDAD DE ORDENACIÓN
+=========================================================
+
+   1. ABIERTAS / VIGENTES
+   2. EN PROCESO
+   3. BASES / OEP
+   4. CERRADAS
+
+   Dentro de las abiertas:
+   primero las que terminan antes.
+
+   Dentro de las que están en proceso:
+   primero las que previsiblemente
+   terminan antes.
+
+========================================================= */
+
+function processRank(item){
+
+  if(isOpen(item)){
+    return 1;
+  }
+
+  if(isClosed(item)){
+    return 4;
+  }
 
   const actual =
     normalize(
-      item.estadoActual
+      item.estadoActual ||
+      item.estado
     );
 
-  const tipo =
-    normalize(
-      item.tipo
-    );
-
-
-  let score =
-    0;
-
-
-  /*
-   * 1. ABIERTAS
-   */
-
   if(
-
-    estado.includes(
-      "abierta"
-    )
-
-    ||
-
-    estado.includes(
-      "en plazo"
-    )
-
-    ||
-
-    actual.includes(
-      "presentacion"
-    )
-
-    ||
-
-    actual.includes(
-      "solicitudes"
-    )
-
+    actual.includes("admit") ||
+    actual.includes("prueba") ||
+    actual.includes("examen") ||
+    actual.includes("calificacion") ||
+    actual.includes("seguimiento") ||
+    actual.includes("proceso")
   ){
 
-    score +=
-      10000;
+    return 2;
+
+  }
+
+  if(
+    actual.includes("base") ||
+    actual.includes("oferta") ||
+    actual.includes("oep")
+  ){
+
+    return 3;
+
+  }
+
+  return 2;
+
+}
+
+
+/* =========================================================
+   ORDEN FINAL
+========================================================= */
+
+function compareItems(a,b){
+
+  const rankA =
+    processRank(a);
+
+  const rankB =
+    processRank(b);
+
+  if(rankA !== rankB){
+
+    return rankA - rankB;
 
   }
 
 
   /*
-   * 2. BASES PUBLICADAS
+   * ABIERTAS:
+   * las que terminan antes aparecen primero.
    */
 
-  if(
+  if(rankA === 1){
 
-    estado.includes(
-      "bases"
-    )
+    const endA =
+      getEndDate(a);
 
-    ||
+    const endB =
+      getEndDate(b);
 
-    actual.includes(
-      "pendiente de extracto"
-    )
+    if(endA !== endB){
 
-  ){
-
-    score +=
-      7000;
-
-  }
-
-
-  /*
-   * 3. ADMITIDOS / PRUEBAS
-   */
-
-  if(
-
-    actual.includes(
-      "admitidos"
-    )
-
-    ||
-
-    actual.includes(
-      "pruebas"
-    )
-
-    ||
-
-    actual.includes(
-      "seguimiento"
-    )
-
-  ){
-
-    score +=
-      3000;
-
-  }
-
-
-  /*
-   * 4. OEP
-   */
-
-  if(
-    tipo ===
-    "oep"
-  ){
-
-    score +=
-      1000;
-
-  }
-
-
-  /*
-   * 5. TURNO LIBRE
-   *
-   * Ligera prioridad cuando
-   * se muestran varios turnos.
-   */
-
-  if(
-    normalize(
-      item.turno
-    ) ===
-    "libre"
-  ){
-
-    score +=
-      500;
-
-  }
-
-
-  /*
-   * 6. FECHA
-   */
-
-  if(
-    item.fechaPublicacion
-  ){
-
-    const fecha =
-      Date.parse(
-        item.fechaPublicacion
-      );
-
-
-    if(
-      !Number.isNaN(
-        fecha
-      )
-    ){
-
-      score +=
-        Math.min(
-          fecha / 100000000,
-          200
-        );
+      return endA - endB;
 
     }
 
   }
 
 
-  return score;
+  /*
+   * PROCESOS EN MARCHA:
+   * usamos fecha de publicación / inicio
+   * como desempate.
+   */
+
+  if(rankA === 2){
+
+    const endA =
+      getEndDate(a);
+
+    const endB =
+      getEndDate(b);
+
+    if(endA !== endB){
+
+      return endA - endB;
+
+    }
+
+  }
+
+
+  /*
+   * CERRADAS:
+   * las más antiguas al final.
+   */
+
+  if(rankA === 4){
+
+    const dateA =
+      parseDate(
+        a.fechaFin ||
+        a.fechaPublicacion
+      );
+
+    const dateB =
+      parseDate(
+        b.fechaFin ||
+        b.fechaPublicacion
+      );
+
+    const timeA =
+      dateA
+        ? dateA.getTime()
+        : 0;
+
+    const timeB =
+      dateB
+        ? dateB.getTime()
+        : 0;
+
+    return timeB - timeA;
+
+  }
+
+
+  return 0;
 
 }
 
 
 /* =========================================================
-   FILTRAR
+   FILTRADO
 ========================================================= */
 
 function filtered(){
 
   const query =
-    normalize(
-      search.value
-    );
-
+    normalize(search.value);
 
   return data
 
-    .filter(
-      item => {
+    .filter(item => {
 
+      if(!matchesTurno(item)){
+        return false;
+      }
 
-        /*
-         * TURNO
-         */
+      if(!matchesPuesto(item)){
+        return false;
+      }
 
-        if(
+      if(!matchesProvincia(item)){
+        return false;
+      }
 
-          turnoFiltro !==
-          "Todas"
+      if(
+        soloAbiertas &&
+        !isOpen(item)
+      ){
 
-          &&
-
-          normalize(
-            item.turno
-          ) !==
-            normalize(
-              turnoFiltro
-            )
-
-        ){
-
-          return false;
-
-        }
-
-
-        /*
-         * CATEGORÍA
-         */
-
-        if(
-          !matchesPuesto(
-            item
-          )
-        ){
-
-          return false;
-
-        }
-
-
-        /*
-         * SOLO ABIERTAS
-         */
-
-        if(
-
-          soloAbiertas
-
-          &&
-
-          !isOpen(
-            item
-          )
-
-        ){
-
-          return false;
-
-        }
-
-
-        /*
-         * BUSCADOR
-         */
-
-        if(
-          !query
-        ){
-
-          return true;
-
-        }
-
-
-        const texto =
-          normalize(
-            [
-              item.municipio,
-              item.organismo,
-              item.provincia,
-              item.puesto,
-              item.turno,
-              item.estado,
-              item.estadoActual,
-              item.oep
-            ]
-            .filter(Boolean)
-            .join(" ")
-          );
-
-
-        return texto.includes(
-          query
-        );
+        return false;
 
       }
-    )
 
-    .sort(
-      (
-        a,
-        b
-      ) =>
-        prioridad(b)
-        -
-        prioridad(a)
-    );
+      if(!query){
+        return true;
+      }
+
+      const texto =
+        normalize([
+          item.municipio,
+          item.organismo,
+          item.provincia,
+          item.puesto,
+          item.turno,
+          item.estado,
+          item.estadoActual,
+          item.oep
+        ]
+        .filter(Boolean)
+        .join(" "));
+
+      return texto.includes(query);
+
+    })
+
+    .sort(compareItems);
 
 }
 
 
 /* =========================================================
-   ESTADO VISUAL
+   CLASE ESTADO
 ========================================================= */
 
-function statusClass(
-  estado
-){
+function statusClass(estado){
 
   const e =
-    normalize(
-      estado
-    );
-
+    normalize(estado);
 
   if(
-
-    e.includes(
-      "abierta"
-    )
-
-    ||
-
-    e.includes(
-      "en plazo"
-    )
-
+    e.includes("abierta") ||
+    e.includes("en plazo")
   ){
 
     return "open";
 
   }
 
-
   if(
-
-    e.includes(
-      "cerrado"
-    )
-
-    ||
-
-    e.includes(
-      "anulada"
-    )
-
-    ||
-
-    e.includes(
-      "sin efecto"
-    )
-
+    e.includes("cerrad") ||
+    e.includes("anulad") ||
+    e.includes("sin efecto") ||
+    e.includes("finaliz")
   ){
 
     return "closed";
 
   }
 
-
-  if(
-    e.includes(
-      "bases"
-    )
-  ){
-
+  if(e.includes("base")){
     return "base";
-
   }
 
-
-  if(
-    e.includes(
-      "oferta"
-    )
-  ){
-
+  if(e.includes("oferta")){
     return "offer";
-
   }
-
 
   return "follow";
 
@@ -2426,85 +1944,48 @@ function statusClass(
 
 
 /* =========================================================
-   ETIQUETA DE TURNO
+   ETIQUETA TURNO
 ========================================================= */
 
-function turnoTag(
-  item
-){
+function turnoTag(item){
 
   const turno =
-    normalize(
-      item.turno
-    );
+    normalize(item.turno);
 
-
-  if(
-    turno ===
-    "libre"
-  ){
+  if(turno === "libre"){
 
     return `
-
       <span class="tag free">
-
         ⭐ Turno libre
-
       </span>
-
     `;
 
   }
 
-
-  if(
-    turno ===
-    "movilidad"
-  ){
+  if(turno === "movilidad"){
 
     return `
-
       <span class="tag mobility">
-
         Movilidad
-
       </span>
-
     `;
 
   }
 
-
-  if(
-    turno.includes(
-      "promocion"
-    )
-  ){
+  if(turno.includes("promocion")){
 
     return `
-
       <span class="tag pi">
-
         Promoción interna
-
       </span>
-
     `;
 
   }
-
 
   return `
-
     <span class="tag">
-
-      ${esc(
-        item.turno ||
-        "Sin especificar"
-      )}
-
+      ${esc(item.turno || "Sin especificar")}
     </span>
-
   `;
 
 }
@@ -2514,458 +1995,201 @@ function turnoTag(
    TARJETA
 ========================================================= */
 
-function card(
-  item
-){
+function card(item){
 
   const open =
-    isOpen(
-      item
-    );
-
+    isOpen(item);
 
   const phase =
-    item.estadoActual
-    ||
-    item.estado
-    ||
+    item.estadoActual ||
+    item.estado ||
     "Sin información";
 
-
   const next =
-    item.seguimiento
-    &&
-    item.seguimiento
-      .proximaActuacion
-      ?
-        item.seguimiento
-          .proximaActuacion
-      :
-        null;
-
+    item.seguimiento &&
+    item.seguimiento.proximaActuacion
+      ? item.seguimiento.proximaActuacion
+      : null;
 
   const source =
-    item.convocatoriaUrl
-    ||
-    item.fuenteUrl
-    ||
+    item.convocatoriaUrl ||
+    item.fuenteUrl ||
     "#";
-
 
   return `
 
-    <article
-      class="card"
-    >
+    <article class="card">
 
-
-      <div
-        class="cardTop"
-      >
-
+      <div class="cardTop">
 
         <div>
 
-
-          <h3
-            class="municipio"
-          >
-
-            ${esc(
-              item.municipio
-            )}
-
+          <h3 class="municipio">
+            ${esc(item.municipio)}
           </h3>
 
-
-          <div
-            class="ayto"
-          >
-
-            ${esc(
-              item.organismo
-            )}
-
+          <div class="ayto">
+            ${esc(item.organismo)}
           </div>
 
-
-          <div
-            class="puesto"
-          >
-
-            ${esc(
-              item.puesto ||
-              "Policía Local"
-            )}
-
+          <div class="puesto">
+            ${esc(item.puesto || "Policía Local")}
           </div>
-
 
         </div>
 
-
-        <span
-          class="
-            pill
-            ${statusClass(
-              item.estado
-            )}
-          "
-        >
-
-          ${esc(
-            item.estado ||
-            "Seguimiento"
-          )}
-
+        <span class="pill ${statusClass(item.estado)}">
+          ${esc(item.estado || "Seguimiento")}
         </span>
-
 
       </div>
 
 
-      <div
-        class="tags"
-      >
+      <div class="tags">
 
-
-        ${turnoTag(
-          item
-        )}
-
+        ${turnoTag(item)}
 
         ${
           item.oep
-
-          ?
-
-          `
-
-            <span
-              class="tag"
-            >
-
-              OEP
-              ${esc(
-                item.oep
-              )}
-
-            </span>
-
-          `
-
-          :
-
-          ""
+            ? `
+              <span class="tag">
+                OEP ${esc(item.oep)}
+              </span>
+            `
+            : ""
         }
-
 
         ${
           item.verificada
-
-          ?
-
-          `
-
-            <span
-              class="tag priority"
-            >
-
-              ✓ Fuente oficial
-
-            </span>
-
-          `
-
-          :
-
-          `
-
-            <span
-              class="tag"
-            >
-
-              Pendiente de comprobar
-
-            </span>
-
-          `
+            ? `
+              <span class="tag priority">
+                ✓ Fuente oficial
+              </span>
+            `
+            : `
+              <span class="tag">
+                Pendiente de comprobar
+              </span>
+            `
         }
-
 
       </div>
 
 
-      <div
-        class="meta"
-      >
-
+      <div class="meta">
 
         <div>
-
-          <span>
-            Provincia
-          </span>
-
-          <b>
-
-            ${esc(
-              item.provincia
-            )}
-
-          </b>
-
+          <span>Provincia</span>
+          <b>${esc(item.provincia)}</b>
         </div>
-
 
         <div>
-
-          <span>
-            Plazas
-          </span>
-
-          <b>
-
-            ${esc(
-              item.plazas
-            )}
-
-          </b>
-
+          <span>Plazas</span>
+          <b>${esc(item.plazas)}</b>
         </div>
-
 
         <div>
-
-          <span>
-            Grupo
-          </span>
-
-          <b>
-
-            ${esc(
-              item.grupo ||
-              "—"
-            )}
-
-          </b>
-
+          <span>Grupo</span>
+          <b>${esc(item.grupo || "—")}</b>
         </div>
-
 
         <div>
-
-          <span>
-            Publicación
-          </span>
-
-          <b>
-
-            ${esc(
-              item.fechaPublicacion ||
-              "—"
-            )}
-
-          </b>
-
+          <span>Publicación</span>
+          <b>${esc(item.fechaPublicacion || "—")}</b>
         </div>
-
 
         <div>
-
-          <span>
-            Inicio solicitudes
-          </span>
-
-          <b>
-
-            ${esc(
-              item.fechaInicio ||
-              "—"
-            )}
-
-          </b>
-
+          <span>Inicio solicitudes</span>
+          <b>${esc(item.fechaInicio || "—")}</b>
         </div>
-
 
         <div>
-
-          <span>
-            Fin solicitudes
-          </span>
-
-          <b>
-
-            ${esc(
-              item.fechaFin ||
-              "—"
-            )}
-
-          </b>
-
+          <span>Fin solicitudes</span>
+          <b>${esc(item.fechaFin || "—")}</b>
         </div>
-
 
         ${
           item.tasa
-
-          ?
-
-          `
-
-            <div>
-
-              <span>
-                Tasa
-              </span>
-
-              <b>
-
-                ${esc(
-                  item.tasa.texto
-                  ||
-                  (
-                    item.tasa.importe +
-                    " €"
-                  )
-                )}
-
-              </b>
-
-            </div>
-
-          `
-
-          :
-
-          ""
+            ? `
+              <div>
+                <span>Tasa</span>
+                <b>
+                  ${esc(
+                    item.tasa.texto ||
+                    (
+                      item.tasa.importe +
+                      " €"
+                    )
+                  )}
+                </b>
+              </div>
+            `
+            : ""
         }
-
 
       </div>
 
 
-      <div
-        class="process"
-      >
+      <div class="process">
 
-
-        <div
-          class="processHeader"
-        >
+        <div class="processHeader">
 
           <strong>
-
             Estado del proceso
-
           </strong>
 
-
           <span>
-
-            ${esc(
-              phase
-            )}
-
+            ${esc(phase)}
           </span>
 
         </div>
 
-
         ${
           next
-
-          ?
-
-          `
-
-            <div
-              class="processNext"
-            >
-
-              <strong>
-                Próximo paso:
-              </strong>
-
-              ${esc(
-                next
-              )}
-
-            </div>
-
-          `
-
-          :
-
-          ""
+            ? `
+              <div class="processNext">
+                <strong>Próximo paso:</strong>
+                ${esc(next)}
+              </div>
+            `
+            : ""
         }
-
 
       </div>
 
 
-      <div
-        class="links"
-      >
-
+      <div class="links">
 
         <a
           class="green"
-          href="${esc(
-            source
-          )}"
+          href="${esc(source)}"
           target="_blank"
           rel="noopener"
         >
-
           Fuente oficial
-
         </a>
-
 
         ${
           open
-
-          ?
-
-          `
-
-            <a
-              class="blue"
-              href="${esc(
-                source
-              )}"
-              target="_blank"
-              rel="noopener"
-            >
-
-              📝 Tramitar / inscribirse
-
-            </a>
-
-          `
-
-          :
-
-          ""
+            ? `
+              <a
+                class="blue"
+                href="${esc(source)}"
+                target="_blank"
+                rel="noopener"
+              >
+                📝 Tramitar / inscribirse
+              </a>
+            `
+            : ""
         }
 
-
       </div>
 
 
-      <div
-        class="note"
-      >
-
-        ${esc(
-          item.fuente ||
-          ""
-        )}
-
+      <div class="note">
+        ${esc(item.fuente || "")}
       </div>
-
 
     </article>
 
@@ -2975,55 +2199,49 @@ function card(
 
 
 /* =========================================================
-   TEXTO DE FILTRO ACTIVO
+   TEXTO FILTRO
 ========================================================= */
 
 function updateActiveLabel(){
 
   const turnoTexto =
-    turnoFiltro ===
-    "Todas"
-    ?
-      "Todos los turnos"
-    :
-      turnoFiltro;
-
+    turnoFiltro === "Todas"
+      ? "Todos los turnos"
+      : turnoFiltro;
 
   const puestoEncontrado =
     puestos.find(
       item =>
-        item.key ===
-        puestoFiltro
+        item.key === puestoFiltro
     );
 
-
   const puestoTexto =
-    puestoFiltro ===
-    "Todos"
-    ?
-      ""
-    :
-      (
-        " · " +
-        (
-          puestoEncontrado
-          ?
-            puestoEncontrado.label
-          :
-            puestoFiltro
-        )
-      );
+    puestoFiltro === "Todos"
+      ? ""
+      : (
+          " · " +
+          (
+            puestoEncontrado
+              ? puestoEncontrado.label
+              : puestoFiltro
+          )
+        );
 
+  const provinciaTexto =
+    provinciaFiltro === "Todas"
+      ? ""
+      : " · " + provinciaFiltro;
 
   activeLabel.textContent =
     turnoTexto +
-    puestoTexto;
+    puestoTexto +
+    provinciaTexto;
 
 }
 
 
 /* =========================================================
-   RENDER PRINCIPAL
+   RENDER
 ========================================================= */
 
 function render(){
@@ -3032,154 +2250,95 @@ function render(){
 
   renderPuestoTabs();
 
+  renderProvinceTabs();
+
   renderQuickFilters();
 
   updateActiveLabel();
 
-
   const arr =
     filtered();
-
 
   const pages =
     Math.max(
       1,
       Math.ceil(
-        arr.length /
-        perPage
+        arr.length / perPage
       )
     );
 
-
-  if(
-    page >
-    pages
-  ){
-
-    page =
-      pages;
-
+  if(page > pages){
+    page = pages;
   }
 
 
-  /* -----------------------------------------------
-     ESTADÍSTICAS
-  ------------------------------------------------ */
+  /* ESTADÍSTICAS */
 
-  document.getElementById(
-    "total"
-  ).textContent =
-    data.length;
+  document.getElementById("total")
+    .textContent =
+      data.length;
 
 
-  document.getElementById(
-    "plazas"
-  ).textContent =
-
-    data.reduce(
-      (
-        total,
-        item
-      ) =>
-
-        total +
-        (
-          Number(
-            item.plazas
-          )
-          ||
-          0
-        ),
-
-      0
-    );
+  document.getElementById("plazas")
+    .textContent =
+      data.reduce(
+        (total,item) =>
+          total +
+          (
+            Number(item.plazas) || 0
+          ),
+        0
+      );
 
 
-  document.getElementById(
-    "abiertas"
-  ).textContent =
-
-    data.filter(
-      isOpen
-    ).length;
+  document.getElementById("abiertas")
+    .textContent =
+      data.filter(isOpen).length;
 
 
-  document.getElementById(
-    "provincias"
-  ).textContent =
-
-    new Set(
-      data
-        .map(
-          item =>
-            item.provincia
-        )
-        .filter(
-          Boolean
-        )
-    ).size;
+  document.getElementById("provincias")
+    .textContent =
+      new Set(
+        data
+          .map(item => item.provincia)
+          .filter(Boolean)
+      ).size;
 
 
-  /* -----------------------------------------------
-     PAGINACIÓN
-  ------------------------------------------------ */
+  /* PAGINACIÓN */
 
   const start =
-    (
-      page -
-      1
-    ) *
-    perPage;
-
+    (page - 1) * perPage;
 
   const visible =
     arr.slice(
       start,
-      start +
-      perPage
+      start + perPage
     );
 
 
-  /* -----------------------------------------------
-     TARJETAS
-  ------------------------------------------------ */
+  /* TARJETAS */
 
   grid.innerHTML =
-
     visible.length
 
-    ?
+      ? visible.map(card).join("")
 
-      visible
-        .map(
-          card
-        )
-        .join("")
-
-    :
-
-      `
-
-        <div
-          class="empty"
-        >
+      : `
+        <div class="empty">
 
           <strong>
-
             No hay convocatorias con estos filtros
-
           </strong>
 
-          Prueba otra combinación de turno y categoría.
+          Prueba otra combinación de turno,
+          categoría o provincia.
 
         </div>
-
       `;
 
 
-  /* -----------------------------------------------
-     CONTADOR
-  ------------------------------------------------ */
+  /* CONTADOR */
 
   resultsInfo.innerHTML = `
 
@@ -3200,81 +2359,59 @@ function render(){
   `;
 
 
-  /* -----------------------------------------------
-     BOTONES DE PÁGINA
-  ------------------------------------------------ */
+  /* PAGINACIÓN */
 
   pagination.innerHTML =
+    Array.from(
+      {length:pages},
+      (_,index) => {
 
-    Array
-      .from(
-        {
-          length:
-            pages
-        },
+        const number =
+          index + 1;
 
-        (
-          _,
-          index
-        ) => {
+        return `
 
-          const number =
-            index +
-            1;
+          <button
+            type="button"
+            class="${
+              number === page
+                ? "active"
+                : ""
+            }"
+            data-page="${number}"
+          >
 
+            ${number}
 
-          return `
+          </button>
 
-            <button
-              type="button"
-              class="${
-                number ===
-                page
-                  ? "active"
-                  : ""
-              }"
-              data-page="${number}"
-            >
+        `;
 
-              ${number}
-
-            </button>
-
-          `;
-
-        }
-      )
-      .join("");
+      }
+    ).join("");
 
 
   pagination
-    .querySelectorAll(
-      "button"
-    )
-    .forEach(
-      button => {
+    .querySelectorAll("button")
+    .forEach(button => {
 
-        button.onclick =
-          () => {
+      button.onclick = () => {
 
-            page =
-              Number(
-                button.dataset.page
-              );
+        page =
+          Number(
+            button.dataset.page
+          );
 
+        render();
 
-            render();
+        window.scrollTo({
+          top:0,
+          behavior:"smooth"
+        });
 
+      };
 
-            window.scrollTo({
-              top:0,
-              behavior:"smooth"
-            });
-
-          };
-
-      }
-    );
+    });
 
 }
 
@@ -3287,8 +2424,7 @@ search.addEventListener(
   "input",
   () => {
 
-    page =
-      1;
+    page = 1;
 
     render();
 
@@ -3301,36 +2437,22 @@ search.addEventListener(
 ========================================================= */
 
 document
-  .getElementById(
-    "resetBtn"
-  )
+  .getElementById("resetBtn")
   .addEventListener(
     "click",
     () => {
 
-      /*
-       * VISTA INICIAL
-       */
+      turnoFiltro = "Libre";
 
-      turnoFiltro =
-        "Libre";
+      puestoFiltro = "Policia";
 
+      provinciaFiltro = "Todas";
 
-      puestoFiltro =
-        "Policia";
+      soloAbiertas = false;
 
+      search.value = "";
 
-      soloAbiertas =
-        false;
-
-
-      search.value =
-        "";
-
-
-      page =
-        1;
-
+      page = 1;
 
       render();
 
@@ -3342,28 +2464,25 @@ document
    INICIALIZACIÓN
 ========================================================= */
 
-turnoFiltro =
-  "Libre";
+turnoFiltro = "Libre";
 
-puestoFiltro =
-  "Policia";
+puestoFiltro = "Policia";
 
-soloAbiertas =
-  false;
+provinciaFiltro = "Todas";
 
-page =
-  1;
+soloAbiertas = false;
 
+page = 1;
 
 render();
 
 
 /* =========================================================
-   COMPROBACIÓN BÁSICA DE DATOS
+   COMPROBACIONES
 ========================================================= */
 
 console.group(
-  "OpoPoint · Comprobación de interfaz"
+  "OpoPoint · Comprobación"
 );
 
 console.info(
@@ -3372,140 +2491,67 @@ console.info(
 );
 
 console.info(
-  "Vista inicial:",
-  "Turno libre + Policía/Agente"
+  "Provincias disponibles:",
+  provincias.map(x => x.key)
 );
 
 console.info(
-  "Filtros disponibles:",
-  turnos.map(
-    x => x.key
-  )
+  "Turnos disponibles:",
+  turnos.map(x => x.key)
 );
 
 console.info(
   "Categorías disponibles:",
-  puestos.map(
-    x => x.key
-  )
-);
-
-
-/*
- * Comprobar que existen procesos de
- * promoción interna y categorías superiores.
- */
-
-const piCount =
-  data.filter(
-    item =>
-      normalize(
-        item.turno
-      ).includes(
-        "promocion"
-      )
-  ).length;
-
-const oficiales =
-  data.filter(
-    item =>
-      normalize(
-        item.puesto
-      ).includes(
-        "oficial"
-      )
-  ).length;
-
-const subinspectores =
-  data.filter(
-    item =>
-      normalize(
-        item.puesto
-      ).includes(
-        "subinspector"
-      )
-  ).length;
-
-const inspectores =
-  data.filter(
-    item =>
-      normalize(
-        item.puesto
-      ).includes(
-        "inspector"
-      )
-      &&
-      !normalize(
-        item.puesto
-      ).includes(
-        "subinspector"
-      )
-  ).length;
-
-
-console.info(
-  "Procesos promoción interna:",
-  piCount
+  puestos.map(x => x.key)
 );
 
 console.info(
-  "Procesos de Oficial:",
-  oficiales
+  "Promoción interna:",
+  data.filter(
+    item =>
+      normalize(item.turno)
+        .includes("promocion")
+  ).length
 );
 
 console.info(
-  "Procesos de Subinspector:",
-  subinspectores
+  "Oficiales:",
+  data.filter(
+    item =>
+      normalize(item.puesto)
+        .includes("oficial")
+  ).length
 );
 
 console.info(
-  "Procesos de Inspector:",
-  inspectores
+  "Subinspectores:",
+  data.filter(
+    item =>
+      normalize(item.puesto)
+        .includes("subinspector")
+  ).length
 );
 
+console.info(
+  "Inspectores:",
+  data.filter(
+    item =>
+      normalize(item.puesto)
+        .includes("inspector") &&
+      !normalize(item.puesto)
+        .includes("subinspector")
+  ).length
+);
 
-if(
-  piCount === 0
-){
+console.info(
+  "Abiertas:",
+  data.filter(isOpen).length
+);
 
-  console.warn(
-    "⚠️ No se han encontrado procesos de promoción interna en datos.js"
-  );
-
-}
-
-if(
-  oficiales === 0
-){
-
-  console.warn(
-    "⚠️ No se han encontrado Oficiales en datos.js"
-  );
-
-}
-
-
-if(
-  subinspectores === 0
-){
-
-  console.warn(
-    "⚠️ No se han encontrado Subinspectores en datos.js"
-  );
-
-}
-
-
-if(
-  inspectores === 0
-){
-
-  console.warn(
-    "⚠️ No se han encontrado Inspectores en datos.js"
-  );
-
-}
-
+console.info(
+  "Cerradas:",
+  data.filter(isClosed).length
+);
 
 console.groupEnd();
 
