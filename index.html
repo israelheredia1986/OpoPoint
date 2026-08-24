@@ -1,21 +1,27 @@
 <!doctype html>
 <html lang="es">
+
 <head>
 
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0f172a">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1">
+
+<meta name="theme-color"
+content="#0f172a">
 
 <meta name="description"
-content="OpoPoint — Radar y seguimiento de oposiciones de Policía Local en Andalucía">
+content="OpoPoint — Radar de oposiciones de Policía Local en Andalucía">
 
-<title>OpoPoint · Policía Local Andalucía</title>
+<title>
+OpoPoint · Policía Local Andalucía
+</title>
 
 <style>
 
 :root{
 --slate:#0f172a;
---slate2:#1e293b;
 --blue:#2563eb;
 --blueLight:#dbeafe;
 --green:#059669;
@@ -25,9 +31,7 @@ content="OpoPoint — Radar y seguimiento de oposiciones de Policía Local en An
 --red:#dc2626;
 --redLight:#fee2e2;
 --purple:#7c3aed;
---purpleLight:#ede9fe;
 --gray:#64748b;
---grayLight:#f8fafc;
 --bg:#f1f5f9;
 --white:#fff;
 --line:#e2e8f0;
@@ -57,8 +61,7 @@ Arial,
 sans-serif;
 }
 
-button,
-input{
+button,input{
 font:inherit;
 }
 
@@ -77,14 +80,12 @@ margin:auto;
 }
 
 
-/* =========================================================
-HEADER
-========================================================= */
+/* HEADER */
 
 header{
 background:
 linear-gradient(135deg,#020617,#172554);
-color:#fff;
+color:white;
 padding:20px 16px 24px;
 position:sticky;
 top:0;
@@ -107,14 +108,11 @@ place-items:center;
 border-radius:14px;
 background:#064e3b;
 font-size:25px;
-box-shadow:
-0 7px 20px rgba(0,0,0,.25);
 }
 
 .brand h1{
 margin:0;
 font-size:23px;
-line-height:1;
 }
 
 .brand small{
@@ -133,8 +131,6 @@ margin-top:16px;
 
 .badge{
 display:inline-flex;
-align-items:center;
-gap:5px;
 padding:7px 10px;
 border-radius:999px;
 border:1px solid rgba(255,255,255,.18);
@@ -148,9 +144,7 @@ border-color:#10b981;
 }
 
 
-/* =========================================================
-MAIN
-========================================================= */
+/* MAIN */
 
 main{
 padding:22px 16px 60px;
@@ -174,9 +168,7 @@ line-height:1.5;
 }
 
 
-/* =========================================================
-STATS
-========================================================= */
+/* STATS */
 
 .stats{
 display:grid;
@@ -186,7 +178,7 @@ margin:18px 0;
 }
 
 .stat{
-background:var(--white);
+background:white;
 border:1px solid var(--line);
 border-radius:16px;
 padding:14px;
@@ -196,7 +188,6 @@ box-shadow:var(--shadow);
 .stat b{
 display:block;
 font-size:24px;
-line-height:1;
 }
 
 .stat span{
@@ -207,12 +198,10 @@ font-size:11px;
 }
 
 
-/* =========================================================
-LEGEND
-========================================================= */
+/* LEGEND */
 
 .legend{
-background:#fff;
+background:white;
 border:1px solid var(--line);
 border-radius:16px;
 padding:14px;
@@ -242,9 +231,7 @@ font-weight:700;
 }
 
 
-/* =========================================================
-CONTROLS
-========================================================= */
+/* CONTROLS */
 
 .controls{
 background:white;
@@ -266,8 +253,7 @@ font-size:15px;
 
 .search:focus{
 border-color:var(--green);
-box-shadow:
-0 0 0 3px rgba(5,150,105,.14);
+box-shadow:0 0 0 3px rgba(5,150,105,.14);
 }
 
 .chips{
@@ -275,10 +261,6 @@ display:flex;
 gap:7px;
 overflow-x:auto;
 padding:10px 0 2px;
-}
-
-.chips::-webkit-scrollbar{
-display:none;
 }
 
 .chip{
@@ -293,14 +275,12 @@ font-size:11px;
 
 .chip.active{
 background:var(--slate);
-color:#fff;
+color:white;
 border-color:var(--slate);
 }
 
 
-/* =========================================================
-GRID
-========================================================= */
+/* GRID */
 
 .grid{
 display:grid;
@@ -308,12 +288,10 @@ gap:13px;
 }
 
 
-/* =========================================================
-CARD
-========================================================= */
+/* CARD */
 
 .card{
-background:#fff;
+background:white;
 border:1px solid var(--line);
 border-radius:19px;
 padding:18px;
@@ -338,9 +316,7 @@ border-left:5px solid var(--amber);
 }
 
 
-/* =========================================================
-CARD HEADER
-========================================================= */
+/* HEADER CARD */
 
 .card-header{
 display:flex;
@@ -396,9 +372,7 @@ color:#92400e;
 }
 
 
-/* =========================================================
-PLAZAS
-========================================================= */
+/* PLAZAS */
 
 .plazas-row{
 display:flex;
@@ -424,9 +398,7 @@ letter-spacing:.08em;
 }
 
 
-/* =========================================================
-STATUS
-========================================================= */
+/* ESTADO */
 
 .status-pill{
 padding:7px 10px;
@@ -467,9 +439,7 @@ color:#92400e;
 }
 
 
-/* =========================================================
-PLAZO
-========================================================= */
+/* PLAZO */
 
 .deadline{
 margin-top:14px;
@@ -531,20 +501,41 @@ font-weight:800;
 }
 
 
-/* =========================================================
-FASE
-========================================================= */
+/* TASA */
+
+.fee{
+margin-top:10px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+padding:11px 12px;
+border-radius:12px;
+background:#fff7ed;
+border:1px solid #fed7aa;
+}
+
+.fee-label{
+font-size:10px;
+font-weight:900;
+color:#9a3412;
+}
+
+.fee-value{
+font-size:15px;
+font-weight:950;
+color:#9a3412;
+}
+
+
+/* FASE */
 
 .current-phase{
 margin-top:15px;
 padding:15px;
 border-radius:16px;
 background:
-linear-gradient(
-135deg,
-#eff6ff,
-#eef2ff
-);
+linear-gradient(135deg,#eff6ff,#eef2ff);
 border:1px solid #bfdbfe;
 }
 
@@ -581,17 +572,11 @@ background:#e2e8f0;
 height:100%;
 border-radius:999px;
 background:
-linear-gradient(
-90deg,
-#2563eb,
-#7c3aed
-);
+linear-gradient(90deg,#2563eb,#7c3aed);
 }
 
 
-/* =========================================================
-OEP
-========================================================= */
+/* OEP */
 
 .oep-info{
 margin-top:14px;
@@ -611,9 +596,7 @@ font-size:12px;
 }
 
 
-/* =========================================================
-META
-========================================================= */
+/* META */
 
 .meta{
 display:grid;
@@ -643,9 +626,7 @@ font-size:12px;
 }
 
 
-/* =========================================================
-ACTIVITY
-========================================================= */
+/* ACTIVITY */
 
 .activity{
 margin-top:11px;
@@ -673,69 +654,14 @@ color:var(--gray);
 }
 
 
-/* =========================================================
-BUTTONS
-========================================================= */
-
-.actions{
-display:flex;
-flex-wrap:wrap;
-gap:7px;
-margin-top:14px;
-}
-
-.btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-gap:5px;
-padding:10px 12px;
-border:0;
-border-radius:10px;
-font-size:11px;
-font-weight:900;
-color:#fff;
-}
-
-.btn-green{
-background:var(--green);
-}
-
-.btn-blue{
-background:var(--blue);
-}
-
-.btn-purple{
-background:var(--purple);
-}
-
-.btn-dark{
-background:var(--slate);
-}
-
-.btn-gray{
-background:#64748b;
-}
-
-.btn-amber{
-background:var(--amber);
-}
-
-
-/* =========================================================
-INSCRIPTION HIGHLIGHT
-========================================================= */
+/* INSCRIPCIÓN */
 
 .inscription-box{
 margin-top:14px;
 padding:14px;
 border-radius:15px;
 background:
-linear-gradient(
-135deg,
-#ecfdf5,
-#f0fdf4
-);
+linear-gradient(135deg,#ecfdf5,#f0fdf4);
 border:1px solid #86efac;
 }
 
@@ -760,9 +686,42 @@ margin-top:10px;
 }
 
 
-/* =========================================================
-SOURCE
-========================================================= */
+/* BOTONES */
+
+.actions{
+display:flex;
+flex-wrap:wrap;
+gap:7px;
+margin-top:14px;
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:5px;
+padding:10px 12px;
+border:0;
+border-radius:10px;
+font-size:11px;
+font-weight:900;
+color:white;
+}
+
+.btn-green{
+background:var(--green);
+}
+
+.btn-blue{
+background:var(--blue);
+}
+
+.btn-purple{
+background:var(--purple);
+}
+
+
+/* SOURCE */
 
 .source{
 margin-top:10px;
@@ -772,9 +731,7 @@ color:var(--gray);
 }
 
 
-/* =========================================================
-PAGINATION
-========================================================= */
+/* PAGINATION */
 
 .pagination{
 display:flex;
@@ -794,14 +751,12 @@ background:white;
 
 .pagination button.active{
 background:var(--slate);
-color:#fff;
+color:white;
 border-color:var(--slate);
 }
 
 
-/* =========================================================
-MODAL
-========================================================= */
+/* MODAL */
 
 .modal-bg{
 position:fixed;
@@ -822,7 +777,7 @@ display:block;
 width:100%;
 max-width:850px;
 margin:15px auto;
-background:#fff;
+background:white;
 border-radius:22px;
 overflow:hidden;
 box-shadow:
@@ -832,12 +787,8 @@ box-shadow:
 .modal-head{
 padding:20px;
 background:
-linear-gradient(
-135deg,
-#020617,
-#172554
-);
-color:#fff;
+linear-gradient(135deg,#020617,#172554);
+color:white;
 }
 
 .modal-head-row{
@@ -850,7 +801,6 @@ align-items:flex-start;
 .modal-head h2{
 margin:0;
 font-size:23px;
-line-height:1.1;
 }
 
 .modal-sub{
@@ -865,7 +815,7 @@ height:36px;
 border:0;
 border-radius:10px;
 background:rgba(255,255,255,.12);
-color:#fff;
+color:white;
 font-size:20px;
 }
 
@@ -890,7 +840,6 @@ font-weight:950;
 margin:12px 0 0;
 padding:0;
 list-style:none;
-counter-reset:route;
 }
 
 .route-list li{
@@ -939,9 +888,7 @@ margin-top:17px;
 }
 
 
-/* =========================================================
-TIMELINE
-========================================================= */
+/* TIMELINE */
 
 .timeline{
 margin-top:14px;
@@ -1008,10 +955,6 @@ color:var(--blue);
 }
 
 
-/* =========================================================
-RESPONSIVE
-========================================================= */
-
 @media(min-width:700px){
 
 .stats{
@@ -1032,6 +975,7 @@ font-size:26px;
 
 }
 
+
 footer{
 padding:25px 16px 35px;
 text-align:center;
@@ -1041,11 +985,11 @@ color:var(--gray);
 }
 
 </style>
+
 </head>
 
 
 <body>
-
 
 <header>
 
@@ -1053,9 +997,7 @@ color:var(--gray);
 
 <div class="brand">
 
-<div class="radar">
-◉
-</div>
+<div class="radar">◉</div>
 
 <div>
 <h1>OpoPoint</h1>
@@ -1087,7 +1029,6 @@ Fuentes oficiales
 
 <main class="wrap">
 
-
 <section class="hero">
 
 <h2>
@@ -1095,8 +1036,8 @@ Encuentra y presenta tu oposición
 </h2>
 
 <p>
-Consulta plazas, plazos, fase actual del proceso y acceso directo
-a la fuente oficial de inscripción cuando esté localizado.
+Consulta plazas, plazos, tasa de inscripción,
+fase actual y acceso al trámite oficial.
 </p>
 
 </section>
@@ -1144,15 +1085,15 @@ a la fuente oficial de inscripción cuando esté localizado.
 </div>
 
 <div class="legend-item">
+💶 Tasa
+</div>
+
+<div class="legend-item">
 📝 Inscripción
 </div>
 
 <div class="legend-item">
 🎯 Seguimiento
-</div>
-
-<div class="legend-item">
-⚫ Histórico
 </div>
 
 </div>
@@ -1194,9 +1135,7 @@ OpoBusca no se utiliza como destino para los usuarios.
 </footer>
 
 
-<!-- =======================================================
-MODAL INSCRIPCIÓN
-======================================================= -->
+<!-- MODAL INSCRIPCIÓN -->
 
 <div
 id="inscriptionModal"
@@ -1224,7 +1163,6 @@ Inscripción
 class="close"
 id="closeInscription"
 aria-label="Cerrar">
-
 ×
 </button>
 
@@ -1232,8 +1170,9 @@ aria-label="Cerrar">
 
 </div>
 
-
-<div id="inscriptionBody" class="modal-body">
+<div
+id="inscriptionBody"
+class="modal-body">
 </div>
 
 </div>
@@ -1241,9 +1180,7 @@ aria-label="Cerrar">
 </div>
 
 
-<!-- =======================================================
-MODAL SEGUIMIENTO
-======================================================= -->
+<!-- MODAL SEGUIMIENTO -->
 
 <div
 id="trackingModal"
@@ -1273,14 +1210,12 @@ class="modal-sub">
 class="close"
 id="closeTracking"
 aria-label="Cerrar">
-
 ×
 </button>
 
 </div>
 
 </div>
-
 
 <div
 id="trackingBody"
@@ -1294,12 +1229,11 @@ class="modal-body">
 
 <script src="datos.js"></script>
 
-
 <script>
 
-/* =========================================================
+/* =====================================================
 DATOS
-========================================================= */
+===================================================== */
 
 const data =
 Array.isArray(window.convocatoriasOpoPoint)
@@ -1315,44 +1249,44 @@ window.datos
 );
 
 
-/* =========================================================
-ELEMENTOS
-========================================================= */
+/* =====================================================
+DOM
+===================================================== */
 
-const grid =
+const grid=
 document.getElementById("grid");
 
-const search =
+const search=
 document.getElementById("search");
 
-const chips =
+const chips=
 document.getElementById("provinceChips");
 
-const pagination =
+const pagination=
 document.getElementById("pagination");
 
-const inscriptionModal =
+const inscriptionModal=
 document.getElementById("inscriptionModal");
 
-const inscriptionTitle =
+const inscriptionTitle=
 document.getElementById("inscriptionTitle");
 
-const inscriptionSub =
+const inscriptionSub=
 document.getElementById("inscriptionSub");
 
-const inscriptionBody =
+const inscriptionBody=
 document.getElementById("inscriptionBody");
 
-const trackingModal =
+const trackingModal=
 document.getElementById("trackingModal");
 
-const trackingTitle =
+const trackingTitle=
 document.getElementById("trackingTitle");
 
-const trackingSub =
+const trackingSub=
 document.getElementById("trackingSub");
 
-const trackingBody =
+const trackingBody=
 document.getElementById("trackingBody");
 
 let province="Todas";
@@ -1362,157 +1296,116 @@ let page=1;
 const perPage=10;
 
 
-/* =========================================================
-PLAZOS
-========================================================= */
-
-const plazos={
-
-"opopoint-villafranca-convocatoria-2026":{
-inicio:"21/08/2026",
-fin:"17/09/2026"
-},
-
-"opopoint-alcala-rio-convocatoria-2026":{
-inicio:"17/08/2026",
-fin:"11/09/2026"
-},
-
-"opopoint-estepa-convocatoria-2026":{
-inicio:"18/08/2026",
-fin:"14/09/2026"
-},
-
-"opopoint-albox-convocatoria-2026":{
-inicio:"12/08/2026",
-fin:"08/09/2026"
-},
-
-"opopoint-berja-convocatoria-2026":{
-inicio:"28/07/2026",
-fin:"24/08/2026"
-},
-
-"opopoint-roquetas-convocatoria-2026":{
-inicio:"07/07/2026",
-fin:"04/08/2026"
-}
-
-};
-
-
-/* =========================================================
-INSCRIPCIONES OFICIALES
-========================================================= */
+/* =====================================================
+INSCRIPCIONES
+===================================================== */
 
 /*
-   Nivel:
-   DIRECTA
-   = portal específico de procesos/trámite.
-
-   SEDE
-   = sede oficial del Ayuntamiento.
-
-   En ningún caso se inventa una URL.
+   IMPORTANTE:
+   Ya no se mantienen las tasas aquí.
+   Las tasas vienen de datos.js:
+   item.tasa.importe
+   item.tasa.texto
 */
 
 const inscripciones={
 
 "opopoint-villafranca-convocatoria-2026":{
-
-nivel:"DIRECTA",
-
-url:"https://empleo.eprinsa.es/vfranca/empleo",
-
-titulo:"Procesos de selección · Villafranca de Córdoba",
-
+tipo:"SEDE",
+url:"https://sede.eprinsa.es/vfranca/",
+titulo:"Sede Electrónica · Ayuntamiento de Villafranca de Córdoba",
 ruta:[
-"Acceder al portal oficial de Procesos de Selección",
-"Seleccionar la convocatoria de Policía Local",
-"Cumplimentar la solicitud",
-"Firmar y registrar la solicitud",
-"Guardar el justificante"
-],
-
-nota:
-"El BOP describe este portal como el lugar donde se genera la solicitud oficial del proceso selectivo."
+"Entrar en la Sede Electrónica oficial.",
+"Acceder al apartado de Procesos de Selección.",
+"Localizar la convocatoria de Policía Local.",
+"Cumplimentar la solicitud.",
+"Registrar la solicitud y guardar el justificante."
+]
 },
 
 "opopoint-alcala-rio-convocatoria-2026":{
-
-nivel:"SEDE",
-
+tipo:"SEDE",
 url:"https://alcaladelrio.sedelectronica.es/",
-
 titulo:"Sede Electrónica · Ayuntamiento de Alcalá del Río",
-
 ruta:[
-"Entrar en la Sede Electrónica",
-"Acceder al Catálogo de trámites",
-"Entrar en Recursos Humanos",
-"Localizar el proceso de Policía Local",
-"Presentar y registrar la solicitud"
-],
-
-nota:
-"La sede oficial de Alcalá del Río dispone de catálogo de trámites y apartado específico de Recursos Humanos."
+"Entrar en la Sede Electrónica.",
+"Acceder al Catálogo de trámites.",
+"Entrar en Recursos Humanos.",
+"Localizar la convocatoria de Policía Local.",
+"Presentar y registrar la solicitud.",
+"Guardar el justificante."
+]
 },
 
 "opopoint-estepa-convocatoria-2026":{
-
-nivel:"SEDE",
-
-url:"https://sede.estepa.es/",
-
+tipo:"SEDE",
+url:"https://estepa.sedelectronica.es/",
 titulo:"Sede Electrónica · Ayuntamiento de Estepa",
-
 ruta:[
-"Entrar en la Sede Electrónica",
-"Acceder al catálogo de trámites",
-"Localizar el trámite/proceso de Policía Local",
-"Cumplimentar la solicitud",
-"Firmar y registrar electrónicamente"
-],
-
-nota:
-"La sede de Estepa informa de que la presentación telemática requiere identificación/firma electrónica y AutoFirma."
+"Entrar en la Sede Electrónica.",
+"Acceder al catálogo de trámites.",
+"Localizar el proceso de Policía Local.",
+"Cumplimentar la solicitud.",
+"Firmar y registrar electrónicamente.",
+"Guardar el justificante."
+]
 },
 
 "opopoint-albox-convocatoria-2026":{
-
-nivel:"SEDE",
-
+tipo:"SEDE",
 url:"https://albox.sedelectronica.es/",
-
 titulo:"Sede Electrónica · Ayuntamiento de Albox",
-
 ruta:[
-"Entrar en la Sede Electrónica",
-"Acceder al apartado Policía Local / Recursos Humanos",
-"Localizar la convocatoria",
-"Cumplimentar la solicitud",
-"Firmar y registrar",
-"Guardar el justificante"
-],
+"Entrar en la Sede Electrónica.",
+"Localizar Recursos Humanos / Policía Local.",
+"Buscar la convocatoria.",
+"Cumplimentar la solicitud.",
+"Firmar y registrar.",
+"Guardar el justificante."
+]
+},
 
-nota:
-"La sede oficial de Albox dispone de apartados específicos de Policía Local y publicaciones de solicitudes de plazas."
+"opopoint-berja-convocatoria-2026":{
+tipo:"SEDE",
+url:"https://www.dipalme.org/Servicios/cmsdipro/index.nsf/tablon_view_entidad.xsp?p=sedeberja",
+titulo:"Sede Electrónica · Ayuntamiento de Berja",
+ruta:[
+"Entrar en la Sede Electrónica.",
+"Localizar el apartado de personal.",
+"Buscar la convocatoria de Policía Local.",
+"Completar la solicitud.",
+"Presentar electrónicamente.",
+"Guardar el justificante."
+]
+},
+
+"opopoint-la-mojonera-convocatoria-2026":{
+tipo:"DIRECTA",
+url:"https://www.dipalme.org/",
+titulo:"Procedimiento oficial · Ayuntamiento de La Mojonera",
+ruta:[
+"Acceder al procedimiento oficial de procesos de selección.",
+"Seleccionar la convocatoria de Policía Local.",
+"Cumplimentar la solicitud.",
+"Adjuntar la documentación necesaria.",
+"Registrar electrónicamente.",
+"Guardar el justificante."
+]
 }
 
 };
 
 
-/* =========================================================
+/* =====================================================
 AYUNTAMIENTOS
-========================================================= */
+===================================================== */
 
 const ayuntamientos={
 
-"San Roque":"https://sanroque.sedelectronica.es/",
 "Aznalcóllar":"https://www.aznalcollar.es/",
-"Villafranca de Córdoba":"https://www.villafrancadecordoba.es/",
-"Alcalá del Río":"https://www.alcaladelrio.es/",
-"Estepa":"https://sede.estepa.es/",
+"Villafranca de Córdoba":"https://sede.eprinsa.es/vfranca/",
+"Alcalá del Río":"https://alcaladelrio.sedelectronica.es/",
+"Estepa":"https://estepa.sedelectronica.es/",
 "Dos Torres":"https://www.dostorres.es/",
 "La Puebla del Río":"https://www.lapuebladelrio.es/",
 "Lanjarón":"https://www.lanjaron.es/",
@@ -1524,9 +1417,9 @@ const ayuntamientos={
 "Cuevas del Almanzora":"https://www.cuevasdelalmanzora.es/",
 "Olula del Río":"https://www.oluladelrio.es/",
 "Motril":"https://www.motril.es/",
-"La Mojonera":"https://www.lamojonera.es/",
-"Berja":"https://www.berja.es/",
-"Marchena":"https://www.marchena.es/",
+"La Mojonera":"https://www.dipalme.org/",
+"Berja":"https://www.dipalme.org/",
+"Marchena":"https://sedemarchena.dipusevilla.es/",
 "Cartaya":"https://www.cartaya.es/",
 "Hinojos":"https://www.hinojos.es/",
 "Almuñécar":"https://www.almunecar.es/",
@@ -1549,9 +1442,9 @@ const ayuntamientos={
 };
 
 
-/* =========================================================
+/* =====================================================
 UTILIDADES
-========================================================= */
+===================================================== */
 
 function esc(value){
 
@@ -1590,15 +1483,23 @@ return d;
 }
 
 
-function plazoEstado(id){
+/* =====================================================
+PLAZO
+===================================================== */
 
-const p=plazos[id];
+function plazoEstado(item){
 
-if(!p)
+if(
+!item.fechaInicio ||
+!item.fechaFin
+)
 return null;
 
-const inicio=dateFrom(p.inicio);
-const fin=dateFrom(p.fin);
+const inicio=
+dateFrom(item.fechaInicio);
+
+const fin=
+dateFrom(item.fechaFin);
 
 if(!inicio || !fin)
 return null;
@@ -1612,7 +1513,7 @@ if(hoy<inicio){
 return{
 tipo:"proximo",
 clase:"open",
-titulo:"📅 Plazo próximo",
+titulo:"📅 PLAZO PRÓXIMO",
 dias:null
 };
 
@@ -1623,13 +1524,16 @@ if(hoy>fin){
 return{
 tipo:"cerrado",
 clase:"closed",
-titulo:"🔴 Plazo finalizado",
+titulo:"🔴 PLAZO FINALIZADO",
 dias:0
 };
 
 }
 
-if(hoy.getTime()===fin.getTime()){
+if(
+hoy.getTime()===
+fin.getTime()
+){
 
 return{
 tipo:"ultimo",
@@ -1654,6 +1558,10 @@ dias:dias
 }
 
 
+/* =====================================================
+TIPOS
+===================================================== */
+
 function esConvocatoria(item){
 
 return String(item.tipo||"")
@@ -1661,7 +1569,6 @@ return String(item.tipo||"")
 .includes("CONVOCATORIA");
 
 }
-
 
 function esFinalizada(item){
 
@@ -1672,260 +1579,63 @@ return String(item.tipo||"")
 }
 
 
-function fuente(item){
-
-const urls=[
-item.boeUrl,
-item.bojaUrl,
-item.bopUrl,
-item.convocatoriaUrl,
-item.fuenteUrl
-];
-
-for(const url of urls){
-
-if(
-url &&
-!String(url)
-.toLowerCase()
-.includes("opobusca")
-){
-
-return url;
-
-}
-
-}
-
-return null;
-
-}
-
-
-function fuenteTexto(url){
-
-if(!url)
-return "Fuente oficial";
-
-const u=String(url).toLowerCase();
-
-if(u.includes("boe.es"))
-return "📄 Ver BOE";
-
-if(u.includes("juntadeandalucia.es"))
-return "📄 Ver BOJA";
-
-if(u.includes("bop"))
-return "📄 Ver BOP";
-
-return "🏛️ Fuente oficial";
-
-}
-
-
-/* =========================================================
-PROVINCIAS
-========================================================= */
-
-function renderChips(){
-
-const ps=[
-"Todas",
-...new Set(
-data
-.map(x=>x.provincia)
-.filter(Boolean)
-.sort()
-)
-];
-
-chips.innerHTML=ps.map(p=>`
-
-<button
-class="chip ${
-p===province
-?
-"active"
-:
-""
-}"
-data-p="${esc(p)}">
-
-${esc(p)}
-
-</button>
-
-`).join("");
-
-chips
-.querySelectorAll("[data-p]")
-.forEach(button=>{
-
-button.onclick=()=>{
-
-province=button.dataset.p;
-
-page=1;
-
-render();
-
-};
-
-});
-
-}
-
-
-/* =========================================================
-BUSCADOR
-========================================================= */
-
-function filtered(){
-
-const q=search.value
-.trim()
-.toLowerCase();
-
-return data.filter(item=>{
-
-const okProvince=
-province==="Todas" ||
-item.provincia===province;
-
-const seguimiento=
-item.seguimiento||{};
-
-const fases=
-Array.isArray(seguimiento.fases)
-?
-seguimiento.fases
-.map(f=>f.nombre)
-.join(" ")
-:
-"";
-
-const text=`
-
-${item.organismo||""}
-${item.municipio||""}
-${item.provincia||""}
-${item.puesto||""}
-${item.oep||""}
-${item.tipo||""}
-${item.estadoActual||""}
-${seguimiento.ultimaActuacion||""}
-${seguimiento.proximaActuacion||""}
-${fases}
-
-`.toLowerCase();
-
-return okProvince &&
-(!q || text.includes(q));
-
-});
-
-}
-
-
-/* =========================================================
-INSCRIPCIÓN DISPONIBLE
-========================================================= */
+/* =====================================================
+INSCRIPCIÓN
+===================================================== */
 
 function inscriptionFor(item){
 
-if(!plazoEstado(item.id))
+const state=
+plazoEstado(item);
+
+if(!state)
 return null;
 
-const estado=plazoEstado(item.id);
-
 if(
-estado.tipo!=="abierto" &&
-estado.tipo!=="ultimo"
+state.tipo!=="abierto" &&
+state.tipo!=="ultimo"
 )
 return null;
 
-return inscripciones[item.id] || {
+if(
+inscripciones[item.id]
+){
 
-nivel:"AYUNTAMIENTO",
+return inscripciones[item.id];
 
-url:ayuntamientos[item.municipio] || item.fuenteUrl || null,
+}
+
+const ayto=
+ayuntamientos[item.municipio];
+
+if(!ayto)
+return null;
+
+return{
+
+tipo:"AYUNTAMIENTO",
+
+url:ayto,
 
 titulo:
-`Sede oficial · ${item.organismo}`,
+`Acceso oficial · ${item.organismo}`,
 
 ruta:[
-"Acceder a la sede oficial del Ayuntamiento",
-"Localizar el apartado de Recursos Humanos / Empleo Público",
-"Buscar la convocatoria de Policía Local",
-"Presentar y registrar la solicitud",
-"Guardar el justificante"
-],
+"Entrar en la web oficial del Ayuntamiento.",
+"Acceder a Sede Electrónica / Empleo Público.",
+"Localizar la convocatoria.",
+"Presentar la solicitud.",
+"Guardar el justificante."
+]
 
-nota:
-"No hemos localizado todavía el trámite electrónico exacto. OpoPoint te lleva a la fuente oficial para no enviarte a una web de terceros."
 };
 
 }
 
 
-/* =========================================================
-BOTON INSCRIPCION
-========================================================= */
-
-function inscriptionButton(item){
-
-const config=
-inscriptionFor(item);
-
-if(!config)
-return "";
-
-return `
-
-<button
-class="btn btn-green"
-data-inscription="${esc(item.id)}">
-
-📝 INSCRIBIRME
-
-</button>
-
-`;
-
-}
-
-
-/* =========================================================
-BOTON FUENTE
-========================================================= */
-
-function sourceButton(item){
-
-const url=fuente(item);
-
-if(!url)
-return "";
-
-return `
-
-<a
-class="btn btn-blue"
-href="${esc(url)}"
-target="_blank"
-rel="noopener noreferrer">
-
-${fuenteTexto(url)}
-
-</a>
-
-`;
-
-}
-
-
-/* =========================================================
+/* =====================================================
 FASE
-========================================================= */
+===================================================== */
 
 function phase(item){
 
@@ -1969,16 +1679,219 @@ complete/s.fases.length*100
 }
 
 
-function phaseHTML(item){
+/* =====================================================
+FUENTE
+===================================================== */
 
-const s=item.seguimiento;
+function fuente(item){
 
-const p=phase(item);
+const urls=[
+item.boeUrl,
+item.bojaUrl,
+item.bopUrl,
+item.convocatoriaUrl,
+item.fuenteUrl
+];
 
-if(!s || !p)
+for(
+const url of urls
+){
+
+if(
+url &&
+!String(url)
+.toLowerCase()
+.includes("opobusca")
+){
+
+return url;
+
+}
+
+}
+
+return null;
+
+}
+
+
+function fuenteTexto(url){
+
+if(!url)
+return"Fuente oficial";
+
+const u=
+String(url).toLowerCase();
+
+if(u.includes("boe.es"))
+return"📄 Ver BOE";
+
+if(u.includes("juntadeandalucia.es"))
+return"📄 Ver BOJA";
+
+if(u.includes("bop"))
+return"📄 Ver BOP";
+
+return"📄 Ver fuente oficial";
+
+}
+
+
+/* =====================================================
+HTML TASA
+===================================================== */
+
+function feeHTML(item){
+
+if(
+!item.tasa ||
+typeof item.tasa.importe!=="number"
+)
 return "";
 
-return `
+return`
+
+<div class="fee">
+
+<div class="fee-label">
+💶 TASA DE INSCRIPCIÓN
+</div>
+
+<div class="fee-value">
+${esc(
+item.tasa.texto ||
+(
+item.tasa.importe.toFixed(2)
+.replace(".",",")
++
+" €"
+)
+)}
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+HTML PLAZO
+===================================================== */
+
+function deadlineHTML(item){
+
+const state=
+plazoEstado(item);
+
+if(!state)
+return "";
+
+const inicio=
+item.fechaInicio;
+
+const fin=
+item.fechaFin;
+
+let msg="";
+
+if(state.tipo==="abierto"){
+
+msg=
+`Quedan <strong>${state.dias} días</strong>.`;
+
+}
+
+else if(state.tipo==="ultimo"){
+
+msg=
+"<strong>Hoy es el último día.</strong>";
+
+}
+
+else if(state.tipo==="cerrado"){
+
+msg=
+"El plazo ha finalizado.";
+
+}
+
+else{
+
+msg=
+`Comienza el <strong>${esc(inicio)}</strong>.`;
+
+}
+
+
+return`
+
+<div class="deadline ${state.clase}">
+
+<div class="deadline-title">
+
+${state.titulo}
+
+</div>
+
+<div class="deadline-dates">
+
+<div class="deadline-box">
+
+<span>
+Inicio solicitudes
+</span>
+
+<b>
+${esc(inicio)}
+</b>
+
+</div>
+
+<div class="deadline-box">
+
+<span>
+Fin solicitudes
+</span>
+
+<b>
+${esc(fin)}
+</b>
+
+</div>
+
+</div>
+
+<div class="deadline-days">
+
+${msg}
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+FASE HTML
+===================================================== */
+
+function phaseHTML(item){
+
+const p=
+phase(item);
+
+const s=
+item.seguimiento;
+
+if(!p || !s)
+return "";
+
+return`
 
 <div class="current-phase">
 
@@ -1987,84 +1900,28 @@ FASE ACTUAL
 </div>
 
 <div class="phase-title">
+
 ${esc(p.icono||"🎯")}
 ${esc(p.nombre)}
+
 </div>
 
 <div class="phase-sub">
-Fase ${esc(s.faseNumero||1)}
+
+Fase
+${esc(s.faseNumero||1)}
 de
 ${esc(s.totalFases||s.fases.length)}
+
 </div>
 
 <div class="progress">
+
 <div
 class="progress-inner"
 style="width:${progress(item)}%">
 </div>
-</div>
 
-</div>
-
-`;
-
-}
-
-
-/* =========================================================
-PLAZO HTML
-========================================================= */
-
-function deadlineHTML(item){
-
-const p=plazos[item.id];
-
-if(!p)
-return "";
-
-const state=plazoEstado(item.id);
-
-if(!state)
-return "";
-
-let text="";
-
-if(state.tipo==="abierto")
-text=`Quedan <strong>${state.dias} días</strong>.`;
-
-else if(state.tipo==="ultimo")
-text=`<strong>Hoy es el último día.</strong>`;
-
-else if(state.tipo==="cerrado")
-text="El plazo ha finalizado.";
-
-else
-text=`Comienza el <strong>${esc(p.inicio)}</strong>.`;
-
-return `
-
-<div class="deadline ${state.clase}">
-
-<div class="deadline-title">
-${state.titulo}
-</div>
-
-<div class="deadline-dates">
-
-<div class="deadline-box">
-<span>Inicio solicitudes</span>
-<b>${esc(p.inicio)}</b>
-</div>
-
-<div class="deadline-box">
-<span>Fin solicitudes</span>
-<b>${esc(p.fin)}</b>
-</div>
-
-</div>
-
-<div class="deadline-days">
-${text}
 </div>
 
 </div>
@@ -2074,13 +1931,14 @@ ${text}
 }
 
 
-/* =========================================================
-ACTIVIDAD
-========================================================= */
+/* =====================================================
+ACTIVIDADES
+===================================================== */
 
 function activityHTML(item){
 
-const s=item.seguimiento;
+const s=
+item.seguimiento;
 
 if(!s)
 return "";
@@ -2098,6 +1956,7 @@ html+=`
 </div>
 
 <div class="activity-text">
+
 ${esc(s.ultimaActuacion)}
 
 ${
@@ -2151,9 +2010,9 @@ return html;
 }
 
 
-/* =========================================================
-OEP
-========================================================= */
+/* =====================================================
+OEP INFO
+===================================================== */
 
 function oepHTML(item){
 
@@ -2163,7 +2022,7 @@ esFinalizada(item)
 )
 return "";
 
-return `
+return`
 
 <div class="oep-info">
 
@@ -2171,11 +2030,12 @@ return `
 📢 PLAZAS OFERTADAS EN OEP
 </strong>
 
-Estas plazas han sido incluidas
-en la Oferta de Empleo Público.
+Estas plazas forman parte de una
+Oferta de Empleo Público.
 
 <strong>
-Todavía no significa que el plazo de oposición esté abierto.
+Todavía no hay un plazo de oposición
+abierto asociado a esta OEP.
 </strong>
 
 </div>
@@ -2185,9 +2045,9 @@ Todavía no significa que el plazo de oposición esté abierto.
 }
 
 
-/* =========================================================
+/* =====================================================
 CARD
-========================================================= */
+===================================================== */
 
 function cardHTML(item){
 
@@ -2203,7 +2063,10 @@ String(item.tipo||"")
 .includes("PENDIENTE");
 
 const state=
-plazoEstado(item.id);
+plazoEstado(item);
+
+const inscription=
+inscriptionFor(item);
 
 let cardClass="card ";
 
@@ -2245,7 +2108,6 @@ Proceso anterior
 </div>`;
 
 }
-
 else if(state){
 
 if(state.tipo==="ultimo"){
@@ -2264,7 +2126,7 @@ status=
 </div>`;
 
 }
-else if(state.tipo==="abierto"){
+else{
 
 status=
 `<div class="status-pill status-open">
@@ -2272,17 +2134,8 @@ status=
 </div>`;
 
 }
-else{
-
-status=
-`<div class="status-pill status-open">
-📅 PRÓXIMO
-</div>`;
 
 }
-
-}
-
 else if(convocatoria){
 
 status=
@@ -2291,7 +2144,6 @@ status=
 </div>`;
 
 }
-
 else if(pendiente){
 
 status=
@@ -2300,7 +2152,6 @@ status=
 </div>`;
 
 }
-
 else{
 
 status=
@@ -2311,7 +2162,7 @@ status=
 }
 
 
-return `
+return`
 
 <article class="${cardClass}">
 
@@ -2323,8 +2174,8 @@ return `
 
 🏛️
 ${esc(
-item.organismo ||
-item.municipio ||
+item.organismo||
+item.municipio||
 "AYUNTAMIENTO"
 )}
 
@@ -2333,7 +2184,7 @@ item.municipio ||
 <div class="puesto">
 
 ${esc(
-item.puesto ||
+item.puesto||
 "Policía Local"
 )}
 
@@ -2351,7 +2202,9 @@ ${badge}
 <div>
 
 <div class="plazas-num">
+
 ${esc(item.plazas||0)}
+
 </div>
 
 <div class="plazas-label">
@@ -2368,6 +2221,8 @@ ${status}
 ${oepHTML(item)}
 
 ${deadlineHTML(item)}
+
+${feeHTML(item)}
 
 ${phaseHTML(item)}
 
@@ -2410,7 +2265,7 @@ ${activityHTML(item)}
 
 
 ${
-inscriptionFor(item)
+inscription
 ?
 `
 
@@ -2418,23 +2273,32 @@ inscriptionFor(item)
 
 <div class="inscription-title">
 
-📝 ¿Quieres presentar la solicitud?
+📝 El plazo está abierto
 
 </div>
 
 <div class="inscription-text">
 
-El plazo está abierto.
-OpoPoint te lleva a la plataforma oficial
-del Ayuntamiento para realizar la inscripción.
+Accede al Ayuntamiento o trámite oficial
+para presentar la solicitud.
 
 </div>
 
 <div class="inscription-actions">
 
-${inscriptionButton(item)}
+<button
+class="btn btn-green"
+data-inscription="${esc(item.id)}">
 
-${sourceButton(item)}
+${
+inscription.tipo==="DIRECTA"
+?
+"📝 INSCRIBIRME"
+:
+"🏛️ ACCEDER AL TRÁMITE"
+}
+
+</button>
 
 </div>
 
@@ -2449,12 +2313,23 @@ ${sourceButton(item)}
 <div class="actions">
 
 ${
-!inscriptionFor(item)
+fuente(item)
 ?
-sourceButton(item)
+`
+<a
+class="btn btn-blue"
+href="${esc(fuente(item))}"
+target="_blank"
+rel="noopener noreferrer">
+
+${fuenteTexto(fuente(item))}
+
+</a>
+`
 :
 ""
 }
+
 
 <button
 class="btn btn-purple"
@@ -2470,7 +2345,7 @@ data-tracking="${esc(item.id)}">
 <div class="source">
 
 Fuente:
-${esc(item.fuente||"Fuente pendiente de localizar")}
+${esc(item.fuente||"Pendiente de localizar")}
 
 </div>
 
@@ -2482,9 +2357,112 @@ ${esc(item.fuente||"Fuente pendiente de localizar")}
 }
 
 
-/* =========================================================
-MODAL INSCRIPCION
-========================================================= */
+/* =====================================================
+CHIPS
+===================================================== */
+
+function renderChips(){
+
+const ps=[
+"Todas",
+...new Set(
+data
+.map(x=>x.provincia)
+.filter(Boolean)
+.sort()
+)
+];
+
+chips.innerHTML=
+ps.map(p=>`
+
+<button
+class="chip ${
+p===province
+?
+"active"
+:
+""
+}"
+data-p="${esc(p)}">
+
+${esc(p)}
+
+</button>
+
+`).join("");
+
+chips
+.querySelectorAll("[data-p]")
+.forEach(button=>{
+
+button.onclick=()=>{
+
+province=
+button.dataset.p;
+
+page=1;
+
+render();
+
+};
+
+});
+
+}
+
+
+/* =====================================================
+BUSCADOR
+===================================================== */
+
+function filtered(){
+
+const q=
+search.value
+.trim()
+.toLowerCase();
+
+return data.filter(item=>{
+
+const okProvince=
+province==="Todas" ||
+item.provincia===province;
+
+const s=
+item.seguimiento||{};
+
+const fases=
+Array.isArray(s.fases)
+?
+s.fases.map(f=>f.nombre).join(" ")
+:
+"";
+
+const text=`
+${item.organismo||""}
+${item.municipio||""}
+${item.provincia||""}
+${item.puesto||""}
+${item.oep||""}
+${item.tipo||""}
+${item.estadoActual||""}
+${s.ultimaActuacion||""}
+${s.proximaActuacion||""}
+${fases}
+`.toLowerCase();
+
+return okProvince &&
+(!q || text.includes(q));
+
+});
+
+}
+
+
+/* =====================================================
+MODAL INSCRIPCIÓN
+===================================================== */
 
 function openInscription(id){
 
@@ -2501,22 +2479,31 @@ if(!config)
 return;
 
 inscriptionTitle.textContent=
-`📝 Inscribirse · ${item.municipio}`;
+`📝 ${item.municipio} · Inscripción`;
 
 inscriptionSub.textContent=
 `${item.puesto||"Policía Local"} · ${item.plazas||0} plazas`;
 
 
-let body=`
+inscriptionBody.innerHTML=`
 
-<div class="inscription-box">
+<div class="fee">
 
-<div class="inscription-title">
-${esc(config.titulo)}
+<div class="fee-label">
+💶 TASA DE INSCRIPCIÓN
 </div>
 
-<div class="inscription-text">
-${esc(config.nota)}
+<div class="fee-value">
+
+${esc(
+item.tasa &&
+item.tasa.texto
+?
+item.tasa.texto
+:
+"Consultar bases"
+)}
+
 </div>
 
 </div>
@@ -2525,14 +2512,15 @@ ${esc(config.nota)}
 <div class="route">
 
 <div class="route-title">
-📍 Ruta de inscripción
+📍 Ruta de acceso
 </div>
 
 <ol class="route-list">
 
 ${
 config.ruta
-.map((step,index)=>`
+.map(
+(step,index)=>`
 
 <li>
 
@@ -2546,7 +2534,8 @@ ${esc(step)}
 
 </li>
 
-`)
+`
+)
 .join("")
 }
 
@@ -2554,14 +2543,17 @@ ${esc(step)}
 
 </div>
 
+
 <div class="warning">
 
 <strong>Importante:</strong>
-la presentación solo será válida cuando se complete y registre
-la solicitud en la plataforma oficial correspondiente.
-OpoPoint no recibe ni almacena tu solicitud.
+
+La presentación válida de la solicitud se realiza
+exclusivamente en la plataforma oficial correspondiente.
+OpoPoint no recibe ni almacena solicitudes.
 
 </div>
+
 
 <div class="modal-actions">
 
@@ -2571,14 +2563,22 @@ href="${esc(config.url)}"
 target="_blank"
 rel="noopener noreferrer">
 
-📝 ABRIR INSCRIPCIÓN OFICIAL
+${
+config.tipo==="DIRECTA"
+?
+"📝 ABRIR TRÁMITE OFICIAL"
+:
+"🏛️ ABRIR SEDE OFICIAL"
+}
 
 </a>
+
 
 ${
 fuente(item)
 ?
 `
+
 <a
 class="btn btn-blue"
 href="${esc(fuente(item))}"
@@ -2588,39 +2588,31 @@ rel="noopener noreferrer">
 📄 Ver convocatoria
 
 </a>
+
 `
 :
 ""
 }
 
 </div>
-`;
 
-inscriptionBody.innerHTML=body;
+`;
 
 inscriptionModal.classList.add("show");
 
-inscriptionModal.setAttribute("aria-hidden","false");
+inscriptionModal.setAttribute(
+"aria-hidden",
+"false"
+);
 
 document.body.style.overflow="hidden";
 
 }
 
 
-function closeInscription(){
-
-inscriptionModal.classList.remove("show");
-
-inscriptionModal.setAttribute("aria-hidden","true");
-
-document.body.style.overflow="";
-
-}
-
-
-/* =========================================================
-MODAL SEGUIMIENTO
-========================================================= */
+/* =====================================================
+SEGUIMIENTO
+===================================================== */
 
 function openTracking(id){
 
@@ -2630,23 +2622,21 @@ data.find(x=>x.id===id);
 if(!item)
 return;
 
-const s=item.seguimiento;
+const s=
+item.seguimiento;
 
 trackingTitle.textContent=
-item.organismo ||
-item.municipio ||
+item.organismo||
+item.municipio||
 "Seguimiento";
 
 trackingSub.textContent=
 `${item.puesto||"Policía Local"} · ${item.plazas||0} plazas`;
 
-
 let html="";
-
 
 const current=
 phase(item);
-
 
 if(current){
 
@@ -2661,20 +2651,7 @@ FASE ACTUAL
 <div class="phase-title">
 
 ${esc(current.icono||"🎯")}
-
 ${esc(current.nombre)}
-
-</div>
-
-<div class="phase-sub">
-
-${
-s
-?
-`Fase de seguimiento · ${esc(s.faseActual||"")}`
-:
-""
-}
 
 </div>
 
@@ -2692,7 +2669,7 @@ Array.isArray(s.fases)
 
 html+=`
 
-<div class="route" style="margin-top:15px">
+<div class="route">
 
 <div class="route-title">
 📊 Estado del proceso
@@ -2702,7 +2679,8 @@ html+=`
 
 ${
 s.fases
-.map(f=>`
+.map(
+f=>`
 
 <div
 class="timeline-item ${
@@ -2726,9 +2704,7 @@ ${esc(f.icono||"•")}
 <div>
 
 <div class="timeline-name">
-
 ${esc(f.nombre)}
-
 </div>
 
 <div class="timeline-state">
@@ -2751,7 +2727,8 @@ f.estado==="completada"
 
 </div>
 
-`)
+`
+)
 .join("")
 }
 
@@ -2764,7 +2741,7 @@ f.estado==="completada"
 }
 
 
-if(s && s.ultimaActuacion){
+if(s&&s.ultimaActuacion){
 
 html+=`
 
@@ -2795,7 +2772,7 @@ s.ultimaActualizacion
 }
 
 
-if(s && s.proximaActuacion){
+if(s&&s.proximaActuacion){
 
 html+=`
 
@@ -2826,33 +2803,21 @@ s.proximaFecha
 }
 
 
-const config=
-inscriptionFor(item);
-
-if(config){
+if(
+item.tasa &&
+typeof item.tasa.importe==="number"
+){
 
 html+=`
 
-<div class="inscription-box">
+<div class="fee">
 
-<div class="inscription-title">
-📝 El plazo de inscripción está abierto
+<div class="fee-label">
+💶 TASA DE INSCRIPCIÓN
 </div>
 
-<div class="inscription-text">
-Puedes acceder a la plataforma oficial desde OpoPoint.
-</div>
-
-<div class="inscription-actions">
-
-<button
-class="btn btn-green"
-data-inscription="${esc(item.id)}">
-
-📝 INSCRIBIRME
-
-</button>
-
+<div class="fee-value">
+${esc(item.tasa.texto)}
 </div>
 
 </div>
@@ -2862,13 +2827,35 @@ data-inscription="${esc(item.id)}">
 }
 
 
-trackingBody.innerHTML=html;
+trackingBody.innerHTML=
+html;
 
 trackingModal.classList.add("show");
 
-trackingModal.setAttribute("aria-hidden","false");
+trackingModal.setAttribute(
+"aria-hidden",
+"false"
+);
 
 document.body.style.overflow="hidden";
+
+}
+
+
+/* =====================================================
+CERRAR MODALES
+===================================================== */
+
+function closeInscription(){
+
+inscriptionModal.classList.remove("show");
+
+inscriptionModal.setAttribute(
+"aria-hidden",
+"true"
+);
+
+document.body.style.overflow="";
 
 }
 
@@ -2877,59 +2864,20 @@ function closeTracking(){
 
 trackingModal.classList.remove("show");
 
-trackingModal.setAttribute("aria-hidden","true");
+trackingModal.setAttribute(
+"aria-hidden",
+"true"
+);
 
 document.body.style.overflow="";
 
 }
 
 
-/* =========================================================
-EVENTOS MODALES
-========================================================= */
-
-document.addEventListener(
-"click",
-event=>{
-
-const inscription=
-event.target.closest(
-"[data-inscription]"
-);
-
-if(inscription){
-
-openInscription(
-inscription.dataset.inscription
-);
-
-return;
-
-}
-
-
-const tracking=
-event.target.closest(
-"[data-tracking]"
-);
-
-if(tracking){
-
-openTracking(
-tracking.dataset.tracking
-);
-
-}
-
-}
-);
-
-
 document.getElementById(
 "closeInscription"
 ).onclick=
 closeInscription;
-
 
 document.getElementById(
 "closeTracking"
@@ -2939,45 +2887,66 @@ closeTracking;
 
 inscriptionModal.addEventListener(
 "click",
-event=>{
-
-if(
-event.target===inscriptionModal
-){
-
+e=>{
+if(e.target===inscriptionModal)
 closeInscription();
-
-}
-
 }
 );
 
 
 trackingModal.addEventListener(
 "click",
-event=>{
-
-if(
-event.target===trackingModal
-){
-
+e=>{
+if(e.target===trackingModal)
 closeTracking();
-
-}
-
 }
 );
 
 
 document.addEventListener(
 "keydown",
+e=>{
+if(e.key==="Escape"){
+closeInscription();
+closeTracking();
+}
+}
+);
+
+
+/* =====================================================
+EVENTOS
+===================================================== */
+
+document.addEventListener(
+"click",
 event=>{
 
-if(event.key==="Escape"){
+const ins=
+event.target.closest(
+"[data-inscription]"
+);
 
-closeInscription();
+if(ins){
 
-closeTracking();
+openInscription(
+ins.dataset.inscription
+);
+
+return;
+
+}
+
+const track=
+event.target.closest(
+"[data-tracking]"
+);
+
+if(track){
+
+openTracking(
+track.dataset.tracking
+);
 
 }
 
@@ -2985,103 +2954,153 @@ closeTracking();
 );
 
 
-/* =========================================================
+/* =====================================================
+VALIDACIÓN DE INSCRIPCIONES
+===================================================== */
+
+function validarConvocatoriasAbiertas(){
+
+const errores=[];
+
+data.forEach(item=>{
+
+const estado=
+plazoEstado(item);
+
+if(
+estado &&
+(
+estado.tipo==="abierto" ||
+estado.tipo==="ultimo"
+)
+){
+
+const acceso=
+inscriptionFor(item);
+
+if(
+!acceso ||
+!acceso.url
+){
+
+errores.push(
+`${item.organismo}: abierto pero sin acceso oficial`
+);
+
+}
+
+
+/* Una convocatoria abierta
+   debe tener su tasa si ya la hemos comprobado.
+*/
+
+if(
+!item.tasa ||
+typeof item.tasa.importe!=="number"
+){
+
+console.warn(
+`${item.organismo}: plazo abierto pero tasa pendiente`
+);
+
+}
+
+}
+
+});
+
+
+if(errores.length){
+
+console.error(
+"OPOPOINT · ERRORES:",
+errores
+);
+
+}else{
+
+console.info(
+"OpoPoint OK · Todas las convocatorias abiertas tienen acceso oficial."
+);
+
+}
+
+}
+
+
+/* =====================================================
 RENDER
-========================================================= */
+===================================================== */
 
 function render(){
 
 renderChips();
 
-
 const items=
 filtered();
-
 
 const pages=
 Math.max(
 1,
-Math.ceil(items.length/perPage)
+Math.ceil(items.length/10)
 );
-
 
 if(page>pages)
 page=pages;
 
 
-/* estadísticas */
-
-document
-.getElementById("total")
+document.getElementById("total")
 .textContent=
 data.length;
 
 
-document
-.getElementById("plazas")
+document.getElementById("plazas")
 .textContent=
 data.reduce(
-(total,item)=>
-total+
-(Number(item.plazas)||0),
+(t,x)=>
+t+(Number(x.plazas)||0),
 0
 );
 
 
-document
-.getElementById("abiertas")
+document.getElementById("abiertas")
 .textContent=
 data.filter(
-item=>{
-
-const s=
-plazoEstado(item.id);
-
+x=>{
+const s=plazoEstado(x);
 return s &&
 (
 s.tipo==="abierto" ||
 s.tipo==="ultimo"
 );
-
 }
 ).length;
 
 
-document
-.getElementById("provincias")
+document.getElementById("provincias")
 .textContent=
 new Set(
 data
-.map(item=>item.provincia)
+.map(x=>x.provincia)
 .filter(Boolean)
 ).size;
 
 
-/* tarjetas */
-
 const start=
-(page-1)*perPage;
-
-const pageItems=
-items.slice(
-start,
-start+perPage
-);
-
+(page-1)*10;
 
 grid.innerHTML=
-pageItems.length
-?
-pageItems.map(cardHTML).join("")
-:
+items
+.slice(start,start+10)
+.map(cardHTML)
+.join("")
+||
 `
 <div class="card">
 <strong>No hay resultados.</strong>
 </div>
 `;
 
-
-/* paginación */
 
 pagination.innerHTML=
 Array
@@ -3115,7 +3134,9 @@ pagination
 button.onclick=()=>{
 
 page=
-Number(button.dataset.page);
+Number(
+button.dataset.page
+);
 
 render();
 
@@ -3131,27 +3152,18 @@ behavior:"smooth"
 }
 
 
-/* =========================================================
-BUSCADOR
-========================================================= */
-
 search.addEventListener(
 "input",
 ()=>{
-
 page=1;
-
 render();
-
 }
 );
 
 
-/* =========================================================
-INICIO
-========================================================= */
-
 render();
+
+validarConvocatoriasAbiertas();
 
 </script>
 
