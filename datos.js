@@ -1,8 +1,8 @@
 const convocatoriasOpoPoint = [
 
   /* =========================================================
-     001 - AZNALCÓLLAR
-     OEP 2026 - BOJA 163 / 24-08-2026
+     AZNALCÓLLAR
+     OEP 2026 · BOJA nº 163 · 24/08/2026
   ========================================================= */
   {
     id:"opopoint-001-aznalcollar-2026",
@@ -25,8 +25,7 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     002 - VILLAFRANCA DE CÓRDOBA
-     Convocatoria 2026
+     VILLAFRANCA DE CÓRDOBA
   ========================================================= */
   {
     id:"opopoint-002-villafranca-2026",
@@ -49,7 +48,7 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     003 - ALCALÁ DEL RÍO
+     ALCALÁ DEL RÍO
   ========================================================= */
   {
     id:"opopoint-003-alcala-rio-2026",
@@ -72,7 +71,7 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     004 - ESTEPA
+     ESTEPA
   ========================================================= */
   {
     id:"opopoint-004-estepa-2026",
@@ -95,11 +94,35 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     005 - LA PUEBLA DEL RÍO
+     DOS TORRES
+     PROCESO ANTERIOR
+  ========================================================= */
+  {
+    id:"opopoint-005-dos-torres-2025",
+    puesto:"Policía Local",
+    organismo:"Ayuntamiento de Dos Torres",
+    municipio:"Dos Torres",
+    provincia:"Córdoba",
+    plazas:1,
+    grupo:"C1",
+    turno:"Libre",
+    oep:"2022",
+    tipo:"FINALIZADA",
+    nivel:"HISTÓRICO",
+    estado:"Proceso anterior",
+    estadoActual:"Convocatoria anterior",
+    verificada:true,
+    fuente:"BOE-A-2025-22643",
+    fuenteUrl:"https://www.boe.es/buscar/doc.php?id=BOE-A-2025-22643",
+    convocatoriaUrl:"https://www.boe.es/buscar/doc.php?id=BOE-A-2025-22643"
+  },
+
+  /* =========================================================
+     LA PUEBLA DEL RÍO
      OEP 2025
   ========================================================= */
   {
-    id:"opopoint-005-puebla-rio-2025",
+    id:"opopoint-006-puebla-rio-2025",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de La Puebla del Río",
     municipio:"La Puebla del Río",
@@ -119,10 +142,34 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     006 - ALBOX
+     LANJARÓN
+     NO SE HA CONFIRMADO OEP NUEVA 2026
   ========================================================= */
   {
-    id:"opopoint-006-albox-2026",
+    id:"opopoint-007-lanjaron",
+    puesto:"Policía Local",
+    organismo:"Ayuntamiento de Lanjarón",
+    municipio:"Lanjarón",
+    provincia:"Granada",
+    plazas:1,
+    grupo:"C1",
+    turno:"Libre",
+    oep:null,
+    tipo:"PENDIENTE",
+    nivel:"PENDIENTE",
+    estado:"Pendiente de comprobar",
+    estadoActual:"No localizada nueva OEP 2026 de esta plaza",
+    verificada:false,
+    fuente:"Ayuntamiento de Lanjarón",
+    fuenteUrl:"https://www.lanjaron.es/",
+    convocatoriaUrl:null
+  },
+
+  /* =========================================================
+     ALBOX
+  ========================================================= */
+  {
+    id:"opopoint-008-albox-2026",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Albox",
     municipio:"Albox",
@@ -142,11 +189,11 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     007 - MARBELLA
-     OEP 2026 - NO CONFUNDIR CON CONVOCATORIAS ANTERIORES
+     MARBELLA
+     OEP 2026
   ========================================================= */
   {
-    id:"opopoint-007-marbella-2026",
+    id:"opopoint-009-marbella-2026",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Marbella",
     municipio:"Marbella",
@@ -166,11 +213,11 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     008 - OSUNA
+     OSUNA
      OEP 2026
   ========================================================= */
   {
-    id:"opopoint-008-osuna-2026",
+    id:"opopoint-010-osuna-2026",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Osuna",
     municipio:"Osuna",
@@ -190,10 +237,10 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     009 - MOJÁCAR
+     MOJÁCAR
   ========================================================= */
   {
-    id:"opopoint-009-mojacar-2026",
+    id:"opopoint-011-mojacar-2026",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Mojácar",
     municipio:"Mojácar",
@@ -213,10 +260,11 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     010 - PALOMARES DEL RÍO
+     PALOMARES DEL RÍO
+     OEP 2025 · CONVOCATORIA 2026
   ========================================================= */
   {
-    id:"opopoint-010-palomares-2025",
+    id:"opopoint-012-palomares-2025",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Palomares del Río",
     municipio:"Palomares del Río",
@@ -236,11 +284,11 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     011 - CUEVAS DEL ALMANZORA
-     3 PLAZAS - NO 2
+     CUEVAS DEL ALMANZORA
+     CORREGIDO: 3 PLAZAS
   ========================================================= */
   {
-    id:"opopoint-011-cuevas-almanzora-2025",
+    id:"opopoint-013-cuevas-almanzora-2025",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Cuevas del Almanzora",
     municipio:"Cuevas del Almanzora",
@@ -260,10 +308,11 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     012 - OLULA DEL RÍO
+     OLULA DEL RÍO
+     CONVOCATORIA 2025 · 1 PLAZA
   ========================================================= */
   {
-    id:"opopoint-012-olula-rio",
+    id:"opopoint-014-olula-rio-2025",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Olula del Río",
     municipio:"Olula del Río",
@@ -271,22 +320,46 @@ const convocatoriasOpoPoint = [
     plazas:1,
     grupo:"C1",
     turno:"Libre",
-    oep:null,
-    tipo:"PENDIENTE",
-    nivel:"PENDIENTE",
-    estado:"Pendiente de comprobar",
-    estadoActual:"Fuente oficial no localizada",
-    verificada:false,
-    fuente:"Ayuntamiento de Olula del Río",
-    fuenteUrl:"https://www.oluladelrio.es/",
-    convocatoriaUrl:null
+    oep:"2025",
+    tipo:"CONVOCATORIA",
+    nivel:"OFICIAL",
+    estado:"Publicada",
+    estadoActual:"Convocatoria publicada",
+    verificada:true,
+    fuente:"BOE-A-2025-17684",
+    fuenteUrl:"https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-17684",
+    convocatoriaUrl:"https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-17684"
   },
 
   /* =========================================================
-     013 - LA MOJONERA
+     MOTRIL
+     PROCESO ANTERIOR
   ========================================================= */
   {
-    id:"opopoint-013-la-mojonera-2026",
+    id:"opopoint-015-motril-2025",
+    puesto:"Policía Local",
+    organismo:"Ayuntamiento de Motril",
+    municipio:"Motril",
+    provincia:"Granada",
+    plazas:5,
+    grupo:"C1",
+    turno:"Libre",
+    oep:"2025",
+    tipo:"FINALIZADA",
+    nivel:"HISTÓRICO",
+    estado:"Proceso anterior",
+    estadoActual:"Convocatoria anterior",
+    verificada:true,
+    fuente:"Ayuntamiento de Motril",
+    fuenteUrl:"https://motril.es/recursos-humanos/oferta-empleo-publico/ofertas-empleo/",
+    convocatoriaUrl:"https://motril.es/recursos-humanos/oferta-empleo-publico/ofertas-empleo/"
+  },
+
+  /* =========================================================
+     LA MOJONERA
+  ========================================================= */
+  {
+    id:"opopoint-016-la-mojonera-2026",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de La Mojonera",
     municipio:"La Mojonera",
@@ -306,10 +379,10 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     014 - BERJA
+     BERJA
   ========================================================= */
   {
-    id:"opopoint-014-berja-2026",
+    id:"opopoint-017-berja-2026",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Berja",
     municipio:"Berja",
@@ -329,10 +402,10 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     015 - MARCHENA
+     MARCHENA
   ========================================================= */
   {
-    id:"opopoint-015-marchena-2026",
+    id:"opopoint-018-marchena-2026",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Marchena",
     municipio:"Marchena",
@@ -352,10 +425,10 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     016 - CARTAYA
+     CARTAYA
   ========================================================= */
   {
-    id:"opopoint-016-cartaya-2025",
+    id:"opopoint-019-cartaya-2025",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Cartaya",
     municipio:"Cartaya",
@@ -375,10 +448,11 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     017 - HINOJOS
+     HINOJOS
+     OEP 2026
   ========================================================= */
   {
-    id:"opopoint-017-hinojos",
+    id:"opopoint-020-hinojos-2026",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Hinojos",
     municipio:"Hinojos",
@@ -386,23 +460,23 @@ const convocatoriasOpoPoint = [
     plazas:1,
     grupo:"C1",
     turno:"Libre",
-    oep:null,
-    tipo:"PENDIENTE",
-    nivel:"PENDIENTE",
-    estado:"Pendiente de comprobar",
-    estadoActual:"Fuente oficial específica no localizada",
-    verificada:false,
-    fuente:"Ayuntamiento de Hinojos",
-    fuenteUrl:"https://www.hinojos.es/",
+    oep:"2026",
+    tipo:"OEP",
+    nivel:"OFICIAL",
+    estado:"Oferta publicada",
+    estadoActual:"Pendiente de convocatoria",
+    verificada:true,
+    fuente:"BOJA nº140 · 22/07/2026",
+    fuenteUrl:"https://www.juntadeandalucia.es/boja/",
     convocatoriaUrl:null
   },
 
   /* =========================================================
-     018 - ALMUÑÉCAR
-     4 PLAZAS - NO 1
+     ALMUÑÉCAR
+     CORREGIDO: 4 PLAZAS
   ========================================================= */
   {
-    id:"opopoint-018-almunecar-2025",
+    id:"opopoint-021-almunecar-2025",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Almuñécar",
     municipio:"Almuñécar",
@@ -422,11 +496,11 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     019 - ALGECIRAS
+     ALGECIRAS
      OEP 2026
   ========================================================= */
   {
-    id:"opopoint-019-algeciras-2026",
+    id:"opopoint-022-algeciras-2026",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Algeciras",
     municipio:"Algeciras",
@@ -446,11 +520,11 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     020 - ESPARTINAS
-     UNA SOLA ENTRADA - DUPLICADA ELIMINADA
+     ESPARTINAS
+     DUPLICADA ELIMINADA
   ========================================================= */
   {
-    id:"opopoint-020-espartinas-2026",
+    id:"opopoint-023-espartinas-2026",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Espartinas",
     municipio:"Espartinas",
@@ -464,16 +538,17 @@ const convocatoriasOpoPoint = [
     estado:"Oferta publicada",
     estadoActual:"Pendiente de convocatoria",
     verificada:true,
-    fuente:"OEP 2026 · Ayuntamiento de Espartinas",
+    fuente:"Ayuntamiento de Espartinas · OEP 2026",
     fuenteUrl:"https://www.espartinas.net/",
     convocatoriaUrl:null
   },
 
   /* =========================================================
-     021 - MONTORO
+     MONTORO
+     PENDIENTE
   ========================================================= */
   {
-    id:"opopoint-021-montoro",
+    id:"opopoint-024-montoro",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Montoro",
     municipio:"Montoro",
@@ -485,7 +560,7 @@ const convocatoriasOpoPoint = [
     tipo:"PENDIENTE",
     nivel:"PENDIENTE",
     estado:"Pendiente de comprobar",
-    estadoActual:"Fuente oficial específica no localizada",
+    estadoActual:"No localizada OEP/convocatoria actual",
     verificada:false,
     fuente:"Ayuntamiento de Montoro",
     fuenteUrl:"https://www.montoro.es/",
@@ -493,11 +568,11 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     022 - BAEZA
-     CONVOCATORIA ANTERIOR - SE CONSERVA COMO PROCESO PUBLICADO
+     BAEZA
+     CONVOCATORIA 2025
   ========================================================= */
   {
-    id:"opopoint-022-baeza-2025",
+    id:"opopoint-025-baeza-2025",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Baeza",
     municipio:"Baeza",
@@ -517,11 +592,11 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     023 - UBrique
-     2 PLAZAS - NO 4
+     UBRIQUE
+     CORREGIDO: 2 PLAZAS
   ========================================================= */
   {
-    id:"opopoint-023-ubrique-2025",
+    id:"opopoint-026-ubrique-2025",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Ubrique",
     municipio:"Ubrique",
@@ -541,11 +616,11 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     024 - LOJA
+     LOJA
      OEP 2026
   ========================================================= */
   {
-    id:"opopoint-024-loja-2026",
+    id:"opopoint-027-loja-2026",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Loja",
     municipio:"Loja",
@@ -565,11 +640,11 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     025 - TREBUJENA
-     PROCESO ANTERIOR - NO PRESENTAR COMO OEP 2026
+     TREBUJENA
+     PROCESO ANTERIOR
   ========================================================= */
   {
-    id:"opopoint-025-trebujena-2025",
+    id:"opopoint-028-trebujena-2025",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Trebujena",
     municipio:"Trebujena",
@@ -578,10 +653,10 @@ const convocatoriasOpoPoint = [
     grupo:"C1",
     turno:"Libre",
     oep:"2025",
-    tipo:"CONVOCATORIA",
-    nivel:"OFICIAL",
-    estado:"Publicada",
-    estadoActual:"Proceso anterior",
+    tipo:"FINALIZADA",
+    nivel:"HISTÓRICO",
+    estado:"Proceso anterior",
+    estadoActual:"Convocatoria anterior",
     verificada:true,
     fuente:"BOP Cádiz · convocatoria 2025",
     fuenteUrl:"https://www.bopcadiz.es/",
@@ -589,10 +664,11 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     026 - JABUGO
+     JABUGO
+     CONVOCATORIA 2025
   ========================================================= */
   {
-    id:"opopoint-026-jabugo",
+    id:"opopoint-029-jabugo-2025",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Jabugo",
     municipio:"Jabugo",
@@ -600,23 +676,23 @@ const convocatoriasOpoPoint = [
     plazas:1,
     grupo:"C1",
     turno:"Libre",
-    oep:null,
-    tipo:"PENDIENTE",
-    nivel:"PENDIENTE",
-    estado:"Pendiente de comprobar",
-    estadoActual:"Fuente oficial específica no localizada",
-    verificada:false,
-    fuente:"Ayuntamiento de Jabugo",
-    fuenteUrl:"https://www.jabugo.es/",
-    convocatoriaUrl:null
+    oep:"2025",
+    tipo:"CONVOCATORIA",
+    nivel:"OFICIAL",
+    estado:"Publicada",
+    estadoActual:"Convocatoria publicada",
+    verificada:true,
+    fuente:"BOE-A-2025-20312",
+    fuenteUrl:"https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-20312",
+    convocatoriaUrl:"https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-20312"
   },
 
   /* =========================================================
-     027 - CÁDIZ
+     CÁDIZ
      OEP 2026
   ========================================================= */
   {
-    id:"opopoint-027-cadiz-2026",
+    id:"opopoint-030-cadiz-2026",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Cádiz",
     municipio:"Cádiz",
@@ -636,11 +712,11 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     028 - MOGUER
+     MOGUER
      OEP 2026
   ========================================================= */
   {
-    id:"opopoint-028-moguer-2026",
+    id:"opopoint-031-moguer-2026",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Moguer",
     municipio:"Moguer",
@@ -654,16 +730,17 @@ const convocatoriasOpoPoint = [
     estado:"Oferta publicada",
     estadoActual:"Pendiente de convocatoria",
     verificada:true,
-    fuente:"BOJA nº114 · OEP 2026",
+    fuente:"OEP 2026 · Ayuntamiento de Moguer",
     fuenteUrl:"https://www.aytomoguer.es/",
     convocatoriaUrl:null
   },
 
   /* =========================================================
-     029 - MARACENA
+     MARACENA
+     PENDIENTE
   ========================================================= */
   {
-    id:"opopoint-029-maracena",
+    id:"opopoint-032-maracena-2026",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Maracena",
     municipio:"Maracena",
@@ -671,22 +748,23 @@ const convocatoriasOpoPoint = [
     plazas:2,
     grupo:"C1",
     turno:"Libre",
-    oep:null,
+    oep:"2026",
     tipo:"PENDIENTE",
     nivel:"PENDIENTE",
     estado:"Pendiente de comprobar",
-    estadoActual:"Fuente oficial específica no localizada",
+    estadoActual:"OEP 2026 localizada; número de plazas de Policía Local pendiente de contraste",
     verificada:false,
-    fuente:"Ayuntamiento de Maracena",
-    fuenteUrl:"https://www.maracena.es/",
+    fuente:"Ayuntamiento de Maracena · OEP 2026",
+    fuenteUrl:"https://maracena.es/empleo-publico/",
     convocatoriaUrl:null
   },
 
   /* =========================================================
-     030 - PEDRO ABAD
+     PEDRO ABAD
+     OEP 2026
   ========================================================= */
   {
-    id:"opopoint-030-pedro-abad",
+    id:"opopoint-033-pedro-abad-2026",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Pedro Abad",
     municipio:"Pedro Abad",
@@ -694,22 +772,23 @@ const convocatoriasOpoPoint = [
     plazas:1,
     grupo:"C1",
     turno:"Libre",
-    oep:null,
-    tipo:"PENDIENTE",
-    nivel:"PENDIENTE",
-    estado:"Pendiente de comprobar",
-    estadoActual:"Fuente oficial específica no localizada",
-    verificada:false,
-    fuente:"Ayuntamiento de Pedro Abad",
-    fuenteUrl:"https://www.ayunpedroabad.es/",
+    oep:"2026",
+    tipo:"OEP",
+    nivel:"OFICIAL",
+    estado:"Oferta publicada",
+    estadoActual:"Pendiente de convocatoria",
+    verificada:true,
+    fuente:"BOP Córdoba nº77 · 22/04/2026",
+    fuenteUrl:"https://bop.dipucordoba.es/",
     convocatoriaUrl:null
   },
 
   /* =========================================================
-     031 - ROQUETAS DE MAR
+     ROQUETAS DE MAR
+     CONVOCATORIA 2026 · PLAZO CERRADO
   ========================================================= */
   {
-    id:"opopoint-031-roquetas",
+    id:"opopoint-034-roquetas-2026",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Roquetas de Mar",
     municipio:"Roquetas de Mar",
@@ -717,22 +796,23 @@ const convocatoriasOpoPoint = [
     plazas:4,
     grupo:"C1",
     turno:"Libre",
-    oep:null,
-    tipo:"PENDIENTE",
-    nivel:"PENDIENTE",
-    estado:"Pendiente de comprobar",
-    estadoActual:"No confirmada como OEP 2026",
-    verificada:false,
-    fuente:"Ayuntamiento de Roquetas de Mar",
-    fuenteUrl:"https://www.roquetasdemar.es/",
-    convocatoriaUrl:null
+    oep:"2026",
+    tipo:"CONVOCATORIA",
+    nivel:"OFICIAL",
+    estado:"Cerrado",
+    estadoActual:"Plazo finalizado",
+    verificada:true,
+    fuente:"BOE-A-2026-14612",
+    fuenteUrl:"https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-14612",
+    convocatoriaUrl:"https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-14612"
   },
 
   /* =========================================================
-     032 - ISTÁN
+     ISTÁN
+     OEP 2026
   ========================================================= */
   {
-    id:"opopoint-032-istan",
+    id:"opopoint-035-istan-2026",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Istán",
     municipio:"Istán",
@@ -740,22 +820,23 @@ const convocatoriasOpoPoint = [
     plazas:1,
     grupo:"C1",
     turno:"Libre",
-    oep:null,
-    tipo:"PENDIENTE",
-    nivel:"PENDIENTE",
-    estado:"Pendiente de comprobar",
-    estadoActual:"Fuente oficial específica no localizada",
-    verificada:false,
-    fuente:"Ayuntamiento de Istán",
-    fuenteUrl:"https://www.istan.es/",
+    oep:"2026",
+    tipo:"OEP",
+    nivel:"OFICIAL",
+    estado:"Oferta publicada",
+    estadoActual:"Pendiente de convocatoria",
+    verificada:true,
+    fuente:"BOJA · OEP 2026 · Ayuntamiento de Istán",
+    fuenteUrl:"https://www.juntadeandalucia.es/boja/2026/77/46",
     convocatoriaUrl:null
   },
 
   /* =========================================================
-     033 - BENAMEJÍ
+     BENAMEJÍ
+     OEP 2026
   ========================================================= */
   {
-    id:"opopoint-033-benameji",
+    id:"opopoint-036-benameji-2026",
     puesto:"Policía Local",
     organismo:"Ayuntamiento de Benamejí",
     municipio:"Benamejí",
@@ -763,43 +844,44 @@ const convocatoriasOpoPoint = [
     plazas:3,
     grupo:"C1",
     turno:"Libre",
-    oep:null,
-    tipo:"PENDIENTE",
-    nivel:"PENDIENTE",
-    estado:"Pendiente de comprobar",
-    estadoActual:"Fuente oficial específica no localizada",
-    verificada:false,
-    fuente:"Ayuntamiento de Benamejí",
-    fuenteUrl:"https://www.benameji.es/",
+    oep:"2026",
+    tipo:"OEP",
+    nivel:"OFICIAL",
+    estado:"Oferta publicada",
+    estadoActual:"Pendiente de convocatoria",
+    verificada:true,
+    fuente:"BOP Córdoba nº77 · 22/04/2026",
+    fuenteUrl:"https://bop.dipucordoba.es/",
     convocatoriaUrl:null
   },
 
   /* =========================================================
-     034 - VILLARRASA
+     VILLARRASA
+     1 OFICIAL DE POLICÍA LOCAL
   ========================================================= */
   {
-    id:"opopoint-034-villarrasa",
-    puesto:"Policía Local",
+    id:"opopoint-037-villarrasa-2026",
+    puesto:"Oficial de Policía Local",
     organismo:"Ayuntamiento de Villarrasa",
     municipio:"Villarrasa",
     provincia:"Huelva",
     plazas:1,
     grupo:"C1",
     turno:"Libre",
-    oep:null,
-    tipo:"PENDIENTE",
-    nivel:"PENDIENTE",
-    estado:"Pendiente de comprobar",
-    estadoActual:"Fuente oficial específica no localizada",
-    verificada:false,
-    fuente:"Ayuntamiento de Villarrasa",
-    fuenteUrl:"https://www.villarrasa.es/",
-    convocatoriaUrl:null
+    oep:"2026",
+    tipo:"CONVOCATORIA",
+    nivel:"OFICIAL",
+    estado:"Publicada",
+    estadoActual:"Convocatoria publicada",
+    verificada:true,
+    fuente:"BOE-A-2026-4856",
+    fuenteUrl:"https://www.boe.es/buscar/doc.php?id=BOE-A-2026-4856",
+    convocatoriaUrl:"https://www.boe.es/buscar/doc.php?id=BOE-A-2026-4856"
   },
 
   /* =========================================================
-     SAN ROQUE - PROCESO OEP 2023
-     FINALIZADO
+     SAN ROQUE
+     OEP 2023 · PROCESO FINALIZADO
   ========================================================= */
   {
     id:"opopoint-sanroque-2023",
@@ -822,8 +904,8 @@ const convocatoriasOpoPoint = [
   },
 
   /* =========================================================
-     SAN ROQUE - OEP 2024
-     4 PLAZAS - CONVOCATORIA BOP 32 / 18-02-2026
+     SAN ROQUE
+     OEP 2024 · CONVOCATORIA BOP Nº32 · 18/02/2026
   ========================================================= */
   {
     id:"opopoint-sanroque-2024",
@@ -840,14 +922,14 @@ const convocatoriasOpoPoint = [
     estado:"Publicada",
     estadoActual:"Convocatoria publicada",
     verificada:true,
-    fuente:"BOP Cádiz nº 32 · 18/02/2026",
+    fuente:"BOP Cádiz nº32 · 18/02/2026",
     fuenteUrl:"https://www.bopcadiz.es/.boletines_pdf/2026/02_febrero/BOP032_18-02-26.pdf",
     convocatoriaUrl:"https://www.bopcadiz.es/.boletines_pdf/2026/02_febrero/BOP032_18-02-26.pdf"
   },
 
   /* =========================================================
-     SAN ROQUE - OEP 2026
-     SEPARADA DE LA CONVOCATORIA OEP 2024
+     SAN ROQUE
+     OEP 2026 · SIN CONVOCATORIA
   ========================================================= */
   {
     id:"opopoint-sanroque-2026",
@@ -864,13 +946,12 @@ const convocatoriasOpoPoint = [
     estado:"Oferta publicada",
     estadoActual:"Pendiente de convocatoria",
     verificada:true,
-    fuente:"BOP Cádiz nº 30 · OEP 2026",
+    fuente:"BOP Cádiz nº30 · 13/02/2026",
     fuenteUrl:"https://www.bopcadiz.es/export/sites/default/.boletines_pdf/2026/02_febrero/BOP030_13-02-26.pdf",
     convocatoriaUrl:null
   }
 
 ];
-
 
 /* =========================================================
    EXPORTACIÓN
