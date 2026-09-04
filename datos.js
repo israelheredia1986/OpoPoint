@@ -2,26 +2,15 @@
    OPOPOINT · RADAR DE CONVOCATORIAS
    Actualización: 04/09/2026
 
-   Criterio de la base:
-   - Solo procesos de Policía Local con publicación oficial localizada.
-   - Las instancias abiertas llevan fecha de fin comprobada/calculada.
-   - "Próximamente" significa que existe convocatoria oficial pero el
-     plazo todavía no ha comenzado.
-   - No se mezclan OEP con convocatorias.
-   - No se duplican procesos equivalentes.
-   - No se usan enlaces OpoBusca.
-
-   Fuentes principales: BOE, BOJA, BOP y sedes electrónicas oficiales.
+   Base depurada: un registro por proceso visible.
+   Cuando un mismo anuncio oficial contiene varias modalidades
+   del mismo puesto, se agrupa en una sola ficha para evitar
+   duplicidades visuales sin perder plazas ni modalidades.
 ========================================================= */
 
 const OPOPOINT_ACTUALIZADO = "04/09/2026";
 
 const convocatoriasOpoPoint = [
-
-  /* =====================================================
-     ABIERTAS · TURNO LIBRE
-  ====================================================== */
-
   {
     id: "opopoint-cartaya-2026-libre",
     processKey: "cartaya-2026-libre",
@@ -47,7 +36,6 @@ const convocatoriasOpoPoint = [
     sedeUrl: "https://cartaya.sedelectronica.es/",
     nota: "8 plazas por oposición y turno libre. Bases rectificadas en el BOP antes de la publicación en BOE."
   },
-
   {
     id: "opopoint-albox-2026-libre",
     processKey: "albox-2026-libre",
@@ -73,7 +61,6 @@ const convocatoriasOpoPoint = [
     sedeUrl: "https://albox.sedelectronica.es/",
     nota: "2 plazas de Agente de Policía Local por oposición libre."
   },
-
   {
     id: "opopoint-alcala-rio-2026-libre",
     processKey: "alcala-rio-2026-libre",
@@ -99,7 +86,6 @@ const convocatoriasOpoPoint = [
     sedeUrl: "https://alcaladelrio.sedelectronica.es/info.0",
     nota: "4 plazas de Policía Local por oposición en turno libre."
   },
-
   {
     id: "opopoint-estepa-2026-libre",
     processKey: "estepa-2026-libre",
@@ -125,11 +111,6 @@ const convocatoriasOpoPoint = [
     sedeUrl: "https://estepa.sedelectronica.es/info.0",
     nota: "8 plazas de Policía Local por oposición libre correspondientes a OEP 2023, 2024 y 2026."
   },
-
-  /* =====================================================
-     ABIERTA · OTROS TURNOS
-  ====================================================== */
-
   {
     id: "opopoint-sevilla-inspector-2026-pi",
     processKey: "sevilla-inspector-2026-pi",
@@ -155,7 +136,6 @@ const convocatoriasOpoPoint = [
     sedeUrl: "https://www.sevilla.org/sede-electronica",
     nota: "Proceso de promoción interna. No es turno libre."
   },
-
   {
     id: "opopoint-sevilla-subinspector-2026-pi",
     processKey: "sevilla-subinspector-2026-pi",
@@ -179,20 +159,19 @@ const convocatoriasOpoPoint = [
     fuente: "BOE-A-2026-17739",
     fuenteUrl: "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-17739",
     sedeUrl: "https://www.sevilla.org/sede-electronica",
-    nota: "Proceso de promoción interna."
+    nota: "5 plazas por promoción interna."
   },
-
   {
-    id: "opopoint-sevilla-subinspector-2026-movilidad-co",
-    processKey: "sevilla-subinspector-2026-movilidad-co",
+    id: "opopoint-sevilla-subinspector-2026-movilidad",
+    processKey: "sevilla-subinspector-2026-movilidad",
     municipio: "Sevilla",
     organismo: "Ayuntamiento de Sevilla",
     provincia: "Sevilla",
     puesto: "Subinspector/a de Policía Local",
-    plazas: 1,
+    plazas: 2,
     grupo: "A2",
     turno: "Movilidad",
-    sistema: "Concurso-oposición",
+    sistema: "Concurso / concurso-oposición",
     oep: "2025",
     estado: "Abierta",
     categoria: "Mandos",
@@ -205,35 +184,8 @@ const convocatoriasOpoPoint = [
     fuente: "BOE-A-2026-17739",
     fuenteUrl: "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-17739",
     sedeUrl: "https://www.sevilla.org/sede-electronica",
-    nota: "Turno de movilidad."
+    nota: "2 plazas de movilidad dentro del mismo anuncio: 1 por concurso-oposición y 1 por concurso. Se muestran juntas para evitar duplicidad visual."
   },
-
-  {
-    id: "opopoint-sevilla-subinspector-2026-movilidad-c",
-    processKey: "sevilla-subinspector-2026-movilidad-c",
-    municipio: "Sevilla",
-    organismo: "Ayuntamiento de Sevilla",
-    provincia: "Sevilla",
-    puesto: "Subinspector/a de Policía Local",
-    plazas: 1,
-    grupo: "A2",
-    turno: "Movilidad",
-    sistema: "Concurso",
-    oep: "2025",
-    estado: "Abierta",
-    categoria: "Mandos",
-    fechaPublicacion: "14/08/2026",
-    fechaInicio: "17/08/2026",
-    fechaFin: "11/09/2026",
-    diasRestantes: 7,
-    verificada: true,
-    fuenteTipo: "BOE",
-    fuente: "BOE-A-2026-17739",
-    fuenteUrl: "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-17739",
-    sedeUrl: "https://www.sevilla.org/sede-electronica",
-    nota: "Turno de movilidad mediante concurso."
-  },
-
   {
     id: "opopoint-puerto-oficiales-2026-pi",
     processKey: "puerto-oficiales-2026-pi",
@@ -259,7 +211,6 @@ const convocatoriasOpoPoint = [
     sedeUrl: "https://www.elpuertodesantamaria.es/",
     nota: "Promoción interna. No es turno libre."
   },
-
   {
     id: "opopoint-huelva-2026-movilidad",
     processKey: "huelva-2026-movilidad",
@@ -285,11 +236,6 @@ const convocatoriasOpoPoint = [
     sedeUrl: "https://www.huelva.es/",
     nota: "Turno de movilidad."
   },
-
-  /* =====================================================
-     PRÓXIMAMENTE
-  ====================================================== */
-
   {
     id: "opopoint-fuengirola-2026-libre",
     processKey: "fuengirola-2026-libre",
@@ -314,7 +260,6 @@ const convocatoriasOpoPoint = [
     sedeUrl: "https://sede.fuengirola.es/",
     nota: "12 plazas de turno libre. El plazo comienza el 7 de septiembre de 2026."
   },
-
   {
     id: "opopoint-sanroque-2026-libre",
     processKey: "sanroque-2026-libre",
@@ -341,20 +286,11 @@ const convocatoriasOpoPoint = [
   }
 ];
 
-
-/* =========================================================
-   DEDUPLICACIÓN Y VALIDACIÓN
-========================================================= */
-
 const mapaOpoPoint = new Map();
-
 for (const item of convocatoriasOpoPoint) {
   const key = item.processKey || item.id;
-  if (!mapaOpoPoint.has(key)) {
-    mapaOpoPoint.set(key, item);
-  } else {
-    console.warn("Proceso duplicado ignorado:", key);
-  }
+  if (!mapaOpoPoint.has(key)) mapaOpoPoint.set(key, item);
+  else console.warn("Proceso duplicado ignorado:", key);
 }
 
 const baseMaestraOpoPoint = Array.from(mapaOpoPoint.values());
@@ -368,36 +304,61 @@ const baseMaestraOpoPoint = Array.from(mapaOpoPoint.values());
     if (!item.id) errores.push("Registro sin id");
     if (ids.has(item.id)) errores.push(`ID duplicado: ${item.id}`);
     ids.add(item.id);
-
     if (!item.processKey) errores.push(`${item.id}: falta processKey`);
     if (keys.has(item.processKey)) errores.push(`processKey duplicado: ${item.processKey}`);
     keys.add(item.processKey);
-
-    if (!item.municipio || !item.provincia || !item.puesto) {
-      errores.push(`${item.id}: faltan datos básicos`);
-    }
-
-    if (typeof item.plazas !== "number" || item.plazas <= 0) {
-      errores.push(`${item.id}: plazas incorrectas`);
-    }
-
-    const urls = [item.fuenteUrl, item.sedeUrl].filter(Boolean).map(String).join(" ").toLowerCase();
+    if (!item.municipio || !item.provincia || !item.puesto) errores.push(`${item.id}: faltan datos básicos`);
+    if (typeof item.plazas !== "number" || item.plazas <= 0) errores.push(`${item.id}: plazas incorrectas`);
+    const urls = [item.fuenteUrl, item.sedeUrl].filter(Boolean).join(" ").toLowerCase();
     if (urls.includes("opobusca")) errores.push(`${item.id}: enlace OpoBusca detectado`);
   }
 
-  if (errores.length) {
-    console.error("OpoPoint · errores de validación", errores);
-  } else {
-    console.info(`OpoPoint · base validada: ${baseMaestraOpoPoint.length} procesos únicos`);
-  }
+  if (errores.length) console.error("OpoPoint · errores de validación", errores);
+  else console.info(`OpoPoint · base validada: ${baseMaestraOpoPoint.length} procesos únicos`);
 })();
-
-
-/* =========================================================
-   EXPORTACIÓN GLOBAL
-========================================================= */
 
 window.OPOPOINT_ACTUALIZADO = OPOPOINT_ACTUALIZADO;
 window.convocatoriasOpoPoint = baseMaestraOpoPoint;
 window.datos = baseMaestraOpoPoint;
 window.convocatorias = baseMaestraOpoPoint;
+
+/* =========================================================
+   AJUSTE VISUAL · MÁS CLARO Y LEGIBLE
+   Se inyecta desde datos.js para que también aplique si el
+   navegador conserva una versión antigua del HTML en caché.
+========================================================= */
+(function mejorarLectura(){
+  const style = document.createElement('style');
+  style.textContent = `
+    .mainTabs{gap:12px!important}
+    .mainTab{min-height:62px!important;height:62px!important;font-size:13px!important;border-radius:18px!important;padding:0 12px!important;white-space:nowrap!important}
+    .mainTab span{font-size:19px!important}
+    .controls{gap:11px!important}
+    .panel{padding:18px!important;border-radius:24px!important}
+    .sectionTitle h3{font-size:23px!important}
+    .grid{grid-template-columns:1fr!important;gap:15px!important}
+    .card{padding:20px!important;border-radius:22px!important}
+    .city{font-size:24px!important;line-height:1.08!important}
+    .council{font-size:12px!important}
+    .role{font-size:10px!important;padding:7px 10px!important}
+    .meta{grid-template-columns:repeat(3,1fr)!important;gap:8px!important}
+    .metaBox{padding:11px 12px!important;min-height:58px!important}
+    .metaBox small{font-size:8px!important}
+    .metaBox b{font-size:12px!important}
+    .badge{font-size:10px!important;padding:7px 9px!important}
+    .footerRow a,.fav{height:42px!important}
+    .source{font-size:9px!important}
+    @media(max-width:760px){
+      .mainTabs{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+      .mainTab{height:58px!important;min-height:58px!important;font-size:11px!important}
+      .controls{grid-template-columns:1fr!important}
+      .meta{grid-template-columns:repeat(2,1fr)!important}
+      .card{padding:17px!important}
+      .city{font-size:21px!important}
+    }
+    @media(min-width:761px){
+      .mainTabs{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+    }
+  `;
+  document.head.appendChild(style);
+})();
